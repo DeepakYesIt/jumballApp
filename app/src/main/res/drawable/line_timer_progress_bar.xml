@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background -->
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#6A6A6A"/>
+            <corners android:radius="@dimen/_40sdp"/>
+        </shape>
+    </item>
+
+    <!-- Progress -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <layer-list>
+
+                <!-- Progress bar -->
+                <item>
+                    <shape>
+                        <gradient
+                            android:startColor="#9F041B"
+                            android:centerColor="#EF4B5A"
+                            android:endColor="#56FF00"
+                            android:angle="0"/>
+
+                        <corners android:radius="@dimen/_40sdp"/>
+                    </shape>
+                </item>
+
+                <!-- Progress dividers -->
+                <item
+                    android:left="@dimen/_45sdp"
+                    android:width="@dimen/_2sdp"
+                    android:top="0dp"
+                    android:bottom="0dp"
+                    android:drawable="@drawable/line_divider"/>
+
+
+                <item
+                    android:left="@dimen/_90sdp"
+                    android:width="@dimen/_2sdp"
+                    android:top="0dp"
+                    android:bottom="0dp"
+                    android:drawable="@drawable/line_divider"/>
+
+                <item
+                    android:left="@dimen/_135sdp"
+                    android:width="@dimen/_2sdp"
+                    android:top="0dp"
+                    android:bottom="0dp"
+                    android:drawable="@drawable/line_divider"/>
+
+                <item
+                    android:left="@dimen/_180sdp"
+                    android:width="@dimen/_2sdp"
+                    android:top="0dp"
+                    android:bottom="0dp"
+                    android:drawable="@drawable/line_divider"/>
+
+                <item
+                    android:left="@dimen/_225sdp"
+                    android:width="@dimen/_2sdp"
+                    android:top="0dp"
+                    android:bottom="0dp"
+                    android:drawable="@drawable/line_divider"/>
+
+
+                <!-- Add more items for additional dividers as needed -->
+
+            </layer-list>
+        </clip>
+    </item>
+
+    <!-- Non-progress break line -->
+
+    <item
+        android:id="@+id/non_progress_break_line"
+        android:left="@dimen/_45sdp"
+        android:width="@dimen/_2sdp"
+        android:top="0dp"
+        android:bottom="0dp"
+        android:drawable="@drawable/line_divider"/>
+
+    <item
+        android:id="@id/non_progress_break_line"
+        android:left="@dimen/_90sdp"
+        android:width="@dimen/_2sdp"
+        android:top="0dp"
+        android:bottom="0dp"
+        android:drawable="@drawable/line_divider"/>
+
+    <item
+        android:id="@id/non_progress_break_line"
+        android:left="@dimen/_135sdp"
+        android:width="@dimen/_2sdp"
+        android:top="0dp"
+        android:bottom="0dp"
+        android:drawable="@drawable/line_divider"/>
+
+    <item
+        android:id="@id/non_progress_break_line"
+        android:left="@dimen/_180sdp"
+        android:width="@dimen/_2sdp"
+        android:top="0dp"
+        android:bottom="0dp"
+        android:drawable="@drawable/line_divider"/>
+
+    <item
+        android:id="@id/non_progress_break_line"
+        android:left="@dimen/_225sdp"
+        android:width="@dimen/_2sdp"
+        android:top="0dp"
+        android:bottom="0dp"
+        android:drawable="@drawable/line_divider"/>
+
+
+</layer-list>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/maingraph"
+    app:startDestination="@id/dashBoardFragment">
+
+    <fragment
+        android:id="@+id/dashBoardFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.DashBoardFragment"
+        android:label="fragment_dash_board"
+        tools:layout="@layout/fragment_dash_board">
+        <action
+            android:id="@+id/action_dashBoardFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_statisticsFragment"
+            app:destination="@id/statisticsFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_stickerbookFragment"
+            app:destination="@id/stickerbookFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_trainingFragment"
+            app:destination="@id/trainingFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_chooseYourFormationFragment"
+            app:destination="@id/chooseYourFormationFragment" />
+        <action
+            android:id="@+id/action_dashBoardFragment_to_playScreenFragment"
+            app:destination="@id/playScreenFragment" />
+
+        <action
+            android:id="@+id/action_dashboard_to_match_day"
+            app:destination="@id/Matchdayscreen_fragment" />
+
+        <action
+            android:id="@+id/action_dashboard_to_Group_formation"
+            app:destination="@id/groupFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/Matchdayscreen_fragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ShowingCardFragment">
+        <action
+            android:id="@+id/match_day_to_chooseYourFormationFragment"
+            app:destination="@id/chooseYourFormationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/action_settingsFragment_to_termsAndConditionFragment"
+            app:destination="@id/termsAndConditionFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_privacyPolicyFragment"
+            app:destination="@id/privacyPolicyFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/termsAndConditionFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TermsAndConditionFragment"
+        android:label="fragment_terms_and_condition"
+        tools:layout="@layout/fragment_terms_and_condition" />
+    <fragment
+        android:id="@+id/privacyPolicyFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_privacy_policy" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ProfileFragment"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.StatisticsFragment"
+        android:label="StatisticsFragment" />
+    <fragment
+        android:id="@+id/stickerbookFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.StickerbookFragment"
+        android:label="fragment_stickerbook"
+        tools:layout="@layout/fragment_stickerbook" />
+    <fragment
+        android:id="@+id/trainingFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TrainingFragment"
+        android:label="fragment_training"
+        tools:layout="@layout/fragment_training">
+        <action
+            android:id="@+id/action_trainingFragment_to_traningPlayerInfoFragment"
+            app:destination="@id/traningPlayerInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/traningPlayerInfoFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TrainingPlayerInfoFragment"
+        android:label="TraningPlayerInfoFragment">
+        <action
+            android:id="@+id/action_traningPlayerInfoFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseYourFormationFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ChooseYourFormationFragment"
+        android:label="ChooseYourFormationFragment">
+        <action
+            android:id="@+id/action_chooseYourFormationFragment_to_groupFragment"
+            app:destination="@id/groupFragment" />
+        <action
+            android:id="@+id/action_chooseYourFormationFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment" />
+        <action
+            android:id="@+id/action_chooseYourFormationFragment_to_pitchAdvertisingFragment"
+            app:destination="@id/pitchAdvertisingFragment" />
+
+        <action
+            android:id="@+id/action_chooseYourFormationFragment_to_coin_toss"
+            app:destination="@id/selectTossFragment" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/groupFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.GroupFragment"
+        android:label="fragment_group"
+        tools:layout="@layout/fragment_group">
+        <action
+            android:id="@+id/action_groupFragment_to_matchdayScreenFragment"
+            app:destination="@id/matchdayScreenFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchdayScreenFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.MatchDayScreenFragment"
+        android:label="fragment_matchday_screen"
+        tools:layout="@layout/fragment_matchday_screen">
+        <action
+            android:id="@+id/action_matchdayScreenFragment_to_pitchAdvertisingFragment"
+            app:destination="@id/pitchAdvertisingFragment" />
+        <action
+            android:id="@+id/action_matchdayScreenFragment_to_chooseYourFormationFragment"
+            app:destination="@id/chooseYourFormationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pitchAdvertisingFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PitchAdvertisingFragment"
+        android:label="fragment_pitch_advertising"
+        tools:layout="@layout/fragment_pitch_advertising">
+        <action
+            android:id="@+id/action_pitchAdvertisingFragment_to_selectTossFragment"
+            app:destination="@id/selectTossFragment" />
+        <action
+            android:id="@+id/action_pitchAdvertisingFragment_to_chooseYourFormationFragment"
+            app:destination="@id/chooseYourFormationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectTossFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.SelectTossFragment"
+        android:label="fragment_select_toss"
+        tools:layout="@layout/fragment_select_toss">
+        <action
+            android:id="@+id/action_selectTossFragment_to_chooseYourFormationFragment"
+            app:destination="@id/chooseYourFormationFragment" />
+        <action
+            android:id="@+id/action_selectTossFragment_to_tossPlayingFragment"
+            app:destination="@id/tossPlayingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playScreenFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PlayScreenFragment"
+        android:label="fragment_play_screen"
+        tools:layout="@layout/fragment_play_screen">
+
+        <action
+            android:id="@+id/action_playScreenFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment" />
+        <action
+            android:id="@+id/action_playScreenFragment_to_winerScreenFragment"
+            app:destination="@id/winerScreenFragment" />
+
+        <action
+            android:id="@+id/action_playScreenFragment_to_guess_name"
+            app:destination="@id/player_name_guess" />
+
+        <action
+            android:id="@+id/action_playScreenFragment_to_shoot_Screen"
+            app:destination="@id/shoot_Screen" />
+
+        <action
+            android:id="@+id/action_playScreenFragment_to_score_fragment"
+            app:destination="@id/score_fragment" />
+
+        <action
+            android:id="@+id/action_playScreenFragment_to_fragment_goalkeaper"
+            app:destination="@id/goal_keeper_Screen" />
+        <action
+            android:id="@+id/action_playScreenFragment_self"
+            app:destination="@id/playScreenFragment" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/score_fragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.FinalScoreFragment"
+        android:label="fragment_final_score"
+        tools:layout="@layout/fragment_final_score">
+
+        <action
+            android:id="@+id/action_scoreBoardFragment_to_dashBoradFragment"
+            app:destination="@id/dashBoardFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/player_name_guess"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PlayerGuessNameFragment"
+        android:label="guess_player_name"
+        tools:layout="@layout/guess_player_name">
+
+        <action
+            android:id="@+id/action_guessPlayerNameFragment_to_playScreenFragment"
+            app:destination="@id/playScreenFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/shoot_Screen"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ShootFragment"
+        android:label="fragment_shoot"
+        tools:layout="@layout/fragment_shoot">
+
+        <action
+            android:id="@+id/action_shootScrenFragment_to_fragment_goalkeaper"
+            app:destination="@id/goal_keeper_Screen" />
+
+        <action
+            android:id="@+id/action_shootScrenFragment_to_playScreenFragment"
+            app:destination="@id/playScreenFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/goal_keeper_Screen"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.GoalKeeperScreenFragment"
+        android:label="fragment_goalkeaper"
+        tools:layout="@layout/fragment_goalkeaper">
+
+        <action
+            android:id="@+id/action_goalKeaperFragment_to_playScreenFragment"
+            app:destination="@id/playScreenFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/tossPlayingFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TossPlayingFragment"
+        android:label="fragment_toss_playing"
+        tools:layout="@layout/fragment_toss_playing">
+        <action
+            android:id="@+id/action_tossPlayingFragment_to_playScreenFragment"
+            app:destination="@id/playScreenFragment" />
+        <action
+            android:id="@+id/action_tossPlayingFragment_to_chooseYourFormationFragment"
+            app:destination="@id/chooseYourFormationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/winerScreenFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.WinnerScreenFragment"
+        android:label="fragment_winer_screen"
+        tools:layout="@layout/fragment_winer_screen">
+        <action
+            android:id="@+id/action_winerScreenFragment_to_dashBoardFragment"
+            app:destination="@id/dashBoardFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/penaltiesPlayUserFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PenaltiesPlayUserFragment"
+        android:label="fragment_penalties_play_user"
+        tools:layout="@layout/fragment_penalties_play_user" />
+    <fragment
+        android:id="@+id/suddenDeathFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.SuddenDeathFragment"
+        android:label="SuddenDeathFragment" />
+
+
+</navigation>

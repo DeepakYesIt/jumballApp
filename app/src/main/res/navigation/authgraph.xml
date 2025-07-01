@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authgraph"
+    app:startDestination="@id/signinFragment">
+
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.authfragment.SignupFragment"
+        android:label="fragment_signup"
+        tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_signinFragment"
+            app:destination="@id/signinFragment" />
+        <action
+            android:id="@+id/action_signupFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment" />
+        <action
+            android:id="@+id/action_signupFragment_to_termsAndConditionFragment2"
+            app:destination="@id/termsAndConditionFragment2" />
+        <action
+            android:id="@+id/action_signupFragment_to_playerProfileFragment"
+            app:destination="@id/playerProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.authfragment.SigningFragment"
+        android:label="SigninFragment" >
+        <action
+            android:id="@+id/action_signinFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_signinFragment_to_player_profile"
+            app:destination="@id/playerProfileFragment" />
+
+        <action
+            android:id="@+id/action_signinFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPasswordFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.authfragment.ForgetPasswordFragment"
+        android:label="ForgetPasswordFragment" >
+        <action
+            android:id="@+id/action_forgetPasswordFragment_to_signinFragment"
+            app:destination="@id/signinFragment" />
+        <action
+            android:id="@+id/action_forgetPasswordFragment_to_otpVerificationFragment"
+            app:destination="@id/otpVerificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpVerificationFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.authfragment.OtpVerificationFragment"
+        android:label="OtpVerificationFragment" >
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_signupFragment"
+            app:destination="@id/signupFragment" />
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_forgetPasswordFragment"
+            app:destination="@id/forgetPasswordFragment" />
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_resetFragment"
+            app:destination="@id/resetFragment" />
+        <action
+            android:id="@+id/action_otpVerificationFragment_to_playerProfileFragment"
+            app:destination="@id/playerProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resetFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.authfragment.ResetFragment"
+        android:label="fragment_reset"
+        tools:layout="@layout/fragment_reset" >
+        <action
+            android:id="@+id/action_resetFragment_to_signinFragment"
+            app:destination="@id/signinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playerProfileFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.authfragment.PlayerProfileFragment"
+        android:label="fragment_player_profile"
+        tools:layout="@layout/fragment_player_profile" />
+    <fragment
+        android:id="@+id/termsAndConditionFragment2"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TermsAndConditionFragment"
+        android:label="TermsAndConditionFragment" />
+</navigation>

@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">JUMBALL\nWorld Cup</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="skip">Skip</string>
+    <string name="sign_in">S I G N   I N</string>
+    <string name="enter_your_registered_email">Enter your registered email</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="sign_in_text">Sign In</string>
+    <string name="sign_in_using">Sign in using</string>
+    <string name="sign_up_using">Sign up using</string>
+    <string name="create_an_account">Create an account? Sign Up</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="don_t_have_an_account">Don’t have an Account ?</string>
+    <string name="have_an_account">Already have an account ?</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="full_name">Full Name</string>
+    <string name="by_signing_up_you_agree_to_our">By Signing up you agree to our</string>
+    <string name="terms_amp_conditions"><u><![CDATA[Terms & Conditions.]]></u></string>
+    <string name="forgot_password_text">FORGOT\nPASSWORD</string>
+    <string name="submit">Submit</string>
+    <string name="sign_up_title">S I G N   U P</string>
+    <string name="verification_code">V E R I F I C A T I O N\nC O D E</string>
+    <string name="enter_the_verification_code_sent_to_your_registered_email">Enter the verification code sent to your\nregistered email.</string>
+    <string name="successful">SUCCESSFUL!</string>
+    <string name="your_account_has_been_created_successfully">Your Account has been created\nsuccessfully.</string>
+    <string name="ok">OK</string>
+    <string name="create_new_password">Create New Password</string>
+    <string name="confirm_new_password">Confirm New Password</string>
+    <string name="reset_password">RESET\nPASSWORD</string>
+    <string name="player_profile">P L A Y E R\nP R O F I L E</string>
+    <string name="world_cup">WORLD CUP</string>
+    <string name="training">TRAINING</string>
+    <string name="friendly">FRIENDLY</string>
+    <string name="statistics">STATISTICS</string>
+    <string name="sticker_book">STICKER BOOK</string>
+    <string name="settings">SETTINGS</string>
+    <string name="settings_text">S E T T I N G S</string>
+    <string name="my_profile">My Profile</string>
+    <string name="music">Music</string>
+    <string name="sound_effect">Sound Effect</string>
+    <string name="terms_and_conditions">Terms And Conditions</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="logout">Logout</string>
+    <string name="d_e_l_e_t_e_n_a_c_c_o_u_n_t">D E L E T E \n A C C O U N T ?</string>
+    <string name="we_are_sorry_to_see_you_go_n_we_will_be_deleting_all_your_information_n_permanently">We are sorry to see you go.\n We will be deleting all your information\n permanently.</string>
+    <string name="country">Country</string>
+    <string name="skill_level">Skill Level</string>
+    <string name="position">Position</string>
+    <string name="style_of_play">Style of play</string>
+    <string name="world_cup_small">World cup</string>
+    <string name="didn_t_receive_the_verification_code">Didn\'t receive the verification code?</string>
+    <string name="resend">Resend</string>
+    <string name="resend_verification_code_in">Resend verification code in</string>
+    <string name="next">Next</string>
+    <string name="create_password">Create Password</string>
+    <!--    <string name="firbase_webclient_id">932855206716-u1993l6ps0a9snrgedlj88scjvhralm7.apps.googleusercontent.com</string>-->
+    <string name="firbase_webclient_id">245011236147-or5i24pqj5buphbivhfsq2lj761tjls8.apps.googleusercontent.com</string>
+    <string name="no_internet">Check your internet connection</string>
+
+    <string-array name="Skill_Level">
+        <item>Amateur</item>
+        <item>Professional</item>
+        <item>International</item>
+    </string-array>
+
+    <string-array name="country">
+        <item>Qatar</item>
+        <item>Ecuador</item>
+        <item>Senegal</item>
+        <item>The Netherlands</item>
+        <item>England</item>
+        <item>IR Iran</item>
+        <item>USA</item>
+        <item>Wales</item>
+        <item>Argentina</item>
+        <item>Saudi Arabia</item>
+        <item>Mexico</item>
+        <item>Poland</item>
+        <item>France</item>
+        <item>Australia</item>
+        <item>Denmark</item>
+        <item>Tunisia</item>
+        <item>Spain</item>
+        <item>Costa Rica</item>
+        <item>Germany</item>
+        <item>Japan</item>
+        <item>Belgium</item>
+        <item>Canada</item>
+        <item>Morocco</item>
+        <item>Croatia</item>
+        <item>Brazil</item>
+        <item>Serbia</item>
+        <item>Switzerland</item>
+        <item>Cameroon</item>
+        <item>Portugal</item>
+        <item>Ghana</item>
+        <item>Uruguay</item>
+        <item>Korea Republic</item>
+    </string-array>
+
+    <string-array name="postion">
+        <item>Goalkeeper</item>
+        <item>Defender</item>
+        <item>Midfielder</item>
+        <item>Striker</item>
+
+    </string-array>
+
+    <string-array name="world_cup">
+        <item>2023-Qatar</item>
+        <item>2022-Qatar</item>
+    </string-array>
+
+    <string-array name="style_of_play">
+        <item>Defensive </item>
+        <item>Balanced </item>
+        <item>Attacking</item>
+    </string-array>
+</resources>

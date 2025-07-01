@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="hint_color_right">#39B54A</color>
+    <color name="hint_color_worng">#39B54A</color> <!--F44336-->
+    <color name="hint_color_unselect">#FFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#979797</color>
+
+
+    <!--       Band Color      -->
+    <color name="purpleBand">#FF6200EE</color>
+    <color name="redBand">#FF0000</color>
+    <color name="goldBand">#FFBF00</color>
+
+
+    <!--   T-Shirt Color    -->
+    <color name="QAT">#990033</color>
+    <color name="ECU">#FEDE0F</color>
+    <color name="SEN">#339900</color>
+    <color name="NED">#FBA81C</color>
+    <color name="ENG">#FFFFFF</color>
+    <color name="IRN">#E6E6E6</color>
+    <color name="USA">#FFFFFF</color>
+    <color name="WAL">#E50808</color>
+    <color name="ARG">#FFFFFF</color>
+    <color name="KSA">#EFEFEF</color>
+    <color name="MEX">#276452</color>
+    <color name="POL">#FFFFFF</color>
+    <color name="FRA">#003366</color>
+    <color name="AUS">#FDC607</color>
+    <color name="DEN">#FF0000</color>
+    <color name="TUN">#DE3021</color>
+    <color name="ESP">#FF0000</color>
+    <color name="CRC">#FF0000</color>
+    <color name="GER">#000000</color>
+    <color name="JPN">#3062DE</color>
+    <color name="BEL">#FF0000</color>
+    <color name="CAN">#FF0000</color>
+    <color name="MAR">#FF0000</color>
+    <color name="CRO">#FFFFFF</color>
+    <color name="BRA">#FEE40D</color>
+    <color name="SRB">#FF0000</color>
+    <color name="SUI">#FF0000</color>
+    <color name="CMR">#336600</color>
+    <color name="POR">#DB281A</color>
+    <color name="GHA">#FFFFFF</color>
+    <color name="URU">#99CCFF</color>
+    <color name="KOR">#EC1032</color>
+</resources>

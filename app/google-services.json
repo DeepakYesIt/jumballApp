@@ -1,0 +1,78 @@
+{
+  "project_info": {
+    "project_number": "245011236147",
+    "project_id": "jumball-app",
+    "storage_bucket": "jumball-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245011236147:android:a7d7697e05cb112eea6a46",
+        "android_client_info": {
+          "package_name": "com.yesitlabs.jumballapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245011236147-9fvqsgt7s8qkm61sks4lk7phh1bco4tu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "8e6c32853ac55b9fe243262423b4098c4d6373e0"
+          }
+        },
+        {
+          "client_id": "245011236147-aut39odook9mo61b5tl8r5ca57ikhrkm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "951c9a8c08488e7eca086c7285c3faaf06ef6f7b"
+          }
+        },
+        {
+          "client_id": "245011236147-f2kmq65a32tsk61r743inudhfpjrnsr9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "8ab58f594831ea74cc6998d475b2484c382f43f9"
+          }
+        },
+        {
+          "client_id": "245011236147-lu37f0hpflipkdols8l7f9o9gfhnlv2f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "c93edcf5913bf13588a6d6fb5217f219b2cf2516"
+          }
+        },
+        {
+          "client_id": "245011236147-or5i24pqj5buphbivhfsq2lj761tjls8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqyRgoOVspGYsJKyBvqMofJ8lp1d4hdZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245011236147-i502ech18qtie0ehhkqrja2bdokiqb90.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "245011236147-64kbb9jviumi3lddrhc2kaltd3pokhat.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "abc.Jumball"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

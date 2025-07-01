@@ -1,0 +1,1778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/fredoka_one"
+            android:gravity="center"
+            android:text="A"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_15sdp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/tab_border">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/tab_border"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_header_border"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text="P L A Y E R S"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text="P L D"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="W"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="D"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="L"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="F"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="A"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="G D"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text="P T S"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="1"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 1"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=" "
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="2"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name2"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 2"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="3"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name3"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 3"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=" "
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="4"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 4"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=" "
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/fredoka_one"
+            android:gravity="center"
+            android:text="B"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/_15sdp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/tab_border">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="#FFFFFF"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/tab_border"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_header_border"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text="P L A Y E R S"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text="P L D"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="W"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="D"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="L"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="F"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="A"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text="G D"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border1"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text="P T S"
+                                    android:textColor="#FFFFFF" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="1"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 1"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=" "
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="2"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name6"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 2"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="3"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name7"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 3"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts7"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=" "
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_2sdp">
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border1">
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:text="4"
+                                        android:textColor="#FFFFFF" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/tab_border3">
+
+                                    <TextView
+                                        android:id="@+id/name8"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:fontFamily="@font/fredoka_one"
+                                        android:gravity="center"
+                                        android:maxLines="1"
+                                        android:paddingStart="@dimen/_2sdp"
+                                        android:paddingEnd="@dimen/_2sdp"
+                                        android:text="NAME 4"
+                                        android:textColor="#000000" />
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_50sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pld8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/w8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000"
+                                    android:textSize="@dimen/_10sdp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/d8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/l8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/f8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/a8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_30sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3">
+
+                                <TextView
+                                    android:id="@+id/gd8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:text=""
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="@dimen/_45sdp"
+                                android:layout_height="@dimen/_25sdp"
+                                android:background="@drawable/tab_border3"
+                                android:paddingStart="@dimen/_3sdp"
+                                android:paddingEnd="@dimen/_3sdp">
+
+                                <TextView
+                                    android:id="@+id/pts8"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fontFamily="@font/fredoka_one"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/_3sdp"
+                                    android:paddingEnd="@dimen/_3sdp"
+                                    android:text=" "
+                                    android:textColor="#000000" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
