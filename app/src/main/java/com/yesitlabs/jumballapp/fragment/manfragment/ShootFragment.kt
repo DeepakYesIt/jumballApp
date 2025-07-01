@@ -836,15 +836,10 @@ class ShootFragment : Fragment(), View.OnClickListener {
         }
         val match_no = (sessionManager.getGameNumber()-1)
 
-        getGuessPlayerListViewmodel.getGuessPlayerList(
-            "$token",
-            defender,
-            midfielder,
-            attacker,
-            "",
-            "",
-            match_no.toString()
-        )
+        getGuessPlayerListViewmodel.getGuessPlayerList("$token", defender, midfielder, attacker, "", "", match_no.toString())
+  
+
+
     }
 
     // This function is used for check cpu and user team player list and verify
