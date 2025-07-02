@@ -141,11 +141,10 @@ interface ApiEndPoint {
     @GET("termandcondition")
     suspend fun getTermAndCondition(): Response<JsonObject>
 
-    @Headers("Accept: application/json")
+
     @FormUrlEncoded
     @POST("SaveScore")
     suspend fun saveScore(
-        @Header("Authorization") token: String,
         @Field("total_goal") totalGoal: String,
         @Field("total_goal_console") totalGoalConsole: String,
         @Field("match_status") matchStatus: String,
@@ -153,7 +152,7 @@ interface ApiEndPoint {
         @Field("total_defence") total_defence: String,
         @Field("opponent_guessed") opponent_guessed: String,
         @Field("my_guesses") my_guesses: String,
-    ): Response<SaveScoreResp>?
+    ): Response<JsonObject>
 
     @FormUrlEncoded
     @Headers("Accept: application/json")

@@ -7,9 +7,7 @@
 //import android.os.Handler
 //import android.os.Looper
 //import android.util.Log
-//import android.view.LayoutInflater
 //import android.view.View
-//import android.view.ViewGroup
 //import android.view.WindowManager
 //import android.widget.ImageView
 //import android.widget.LinearLayout
@@ -32,15 +30,252 @@
 //import com.yesitlabs.jumballapp.ValueStore
 //import com.yesitlabs.jumballapp.activity.MainActivity
 //import com.yesitlabs.jumballapp.database.player_dtl.ExtraPlayerDatabaseHelper
-//import com.yesitlabs.jumballapp.databinding.FragmentChooseYourFormationBinding
-//import com.yesitlabs.jumballapp.databinding.FragmentPlayScreenBinding
 //import com.yesitlabs.jumballapp.network.viewModel.GetGuessPlayerListViewModel
+//import kotlinx.android.synthetic.main.fragment_play_screen.bt_pass
+//import kotlinx.android.synthetic.main.fragment_play_screen.bt_shoot
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpu_score_tv
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpu_screen
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur0p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur0p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur0p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur0p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur0p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur0p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur0p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p2
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p2_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p2_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p2_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p2_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p2_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p2_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p3
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p3_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p3_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p3_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p3_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p3_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p3_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p4
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p4_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p4_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p4_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p4_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p4_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p4_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p5
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p5_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p5_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p5_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p5_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p5_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur1p5_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p2
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p2_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p2_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p2_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p2_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p2_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p2_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p3
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p3_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p3_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p3_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p3_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p3_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p3_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p4
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p4_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p4_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p4_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p4_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p4_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p4_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p5
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p5_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p5_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p5_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p5_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p5_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur2p5_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p2
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p2_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p2_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p2_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p2_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p2_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p2_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p3
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p3_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p3_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p3_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p3_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p3_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p3_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p4
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p4_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p4_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p4_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p4_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p4_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p4_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p5
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p5_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p5_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p5_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p5_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p5_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.cpur3p5_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.lay_progess
+//import kotlinx.android.synthetic.main.fragment_play_screen.oppose_team_player_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r0p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.r0p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r0p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r0p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r0p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r0p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r0p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p2
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p2_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p2_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p2_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p2_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p2_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p2_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p3
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p3_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p3_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p3_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p3_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p3_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p3_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p4
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p4_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p4_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p4_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p4_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p4_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p4_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p5
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p5_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p5_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p5_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p5_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p5_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r1p5_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p2
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p2_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p2_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p2_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p2_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p2_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p2_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p3
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p3_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p3_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p3_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p3_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p3_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p3_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p4
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p4_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p4_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p4_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p4_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p4_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p4_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p5
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p5_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p5_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p5_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p5_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p5_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r2p5_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p1
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p1_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p1_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p1_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p1_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p1_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p1_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p2
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p2_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p2_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p2_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p2_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p2_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p2_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p3
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p3_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p3_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p3_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p3_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p3_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p3_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p4
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p4_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p4_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p4_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p4_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p4_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p4_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p5
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p5_id
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p5_img
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p5_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p5_number
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p5_select
+//import kotlinx.android.synthetic.main.fragment_play_screen.r3p5_txt
+//import kotlinx.android.synthetic.main.fragment_play_screen.root_button
+//import kotlinx.android.synthetic.main.fragment_play_screen.tv_count
+//import kotlinx.android.synthetic.main.fragment_play_screen.user_goal_tv
+//import kotlinx.android.synthetic.main.fragment_play_screen.user_name
+//import kotlinx.android.synthetic.main.fragment_play_screen.user_screen
 //import java.util.Locale
 //import kotlin.random.Random
 //
-//class PlayScreenFragment : Fragment(), View.OnClickListener {
-//
-//    private lateinit var binding: FragmentPlayScreenBinding
+//class PlayScreenFragment : Fragment(R.layout.fragment_play_screen), View.OnClickListener {
 //    private var setGames: SetGames = SetGames()
 //    private lateinit var wholeTimer: CountDownTimer
 //    private var totalPlayerNameShow = 0
@@ -92,12 +327,6 @@
 //        }
 //    }
 //
-//    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        binding = FragmentPlayScreenBinding.inflate(inflater, container, false)
-//
-//        return binding.root
-//    }
-//
 //    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 //        super.onViewCreated(view, savedInstanceState)
 //        sessionManager = SessionManager(requireContext())
@@ -108,7 +337,7 @@
 //        token = "Bearer " + sessionManager.fetchAuthToken()
 //
 //        if (sessionManager.getExtraTime().equals("ExtraTime",true) || sessionManager.getExtraTime().equals("TimeHalf",true)){
-//            binding.layProgess.max = 900000
+//            lay_progess.max = 900000
 //            totalTime=900000
 //            startTime=0
 //            if (sessionManager.getTimer() != 0) {
@@ -120,7 +349,7 @@
 //                }
 //            }
 //        }else{
-//            binding.layProgess.max = 2700000
+//            lay_progess.max = 2700000
 //            if (sessionManager.getTimer() != 0) {
 //                startTime = sessionManager.getTimer()
 //                if (startTime>=5400000){
@@ -178,7 +407,8 @@
 //
 //        setScreens()
 //
-//        binding.btShoot.setOnClickListener(this)
+//        bt_shoot.setOnClickListener(this)
+//
 //
 //    }
 //
@@ -186,9 +416,14 @@
 //
 ////        startTime += 1000
 //
+//
+//
+//
 //        val min = startTime / 60000
 //
-//        binding.tvCount.text = "‘$min"
+//        if (tv_count != null) {
+//            tv_count.text = "‘$min"
+//        }
 //
 //        val timeForNoise = startTime / 60000
 //
@@ -236,14 +471,14 @@
 //            }
 //
 //            if (startTime <= 900000) {
-//                binding.layProgess.progress = startTime
+//                lay_progess?.progress = startTime
 //            } else {
-//                binding.layProgess.progress = startTime - 900000
+//                lay_progess?.progress = startTime - 900000
 //            }
 //
 //        }else{
 //            Log.e("@@@Error", "Full getValue "+ValueStore.getValue1())
-//            if (startTime >= 5400000 && ValueStore.getValue1() ==0){
+//            if (startTime >= 5400000 /*&& ValueStore.getValue1() ==0*/){
 //                status=false
 //                ValueStore.setValue1(1)
 //                Log.d("@@@Error","when FullTime time set")
@@ -274,13 +509,11 @@
 //            }
 //
 //            if(startTime <= 2700000) {
-//                binding.layProgess.progress = startTime
+//                lay_progess?.progress = startTime
 //            }else {
-//                binding.layProgess.progress = startTime - 2700000
+//                lay_progess?.progress = startTime - 2700000
 //            }
 //        }
-//
-//
 //
 //    }
 //
@@ -312,76 +545,148 @@
 //        Log.d("@Error ","user click")
 //        if (!isTimerFinish) {
 //            when (item!!.id) {
-//
-//                //Shrawan
-//                R.id.r0p1_img ->{
-//                    if (binding.r0p1Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r0p1, binding.r0p1Name, binding.r0p1Number, binding.r0p1Id, binding.r0p1Txt, binding.r0p1Select)
-//                    }
-//                }
-//                R.id.r1p1_img -> {
-//                    if (binding.r1p1Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r1p1, binding.r1p1Name, binding.r1p1Number, binding.r1p1Id, binding.r1p1Txt, binding.r1p1Select)
+//                /*R.id.r1p1_img -> {
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r1p1, r1p1_name, r1p1_number, r1p1_id, r1p1_txt, r1p1_select)
 //                    }
 //                }
 //                R.id.r1p2_img -> {
-//                    if (binding.r1p2Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r1p2, binding.r1p2Name, binding.r1p2Number, binding.r1p2Id, binding.r1p2Txt, binding.r1p2Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r1p2, r1p2_name, r1p2_number, r1p2_id, r1p2_txt, r1p2_select)
 //                    }
 //                }
 //                R.id.r1p3_img -> {
-//                    if (binding.r1p3Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r1p3, binding.r1p3Name, binding.r1p3Number, binding.r1p3Id, binding.r1p3Txt, binding.r1p3Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r1p3, r1p3_name, r1p3_number, r1p3_id, r1p3_txt, r1p3_select)
 //                    }
 //                }
 //                R.id.r1p4_img -> {
-//                    if (binding.r1p4Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r1p4, binding.r1p4Name, binding.r1p4Number, binding.r1p4Id, binding.r1p4Txt, binding.r1p4Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r1p4, r1p4_name, r1p4_number, r1p4_id, r1p4_txt, r1p4_select)
 //                    }
 //                }
 //                R.id.r1p5_img -> {
-//                    if (binding.r1p5Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r1p5, binding.r1p5Name, binding.r1p5Number, binding.r1p5Id,binding.r1p5Txt, binding.r1p5Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r1p5, r1p5_name, r1p5_number, r1p5_id, r1p5_txt, r1p5_select)
 //                    }
 //                }
 //                R.id.r2p1_img -> {
-//                    playerClickWork(binding.r2p1, binding.r2p1Name, binding.r2p1Number, binding.r2p1Id, binding.r2p1Txt,binding.r2p1Select)
+//                    playerClickWork(r2p1, r2p1_name, r2p1_number, r2p1_id, r2p1_txt, r2p1_select)
 //                }
 //                R.id.r2p2_img -> {
-//                    playerClickWork(binding.r2p2, binding.r2p2Name, binding.r2p2Number, binding.r2p2Id, binding.r2p2Txt, binding.r2p2Select)
+//                    playerClickWork(r2p2, r2p2_name, r2p2_number, r2p2_id, r2p2_txt, r2p2_select)
 //                }
 //                R.id.r2p3_img -> {
-//                    playerClickWork(binding.r2p3, binding.r2p3Name, binding.r2p3Number, binding.r2p3Id, binding.r2p3Txt, binding.r2p3Select)
+//                    playerClickWork(r2p3, r2p3_name, r2p3_number, r2p3_id, r2p3_txt, r2p3_select)
 //                }
 //                R.id.r2p4_img -> {
-//                    playerClickWork(binding.r2p4, binding.r2p4Name, binding.r2p4Number, binding.r2p4Id, binding.r2p4Txt, binding.r2p4Select)
+//                    playerClickWork(r2p4, r2p4_name, r2p4_number, r2p4_id, r2p4_txt, r2p4_select)
 //                }
 //                R.id.r2p5_img -> {
-//                    playerClickWork(binding.r2p5, binding.r2p5Name, binding.r2p5Number, binding.r2p5Id, binding.r2p5Txt, binding.r2p5Select)
+//                    playerClickWork(r2p5, r2p5_name, r2p5_number, r2p5_id, r2p5_txt, r2p5_select)
 //                }
 //                R.id.r3p1_img -> {
-//                    if (binding.r3p1Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r3p1, binding.r3p1Name, binding.r3p1Number, binding.r3p1Id, binding.r3p1Txt, binding.r3p1Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r3p1, r3p1_name, r3p1_number, r3p1_id, r3p1_txt, r3p1_select)
 //                    }
 //                }
 //                R.id.r3p2_img -> {
-//                    if (binding.r3p2Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r3p2, binding.r3p2Name, binding.r3p2Number, binding.r3p2Id, binding.r3p2Txt, binding.r3p2Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r3p2, r3p2_name, r3p2_number, r3p2_id, r3p2_txt, r3p2_select)
 //                    }
 //                }
 //                R.id.r3p3_img -> {
-//                    if (binding.r3p3Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r3p3, binding.r3p3Name, binding.r3p3Number, binding.r3p3Id, binding.r3p3Txt, binding.r3p3Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r3p3, r3p3_name, r3p3_number, r3p3_id, r3p3_txt, r3p3_select)
 //                    }
 //                }
 //                R.id.r3p4_img -> {
-//                    if (binding.r3p4Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r3p4, binding.r3p4Name, binding.r3p4Number, binding.r3p4Id, binding.r3p4Txt, binding.r3p4Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r3p4, r3p4_name, r3p4_number, r3p4_id, r3p4_txt, r3p4_select)
 //                    }
 //                }
 //                R.id.r3p5_img -> {
-//                    if (binding.r3p5Select.visibility==View.VISIBLE) {
-//                        playerClickWork(binding.r3p5, binding.r3p5Name, binding.r3p5Number, binding.r3p5Id, binding.r3p5Txt, binding.r3p5Select)
+//                    if (sessionManager.getFirstGamgeStartUser()) {
+//                        playerClickWork(r3p5, r3p5_name, r3p5_number, r3p5_id, r3p5_txt, r3p5_select)
+//                    }
+//                }
+//                R.id.bt_shoot -> {
+//                    shootBall()
+//                }
+//                R.id.bt_pass -> {
+//                    userPassBall()
+//                }*/
+//
+//
+//                //Shrawan
+//                R.id.r0p1_img ->{
+//                    if (r0p1_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r0p1, r0p1_name, r0p1_number, r0p1_id, r0p1_txt, r0p1_select)
+//                    }
+//                }
+//                R.id.r1p1_img -> {
+//                    if (r1p1_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r1p1, r1p1_name, r1p1_number, r1p1_id, r1p1_txt, r1p1_select)
+//                    }
+//                }
+//                R.id.r1p2_img -> {
+//                    if (r1p2_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r1p2, r1p2_name, r1p2_number, r1p2_id, r1p2_txt, r1p2_select)
+//                    }
+//                }
+//                R.id.r1p3_img -> {
+//                    if (r1p3_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r1p3, r1p3_name, r1p3_number, r1p3_id, r1p3_txt, r1p3_select)
+//                    }
+//                }
+//                R.id.r1p4_img -> {
+//                    if (r1p4_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r1p4, r1p4_name, r1p4_number, r1p4_id, r1p4_txt, r1p4_select)
+//                    }
+//                }
+//                R.id.r1p5_img -> {
+//                    if (r1p5_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r1p5, r1p5_name, r1p5_number, r1p5_id, r1p5_txt, r1p5_select)
+//                    }
+//                }
+//                R.id.r2p1_img -> {
+//                    playerClickWork(r2p1, r2p1_name, r2p1_number, r2p1_id, r2p1_txt, r2p1_select)
+//                }
+//                R.id.r2p2_img -> {
+//                    playerClickWork(r2p2, r2p2_name, r2p2_number, r2p2_id, r2p2_txt, r2p2_select)
+//                }
+//                R.id.r2p3_img -> {
+//                    playerClickWork(r2p3, r2p3_name, r2p3_number, r2p3_id, r2p3_txt, r2p3_select)
+//                }
+//                R.id.r2p4_img -> {
+//                    playerClickWork(r2p4, r2p4_name, r2p4_number, r2p4_id, r2p4_txt, r2p4_select)
+//                }
+//                R.id.r2p5_img -> {
+//                    playerClickWork(r2p5, r2p5_name, r2p5_number, r2p5_id, r2p5_txt, r2p5_select)
+//                }
+//                R.id.r3p1_img -> {
+//                    if (r3p1_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r3p1, r3p1_name, r3p1_number, r3p1_id, r3p1_txt, r3p1_select)
+//                    }
+//                }
+//                R.id.r3p2_img -> {
+//                    if (r3p2_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r3p2, r3p2_name, r3p2_number, r3p2_id, r3p2_txt, r3p2_select)
+//                    }
+//                }
+//                R.id.r3p3_img -> {
+//                    if (r3p3_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r3p3, r3p3_name, r3p3_number, r3p3_id, r3p3_txt, r3p3_select)
+//                    }
+//                }
+//                R.id.r3p4_img -> {
+//                    if (r3p4_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r3p4, r3p4_name, r3p4_number, r3p4_id, r3p4_txt, r3p4_select)
+//                    }
+//                }
+//                R.id.r3p5_img -> {
+//                    if (r3p5_select.visibility==View.VISIBLE) {
+//                        playerClickWork(r3p5, r3p5_name, r3p5_number, r3p5_id, r3p5_txt, r3p5_select)
 //                    }
 //                }
 //                R.id.bt_shoot -> {
@@ -453,9 +758,9 @@
 ////                    }
 ////
 ////                    if (startTime <= 900000) {
-////                        binding.layProgess?.progress = startTime
+////                        lay_progess?.progress = startTime
 ////                    } else {
-////                        binding.layProgess?.progress = startTime - 900000
+////                        lay_progess?.progress = startTime - 900000
 ////                    }
 ////
 ////                }else{
@@ -473,12 +778,12 @@
 ////                            sessionManager.setExtraTimeUser("FullTime")
 ////                            sessionManager.setGameGameCondition(2)
 ////                            Log.e("@@@Error", "second")
-////                            playAlertBox(R.drawable.fullTimeImg, "FullTime")
+////                            playAlertBox(R.drawable.full_time_img, "FullTime")
 ////                        }else{
 ////                            sessionManager.setExtraTimeUser("timeOver")
 ////                            sessionManager.setGameGameCondition(2)
 ////                            Log.e("@@@Error", "timeOver")
-////                            playAlertBox(R.drawable.fullTimeImg, "timeOver")
+////                            playAlertBox(R.drawable.full_time_img, "timeOver")
 ////                        }
 ////                    }else{
 ////                        if (startTime >= 2700000 && ValueStore.getValue() ==0) {
@@ -488,14 +793,14 @@
 ////                            Log.e("Half Time", "Yaa hui")
 ////                            sessionManager.changeMusic(6, 0)
 ////                            sessionManager.setExtraTimeUser("halftime")
-////                            playAlertBox(R.drawable.halfTimeImg, "halftime")
+////                            playAlertBox(R.drawable.half_time_img, "halftime")
 ////                        }
 ////                    }
 ////
 ////                    if(startTime <= 2700000) {
-////                        binding.layProgess?.progress = startTime
+////                        lay_progess?.progress = startTime
 ////                    }else {
-////                        binding.layProgess?.progress = startTime - 2700000
+////                        lay_progess?.progress = startTime - 2700000
 ////                    }
 ////                }
 ////            }
@@ -509,8 +814,8 @@
 //
 //
 //    private fun setCondition(status:String){
-//        val cpuName = binding.opposeTeamPlayerName.text.toString()
-//        val myName = binding.userName.text.toString()
+//        val cpuName = oppose_team_player_name.text.toString()
+//        val myName = user_name.text.toString()
 //
 //        Log.e("@@@Error", "status $status")
 //        Log.e("@@@Error","getMyScore "+sessionManager.getMyScore())
@@ -523,6 +828,10 @@
 //                    bundle.putString("myTeamName", myName)
 //                    findNavController().navigate(R.id.score_fragment, bundle)
 //                }else if (sessionManager.getMyScore() > sessionManager.getCpuScore()){
+////                    val bundle = Bundle()
+////                    bundle.putString("opposeTeamName", cpuName)
+////                    bundle.putString("myTeamName", myName)
+////                    findNavController().navigate(R.id.score_fragment, bundle)
 //                    if (sessionManager.getGameNumber()>=3){
 //                        winAlertBox(3)
 //                    }else{
@@ -553,8 +862,16 @@
 //                        bundle.putString("myTeamName", myName)
 //                        findNavController().navigate(R.id.score_fragment, bundle)
 //                    }
-//
+//                    /*val bundle = Bundle()
+//                    bundle.putString("opposeTeamName", cpuName)
+//                    bundle.putString("myTeamName", myName)
+//                    findNavController().navigate(R.id.score_fragment, bundle)*/
+//                    /* val bundle = Bundle()
+//                     bundle.putString("opposeTeamName", cpuName)
+//                     bundle.putString("myTeamName", myName)
+//                     findNavController().navigate(R.id.score_fragment, bundle)*/
 //                }else{
+////                    winAlertBox(0)
 //                    val bundle = Bundle()
 //                    bundle.putString("opposeTeamName", cpuName)
 //                    bundle.putString("myTeamName", myName)
@@ -565,6 +882,14 @@
 //                if (sessionManager.getMyScore() == sessionManager.getCpuScore()){
 //                    winAlertBox(1)
 //                } else if (sessionManager.getMyScore() > sessionManager.getCpuScore()){
+//                    /*val bundle = Bundle()
+//                    bundle.putString("opposeTeamName", cpuName)
+//                    bundle.putString("myTeamName", myName)
+//                    findNavController().navigate(R.id.score_fragment, bundle)*/
+////                    val bundle = Bundle()
+////                    bundle.putString("opposeTeamName", cpuName)
+////                    bundle.putString("myTeamName", myName)
+////                    findNavController().navigate(R.id.score_fragment, bundle)
 //                    if (sessionManager.getGameNumber()>=3){
 //                        winAlertBox(3)
 //                    }else{
@@ -582,6 +907,11 @@
 //            }
 //        }else{
 //            if (sessionManager.getMyScore() <= sessionManager.getCpuScore()){
+//                /*winAlertBox(0)
+//                val bundle = Bundle()
+//                bundle.putString("opposeTeamName", cpuName)
+//                bundle.putString("myTeamName", myName)
+//                findNavController().navigate(R.id.score_fragment, bundle)*/
 //                val bundle = Bundle()
 //                bundle.putString("opposeTeamName", cpuName)
 //                bundle.putString("myTeamName", myName)
@@ -589,6 +919,11 @@
 //            }else{
 //                winAlertBox(2)
 //            }
+//            /*val bundle = Bundle()
+//            bundle.putString("opposeTeamName", cpuName)
+//            bundle.putString("myTeamName", myName)
+//            findNavController().navigate(R.id.score_fragment, bundle)*/
+//
 //        }
 //    }
 //
@@ -596,11 +931,11 @@
 //    private fun autoButtonClick() {
 //        Log.e("CPU Button", "Auto Click")
 //        try {
-//            if (!isTimerFinish) {
+//            /*if (!isTimerFinish) {
 //                Handler(Looper.myLooper()!!).postDelayed({
 //                    selectCpuButton()
 //                }, 3000)
-//            }
+//            }*/
 //            startCpuProcess()
 //        } catch (e: Exception) {
 //            Log.d("***** CPU Button", "Auto Click" + e.message)
@@ -633,121 +968,129 @@
 //            Log.d("****** onSelectedScreen number :- ", "****** :- $onSelectedScreen")
 //            Log.d("****** LifeLine first :- ", "****** :- ${sessionManager.getLifeLine1()}")
 //            Log.d("****** LifeLine first1 :- ", "****** :- ${sessionManager.getLifeLine11()}")
-//            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//            /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
 //                when (onSelectedScreen) {
-//
 //                    "5-2-3" -> {
 //                        when(itemSelect){
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p1, binding.cpur1p1Name, binding.cpur1p1Number, binding.cpur1p1Id, binding.cpur1p1Txt, binding.cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p1, binding.cpur1p1Name, binding.cpur1p1Number, binding.cpur1p1Id, binding.cpur1p1Txt, binding.cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
-//
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p2, binding.cpur1p2Name, binding.cpur1p2Number, binding.cpur1p2Id, binding.cpur1p2Txt, binding.cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p2, binding.cpur1p2Name, binding.cpur1p2Number, binding.cpur1p2Id, binding.cpur1p2Txt, binding.cpur1p2Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
+//
 //                            }
 //                            3 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p3, binding.cpur1p3Name, binding.cpur1p3Number, binding.cpur1p3Id, binding.cpur1p3Txt, binding.cpur1p3Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p3, binding.cpur1p3Name, binding.cpur1p3Number, binding.cpur1p3Id, binding.cpur1p3Txt, binding.cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
+//
+//
 //
 //                            }
 //                            4 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p4Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p4, binding.cpur1p4Name, binding.cpur1p4Number, binding.cpur1p4Id, binding.cpur1p4Txt, binding.cpur1p4Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p4, binding.cpur1p4Name, binding.cpur1p4Number,binding.cpur1p4Id, binding.cpur1p4Txt, binding.cpur1p4Select)
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                }
+//
+//
 //
 //                            }
 //                            5 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p5Select.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p5, binding.cpur1p5Name, binding.cpur1p5Number, binding.cpur1p5Id, binding.cpur1p5Txt, binding.cpur1p5Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p5, binding.cpur1p5Name, binding.cpur1p5Number, binding.cpur1p5Id, binding.cpur1p5Txt, binding.cpur1p5Select)
+//                                    cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
 //                                }
-//
 //                            }
 //
 //                            6 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(binding.cpur2p1, binding.cpur2p1Name, binding.cpur2p1Number, binding.cpur2p1Id, binding.cpur2p1Txt, binding.cpur2p1Select)
-//                            }
 //
-//                            7 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(binding.cpur2p2, binding.cpur2p2Name, binding.cpur2p2Number, binding.cpur2p2Id, binding.cpur2p2Txt, binding.cpur2p2Select)
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
 //
-//                                cpuPlayerClickWork(binding.cpur2p2, binding.cpur2p2Name, binding.cpur2p2Number, binding.cpur2p2Id, binding.cpur2p2Txt, binding.cpur2p2Select)
-//                            }
 //
-//                            8 -> {
-//                                if (binding.cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(binding.cpur3p1, binding.cpur3p1Name, binding.cpur3p1Number, binding.cpur3p1Id, binding.cpur3p1Txt, binding.cpur3p1Select)
-//                                } else {
+//                             }
+//
+//                            7 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
 //                                    autoButtonClick()
 //                                }
+//                             }
+//
+//                            8 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur2p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//
+//
+//
 //                            }
 //                            9 -> {
-//                                if (binding.cpur3p2Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(binding.cpur3p2, binding.cpur3p2Name, binding.cpur3p2Number, binding.cpur3p2Id, binding.cpur3p2Txt, binding.cpur3p2Select)
-//                                } else {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            10 -> {
-//                                if (binding.cpur3p3Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(binding.cpur3p3, binding.cpur3p3Name, binding.cpur3p3Number, binding.cpur3p3Id, binding.cpur3p3Txt, binding.cpur3p3Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            //Shrawan
-//                            11 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur0p1, binding.cpur0p1Name, binding.cpur0p1Number, binding.cpur0p1Id, binding.cpur0p1Txt, binding.cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur0p1, binding.cpur0p1Name, binding.cpur0p1Number, binding.cpur0p1Id, binding.cpur0p1Txt, binding.cpur0p1Select)
+//                                    autoButtonClick()
 //                                }
 //
 //                            }
@@ -756,122 +1099,126 @@
 //
 //                    "5-4-1" -> {
 //                        when(itemSelect){
+//
 //                            1 -> {
+//
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p1, binding.cpur1p1Name, binding.cpur1p1Number, binding.cpur1p1Id, binding.cpur1p1Txt, binding.cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p1, binding.cpur1p1Name, binding.cpur1p1Number, binding.cpur1p1Id, binding.cpur1p1Txt, binding.cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
+//
+//
 //
 //                            }
 //                            2 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p2, binding.cpur1p2Name, binding.cpur1p2Number, binding.cpur1p2Id, binding.cpur1p2Txt, binding.cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p2, binding.cpur1p2Name, binding.cpur1p2Number, binding.cpur1p2Id, binding.cpur1p2Txt, binding.cpur1p2Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
+//
+//
+//
 //                            }
 //                            3 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p3, binding.cpur1p3Name, binding.cpur1p3Number, binding.cpur1p3Id, binding.cpur1p3Txt, binding.cpur1p3Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p3, binding.cpur1p3Name, binding.cpur1p3Number, binding.cpur1p3Id, binding.cpur1p3Txt, binding.cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
+//
+//
 //
 //                            }
 //                            4 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p4Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p4, binding.cpur1p4Name, binding.cpur1p4Number, binding.cpur1p4Id, binding.cpur1p4Txt, binding.cpur1p4Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p4, binding.cpur1p4Name, binding.cpur1p4Number, binding.cpur1p4Id, binding.cpur1p4Txt, binding.cpur1p4Select)
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                }
+//
+//
 //
 //                            }
 //                            5 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (binding.cpur1p5Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(binding.cpur1p5, binding.cpur1p5Name, binding.cpur1p5Number, binding.cpur1p5Id, binding.cpur1p5Txt, binding.cpur1p5Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(binding.cpur1p5, binding.cpur1p5Name, binding.cpur1p5Number, binding.cpur1p5Id, binding.cpur1p5Txt, binding.cpur1p5Select)
+//                                    cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
 //                                }
+//
+//
 //
 //                            }
 //
 //                            6 -> {
-//                                  if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                     cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//                                 }else{
-//                                     autoButtonClick()
-//                                 }
-//
-//                                   cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//                            }
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                             }
 //                            7 -> {
-//                                  if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
-//
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-//                            }
+//                             }
 //                            8 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
-//
-//                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
-//                            }
+//                             }
 //                            9 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
-//
-//                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
-//                            }
+//                             }
 //
 //                            10 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            //Shrawan
-//                            11->{
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    autoButtonClick()
 //                                }
+//
 //                            }
+//
 //                        }
 //                    }  // Done
 //
@@ -879,118 +1226,117 @@
 //                        when(itemSelect){
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
-//
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
-//                                }
-//                            }
-//                            3 -> {
-//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
-//                                    } else {
-//                                        autoButtonClick()
-//                                    }
-//                                }else{
-//                                    cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
 //
 //                            }
-//                            4 -> {
+//                            3 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p4Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
+//                            }
+//                            4 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//
 //
 //                            }
 //                            5 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p5Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p5, cpur1p5Name, cpur1p5Number, cpur1p5Id, cpur1p5Txt, cpur1p5Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p5, cpur1p5Name, cpur1p5Number, cpur1p5Id, cpur1p5Txt, cpur1p5Select)
+//                                    cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
 //                                }
-//
 //                            }
 //
 //                            6 -> {
-// if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                     cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//                                 }else{
-//                                     autoButtonClick()
-//                                 }
 //
-//                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//                            }
-//                            7 -> {
-// if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                     cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-//                                 }else{
-//                                     autoButtonClick()
-//                                 }
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
 //
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-//                            }
-//                            8 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
 //
-//                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
 //
-//                            }
+//                             }
+//                            7 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                             }
+//                            8 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//
+//                             }
 //
 //                            9 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            10 -> {
-//                                if (cpur3p2Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p2, cpur3p2Name, cpur3p2Number, cpur3p2Id, cpur3p2Txt, cpur3p2Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            11 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    autoButtonClick()
 //                                }
-//
 //                            }
 //                        }
 //                    }  // Done
@@ -999,108 +1345,114 @@
 //                        when(itemSelect){
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
-//
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
-//                                }
-//                            }
-//                            3 -> {
-//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
-//                                    } else {
-//                                        autoButtonClick()
-//                                    }
-//                                }else{
-//                                    cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
 //
+//                            }
+//                            3 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
 //                            }
 //
 //                            4 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
+//
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//
 //                                }else{
 //                                    autoButtonClick()
 //                                }
 //
-//                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//                            }
+//
+//                             }
 //                            5 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//
 //                                }else{
 //                                    autoButtonClick()
 //                                }
 //
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-//                            }
+//
+//                             }
 //                            6 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//
 //                                }else{
 //                                    autoButtonClick()
 //                                }
 //
-//                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
-//                            }
+//                             }
 //                            7 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
-//                            }
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//
+//                             }
 //                            8 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p5, cpur2p5Name, cpur2p5Number, cpur2p5Id, cpur2p5Txt, cpur2p5Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p5, cpur2p5Name, cpur2p5Number, cpur2p5Id, cpur2p5Txt, cpur2p5Select)
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p5, cpur2p5_name, cpur2p5_number, cpur2p5_id, cpur2p5_txt, cpur2p5_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//
+//
 //                            }
+//
 //                            9 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            10 -> {
-//                                if (cpur3p2Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p2, cpur3p2Name, cpur3p2Number, cpur3p2Id, cpur3p2Txt, cpur3p2Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            11 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    autoButtonClick()
 //                                }
-//
 //                            }
 //                        }
 //                    }  // Done
@@ -1109,116 +1461,103 @@
 //                        when(itemSelect){
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
-//
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
 //                            }
 //                            3 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
-//
 //                            }
 //                            4 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p4Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                }
-//
 //                            }
 //
 //                            5 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//                            }
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                             }
 //                            6 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //                            7 -> {
 //
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //
-//                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
+//
 //                            }
 //                            8 -> {
 //
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
 //
-//                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
+//
 //
 //                            }
 //                            9 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p5, cpur2p5Name, cpur2p5Number, cpur2p5Id, cpur2p5Txt, cpur2p5Select)
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p5, cpur2p5_name, cpur2p5_number, cpur2p5_id, cpur2p5_txt, cpur2p5_select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
+//                            }
 //
-//                                cpuPlayerClickWork(cpur2p5, cpur2p5Name, cpur2p5Number, cpur2p5Id, cpur2p5Txt, cpur2p5Select)
-//                            }
 //                            10 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            11 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    autoButtonClick()
 //                                }
-//
 //                            }
 //                        }
 //                    }  // Done
@@ -1227,112 +1566,102 @@
 //                        when(itemSelect){
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
-//
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
 //                            }
 //                            3 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
-//
 //                            }
 //                            4 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p4Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//                            }
+//
+//                            5 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                }else{
+//                                    autoButtonClick()
 //                                }
 //
 //                            }
-//                            5 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//
-//                            }
 //                            6 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //                            7 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //                            8 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //
 //                            9 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            10 -> {
-//                                if (cpur3p2Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p2, cpur3p2Name, cpur3p2Number, cpur3p2Id, cpur3p2Txt, cpur3p2Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//
-//                            11 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    autoButtonClick()
 //                                }
-//
 //                            }
+//
 //                        }
 //                    }  // Done
 //
@@ -1340,220 +1669,215 @@
 //                        when(itemSelect){
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
-//
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
 //                            }
 //                            3 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
-//
 //                            }
 //                            4 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p4Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                }
-//
 //                            }
 //
 //                            5 -> {
-//if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
 //                                }else{
 //                                    autoButtonClick()
 //                                }
-//
-//                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
 //                            }
 //                            6 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //                            7 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //
 //                            8 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            9 -> {
-//                                if (cpur3p2Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p2, cpur3p2Name, cpur3p2Number, cpur3p2Id, cpur3p2Txt, cpur3p2Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            10 -> {
-//                                if (cpur3p3Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p3, cpur3p3Name, cpur3p3Number, cpur3p3Id, cpur3p3Txt, cpur3p3Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            11 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    autoButtonClick()
 //                                }
+//                            }
+//                            10 -> {
 //
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //                        }
 //                    }  // Done
 //
 //                    "3-4-3" -> {
 //                        when(itemSelect){
+//
+//
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
-//
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
 //                            }
 //                            3 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
-//
 //                            }
+//
+//
 //                            4 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //
 //                            }
 //                            5 -> {
 //
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //
 //                            }
 //                            6 -> {
 //
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p3, cpur2p3Name, cpur2p3Number, cpur2p3Id, cpur2p3Txt, cpur2p3Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //
 //                            }
 //                            7 -> {
 //
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p4, cpur2p4Name, cpur2p4Number, cpur2p4Id, cpur2p4Txt, cpur2p4Select)
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
 //                            }
 //
 //                            8 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            9 -> {
-//                                if (cpur3p2Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p2, cpur3p2Name, cpur3p2Number, cpur3p2Id, cpur3p2Txt, cpur3p2Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            10 -> {
-//                                if (cpur3p3Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p3, cpur3p3Name, cpur3p3Number, cpur3p3Id, cpur3p3Txt, cpur3p3Select)
-//                                } else {
-//                                    autoButtonClick()
-//                                }
-//                            }
-//                            11 -> {
+//
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    autoButtonClick()
+//                                }
+//
+//                            }
+//                            9 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
 //                                }
 //
 //                            }
@@ -1564,106 +1888,1248 @@
 //                        when(itemSelect){
 //                            1 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p1, cpur1p1Name, cpur1p1Number, cpur1p1Id, cpur1p1Txt, cpur1p1Select)
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//                            }
+//                            4 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//                            }
+//
+//                            5 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            6 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                            }
+//
+//                            7 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            8 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            9 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (sessionManager.getFirstGamgeStartCPU()) {
+//                                        cpuPlayerClickWork(cpur3p4, cpur3p4_name, cpur3p4_number, cpur3p4_id, cpur3p4_txt, cpur3p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    autoButtonClick()
+//                                }
+//                            }
+//
+//                        }
+//                    }  // Done
+//                    else -> {
+//                        Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//            }else{
+//                try {
+//                    when (onSelectedScreen) {
+//                        "5-2-3" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur1p5_select.visibility=view!!.visibility
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//
+//                        }  // Done
+//
+//                        "5-4-1" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur1p5_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//                        }  // Done
+//
+//                        "5-3-2" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur1p5_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//
+//                        }  // Done
+//
+//                        "3-5-2" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//                        }  // Done
+//
+//                        "4-5-1" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//
+//                        }  // Done
+//
+//                        "4-4-2" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//
+//
+//                        }  // Done
+//
+//                        "4-3-3" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//
+//
+//                        }  // Done
+//
+//                        "3-4-3" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//
+//                        }  // Done
+//
+//                        "4-2-4" -> {
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//
+//                            sessionManager.disableLifeLine11(false)
+//                            autoButtonClick()
+//
+//
+//                        }  // Done
+//
+//                        else -> {
+//                            Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTH_SHORT).show()
+//                        }
+//                    }
+//                }catch (e:Exception){
+//                    Log.d("******","Error :- "+e.message.toString())
+//                }
+//            }*/
+//
+//            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                when (onSelectedScreen) {
+//
+//                    "5-2-3" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
 //                                }
 //
 //                            }
 //                            2 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p2Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p2, cpur1p2Name, cpur1p2Number, cpur1p2Id, cpur1p2Txt, cpur1p2Select)
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
 //                                }
 //                            }
 //                            3 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p3Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p3, cpur1p3Name, cpur1p3Number, cpur1p3Id, cpur1p3Txt, cpur1p3Select)
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
 //                                }
 //
 //                            }
 //                            4 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur1p4Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    if (cpur1p4_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur1p4, cpur1p4Name, cpur1p4Number, cpur1p4Id, cpur1p4Txt, cpur1p4Select)
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//                            }
+//                            5 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p5_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
 //                                }
 //
 //                            }
 //
-//                            5 -> {
-////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-////                            }else{
-////                                autoButtonClick()
-////                            }
-//                                cpuPlayerClickWork(cpur2p1, cpur2p1Name, cpur2p1Number, cpur2p1Id, cpur2p1Txt, cpur2p1Select)
-//                            }
 //                            6 -> {
 ////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-////                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+////                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
 ////                            }else{
 ////                                autoButtonClick()
 ////                            }
-//                                cpuPlayerClickWork(cpur2p2, cpur2p2Name, cpur2p2Number, cpur2p2Id, cpur2p2Txt, cpur2p2Select)
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
 //                            }
 //
 //                            7 -> {
-//                                if (cpur3p1Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p1, cpur3p1Name, cpur3p1Number, cpur3p1Id, cpur3p1Txt, cpur3p1Select)
-//                                } else {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
 //                                    autoButtonClick()
-//                                }
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
 //                            }
+//
 //                            8 -> {
-//                                if (cpur3p2Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p2, cpur3p2Name, cpur3p2Number, cpur3p2Id, cpur3p2Txt, cpur3p2Select)
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
 //                                } else {
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            9 -> {
-//                                if (cpur3p3Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p3, cpur3p3Name, cpur3p3Number, cpur3p3Id, cpur3p3Txt, cpur3p3Select)
+//                                if (cpur3p2_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
 //                                } else {
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            10 -> {
-//                                if (cpur3p4Select?.visibility == View.VISIBLE) {
-//                                    cpuPlayerClickWork(cpur3p4, cpur3p4Name, cpur3p4Number, cpur3p4Id, cpur3p4Txt, cpur3p4Select)
+//                                if (cpur3p3_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            //Shrawan
+//                            11 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "5-4-1" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//                            4 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p4_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//                            }
+//                            5 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p5_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
+//                                }
+//
+//                            }
+//
+//                            6 -> {
+//                                /* if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                     cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                 }else{
+//                                     autoButtonClick()
+//                                 }*/
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                            }
+//                            7 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                            }
+//                            8 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                            }
+//                            9 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                            }
+//
+//                            10 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            //Shrawan
+//                            11->{
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "5-3-2" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//                            4 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p4_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//                            }
+//                            5 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p5_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p5, cpur1p5_name, cpur1p5_number, cpur1p5_id, cpur1p5_txt, cpur1p5_select)
+//                                }
+//
+//                            }
+//
+//                            6 -> {
+//                                /* if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                     cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                 }else{
+//                                     autoButtonClick()
+//                                 }*/
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                            }
+//                            7 -> {
+//                                /* if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                     cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                 }else{
+//                                     autoButtonClick()
+//                                 }*/
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                            }
+//                            8 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//
+//                            }
+//
+//                            9 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//                                if (cpur3p2_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
 //                                } else {
 //                                    autoButtonClick()
 //                                }
 //                            }
 //                            11 -> {
 //                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
-//                                    if (cpur0p1Select?.visibility == View.VISIBLE) {
-//                                        cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
 //                                    } else {
 //                                        autoButtonClick()
 //                                    }
 //                                }else{
-//                                    cpuPlayerClickWork(cpur0p1, cpur0p1Name, cpur0p1Number, cpur0p1Id, cpur0p1Txt, cpur0p1Select)
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "3-5-2" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//
+//                            4 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                            }
+//                            5 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                            }
+//                            6 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                            }
+//                            7 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                            }
+//                            8 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p5, cpur2p5_name, cpur2p5_number, cpur2p5_id, cpur2p5_txt, cpur2p5_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p5, cpur2p5_name, cpur2p5_number, cpur2p5_id, cpur2p5_txt, cpur2p5_select)
+//                            }
+//                            9 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//                                if (cpur3p2_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            11 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "4-5-1" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//                            4 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p4_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//                            }
+//
+//                            5 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                            }
+//                            6 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                            }
+//                            7 -> {
+//
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//
+//                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                            }
+//                            8 -> {
+//
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//
+//                            }
+//                            9 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p5, cpur2p5_name, cpur2p5_number, cpur2p5_id, cpur2p5_txt, cpur2p5_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p5, cpur2p5_name, cpur2p5_number, cpur2p5_id, cpur2p5_txt, cpur2p5_select)
+//                            }
+//                            10 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            11 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "4-4-2" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//                            4 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p4_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//                            }
+//                            5 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//
+//                            }
+//                            6 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                            }
+//                            7 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                            }
+//                            8 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                            }
+//
+//                            9 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//                                if (cpur3p2_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//
+//                            11 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "4-3-3" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//                            4 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p4_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//                            }
+//
+//                            5 -> {
+//                                /*if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                                }else{
+//                                    autoButtonClick()
+//                                }*/
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                            }
+//                            6 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                            }
+//                            7 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//                            }
+//
+//                            8 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            9 -> {
+//                                if (cpur3p2_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//                                if (cpur3p3_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            11 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "3-4-3" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//                            4 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//
+//                            }
+//                            5 -> {
+//
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//
+//                            }
+//                            6 -> {
+//
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p3, cpur2p3_name, cpur2p3_number, cpur2p3_id, cpur2p3_txt, cpur2p3_select)
+//
+//                            }
+//                            7 -> {
+//
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p4, cpur2p4_name, cpur2p4_number, cpur2p4_id, cpur2p4_txt, cpur2p4_select)
+//                            }
+//
+//                            8 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            9 -> {
+//                                if (cpur3p2_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//                                if (cpur3p3_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            11 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                }
+//
+//                            }
+//                        }
+//                    }  // Done
+//
+//                    "4-2-4" -> {
+//                        when(itemSelect){
+//                            1 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p1, cpur1p1_name, cpur1p1_number, cpur1p1_id, cpur1p1_txt, cpur1p1_select)
+//                                }
+//
+//                            }
+//                            2 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p2_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p2, cpur1p2_name, cpur1p2_number, cpur1p2_id, cpur1p2_txt, cpur1p2_select)
+//                                }
+//                            }
+//                            3 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p3_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p3, cpur1p3_name, cpur1p3_number, cpur1p3_id, cpur1p3_txt, cpur1p3_select)
+//                                }
+//
+//                            }
+//                            4 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur1p4_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur1p4, cpur1p4_name, cpur1p4_number, cpur1p4_id, cpur1p4_txt, cpur1p4_select)
+//                                }
+//
+//                            }
+//
+//                            5 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p1, cpur2p1_name, cpur2p1_number, cpur2p1_id, cpur2p1_txt, cpur2p1_select)
+//                            }
+//                            6 -> {
+////                            if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+////                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+////                            }else{
+////                                autoButtonClick()
+////                            }
+//                                cpuPlayerClickWork(cpur2p2, cpur2p2_name, cpur2p2_number, cpur2p2_id, cpur2p2_txt, cpur2p2_select)
+//                            }
+//
+//                            7 -> {
+//                                if (cpur3p1_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p1, cpur3p1_name, cpur3p1_number, cpur3p1_id, cpur3p1_txt, cpur3p1_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            8 -> {
+//                                if (cpur3p2_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p2, cpur3p2_name, cpur3p2_number, cpur3p2_id, cpur3p2_txt, cpur3p2_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            9 -> {
+//                                if (cpur3p3_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p3, cpur3p3_name, cpur3p3_number, cpur3p3_id, cpur3p3_txt, cpur3p3_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            10 -> {
+//                                if (cpur3p4_select?.visibility == View.VISIBLE) {
+//                                    cpuPlayerClickWork(cpur3p4, cpur3p4_name, cpur3p4_number, cpur3p4_id, cpur3p4_txt, cpur3p4_select)
+//                                } else {
+//                                    autoButtonClick()
+//                                }
+//                            }
+//                            11 -> {
+//                                if (sessionManager.getLifeLine1() == sessionManager.getLifeLine11()){
+//                                    if (cpur0p1_select?.visibility == View.VISIBLE) {
+//                                        cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
+//                                    } else {
+//                                        autoButtonClick()
+//                                    }
+//                                }else{
+//                                    cpuPlayerClickWork(cpur0p1, cpur0p1_name, cpur0p1_number, cpur0p1_id, cpur0p1_txt, cpur0p1_select)
 //                                }
 //
 //                            }
@@ -1671,106 +3137,106 @@
 //                        }
 //                    }  // Done
 //                    else -> {
-//                        Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTHSHORT).show()
+//                        Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTH_SHORT).show()
 //                    }
 //                }
 //            }else{
 //                try {
 //                    when (onSelectedScreen) {
 //                        "5-2-3" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur1p4Select.visibility=view!!.visibility
-//                            binding.cpur1p5Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur1p5_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //                        }  // Done
 //
 //                        "5-4-1" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur1p4Select.visibility=view!!.visibility
-//                            binding.cpur1p5Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur1p5_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //                        }  // Done
 //
 //                        "5-3-2" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur1p4Select.visibility=view!!.visibility
-//                            binding.cpur1p5Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur1p5_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //
 //                        }  // Done
 //
 //                        "3-5-2" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //                        }  // Done
 //
 //                        "4-5-1" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur1p4Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //                        }  // Done
 //
 //                        "4-4-2" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur1p4Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //                        }  // Done
 //
 //                        "4-3-3" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur1p4Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //                        }  // Done
 //
 //                        "3-4-3" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //
 //                        }  // Done
 //
 //                        "4-2-4" -> {
-//                            binding.cpur1p1Select.visibility=view!!.visibility
-//                            binding.cpur1p2Select.visibility=view!!.visibility
-//                            binding.cpur1p3Select.visibility=view!!.visibility
-//                            binding.cpur1p4Select.visibility=view!!.visibility
-//                            binding.cpur0p1Select.visibility=view!!.visibility //Shrawan
+//                            cpur1p1_select.visibility=view!!.visibility
+//                            cpur1p2_select.visibility=view!!.visibility
+//                            cpur1p3_select.visibility=view!!.visibility
+//                            cpur1p4_select.visibility=view!!.visibility
+//                            cpur0p1_select.visibility=view!!.visibility //Shrawan
 //                            sessionManager.disableLifeLine11(false)
 //                            autoButtonClick()
 //                        }  // Done
 //                        else -> {
-//                            Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTHSHORT).show()
+//                            Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTH_SHORT).show()
 //                        }
 //                    }
 //                }catch (e:Exception){
@@ -1818,14 +3284,12 @@
 //
 //                val bundle = Bundle()
 //                bundle.putString("userType", "USER")
-//                bundle.putInt("selected_playerNum", selectedPlayerNum!!.text.toString().toInt())
-//                val size = 0
-//if (playerPower == "PURPLE") {
+//                bundle.putInt("selected_player_num", selectedPlayerNum!!.text.toString().toInt())
+//                val size = 0/*if (playerPower == "PURPLE") {
 //                    1
 //                } else {
 //                    0
-//                }
-//
+//                }*/
 //                for (data in allUserPlayer) {
 //                    if (data.id.toInt() == selectedPlayerNum!!.text.toString().toInt()) {
 //                        if (data.designation.uppercase() == "DF") {
@@ -1839,19 +3303,17 @@
 //                        }
 //                    }
 //                }
-////                findNavController().navigate(R.id.action_playScreenFragmentToShootScreen, bundle)
-//                findNavController().navigate(R.id.shootScreen, bundle)
+////                findNavController().navigate(R.id.action_playScreenFragment_to_shoot_Screen, bundle)
+//                findNavController().navigate(R.id.shoot_Screen, bundle)
 //                Log.e("Work", "Shoot Button")
 //            } else {
 //                myPlayerDbHelper.updatePlayerUse(allUserPlayer[selectedPlayerNum!!.text.toString().toInt() - 1].id.toLong(), "true")
 //                myPlayerDbHelper.updatePlayerAnswer(allUserPlayer[selectedPlayerNum!!.text.toString().toInt() - 1].id.toLong(), "true")
-//                var size = 0
-//if (playerPower == "PURPLE") {
+//                var size = 0/*if (playerPower == "PURPLE") {
 //                    1
 //                } else {
 //                    0
-//                }
-//
+//                }*/
 //
 //                Log.d("@@@Error ", "myPass move screen$myPass")
 //                Log.d("@@@Error ", "cpuPass move screen$cpuPass")
@@ -1876,10 +3338,10 @@
 //                Log.d("******", "play screen  :=" + num)
 //                bundle.putInt("select_box", num)
 //                bundle.putInt("size", size)
-//                bundle.putInt("selected_playerNum", selectedPlayerNum!!.text.toString().toInt())
+//                bundle.putInt("selected_player_num", selectedPlayerNum!!.text.toString().toInt())
 //                Log.e("Shoot to Kick", bundle.toString())
-////                findNavController().navigate(R.id.action_playScreenFragmentTo_fragment_goalkeaper, bundle)
-//                findNavController().navigate(R.id.goal_keeperScreen, bundle)
+////                findNavController().navigate(R.id.action_playScreenFragment_to_fragment_goalkeaper, bundle)
+//                findNavController().navigate(R.id.goal_keeper_Screen, bundle)
 //            }
 //        }
 //    }
@@ -1897,8 +3359,8 @@
 //                        bundle.putString("id", playerId.text.toString())
 //                        selectedPlayerNum?.text = playerId.text.toString()
 //                        Log.e("Send Detail of Quiz", userType + " " + playerName.text.toString() + " " + playerNum.text.toString())
-////                        findNavController().navigateSafe(R.id.action_playScreenFragmentTo_guessName, bundle)
-//                        findNavController().navigate(R.id.playerName_guess, bundle)
+////                        findNavController().navigateSafe(R.id.action_playScreenFragment_to_guess_name, bundle)
+//                        findNavController().navigate(R.id.player_name_guess, bundle)
 //                        Log.e("Work", "Condition1")
 //                    } else {
 //                        if (selectionPower) {
@@ -1931,8 +3393,8 @@
 //                                        isGoalClick = false
 //                                    }
 //                                    bundle.putBoolean("isGoalClick",isGoalClick) //Shrawan
-//                                    findNavController().navigate(R.id.playerName_guess, bundle)
-////                                    findNavController().navigateSafe(R.id.action_playScreenFragmentTo_guessName, bundle)
+//                                    findNavController().navigate(R.id.player_name_guess, bundle)
+////                                    findNavController().navigateSafe(R.id.action_playScreenFragment_to_guess_name, bundle)
 //                                    Log.e("Send Detail of Quiz", userType + " " + playerName.text.toString() + " " + playerNum.text.toString())
 //                                    Log.e("Work", "Condition4")
 //                                }
@@ -1945,7 +3407,7 @@
 //                                showPlayerReachPowerUser(selectCircle, playerId)
 //                                Log.e("Work", "Condition2")
 //                            } else {
-//                                Toast.makeText(requireActivity(), "Player are not Locked!", Toast.LENGTHSHORT).show()
+//                                Toast.makeText(requireActivity(), "Player are not Locked!", Toast.LENGTH_SHORT).show()
 //                            }
 //                        }
 //                    }
@@ -1970,8 +3432,8 @@
 //                            Log.d("******", "selectedPlayerNum :- " + playerId?.text.toString())
 //                            Log.e("Send Detail of Quiz", userType + " " + playerName?.text.toString() + " " + playerNum?.text.toString())
 //                            Log.e("Work", "Condition1")
-////                            findNavController().navigateSafe(R.id.action_playScreenFragmentTo_guessName, bundle)
-//                            findNavController().navigate(R.id.playerName_guess, bundle)
+////                            findNavController().navigateSafe(R.id.action_playScreenFragment_to_guess_name, bundle)
+//                            findNavController().navigate(R.id.player_name_guess, bundle)
 //
 //
 //                        } else {
@@ -2002,7 +3464,7 @@
 //                                        Log.e("Send Detail of Quiz", userType + " " + playerName?.text.toString() + " " + playerNum?.text.toString())
 //                                        Log.d("******", "selectedPlayerNum :- " + playerId?.text.toString())
 //                                        Log.e("Work", "Condition4")
-//                                        findNavController().navigate(R.id.playerName_guess, bundle)
+//                                        findNavController().navigate(R.id.player_name_guess, bundle)
 //                                    }
 //                                } else {
 //                                    if (cpuPlayerNameShow!=0){
@@ -2053,8 +3515,7 @@
 //            if (status){
 //                when (Random.nextInt(1, 3)) {
 //                    1 -> {
-//shootBall
-//
+//                        /*shootBall*/
 //                        //Shrawan
 //                        if (!isGoalClick) {
 //                            shootBall()
@@ -2084,28 +3545,27 @@
 //            val allTeam = teamDbHelper.getAllTeams()
 //            for (data in allTeam) {
 //                if (data.teamID == 1) {
-//                    binding.userName.text = data.captainName
+//                    user_name.text = data.captainName
 //                }
-//if (data.teamID == sessionManager.getTeamDetails()) {
-//                    opposeTeam_playerName.text = data.captainName
-//                }
-//
+//                /*if (data.teamID == sessionManager.getTeamDetails()) {
+//                    oppose_team_player_name.text = data.captainName
+//                }*/
 //                if(sessionManager.getGameNumber() <= 3)  { //for first 3 match
-//                    binding.opposeTeamPlayerName.text = data.captainName
+//                    oppose_team_player_name.text = data.captainName
 //                }else if(sessionManager.getGameNumber() == 4){ // for 4th match
-//                    binding.opposeTeamPlayerName.text = "Asst. Manager"
+//                    oppose_team_player_name.text = "Asst. Manager"
 //                }else if(sessionManager.getGameNumber() == 5){ // for 5th match
-//                    binding.opposeTeamPlayerName.text = "Lizard mascot"
+//                    oppose_team_player_name.text = "Lizard mascot"
 //                }
 //            }
 //
 //        } else {
-//            binding.userName.text = sessionManager.getName()?.split(" ")?.drop(1)?.joinToString(" ")
-//            binding.opposeTeamPlayerName.text = "CPU"
+//            user_name.text = sessionManager.getName()?.split(" ")?.drop(1)?.joinToString(" ")
+//            oppose_team_player_name.text = "CPU"
 //        }
 //
-//        binding.cpuScoreTv.text = sessionManager.getCpuScore().toString()
-//        binding.userGoalTv.text = sessionManager.getMyScore().toString()
+//        cpu_score_tv.text = sessionManager.getCpuScore().toString()
+//        user_goal_tv.text = sessionManager.getMyScore().toString()
 //        if (!isTimerFinish) {
 //            val screen = setGames.setScreen(sessionManager.getUserScreenType())
 //            userR1 = screen.r1
@@ -2124,146 +3584,146 @@
 //        if (!isTimerFinish) {
 //            when (userR1) {
 //                4 -> {
-//                    binding.r1.weightSum = 4f
-//                    binding.r1p5.visibility = View.GONE
+//                    r1.weightSum = 4f
+//                    r1p5.visibility = View.GONE
 //                }
 //                3 -> {
-//                    binding.r1.weightSum = 3f
-//                    binding.r1p5.visibility = View.GONE
-//                    binding.r1p4.visibility = View.GONE
+//                    r1.weightSum = 3f
+//                    r1p5.visibility = View.GONE
+//                    r1p4.visibility = View.GONE
 //                }
 //                2 -> {
-//                    binding.r1.weightSum = 2f
-//                    binding.r1p5.visibility = View.GONE
-//                    binding.r1p4.visibility = View.GONE
-//                    binding.r1p3.visibility = View.GONE
+//                    r1.weightSum = 2f
+//                    r1p5.visibility = View.GONE
+//                    r1p4.visibility = View.GONE
+//                    r1p3.visibility = View.GONE
 //                }
 //                1 -> {
-//                    binding.r1.weightSum = 1f
-//                    binding.r1p5.visibility = View.GONE
-//                    binding.r1p4.visibility = View.GONE
-//                    binding.r1p3.visibility = View.GONE
-//                    binding.r1p2.visibility = View.GONE
+//                    r1.weightSum = 1f
+//                    r1p5.visibility = View.GONE
+//                    r1p4.visibility = View.GONE
+//                    r1p3.visibility = View.GONE
+//                    r1p2.visibility = View.GONE
 //                }
 //            }
 //            when (userR2) {
 //                4 -> {
-//                    binding.r2.weightSum = 4f
-//                    binding.r2p5.visibility = View.GONE
+//                    r2.weightSum = 4f
+//                    r2p5.visibility = View.GONE
 //                }
 //                3 -> {
-//                    binding.r2.weightSum = 3f
-//                    binding.r2p5.visibility = View.GONE
-//                    binding.r2p4.visibility = View.GONE
+//                    r2.weightSum = 3f
+//                    r2p5.visibility = View.GONE
+//                    r2p4.visibility = View.GONE
 //                }
 //                2 -> {
-//                    binding.r2.weightSum = 2f
-//                    binding.r2p5.visibility = View.GONE
-//                    binding.r2p4.visibility = View.GONE
-//                    binding.r2p3.visibility = View.GONE
+//                    r2.weightSum = 2f
+//                    r2p5.visibility = View.GONE
+//                    r2p4.visibility = View.GONE
+//                    r2p3.visibility = View.GONE
 //                }
 //                1 -> {
-//                    binding.r2.weightSum = 1f
-//                    binding.r2p5.visibility = View.GONE
-//                    binding.r2p4.visibility = View.GONE
-//                    binding.r2p3.visibility = View.GONE
-//                    binding.r2p2.visibility = View.GONE
+//                    r2.weightSum = 1f
+//                    r2p5.visibility = View.GONE
+//                    r2p4.visibility = View.GONE
+//                    r2p3.visibility = View.GONE
+//                    r2p2.visibility = View.GONE
 //                }
 //            }
 //            when (userR3) {
 //                4 -> {
-//                    binding.r3.weightSum = 4f
-//                    binding.r3p5.visibility = View.GONE
+//                    r3.weightSum = 4f
+//                    r3p5.visibility = View.GONE
 //                }
 //                3 -> {
-//                    binding.r3.weightSum = 3f
-//                    binding.r3p5.visibility = View.GONE
-//                    binding.r3p4.visibility = View.GONE
+//                    r3.weightSum = 3f
+//                    r3p5.visibility = View.GONE
+//                    r3p4.visibility = View.GONE
 //                }
 //                2 -> {
-//                    binding.r3.weightSum = 2f
-//                    binding.r3p5.visibility = View.GONE
-//                    binding.r3p4.visibility = View.GONE
-//                    binding.r3p3.visibility = View.GONE
+//                    r3.weightSum = 2f
+//                    r3p5.visibility = View.GONE
+//                    r3p4.visibility = View.GONE
+//                    r3p3.visibility = View.GONE
 //                }
 //                1 -> {
-//                    binding.r3.weightSum = 1f
-//                    binding.r3p5.visibility = View.GONE
-//                    binding.r3p4.visibility = View.GONE
-//                    binding.r3p3.visibility = View.GONE
-//                    binding.r3p2.visibility = View.GONE
+//                    r3.weightSum = 1f
+//                    r3p5.visibility = View.GONE
+//                    r3p4.visibility = View.GONE
+//                    r3p3.visibility = View.GONE
+//                    r3p2.visibility = View.GONE
 //                }
 //            }
 //            when (cpuR1) {
 //                4 -> {
-//                    binding.cpur1.weightSum = 4f
-//                    binding.cpur1p5.visibility = View.GONE
+//                    cpur1.weightSum = 4f
+//                    cpur1p5.visibility = View.GONE
 //                }
 //                3 -> {
-//                    binding.cpur1.weightSum = 3f
-//                    binding.cpur1p5.visibility = View.GONE
-//                    binding.cpur1p4.visibility = View.GONE
+//                    cpur1.weightSum = 3f
+//                    cpur1p5.visibility = View.GONE
+//                    cpur1p4.visibility = View.GONE
 //                }
 //                2 -> {
-//                    binding.cpur1.weightSum = 2f
-//                    binding.cpur1p5.visibility = View.GONE
-//                    binding.cpur1p4.visibility = View.GONE
-//                    binding.cpur1p3.visibility = View.GONE
+//                    cpur1.weightSum = 2f
+//                    cpur1p5.visibility = View.GONE
+//                    cpur1p4.visibility = View.GONE
+//                    cpur1p3.visibility = View.GONE
 //                }
 //                1 -> {
-//                    binding.cpur1.weightSum = 1f
-//                    binding.cpur1p5.visibility = View.GONE
-//                    binding.cpur1p4.visibility = View.GONE
-//                    binding.cpur1p3.visibility = View.GONE
-//                    binding.cpur1p2.visibility = View.GONE
+//                    cpur1.weightSum = 1f
+//                    cpur1p5.visibility = View.GONE
+//                    cpur1p4.visibility = View.GONE
+//                    cpur1p3.visibility = View.GONE
+//                    cpur1p2.visibility = View.GONE
 //                }
 //            }
 //            when (cpuR2) {
 //                4 -> {
-//                    binding.cpur2.weightSum = 4f
-//                    binding.cpur2p5.visibility = View.GONE
+//                    cpur2.weightSum = 4f
+//                    cpur2p5.visibility = View.GONE
 //                }
 //                3 -> {
-//                    binding.cpur2.weightSum = 3f
-//                    binding.cpur2p5.visibility = View.GONE
-//                    binding.cpur2p4.visibility = View.GONE
+//                    cpur2.weightSum = 3f
+//                    cpur2p5.visibility = View.GONE
+//                    cpur2p4.visibility = View.GONE
 //                }
 //                2 -> {
-//                    binding.cpur2.weightSum = 2f
-//                    binding.cpur2p5.visibility = View.GONE
-//                    binding.cpur2p4.visibility = View.GONE
-//                    binding.cpur2p3.visibility = View.GONE
+//                    cpur2.weightSum = 2f
+//                    cpur2p5.visibility = View.GONE
+//                    cpur2p4.visibility = View.GONE
+//                    cpur2p3.visibility = View.GONE
 //                }
 //                1 -> {
-//                    binding.cpur2.weightSum = 1f
-//                    binding.cpur2p5.visibility = View.GONE
-//                    binding.cpur2p4.visibility = View.GONE
-//                    binding.cpur2p3.visibility = View.GONE
-//                    binding.cpur2p2.visibility = View.GONE
+//                    cpur2.weightSum = 1f
+//                    cpur2p5.visibility = View.GONE
+//                    cpur2p4.visibility = View.GONE
+//                    cpur2p3.visibility = View.GONE
+//                    cpur2p2.visibility = View.GONE
 //                }
 //            }
 //            when (cpuR3) {
 //                4 -> {
-//                    binding.cpur3.weightSum = 4f
-//                    binding.cpur3p5.visibility = View.GONE
+//                    cpur3.weightSum = 4f
+//                    cpur3p5.visibility = View.GONE
 //                }
 //                3 -> {
-//                    binding.cpur3.weightSum = 3f
-//                    binding.cpur3p5.visibility = View.GONE
-//                    binding.cpur3p4.visibility = View.GONE
+//                    cpur3.weightSum = 3f
+//                    cpur3p5.visibility = View.GONE
+//                    cpur3p4.visibility = View.GONE
 //                }
 //                2 -> {
-//                    binding.cpur3.weightSum = 2f
-//                    binding.cpur3p5.visibility = View.GONE
-//                    binding.cpur3p4.visibility = View.GONE
-//                    binding.cpur3p3.visibility = View.GONE
+//                    cpur3.weightSum = 2f
+//                    cpur3p5.visibility = View.GONE
+//                    cpur3p4.visibility = View.GONE
+//                    cpur3p3.visibility = View.GONE
 //                }
 //                1 -> {
-//                    binding.cpur3.weightSum = 1f
-//                    binding.cpur3p5.visibility = View.GONE
-//                    binding.cpur3p4.visibility = View.GONE
-//                    binding.cpur3p3.visibility = View.GONE
-//                    binding.cpur3p2.visibility = View.GONE
+//                    cpur3.weightSum = 1f
+//                    cpur3p5.visibility = View.GONE
+//                    cpur3p4.visibility = View.GONE
+//                    cpur3p3.visibility = View.GONE
+//                    cpur3p2.visibility = View.GONE
 //                }
 //            }
 //            hideAllPlayerName()
@@ -2273,43 +3733,43 @@
 //    //This function is used for hide and unhidden player name according to gusse name
 //    private fun hideAllPlayerName() {
 //        if (!isTimerFinish) {
-//            binding.r1p1Txt.visibility = View.GONE
-//            binding.r1p2Txt.visibility = View.GONE
-//            binding.r1p3Txt.visibility = View.GONE
-//            binding.r1p4Txt.visibility = View.GONE
-//            binding.r1p5Txt.visibility = View.GONE
+//            r1p1_txt.visibility = View.GONE
+//            r1p2_txt.visibility = View.GONE
+//            r1p3_txt.visibility = View.GONE
+//            r1p4_txt.visibility = View.GONE
+//            r1p5_txt.visibility = View.GONE
 //
-//            binding.r2p1Txt.visibility = View.GONE
-//            binding.r2p2Txt.visibility = View.GONE
-//            binding.r2p3Txt.visibility = View.GONE
-//            binding.r2p4Txt.visibility = View.GONE
-//            binding.r2p5Txt.visibility = View.GONE
+//            r2p1_txt.visibility = View.GONE
+//            r2p2_txt.visibility = View.GONE
+//            r2p3_txt.visibility = View.GONE
+//            r2p4_txt.visibility = View.GONE
+//            r2p5_txt.visibility = View.GONE
 //
-//            binding.r3p1Txt.visibility = View.GONE
-//            binding.r3p2Txt.visibility = View.GONE
-//            binding.r3p3Txt.visibility = View.GONE
-//            binding.r3p4Txt.visibility = View.GONE
-//            binding.r3p5Txt.visibility = View.GONE
-//            binding.r0p1Txt.visibility = View.GONE //Shrawan
+//            r3p1_txt.visibility = View.GONE
+//            r3p2_txt.visibility = View.GONE
+//            r3p3_txt.visibility = View.GONE
+//            r3p4_txt.visibility = View.GONE
+//            r3p5_txt.visibility = View.GONE
+//            r0p1_txt.visibility = View.GONE //Shrawan
 //
-//            binding.cpur1p1Txt.visibility = View.GONE
-//            binding.cpur1p2Txt.visibility = View.GONE
-//            binding.cpur1p3Txt.visibility = View.GONE
-//            binding.cpur1p4Txt.visibility = View.GONE
-//            binding.cpur1p5Txt.visibility = View.GONE
+//            cpur1p1_txt.visibility = View.GONE
+//            cpur1p2_txt.visibility = View.GONE
+//            cpur1p3_txt.visibility = View.GONE
+//            cpur1p4_txt.visibility = View.GONE
+//            cpur1p5_txt.visibility = View.GONE
 //
-//            binding.cpur2p1Txt.visibility = View.GONE
-//            binding.cpur2p2Txt.visibility = View.GONE
-//            binding.cpur2p3Txt.visibility = View.GONE
-//            binding.cpur2p4Txt.visibility = View.GONE
-//            binding.cpur2p5Txt.visibility = View.GONE
+//            cpur2p1_txt.visibility = View.GONE
+//            cpur2p2_txt.visibility = View.GONE
+//            cpur2p3_txt.visibility = View.GONE
+//            cpur2p4_txt.visibility = View.GONE
+//            cpur2p5_txt.visibility = View.GONE
 //
-//            binding.cpur3p1Txt.visibility = View.GONE
-//            binding.cpur3p2Txt.visibility = View.GONE
-//            binding.cpur3p3Txt.visibility = View.GONE
-//            binding.cpur3p4Txt.visibility = View.GONE
-//            binding.cpur3p5Txt.visibility = View.GONE
-//            binding.cpur0p1Txt.visibility = View.GONE //Shrawan
+//            cpur3p1_txt.visibility = View.GONE
+//            cpur3p2_txt.visibility = View.GONE
+//            cpur3p3_txt.visibility = View.GONE
+//            cpur3p4_txt.visibility = View.GONE
+//            cpur3p5_txt.visibility = View.GONE
+//            cpur0p1_txt.visibility = View.GONE //Shrawan
 //
 //            hideAllSelectCircle()
 //        }
@@ -2326,84 +3786,84 @@
 //    // This function call for set circle background img and hide the all image
 //    private fun setImageCircleCPUAndUser(type:String){
 //
-//        binding.r1p1Select.visibility = View.GONE
-//        binding.r1p2Select.visibility = View.GONE
-//        binding.r1p3Select.visibility = View.GONE
-//        binding.r1p4Select.visibility = View.GONE
-//        binding.r1p5Select.visibility = View.GONE
+//        r1p1_select.visibility = View.GONE
+//        r1p2_select.visibility = View.GONE
+//        r1p3_select.visibility = View.GONE
+//        r1p4_select.visibility = View.GONE
+//        r1p5_select.visibility = View.GONE
 //
-//        binding. r2p1Select.visibility = View.GONE
-//        binding.r2p2Select.visibility = View.GONE
-//        binding.r2p3Select.visibility = View.GONE
-//        binding.r2p4Select.visibility = View.GONE
-//        binding.r2p5Select.visibility = View.GONE
+//        r2p1_select.visibility = View.GONE
+//        r2p2_select.visibility = View.GONE
+//        r2p3_select.visibility = View.GONE
+//        r2p4_select.visibility = View.GONE
+//        r2p5_select.visibility = View.GONE
 //
-//        binding.r3p1Select.visibility = View.GONE
-//        binding.r3p2Select.visibility = View.GONE
-//        binding.r3p3Select.visibility = View.GONE
-//        binding.r3p4Select.visibility = View.GONE
-//        binding.r3p5Select.visibility = View.GONE
-//        binding.r0p1Select.visibility = View.GONE //Shrawan
+//        r3p1_select.visibility = View.GONE
+//        r3p2_select.visibility = View.GONE
+//        r3p3_select.visibility = View.GONE
+//        r3p4_select.visibility = View.GONE
+//        r3p5_select.visibility = View.GONE
+//        r0p1_select.visibility = View.GONE //Shrawan
 //
-//        binding.cpur1p1Select.visibility = View.GONE
-//        binding.cpur1p2Select.visibility = View.GONE
-//        binding.cpur1p3Select.visibility = View.GONE
-//        binding.cpur1p4Select.visibility = View.GONE
-//        binding.cpur1p5Select.visibility = View.GONE
+//        cpur1p1_select.visibility = View.GONE
+//        cpur1p2_select.visibility = View.GONE
+//        cpur1p3_select.visibility = View.GONE
+//        cpur1p4_select.visibility = View.GONE
+//        cpur1p5_select.visibility = View.GONE
 //
-//        binding.cpur2p1Select.visibility = View.GONE
-//        binding.cpur2p2Select.visibility = View.GONE
-//        binding.cpur2p3Select.visibility = View.GONE
-//        binding.cpur2p4Select.visibility = View.GONE
-//        binding.cpur2p5Select.visibility = View.GONE
+//        cpur2p1_select.visibility = View.GONE
+//        cpur2p2_select.visibility = View.GONE
+//        cpur2p3_select.visibility = View.GONE
+//        cpur2p4_select.visibility = View.GONE
+//        cpur2p5_select.visibility = View.GONE
 //
-//        binding.cpur3p1Select.visibility = View.GONE
-//        binding.cpur3p2Select.visibility = View.GONE
-//        binding.cpur3p3Select.visibility = View.GONE
-//        binding.cpur3p4Select.visibility = View.GONE
-//        binding.cpur3p5Select.visibility = View.GONE
-//        binding.cpur0p1Select.visibility = View.GONE //Shrawan
+//        cpur3p1_select.visibility = View.GONE
+//        cpur3p2_select.visibility = View.GONE
+//        cpur3p3_select.visibility = View.GONE
+//        cpur3p4_select.visibility = View.GONE
+//        cpur3p5_select.visibility = View.GONE
+//        cpur0p1_select.visibility = View.GONE //Shrawan
 //
 //        if (type.equals("showImage",true)){
-//            binding.r1p1Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r1p2Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r1p3Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r1p4Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r1p5Select.setBackgroundResource(R.drawable.select_circle)
+//            r1p1_select.setBackgroundResource(R.drawable.select_circle)
+//            r1p2_select.setBackgroundResource(R.drawable.select_circle)
+//            r1p3_select.setBackgroundResource(R.drawable.select_circle)
+//            r1p4_select.setBackgroundResource(R.drawable.select_circle)
+//            r1p5_select.setBackgroundResource(R.drawable.select_circle)
 //
-//            binding.r2p1Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r2p2Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r2p3Select.setBackgroundResource(R.drawable.select_circle)
-//            binding. r2p4Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r2p5Select.setBackgroundResource(R.drawable.select_circle)
+//            r2p1_select.setBackgroundResource(R.drawable.select_circle)
+//            r2p2_select.setBackgroundResource(R.drawable.select_circle)
+//            r2p3_select.setBackgroundResource(R.drawable.select_circle)
+//            r2p4_select.setBackgroundResource(R.drawable.select_circle)
+//            r2p5_select.setBackgroundResource(R.drawable.select_circle)
 //
-//            binding.r3p1Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r3p2Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r3p3Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.r3p4Select.setBackgroundResource(R.drawable.select_circle)
-//            binding. r3p5Select.setBackgroundResource(R.drawable.select_circle)
+//            r3p1_select.setBackgroundResource(R.drawable.select_circle)
+//            r3p2_select.setBackgroundResource(R.drawable.select_circle)
+//            r3p3_select.setBackgroundResource(R.drawable.select_circle)
+//            r3p4_select.setBackgroundResource(R.drawable.select_circle)
+//            r3p5_select.setBackgroundResource(R.drawable.select_circle)
 //
-//            binding.r0p1Select.setBackgroundResource(R.drawable.select_circle) //Shrawan
+//            r0p1_select.setBackgroundResource(R.drawable.select_circle) //Shrawan
 //
-//            binding.cpur1p1Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur1p2Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur1p3Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur1p4Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur1p5Select.setBackgroundResource(R.drawable.select_circle)
+//            cpur1p1_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur1p2_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur1p3_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur1p4_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur1p5_select.setBackgroundResource(R.drawable.select_circle)
 //
-//            binding. cpur2p1Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur2p2Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur2p3Select.setBackgroundResource(R.drawable.select_circle)
-//            binding. cpur2p4Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur2p5Select.setBackgroundResource(R.drawable.select_circle)
+//            cpur2p1_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur2p2_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur2p3_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur2p4_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur2p5_select.setBackgroundResource(R.drawable.select_circle)
 //
-//            binding.cpur3p1Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur3p2Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur3p3Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur3p4Select.setBackgroundResource(R.drawable.select_circle)
-//            binding.cpur3p5Select.setBackgroundResource(R.drawable.select_circle)
+//            cpur3p1_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur3p2_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur3p3_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur3p4_select.setBackgroundResource(R.drawable.select_circle)
+//            cpur3p5_select.setBackgroundResource(R.drawable.select_circle)
 //
-//            binding.cpur0p1Select.setBackgroundResource(R.drawable.select_circle) //Shrawan
+//            cpur0p1_select.setBackgroundResource(R.drawable.select_circle) //Shrawan
 //
 //
 //        }
@@ -2431,614 +3891,614 @@
 //
 //                        // User
 //                        // Row 1
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p2Select -> {
+//                        r3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p3Select -> {
+//                        r3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 3
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r1p4Select -> {
+//                        r1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.GONE
+//                                    r1p5_select.visibility = View.GONE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p5Select -> {
+//                        r1p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
-//                            Log.d("@@@@@@@@@@@", "player :- ${player.id}  ${r0p1Select.id}")
+//                        r0p1_select -> {
+//                            Log.d("@@@@@@@@@@@", "player :- ${player.id}  ${r0p1_select.id}")
 //                            if (playerPower.equals("RED", true)) {
-//                                Log.d("@@@@@@@@@@@", "player :- ${player.id}  ${r0p1Select.id}  $playerPower")
+//                                Log.d("@@@@@@@@@@@", "player :- ${player.id}  ${r0p1_select.id}  $playerPower")
 //                                playerUserCpu5_2_3()
 //                            }
 //                            else {
-//                                Log.d("@@@@@@@@@@@", "player :- ${player.id}  ${r0p1Select.id}")
+//                                Log.d("@@@@@@@@@@@", "player :- ${player.id}  ${r0p1_select.id}")
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.GONE
+//                                    r1p5_select.visibility = View.GONE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // CPU
 //                        // Row 1
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p2Select -> {
+//                        cpur3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p3Select -> {
+//                        cpur3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
-//                                cpur3p2Select.visibility = View.VISIBLE
-//                                cpur2p2Select.visibility = View.VISIBLE
+//                                cpur3p2_select.visibility = View.VISIBLE
+//                                cpur2p2_select.visibility = View.VISIBLE
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 3
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur1p4Select -> {
+//                        cpur1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.GONE
+//                                    cpur1p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur1p5Select -> {
+//                        cpur1p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
 //                            } else {
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            Log.d("*****", "player :- " + player)
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_2_3()
@@ -3046,39 +4506,39 @@
 //                            else {
 //                                Log.d("*****", "player :- " + player)
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.GONE
+//                                    cpur1p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
@@ -3093,341 +4553,341 @@
 //                    when (player) {
 //                        // User
 //                        // Row 1
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
-//                        r2p3Select -> {
+//                        r2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
-//                        r2p4Select -> {
+//                        r2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.GONE
+//                                    r1p5_select.visibility = View.GONE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
 //                        // Row 3
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p4Select -> {
+//                        r1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p5Select -> {
+//                        r1p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.GONE
+//                                    r1p5_select.visibility = View.GONE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -3435,340 +4895,340 @@
 //
 //                        // CPU
 //                        // Row 1
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
-//                        cpur2p3Select -> {
+//                        cpur2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
-//                        cpur2p4Select -> {
+//                        cpur2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.GONE
+//                                    cpur1p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
 //                        // Row 3
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p4Select -> {
+//                        cpur1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p5Select -> {
+//                        cpur1p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            } else {
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_4_1()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.GONE
+//                                    cpur1p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -3778,331 +5238,331 @@
 //                    when (player) {
 //                        // User
 //                        // Row 3
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p2Select -> {
+//                        r3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 2
 //
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r2p3Select -> {
+//                        r2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.GONE
+//                                    r1p5_select.visibility = View.GONE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 1
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r1p4Select -> {
+//                        r1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.GONE
+//                                    r1p5_select.visibility = View.GONE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p5Select -> {
+//                        r1p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r1p5Select.visibility = View.GONE
+//                                    r1p5_select.visibility = View.GONE
 //                                } else {
-//                                    r1p5Select.visibility = View.VISIBLE
+//                                    r1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -4111,329 +5571,329 @@
 //
 //                        // CPU
 //                        // Row 3
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p2Select -> {
+//                        cpur3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur2p3Select -> {
+//                        cpur2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.GONE
+//                                    cpur1p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 1
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur1p4Select -> {
+//                        cpur1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.GONE
+//                                    cpur1p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p5Select -> {
+//                        cpur1p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu5_3_2()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur1p5Select.visibility = View.GONE
+//                                    cpur1p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p5Select.visibility = View.VISIBLE
+//                                    cpur1p5_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -4448,381 +5908,381 @@
 //                        // User
 //                        // Row 1
 //
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        r3p2Select -> {
+//                        r3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        r2p3Select -> {
+//                        r2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
-//                        r2p4Select -> {
+//                        r2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p5Select.visibility = View.GONE
+//                                    r2p5_select.visibility = View.GONE
 //                                } else {
-//                                    r2p5Select.visibility = View.VISIBLE
+//                                    r2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
-//                        r2p5Select -> {
+//                        r2p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 3
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p5Select.visibility = View.GONE
+//                                    r2p5_select.visibility = View.GONE
 //                                } else {
-//                                    r2p5Select.visibility = View.VISIBLE
+//                                    r2p5_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p5Select.visibility = View.GONE
+//                                    r2p5_select.visibility = View.GONE
 //                                } else {
-//                                    r2p5Select.visibility = View.VISIBLE
+//                                    r2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
@@ -4834,381 +6294,381 @@
 //
 //                        // Row 1
 //
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        cpur3p2Select -> {
+//                        cpur3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        cpur2p3Select -> {
+//                        cpur2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
-//                        cpur2p4Select -> {
+//                        cpur2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p5Select.visibility = View.GONE
+//                                    cpur2p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p5Select.visibility = View.VISIBLE
+//                                    cpur2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
-//                        cpur2p5Select -> {
+//                        cpur2p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Row 3
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p5Select.visibility = View.GONE
+//                                    cpur2p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p5Select.visibility = View.VISIBLE
+//                                    cpur2p5_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_5_2()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p5Select.visibility = View.GONE
+//                                    cpur2p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p5Select.visibility = View.VISIBLE
+//                                    cpur2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
@@ -5222,338 +6682,338 @@
 //                    when (player) {
 //                        // User
 //                        // Row 1
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p3Select -> {
+//                        r2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p4Select -> {
+//                        r2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r2p5Select.visibility = View.GONE
+//                                    r2p5_select.visibility = View.GONE
 //                                } else {
-//                                    r2p5Select.visibility = View.VISIBLE
+//                                    r2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r2p5Select -> {
+//                        r2p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //                        // Row 3
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //
 //                            }
 //
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p4Select -> {
+//                        r1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r2p5Select.visibility = View.GONE
+//                                    r2p5_select.visibility = View.GONE
 //                                } else {
-//                                    r2p5Select.visibility = View.VISIBLE
+//                                    r2p5_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r2p5Select.visibility = View.GONE
+//                                    r2p5_select.visibility = View.GONE
 //                                } else {
-//                                    r2p5Select.visibility = View.VISIBLE
+//                                    r2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
@@ -5561,340 +7021,340 @@
 //
 //                        // CPU
 //                        // Row 1
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p3Select -> {
+//                        cpur2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p4Select -> {
+//                        cpur2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur2p5Select.visibility = View.GONE
+//                                    cpur2p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p5Select.visibility = View.VISIBLE
+//                                    cpur2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur2p5Select -> {
+//                        cpur2p5_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
 //                        // Row 3
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //
 //                            }
 //
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p4Select -> {
+//                        cpur1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur2p5Select.visibility = View.GONE
+//                                    cpur2p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p5Select.visibility = View.VISIBLE
+//                                    cpur2p5_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_5_1()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    cpur2p5Select.visibility = View.GONE
+//                                    cpur2p5_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p5Select.visibility = View.VISIBLE
+//                                    cpur2p5_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
@@ -5905,613 +7365,613 @@
 //                    when (player) {
 //                        // User
 //                        // Row 1
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p2Select -> {
+//                        r3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p3Select -> {
+//                        r2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        r2p4Select -> {
+//                        r2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 3
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p4Select -> {
+//                        r1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // CPU
 //                        // Row 1
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p2Select -> {
+//                        cpur3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p3Select -> {
+//                        cpur2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        cpur2p4Select -> {
+//                        cpur2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 3
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p4Select -> {
+//                        cpur1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_4_2()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -6522,590 +7982,590 @@
 //                    when (player) {
 //                        // User
 //                        // Row 3
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r3p2Select -> {
+//                        r3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p3Select -> {
+//                        r3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p3Select -> {
+//                        r2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 1
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        r1p4Select -> {
+//                        r1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // CPU
 //                        // Row 3
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur3p2Select -> {
+//                        cpur3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p3Select -> {
+//                        cpur3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p3Select -> {
+//                        cpur2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 1
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur1p4Select -> {
+//                        cpur1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_3_3()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -7117,644 +8577,644 @@
 //                    when (player) {
 //                        // User
 //                        // Row 3
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        r3p2Select -> {
+//                        r3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p3Select -> {
+//                        r3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //
 //                        }
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p3Select -> {
+//                        r2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p4Select -> {
+//                        r2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 1
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p3Select.visibility = View.GONE
+//                                    r2p3_select.visibility = View.GONE
 //                                } else {
-//                                    r2p3Select.visibility = View.VISIBLE
+//                                    r2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r2p4Select.visibility = View.GONE
+//                                    r2p4_select.visibility = View.GONE
 //                                } else {
-//                                    r2p4Select.visibility = View.VISIBLE
+//                                    r2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Cpu
 //                        // Row 3
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        cpur3p2Select -> {
+//                        cpur3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p3Select -> {
+//                        cpur3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                            }
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p3Select -> {
+//                        cpur2p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p4Select -> {
+//                        cpur2p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 1
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu3_4_3()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p3Select.visibility = View.GONE
+//                                    cpur2p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p3Select.visibility = View.VISIBLE
+//                                    cpur2p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    cpur2p4Select.visibility = View.GONE
+//                                    cpur2p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p4Select.visibility = View.VISIBLE
+//                                    cpur2p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -7764,478 +9224,478 @@
 //                    when (player) {
 //                        // User
 //                        // Row 1
-//                        r3p1Select -> {
+//                        r3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p2Select -> {
+//                        r3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[6].answer.equals("true", true)) {
-//                                    r3p1Select.visibility = View.GONE
+//                                    r3p1_select.visibility = View.GONE
 //                                } else {
-//                                    r3p1Select.visibility = View.VISIBLE
+//                                    r3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p3Select -> {
+//                        r3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[9].answer.equals("true", true)) {
-//                                    r3p4Select.visibility = View.GONE
+//                                    r3p4_select.visibility = View.GONE
 //                                } else {
-//                                    r3p4Select.visibility = View.VISIBLE
+//                                    r3p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r3p4Select -> {
+//                        r3p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 2
-//                        r2p1Select -> {
+//                        r2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[7].answer.equals("true", true)) {
-//                                    r3p2Select.visibility = View.GONE
+//                                    r3p2_select.visibility = View.GONE
 //                                } else {
-//                                    r3p2Select.visibility = View.VISIBLE
+//                                    r3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r2p2Select -> {
+//                        r2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[8].answer.equals("true", true)) {
-//                                    r3p3Select.visibility = View.GONE
+//                                    r3p3_select.visibility = View.GONE
 //                                } else {
-//                                    r3p3Select.visibility = View.VISIBLE
+//                                    r3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 3
-//                        r1p1Select -> {
+//                        r1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p2Select -> {
+//                        r1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p3Select -> {
+//                        r1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        r1p4Select -> {
+//                        r1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    r0p1Select.visibility = View.GONE
+//                                    r0p1_select.visibility = View.GONE
 //                                } else {
-//                                    r0p1Select.visibility = View.VISIBLE
+//                                    r0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        r0p1Select -> {
+//                        r0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    r1p1Select.visibility = View.GONE
+//                                    r1p1_select.visibility = View.GONE
 //                                } else {
-//                                    r1p1Select.visibility = View.VISIBLE
+//                                    r1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    r1p2Select.visibility = View.GONE
+//                                    r1p2_select.visibility = View.GONE
 //                                } else {
-//                                    r1p2Select.visibility = View.VISIBLE
+//                                    r1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    r1p3Select.visibility = View.GONE
+//                                    r1p3_select.visibility = View.GONE
 //                                } else {
-//                                    r1p3Select.visibility = View.VISIBLE
+//                                    r1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    r1p4Select.visibility = View.GONE
+//                                    r1p4_select.visibility = View.GONE
 //                                } else {
-//                                    r1p4Select.visibility = View.VISIBLE
+//                                    r1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    r2p1Select.visibility = View.GONE
+//                                    r2p1_select.visibility = View.GONE
 //                                } else {
-//                                    r2p1Select.visibility = View.VISIBLE
+//                                    r2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    r2p2Select.visibility = View.GONE
+//                                    r2p2_select.visibility = View.GONE
 //                                } else {
-//                                    r2p2Select.visibility = View.VISIBLE
+//                                    r2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        // Cpu
 //                        // Row 1
-//                        cpur3p1Select -> {
+//                        cpur3p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p2Select -> {
+//                        cpur3p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[6].answer.equals("true", true)) {
-//                                    cpur3p1Select.visibility = View.GONE
+//                                    cpur3p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p1Select.visibility = View.VISIBLE
+//                                    cpur3p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p3Select -> {
+//                        cpur3p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[9].answer.equals("true", true)) {
-//                                    cpur3p4Select.visibility = View.GONE
+//                                    cpur3p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p4Select.visibility = View.VISIBLE
+//                                    cpur3p4_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur3p4Select -> {
+//                        cpur3p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 2
-//                        cpur2p1Select -> {
+//                        cpur2p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[7].answer.equals("true", true)) {
-//                                    cpur3p2Select.visibility = View.GONE
+//                                    cpur3p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p2Select.visibility = View.VISIBLE
+//                                    cpur3p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur2p2Select -> {
+//                        cpur2p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[8].answer.equals("true", true)) {
-//                                    cpur3p3Select.visibility = View.GONE
+//                                    cpur3p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur3p3Select.visibility = View.VISIBLE
+//                                    cpur3p3_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //                        // Row 3
-//                        cpur1p1Select -> {
+//                        cpur1p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p2Select -> {
+//                        cpur1p2_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p3Select -> {
+//                        cpur1p3_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allUserPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
-//                        cpur1p4Select -> {
+//                        cpur1p4_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            } else {
 //                                if (allUserPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                //Shrawan
 //                                if (allCpuPlayer[10].answer.equals("true", true)) {
-//                                    cpur0p1Select.visibility = View.GONE
+//                                    cpur0p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur0p1Select.visibility = View.VISIBLE
+//                                    cpur0p1_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
 //
 //                        //Shrawan
-//                        cpur0p1Select -> {
+//                        cpur0p1_select -> {
 //                            if (playerPower.equals("RED", true)) {
 //                                playerUserCpu4_2_4()
 //                            }
 //                            else {
 //                                if (allCpuPlayer[0].answer.equals("true", true)) {
-//                                    cpur1p1Select.visibility = View.GONE
+//                                    cpur1p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p1Select.visibility = View.VISIBLE
+//                                    cpur1p1_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[1].answer.equals("true", true)) {
-//                                    cpur1p2Select.visibility = View.GONE
+//                                    cpur1p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p2Select.visibility = View.VISIBLE
+//                                    cpur1p2_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[2].answer.equals("true", true)) {
-//                                    cpur1p3Select.visibility = View.GONE
+//                                    cpur1p3_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p3Select.visibility = View.VISIBLE
+//                                    cpur1p3_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[3].answer.equals("true", true)) {
-//                                    cpur1p4Select.visibility = View.GONE
+//                                    cpur1p4_select.visibility = View.GONE
 //                                } else {
-//                                    cpur1p4Select.visibility = View.VISIBLE
+//                                    cpur1p4_select.visibility = View.VISIBLE
 //                                }
 //                                if (allCpuPlayer[4].answer.equals("true", true)) {
-//                                    cpur2p1Select.visibility = View.GONE
+//                                    cpur2p1_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p1Select.visibility = View.VISIBLE
+//                                    cpur2p1_select.visibility = View.VISIBLE
 //                                }
 //
 //                                if (allCpuPlayer[5].answer.equals("true", true)) {
-//                                    cpur2p2Select.visibility = View.GONE
+//                                    cpur2p2_select.visibility = View.GONE
 //                                } else {
-//                                    cpur2p2Select.visibility = View.VISIBLE
+//                                    cpur2p2_select.visibility = View.VISIBLE
 //                                }
 //                            }
 //                        }
@@ -8243,7 +9703,7 @@
 //                    }
 //                } // Done
 //                else -> {
-//                    Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTHSHORT).show()
+//                    Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTH_SHORT).show()
 //                }
 //            }
 //        }
@@ -8253,375 +9713,375 @@
 //    private fun playerUserCpu5_2_3() {
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r1p4Select.visibility = View.GONE
+//            r1p4_select.visibility = View.GONE
 //        } else {
-//            r1p4Select.visibility = View.VISIBLE
+//            r1p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r1p5Select.visibility = View.GONE
+//            r1p5_select.visibility = View.GONE
 //        } else {
-//            r1p5Select.visibility = View.VISIBLE
+//            r1p5_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r3p2Select.visibility = View.GONE
+//            r3p2_select.visibility = View.GONE
 //        } else {
-//            r3p2Select.visibility = View.VISIBLE
+//            r3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p3Select.visibility = View.GONE
+//            r3p3_select.visibility = View.GONE
 //        } else {
-//            r3p3Select.visibility = View.VISIBLE
+//            r3p3_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur1p4Select.visibility = View.GONE
+//            cpur1p4_select.visibility = View.GONE
 //        } else {
-//            cpur1p4Select.visibility = View.VISIBLE
+//            cpur1p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur1p5Select.visibility = View.GONE
+//            cpur1p5_select.visibility = View.GONE
 //        } else {
-//            cpur1p5Select.visibility = View.VISIBLE
+//            cpur1p5_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur3p2Select.visibility = View.GONE
+//            cpur3p2_select.visibility = View.GONE
 //        } else {
-//            cpur3p2Select.visibility = View.VISIBLE
+//            cpur3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p3Select.visibility = View.GONE
+//            cpur3p3_select.visibility = View.GONE
 //        } else {
-//            cpur3p3Select.visibility = View.VISIBLE
+//            cpur3p3_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //    }
 //    // This function call for 5-4-1
 //    private fun playerUserCpu5_4_1() {
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r1p4Select.visibility = View.GONE
+//            r1p4_select.visibility = View.GONE
 //        } else {
-//            r1p4Select.visibility = View.VISIBLE
+//            r1p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r1p5Select.visibility = View.GONE
+//            r1p5_select.visibility = View.GONE
 //        } else {
-//            r1p5Select.visibility = View.VISIBLE
+//            r1p5_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r2p3Select.visibility = View.GONE
+//            r2p3_select.visibility = View.GONE
 //        } else {
-//            r2p3Select.visibility = View.VISIBLE
+//            r2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r2p4Select.visibility = View.GONE
+//            r2p4_select.visibility = View.GONE
 //        } else {
-//            r2p4Select.visibility = View.VISIBLE
+//            r2p4_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur1p4Select.visibility = View.GONE
+//            cpur1p4_select.visibility = View.GONE
 //        } else {
-//            cpur1p4Select.visibility = View.VISIBLE
+//            cpur1p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur1p5Select.visibility = View.GONE
+//            cpur1p5_select.visibility = View.GONE
 //        } else {
-//            cpur1p5Select.visibility = View.VISIBLE
+//            cpur1p5_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur2p3Select.visibility = View.GONE
+//            cpur2p3_select.visibility = View.GONE
 //        } else {
-//            cpur2p3Select.visibility = View.VISIBLE
+//            cpur2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur2p4Select.visibility = View.GONE
+//            cpur2p4_select.visibility = View.GONE
 //        } else {
-//            cpur2p4Select.visibility = View.VISIBLE
+//            cpur2p4_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //    }
 //    // This function call for 5-3-2
 //    private fun playerUserCpu5_3_2() {
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r1p4Select.visibility = View.GONE
+//            r1p4_select.visibility = View.GONE
 //        } else {
-//            r1p4Select.visibility = View.VISIBLE
+//            r1p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r1p5Select.visibility = View.GONE
+//            r1p5_select.visibility = View.GONE
 //        } else {
-//            r1p5Select.visibility = View.VISIBLE
+//            r1p5_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r2p3Select.visibility = View.GONE
+//            r2p3_select.visibility = View.GONE
 //        } else {
-//            r2p3Select.visibility = View.VISIBLE
+//            r2p3_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p2Select.visibility = View.GONE
+//            r3p2_select.visibility = View.GONE
 //        } else {
-//            r3p2Select.visibility = View.VISIBLE
+//            r3p2_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur1p4Select.visibility = View.GONE
+//            cpur1p4_select.visibility = View.GONE
 //        } else {
-//            cpur1p4Select.visibility = View.VISIBLE
+//            cpur1p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur1p5Select.visibility = View.GONE
+//            cpur1p5_select.visibility = View.GONE
 //        } else {
-//            cpur1p5Select.visibility = View.VISIBLE
+//            cpur1p5_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur2p3Select.visibility = View.GONE
+//            cpur2p3_select.visibility = View.GONE
 //        } else {
-//            cpur2p3Select.visibility = View.VISIBLE
+//            cpur2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p2Select.visibility = View.GONE
+//            cpur3p2_select.visibility = View.GONE
 //        } else {
-//            cpur3p2Select.visibility = View.VISIBLE
+//            cpur3p2_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //
 //
@@ -8631,135 +10091,135 @@
 //
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p3Select.visibility = View.GONE
+//            r2p3_select.visibility = View.GONE
 //        } else {
-//            r2p3Select.visibility = View.VISIBLE
+//            r2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p4Select.visibility = View.GONE
+//            r2p4_select.visibility = View.GONE
 //        } else {
-//            r2p4Select.visibility = View.VISIBLE
+//            r2p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r2p5Select.visibility = View.GONE
+//            r2p5_select.visibility = View.GONE
 //        } else {
-//            r2p5Select.visibility = View.VISIBLE
+//            r2p5_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p2Select.visibility = View.GONE
+//            r3p2_select.visibility = View.GONE
 //        } else {
-//            r3p2Select.visibility = View.VISIBLE
+//            r3p2_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p3Select.visibility = View.GONE
+//            cpur2p3_select.visibility = View.GONE
 //        } else {
-//            cpur2p3Select.visibility = View.VISIBLE
+//            cpur2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p4Select.visibility = View.GONE
+//            cpur2p4_select.visibility = View.GONE
 //        } else {
-//            cpur2p4Select.visibility = View.VISIBLE
+//            cpur2p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur2p5Select.visibility = View.GONE
+//            cpur2p5_select.visibility = View.GONE
 //        } else {
-//            cpur2p5Select.visibility = View.VISIBLE
+//            cpur2p5_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p2Select.visibility = View.GONE
+//            cpur3p2_select.visibility = View.GONE
 //        } else {
-//            cpur3p2Select.visibility = View.VISIBLE
+//            cpur3p2_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //
 //
@@ -8769,128 +10229,128 @@
 //
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r1p4Select.visibility = View.GONE
+//            r1p4_select.visibility = View.GONE
 //        } else {
-//            r1p4Select.visibility = View.VISIBLE
+//            r1p4_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p3Select.visibility = View.GONE
+//            r2p3_select.visibility = View.GONE
 //        } else {
-//            r2p3Select.visibility = View.VISIBLE
+//            r2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r2p4Select.visibility = View.GONE
+//            r2p4_select.visibility = View.GONE
 //        } else {
-//            r2p4Select.visibility = View.VISIBLE
+//            r2p4_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r2p5Select.visibility = View.GONE
+//            r2p5_select.visibility = View.GONE
 //        } else {
-//            r2p5Select.visibility = View.VISIBLE
+//            r2p5_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur1p4Select.visibility = View.GONE
+//            cpur1p4_select.visibility = View.GONE
 //        } else {
-//            cpur1p4Select.visibility = View.VISIBLE
+//            cpur1p4_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p3Select.visibility = View.GONE
+//            cpur2p3_select.visibility = View.GONE
 //        } else {
-//            cpur2p3Select.visibility = View.VISIBLE
+//            cpur2p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur2p4Select.visibility = View.GONE
+//            cpur2p4_select.visibility = View.GONE
 //        } else {
-//            cpur2p4Select.visibility = View.VISIBLE
+//            cpur2p4_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur2p5Select.visibility = View.GONE
+//            cpur2p5_select.visibility = View.GONE
 //        } else {
-//            cpur2p5Select.visibility = View.VISIBLE
+//            cpur2p5_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //    }
 //    // This function call for 4-4-2
@@ -8898,139 +10358,139 @@
 //
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r1p4Select.visibility = View.GONE
+//            r1p4_select.visibility = View.GONE
 //        } else {
-//            r1p4Select.visibility = View.VISIBLE
+//            r1p4_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p3Select.visibility = View.GONE
+//            r2p3_select.visibility = View.GONE
 //        } else {
-//            r2p3Select.visibility = View.VISIBLE
+//            r2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r2p4Select.visibility = View.GONE
+//            r2p4_select.visibility = View.GONE
 //        } else {
-//            r2p4Select.visibility = View.VISIBLE
+//            r2p4_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p2Select.visibility = View.GONE
+//            r3p2_select.visibility = View.GONE
 //        } else {
-//            r3p2Select.visibility = View.VISIBLE
+//            r3p2_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur1p4Select.visibility = View.GONE
+//            cpur1p4_select.visibility = View.GONE
 //        } else {
-//            cpur1p4Select.visibility = View.VISIBLE
+//            cpur1p4_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p3Select.visibility = View.GONE
+//            cpur2p3_select.visibility = View.GONE
 //        } else {
-//            cpur2p3Select.visibility = View.VISIBLE
+//            cpur2p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur2p4Select.visibility = View.GONE
+//            cpur2p4_select.visibility = View.GONE
 //        } else {
-//            cpur2p4Select.visibility = View.VISIBLE
+//            cpur2p4_select.visibility = View.VISIBLE
 //        }
 //
 //
 //
 //
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p2Select.visibility = View.GONE
+//            cpur3p2_select.visibility = View.GONE
 //        } else {
-//            cpur3p2Select.visibility = View.VISIBLE
+//            cpur3p2_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //
 //
@@ -9039,121 +10499,121 @@
 //    private fun playerUserCpu4_3_3() {
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r1p4Select.visibility = View.GONE
+//            r1p4_select.visibility = View.GONE
 //        } else {
-//            r1p4Select.visibility = View.VISIBLE
+//            r1p4_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p3Select.visibility = View.GONE
+//            r2p3_select.visibility = View.GONE
 //        } else {
-//            r2p3Select.visibility = View.VISIBLE
+//            r2p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r3p2Select.visibility = View.GONE
+//            r3p2_select.visibility = View.GONE
 //        } else {
-//            r3p2Select.visibility = View.VISIBLE
+//            r3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p3Select.visibility = View.GONE
+//            r3p3_select.visibility = View.GONE
 //        } else {
-//            r3p3Select.visibility = View.VISIBLE
+//            r3p3_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur1p4Select.visibility = View.GONE
+//            cpur1p4_select.visibility = View.GONE
 //        } else {
-//            cpur1p4Select.visibility = View.VISIBLE
+//            cpur1p4_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p3Select.visibility = View.GONE
+//            cpur2p3_select.visibility = View.GONE
 //        } else {
-//            cpur2p3Select.visibility = View.VISIBLE
+//            cpur2p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur3p2Select.visibility = View.GONE
+//            cpur3p2_select.visibility = View.GONE
 //        } else {
-//            cpur3p2Select.visibility = View.VISIBLE
+//            cpur3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p3Select.visibility = View.GONE
+//            cpur3p3_select.visibility = View.GONE
 //        } else {
-//            cpur3p3Select.visibility = View.VISIBLE
+//            cpur3p3_select.visibility = View.VISIBLE
 //        }
 //
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //
 //    }
@@ -9161,236 +10621,236 @@
 //    private fun playerUserCpu3_4_3() {
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p3Select.visibility = View.GONE
+//            r2p3_select.visibility = View.GONE
 //        } else {
-//            r2p3Select.visibility = View.VISIBLE
+//            r2p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r2p4Select.visibility = View.GONE
+//            r2p4_select.visibility = View.GONE
 //        } else {
-//            r2p4Select.visibility = View.VISIBLE
+//            r2p4_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r3p2Select.visibility = View.GONE
+//            r3p2_select.visibility = View.GONE
 //        } else {
-//            r3p2Select.visibility = View.VISIBLE
+//            r3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p3Select.visibility = View.GONE
+//            r3p3_select.visibility = View.GONE
 //        } else {
-//            r3p3Select.visibility = View.VISIBLE
+//            r3p3_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p3Select.visibility = View.GONE
+//            cpur2p3_select.visibility = View.GONE
 //        } else {
-//            cpur2p3Select.visibility = View.VISIBLE
+//            cpur2p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur2p4Select.visibility = View.GONE
+//            cpur2p4_select.visibility = View.GONE
 //        } else {
-//            cpur2p4Select.visibility = View.VISIBLE
+//            cpur2p4_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur3p2Select.visibility = View.GONE
+//            cpur3p2_select.visibility = View.GONE
 //        } else {
-//            cpur3p2Select.visibility = View.VISIBLE
+//            cpur3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p3Select.visibility = View.GONE
+//            cpur3p3_select.visibility = View.GONE
 //        } else {
-//            cpur3p3Select.visibility = View.VISIBLE
+//            cpur3p3_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //    }
 //    // This function call for 4-2-4
 //    private fun playerUserCpu4_2_4() {
 //        // User
 //        if (allCpuPlayer[0].answer.equals("true", true)) {
-//            r1p1Select.visibility = View.GONE
+//            r1p1_select.visibility = View.GONE
 //        } else {
-//            r1p1Select.visibility = View.VISIBLE
+//            r1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[1].answer.equals("true", true)) {
-//            r1p2Select.visibility = View.GONE
+//            r1p2_select.visibility = View.GONE
 //        } else {
-//            r1p2Select.visibility = View.VISIBLE
+//            r1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[2].answer.equals("true", true)) {
-//            r1p3Select.visibility = View.GONE
+//            r1p3_select.visibility = View.GONE
 //        } else {
-//            r1p3Select.visibility = View.VISIBLE
+//            r1p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[3].answer.equals("true", true)) {
-//            r1p4Select.visibility = View.GONE
+//            r1p4_select.visibility = View.GONE
 //        } else {
-//            r1p4Select.visibility = View.VISIBLE
+//            r1p4_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[4].answer.equals("true", true)) {
-//            r2p1Select.visibility = View.GONE
+//            r2p1_select.visibility = View.GONE
 //        } else {
-//            r2p1Select.visibility = View.VISIBLE
+//            r2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[5].answer.equals("true", true)) {
-//            r2p2Select.visibility = View.GONE
+//            r2p2_select.visibility = View.GONE
 //        } else {
-//            r2p2Select.visibility = View.VISIBLE
+//            r2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[6].answer.equals("true", true)) {
-//            r3p1Select.visibility = View.GONE
+//            r3p1_select.visibility = View.GONE
 //        } else {
-//            r3p1Select.visibility = View.VISIBLE
+//            r3p1_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[7].answer.equals("true", true)) {
-//            r3p2Select.visibility = View.GONE
+//            r3p2_select.visibility = View.GONE
 //        } else {
-//            r3p2Select.visibility = View.VISIBLE
+//            r3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[8].answer.equals("true", true)) {
-//            r3p3Select.visibility = View.GONE
+//            r3p3_select.visibility = View.GONE
 //        } else {
-//            r3p3Select.visibility = View.VISIBLE
+//            r3p3_select.visibility = View.VISIBLE
 //        }
 //        if (allCpuPlayer[9].answer.equals("true", true)) {
-//            r3p4Select.visibility = View.GONE
+//            r3p4_select.visibility = View.GONE
 //        } else {
-//            r3p4Select.visibility = View.VISIBLE
+//            r3p4_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allCpuPlayer[10].answer.equals("true", true)) {
-//            r0p1Select.visibility = View.GONE
+//            r0p1_select.visibility = View.GONE
 //        } else {
-//            r0p1Select.visibility = View.VISIBLE
+//            r0p1_select.visibility = View.VISIBLE
 //        }
 //        // Cpu
 //        if (allUserPlayer[0].answer.equals("true", true)) {
-//            cpur1p1Select.visibility = View.GONE
+//            cpur1p1_select.visibility = View.GONE
 //        } else {
-//            cpur1p1Select.visibility = View.VISIBLE
+//            cpur1p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[1].answer.equals("true", true)) {
-//            cpur1p2Select.visibility = View.GONE
+//            cpur1p2_select.visibility = View.GONE
 //        } else {
-//            cpur1p2Select.visibility = View.VISIBLE
+//            cpur1p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[2].answer.equals("true", true)) {
-//            cpur1p3Select.visibility = View.GONE
+//            cpur1p3_select.visibility = View.GONE
 //        } else {
-//            cpur1p3Select.visibility = View.VISIBLE
+//            cpur1p3_select.visibility = View.VISIBLE
 //        }
 //
 //        if (allUserPlayer[3].answer.equals("true", true)) {
-//            cpur1p4Select.visibility = View.GONE
+//            cpur1p4_select.visibility = View.GONE
 //        } else {
-//            cpur1p4Select.visibility = View.VISIBLE
+//            cpur1p4_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[4].answer.equals("true", true)) {
-//            cpur2p1Select.visibility = View.GONE
+//            cpur2p1_select.visibility = View.GONE
 //        } else {
-//            cpur2p1Select.visibility = View.VISIBLE
+//            cpur2p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[5].answer.equals("true", true)) {
-//            cpur2p2Select.visibility = View.GONE
+//            cpur2p2_select.visibility = View.GONE
 //        } else {
-//            cpur2p2Select.visibility = View.VISIBLE
+//            cpur2p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[6].answer.equals("true", true)) {
-//            cpur3p1Select.visibility = View.GONE
+//            cpur3p1_select.visibility = View.GONE
 //        } else {
-//            cpur3p1Select.visibility = View.VISIBLE
+//            cpur3p1_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[7].answer.equals("true", true)) {
-//            cpur3p2Select.visibility = View.GONE
+//            cpur3p2_select.visibility = View.GONE
 //        } else {
-//            cpur3p2Select.visibility = View.VISIBLE
+//            cpur3p2_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[8].answer.equals("true", true)) {
-//            cpur3p3Select.visibility = View.GONE
+//            cpur3p3_select.visibility = View.GONE
 //        } else {
-//            cpur3p3Select.visibility = View.VISIBLE
+//            cpur3p3_select.visibility = View.VISIBLE
 //        }
 //        if (allUserPlayer[9].answer.equals("true", true)) {
-//            cpur3p4Select.visibility = View.GONE
+//            cpur3p4_select.visibility = View.GONE
 //        } else {
-//            cpur3p4Select.visibility = View.VISIBLE
+//            cpur3p4_select.visibility = View.VISIBLE
 //        }
 //        //Shrawan
 //        if (allUserPlayer[10].answer.equals("true", true)) {
-//            cpur0p1Select.visibility = View.GONE
+//            cpur0p1_select.visibility = View.GONE
 //        } else {
-//            cpur0p1Select.visibility = View.VISIBLE
+//            cpur0p1_select.visibility = View.VISIBLE
 //        }
 //    }
 //
@@ -9401,102 +10861,102 @@
 //                var setName = 0
 //
 //                if (r1p1.visibility == View.VISIBLE) {
-//                    r1p1Name.text = allCpuPlayer[setName].name
-//                    r1p1Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r1p1Id.text = allCpuPlayer[setName].id
+//                    r1p1_name.text = allCpuPlayer[setName].name
+//                    r1p1_number.text = allCpuPlayer[setName].jersey_number
+//                    r1p1_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r1p2.visibility == View.VISIBLE) {
-//                    r1p2Name.text = allCpuPlayer[setName].name
-//                    r1p2Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r1p2Id.text = allCpuPlayer[setName].id
+//                    r1p2_name.text = allCpuPlayer[setName].name
+//                    r1p2_number.text = allCpuPlayer[setName].jersey_number
+//                    r1p2_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r1p3.visibility == View.VISIBLE) {
-//                    r1p3Name.text = allCpuPlayer[setName].name
-//                    r1p3Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r1p3Id.text = allCpuPlayer[setName].id
+//                    r1p3_name.text = allCpuPlayer[setName].name
+//                    r1p3_number.text = allCpuPlayer[setName].jersey_number
+//                    r1p3_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r1p4.visibility == View.VISIBLE) {
-//                    r1p4Name.text = allCpuPlayer[setName].name
-//                    r1p4Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r1p4Id.text = allCpuPlayer[setName].id
+//                    r1p4_name.text = allCpuPlayer[setName].name
+//                    r1p4_number.text = allCpuPlayer[setName].jersey_number
+//                    r1p4_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r1p5.visibility == View.VISIBLE) {
-//                    r1p5Name.text = allCpuPlayer[setName].name
-//                    r1p5Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r1p5Id.text = allCpuPlayer[setName].id
+//                    r1p5_name.text = allCpuPlayer[setName].name
+//                    r1p5_number.text = allCpuPlayer[setName].jersey_number
+//                    r1p5_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r2p1.visibility == View.VISIBLE) {
-//                    r2p1Name.text = allCpuPlayer[setName].name
-//                    r2p1Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r2p1Id.text = allCpuPlayer[setName].id
+//                    r2p1_name.text = allCpuPlayer[setName].name
+//                    r2p1_number.text = allCpuPlayer[setName].jersey_number
+//                    r2p1_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r2p2.visibility == View.VISIBLE) {
-//                    r2p2Name.text = allCpuPlayer[setName].name
-//                    r2p2Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r2p2Id.text = allCpuPlayer[setName].id
+//                    r2p2_name.text = allCpuPlayer[setName].name
+//                    r2p2_number.text = allCpuPlayer[setName].jersey_number
+//                    r2p2_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r2p3.visibility == View.VISIBLE) {
-//                    r2p3Name.text = allCpuPlayer[setName].name
-//                    r2p3Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r2p3Id.text = allCpuPlayer[setName].id
+//                    r2p3_name.text = allCpuPlayer[setName].name
+//                    r2p3_number.text = allCpuPlayer[setName].jersey_number
+//                    r2p3_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r2p4.visibility == View.VISIBLE) {
-//                    r2p4Name.text = allCpuPlayer[setName].name
-//                    r2p4Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r2p4Id.text = allCpuPlayer[setName].id
+//                    r2p4_name.text = allCpuPlayer[setName].name
+//                    r2p4_number.text = allCpuPlayer[setName].jersey_number
+//                    r2p4_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r2p5.visibility == View.VISIBLE) {
-//                    r2p5Name.text = allCpuPlayer[setName].name
-//                    r2p5Number.text = allCpuPlayer[setName].jerseyNumber
-//                    r2p5Id.text = allCpuPlayer[setName].id
+//                    r2p5_name.text = allCpuPlayer[setName].name
+//                    r2p5_number.text = allCpuPlayer[setName].jersey_number
+//                    r2p5_id.text = allCpuPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (r3p1.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        r3p1Name.text = allCpuPlayer[setName].name
-//                        r3p1Number.text = allCpuPlayer[setName].jerseyNumber
-//                        r3p1Id.text = allCpuPlayer[setName].id
+//                        r3p1_name.text = allCpuPlayer[setName].name
+//                        r3p1_number.text = allCpuPlayer[setName].jersey_number
+//                        r3p1_id.text = allCpuPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (r3p2.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        r3p2Name.text = allCpuPlayer[setName].name
-//                        r3p2Number.text = allCpuPlayer[setName].jerseyNumber
-//                        r3p2Id.text = allCpuPlayer[setName].id
+//                        r3p2_name.text = allCpuPlayer[setName].name
+//                        r3p2_number.text = allCpuPlayer[setName].jersey_number
+//                        r3p2_id.text = allCpuPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (r3p3.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        r3p3Name.text = allCpuPlayer[setName].name
-//                        r3p3Number.text = allCpuPlayer[setName].jerseyNumber
-//                        r3p3Id.text = allCpuPlayer[setName].id
+//                        r3p3_name.text = allCpuPlayer[setName].name
+//                        r3p3_number.text = allCpuPlayer[setName].jersey_number
+//                        r3p3_id.text = allCpuPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (r3p4.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        r3p4Name.text = allCpuPlayer[setName].name
-//                        r3p4Number.text = allCpuPlayer[setName].jerseyNumber
-//                        r3p4Id.text = allCpuPlayer[setName].id
+//                        r3p4_name.text = allCpuPlayer[setName].name
+//                        r3p4_number.text = allCpuPlayer[setName].jersey_number
+//                        r3p4_id.text = allCpuPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (r3p5.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        r3p5Name.text = allCpuPlayer[setName].name
-//                        r3p5Number.text = allCpuPlayer[setName].jerseyNumber
-//                        r3p5Id.text = allCpuPlayer[setName].id
+//                        r3p5_name.text = allCpuPlayer[setName].name
+//                        r3p5_number.text = allCpuPlayer[setName].jersey_number
+//                        r3p5_id.text = allCpuPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
@@ -9504,9 +10964,9 @@
 //                //Shrawan
 //                if (r0p1.visibility == View.VISIBLE) {
 //                    if (setName <= 10) {
-//                        r0p1Name.text = allCpuPlayer[setName].name
-//                        r0p1Number.text = allCpuPlayer[setName].jerseyNumber
-//                        r0p1Id.text = allCpuPlayer[setName].id
+//                        r0p1_name.text = allCpuPlayer[setName].name
+//                        r0p1_number.text = allCpuPlayer[setName].jersey_number
+//                        r0p1_id.text = allCpuPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
@@ -9522,102 +10982,102 @@
 //            try {
 //                var setName = 0
 //                if (cpur1p1.visibility == View.VISIBLE) {
-//                    cpur1p1Name.text = allUserPlayer[setName].name
-//                    cpur1p1Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur1p1Id.text = allUserPlayer[setName].id
+//                    cpur1p1_name.text = allUserPlayer[setName].name
+//                    cpur1p1_number.text = allUserPlayer[setName].jersey_number
+//                    cpur1p1_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur1p2.visibility == View.VISIBLE) {
-//                    cpur1p2Name.text = allUserPlayer[setName].name
-//                    cpur1p2Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur1p2Id.text = allUserPlayer[setName].id
+//                    cpur1p2_name.text = allUserPlayer[setName].name
+//                    cpur1p2_number.text = allUserPlayer[setName].jersey_number
+//                    cpur1p2_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur1p3.visibility == View.VISIBLE) {
-//                    cpur1p3Name.text = allUserPlayer[setName].name
-//                    cpur1p3Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur1p3Id.text = allUserPlayer[setName].id
+//                    cpur1p3_name.text = allUserPlayer[setName].name
+//                    cpur1p3_number.text = allUserPlayer[setName].jersey_number
+//                    cpur1p3_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur1p4.visibility == View.VISIBLE) {
-//                    cpur1p4Name.text = allUserPlayer[setName].name
-//                    cpur1p4Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur1p4Id.text = allUserPlayer[setName].id
+//                    cpur1p4_name.text = allUserPlayer[setName].name
+//                    cpur1p4_number.text = allUserPlayer[setName].jersey_number
+//                    cpur1p4_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur1p5.visibility == View.VISIBLE) {
-//                    cpur1p5Name.text = allUserPlayer[setName].name
-//                    cpur1p5Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur1p5Id.text = allUserPlayer[setName].id
+//                    cpur1p5_name.text = allUserPlayer[setName].name
+//                    cpur1p5_number.text = allUserPlayer[setName].jersey_number
+//                    cpur1p5_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur2p1.visibility == View.VISIBLE) {
-//                    cpur2p1Name.text = allUserPlayer[setName].name
-//                    cpur2p1Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur2p1Id.text = allUserPlayer[setName].id
+//                    cpur2p1_name.text = allUserPlayer[setName].name
+//                    cpur2p1_number.text = allUserPlayer[setName].jersey_number
+//                    cpur2p1_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur2p2.visibility == View.VISIBLE) {
-//                    cpur2p2Name.text = allUserPlayer[setName].name
-//                    cpur2p2Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur2p2Id.text = allUserPlayer[setName].id
+//                    cpur2p2_name.text = allUserPlayer[setName].name
+//                    cpur2p2_number.text = allUserPlayer[setName].jersey_number
+//                    cpur2p2_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur2p3.visibility == View.VISIBLE) {
-//                    cpur2p3Name.text = allUserPlayer[setName].name
-//                    cpur2p3Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur2p3Id.text = allUserPlayer[setName].id
+//                    cpur2p3_name.text = allUserPlayer[setName].name
+//                    cpur2p3_number.text = allUserPlayer[setName].jersey_number
+//                    cpur2p3_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur2p4.visibility == View.VISIBLE) {
-//                    cpur2p4Name.text = allUserPlayer[setName].name
-//                    cpur2p4Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur2p4Id.text = allUserPlayer[setName].id
+//                    cpur2p4_name.text = allUserPlayer[setName].name
+//                    cpur2p4_number.text = allUserPlayer[setName].jersey_number
+//                    cpur2p4_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur2p5.visibility == View.VISIBLE) {
-//                    cpur2p5Name.text = allUserPlayer[setName].name
-//                    cpur2p5Number.text = allUserPlayer[setName].jerseyNumber
-//                    cpur2p5Id.text = allUserPlayer[setName].id
+//                    cpur2p5_name.text = allUserPlayer[setName].name
+//                    cpur2p5_number.text = allUserPlayer[setName].jersey_number
+//                    cpur2p5_id.text = allUserPlayer[setName].id
 //                    setName += 1
 //                }
 //                if (cpur3p1.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        cpur3p1Name.text = allUserPlayer[setName].name
-//                        cpur3p1Number.text = allUserPlayer[setName].jerseyNumber
-//                        cpur3p1Id.text = allUserPlayer[setName].id
+//                        cpur3p1_name.text = allUserPlayer[setName].name
+//                        cpur3p1_number.text = allUserPlayer[setName].jersey_number
+//                        cpur3p1_id.text = allUserPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (cpur3p2.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        cpur3p2Name.text = allUserPlayer[setName].name
-//                        cpur3p2Number.text = allUserPlayer[setName].jerseyNumber
-//                        cpur3p2Id.text = allUserPlayer[setName].id
+//                        cpur3p2_name.text = allUserPlayer[setName].name
+//                        cpur3p2_number.text = allUserPlayer[setName].jersey_number
+//                        cpur3p2_id.text = allUserPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (cpur3p3.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        cpur3p3Name.text = allUserPlayer[setName].name
-//                        cpur3p3Number.text = allUserPlayer[setName].jerseyNumber
-//                        cpur3p3Id.text = allUserPlayer[setName].id
+//                        cpur3p3_name.text = allUserPlayer[setName].name
+//                        cpur3p3_number.text = allUserPlayer[setName].jersey_number
+//                        cpur3p3_id.text = allUserPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (cpur3p4.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        cpur3p4Name.text = allUserPlayer[setName].name
-//                        cpur3p4Number.text = allUserPlayer[setName].jerseyNumber
-//                        cpur3p4Id.text = allUserPlayer[setName].id
+//                        cpur3p4_name.text = allUserPlayer[setName].name
+//                        cpur3p4_number.text = allUserPlayer[setName].jersey_number
+//                        cpur3p4_id.text = allUserPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
 //                if (cpur3p5.visibility == View.VISIBLE) {
 //                    if (setName <= 9) {
-//                        cpur3p5Name.text = allUserPlayer[setName].name
-//                        cpur3p5Number.text = allUserPlayer[setName].jerseyNumber
-//                        cpur3p5Id.text = allUserPlayer[setName].id
+//                        cpur3p5_name.text = allUserPlayer[setName].name
+//                        cpur3p5_number.text = allUserPlayer[setName].jersey_number
+//                        cpur3p5_id.text = allUserPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
@@ -9625,9 +11085,9 @@
 //                //Shrawan
 //                if (cpur0p1.visibility == View.VISIBLE) {
 //                    if (setName <= 10) {
-//                        cpur0p1Name.text = allUserPlayer[setName].name
-//                        cpur0p1Number.text = allUserPlayer[setName].jerseyNumber
-//                        cpur0p1Id.text = allUserPlayer[setName].id
+//                        cpur0p1_name.text = allUserPlayer[setName].name
+//                        cpur0p1_number.text = allUserPlayer[setName].jersey_number
+//                        cpur0p1_id.text = allUserPlayer[setName].id
 //                    }
 //                    setName += 1
 //                }
@@ -9641,299 +11101,299 @@
 //    private fun showRightAnswerName() {
 //        try {
 //            if (!isTimerFinish) {
-//                if (allCpuPlayer[r1p1Id.text.toString().toInt() - 1].answer == "true" && r1p1.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r1p1_id.text.toString().toInt() - 1].answer == "true" && r1p1.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r1p1Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r1p1Id.text.toString().toInt() - 1].countryId
+//                    r1p1_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r1p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r1p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r1p1Name.setTextColor(textColor)
-//                    r1p1Number.setTextColor(textColor)
+//                    r1p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r1p1_name.setTextColor(textColor)
+//                    r1p1_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r1p2Id.text.toString().toInt() - 1].answer == "true" && r1p2.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r1p2_id.text.toString().toInt() - 1].answer == "true" && r1p2.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r1p2Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r1p2Id.text.toString().toInt() - 1].countryId
+//                    r1p2_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r1p2_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r1p2Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r1p2Name.setTextColor(textColor)
-//                    r1p2Number.setTextColor(textColor)
+//                    r1p2_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r1p2_name.setTextColor(textColor)
+//                    r1p2_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r1p3Id.text.toString().toInt() - 1].answer == "true" && r1p3.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r1p3_id.text.toString().toInt() - 1].answer == "true" && r1p3.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r1p3Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r1p3Id.text.toString().toInt() - 1].countryId
+//                    r1p3_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r1p3_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r1p3Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r1p3Name.setTextColor(textColor)
-//                    r1p3Number.setTextColor(textColor)
+//                    r1p3_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r1p3_name.setTextColor(textColor)
+//                    r1p3_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r1p4Id.text.toString().toInt() - 1].answer == "true" && r1p4.visibility == View.VISIBLE) {
-//                    r1p4Txt.visibility = View.VISIBLE
+//                if (allCpuPlayer[r1p4_id.text.toString().toInt() - 1].answer == "true" && r1p4.visibility == View.VISIBLE) {
+//                    r1p4_txt.visibility = View.VISIBLE
 //                    totalPlayerNameShow += 1
-//                    val countryID = allCpuPlayer[r1p4Id.text.toString().toInt() - 1].countryId
+//                    val countryID = allCpuPlayer[r1p4_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r1p4Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r1p4Name.setTextColor(textColor)
-//                    r1p4Number.setTextColor(textColor)
+//                    r1p4_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r1p4_name.setTextColor(textColor)
+//                    r1p4_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r1p5Id.text.toString().toInt() - 1].answer == "true" && r1p5.visibility == View.VISIBLE) {
-//                    r1p5Txt.visibility = View.VISIBLE
+//                if (allCpuPlayer[r1p5_id.text.toString().toInt() - 1].answer == "true" && r1p5.visibility == View.VISIBLE) {
+//                    r1p5_txt.visibility = View.VISIBLE
 //                    totalPlayerNameShow += 1
-//                    val countryID = allCpuPlayer[r1p5Id.text.toString().toInt() - 1].countryId
+//                    val countryID = allCpuPlayer[r1p5_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r1p5Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r1p5Name.setTextColor(textColor)
-//                    r1p5Number.setTextColor(textColor)
+//                    r1p5_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r1p5_name.setTextColor(textColor)
+//                    r1p5_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r2p1Id.text.toString().toInt() - 1].answer == "true" && r2p1.visibility == View.VISIBLE) {
-//                    r2p1Txt.visibility = View.VISIBLE
+//                if (allCpuPlayer[r2p1_id.text.toString().toInt() - 1].answer == "true" && r2p1.visibility == View.VISIBLE) {
+//                    r2p1_txt.visibility = View.VISIBLE
 //                    totalPlayerNameShow += 1
-//                    val countryID = allCpuPlayer[r2p1Id.text.toString().toInt() - 1].countryId
+//                    val countryID = allCpuPlayer[r2p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r2p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r2p1Name.setTextColor(textColor)
-//                    r2p1Number.setTextColor(textColor)
+//                    r2p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r2p1_name.setTextColor(textColor)
+//                    r2p1_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r2p2Id.text.toString().toInt() - 1].answer == "true" && r2p2.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r2p2_id.text.toString().toInt() - 1].answer == "true" && r2p2.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r2p2Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r2p2Id.text.toString().toInt() - 1].countryId
+//                    r2p2_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r2p2_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r2p2Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r2p2Name.setTextColor(textColor)
-//                    r2p2Number.setTextColor(textColor)
+//                    r2p2_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r2p2_name.setTextColor(textColor)
+//                    r2p2_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r2p3Id.text.toString().toInt() - 1].answer == "true" && r2p3.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r2p3_id.text.toString().toInt() - 1].answer == "true" && r2p3.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r2p3Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r2p3Id.text.toString().toInt() - 1].countryId
+//                    r2p3_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r2p3_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r2p3Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r2p3Name.setTextColor(textColor)
-//                    r2p3Number.setTextColor(textColor)
+//                    r2p3_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r2p3_name.setTextColor(textColor)
+//                    r2p3_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r2p4Id.text.toString().toInt() - 1].answer == "true" && r2p4.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r2p4_id.text.toString().toInt() - 1].answer == "true" && r2p4.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r2p4Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r2p4Id.text.toString().toInt() - 1].countryId
+//                    r2p4_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r2p4_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r2p4Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r2p4Name.setTextColor(textColor)
-//                    r2p4Number.setTextColor(textColor)
+//                    r2p4_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r2p4_name.setTextColor(textColor)
+//                    r2p4_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r2p5Id.text.toString().toInt() - 1].answer == "true" && r2p5.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r2p5_id.text.toString().toInt() - 1].answer == "true" && r2p5.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r2p5Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r2p5Id.text.toString().toInt() - 1].countryId
+//                    r2p5_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r2p5_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r2p5Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r2p5Name.setTextColor(textColor)
-//                    r2p5Number.setTextColor(textColor)
+//                    r2p5_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r2p5_name.setTextColor(textColor)
+//                    r2p5_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r3p1Id.text.toString().toInt() - 1].answer == "true" && r3p1.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r3p1_id.text.toString().toInt() - 1].answer == "true" && r3p1.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r3p1Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r3p1Id.text.toString().toInt() - 1].countryId
+//                    r3p1_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r3p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r3p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r3p1Name.setTextColor(textColor)
-//                    r3p1Number.setTextColor(textColor)
+//                    r3p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r3p1_name.setTextColor(textColor)
+//                    r3p1_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r3p2Id.text.toString().toInt() - 1].answer == "true" && r3p2.visibility == View.VISIBLE) {
-//                    r3p2Txt.visibility = View.VISIBLE
+//                if (allCpuPlayer[r3p2_id.text.toString().toInt() - 1].answer == "true" && r3p2.visibility == View.VISIBLE) {
+//                    r3p2_txt.visibility = View.VISIBLE
 //                    totalPlayerNameShow += 1
-//                    val countryID = allCpuPlayer[r3p2Id.text.toString().toInt() - 1].countryId
+//                    val countryID = allCpuPlayer[r3p2_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r3p2Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r3p2Name.setTextColor(textColor)
-//                    r3p2Number.setTextColor(textColor)
+//                    r3p2_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r3p2_name.setTextColor(textColor)
+//                    r3p2_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r3p3Id.text.toString().toInt() - 1].answer == "true" && r3p3.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r3p3_id.text.toString().toInt() - 1].answer == "true" && r3p3.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r3p3Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r3p3Id.text.toString().toInt() - 1].countryId
+//                    r3p3_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r3p3_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r3p3Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r3p3Name.setTextColor(textColor)
-//                    r3p3Number.setTextColor(textColor)
+//                    r3p3_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r3p3_name.setTextColor(textColor)
+//                    r3p3_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r3p4Id.text.toString().toInt() - 1].answer == "true" && r3p4.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r3p4_id.text.toString().toInt() - 1].answer == "true" && r3p4.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r3p4Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r3p4Id.text.toString().toInt() - 1].countryId
+//                    r3p4_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r3p4_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r3p4Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r3p4Name.setTextColor(textColor)
-//                    r3p4Number.setTextColor(textColor)
+//                    r3p4_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r3p4_name.setTextColor(textColor)
+//                    r3p4_number.setTextColor(textColor)
 //                }
-//                if (allCpuPlayer[r3p5Id.text.toString().toInt() - 1].answer == "true" && r3p5.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r3p5_id.text.toString().toInt() - 1].answer == "true" && r3p5.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r3p5Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r3p5Id.text.toString().toInt() - 1].countryId
+//                    r3p5_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r3p5_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r3p5Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r3p5Name.setTextColor(textColor)
-//                    r3p5Number.setTextColor(textColor)
+//                    r3p5_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r3p5_name.setTextColor(textColor)
+//                    r3p5_number.setTextColor(textColor)
 //                }
 //
 //                //Shrawan
-//                if (allCpuPlayer[r0p1Id.text.toString().toInt() - 1].answer == "true" && r0p1.visibility == View.VISIBLE) {
+//                if (allCpuPlayer[r0p1_id.text.toString().toInt() - 1].answer == "true" && r0p1.visibility == View.VISIBLE) {
 //                    totalPlayerNameShow += 1
-//                    r0p1Txt.visibility = View.VISIBLE
-//                    val countryID = allCpuPlayer[r0p1Id.text.toString().toInt() - 1].countryId
+//                    r0p1_txt.visibility = View.VISIBLE
+//                    val countryID = allCpuPlayer[r0p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    r0p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    r0p1Name.setTextColor(textColor)
-//                    r0p1Number.setTextColor(textColor)
+//                    r0p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    r0p1_name.setTextColor(textColor)
+//                    r0p1_number.setTextColor(textColor)
 //                }
 //
 //                // cpu
-//                if (allUserPlayer[cpur1p1Id.text.toString().toInt() - 1].answer == "true" && cpur1p1.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur1p1_id.text.toString().toInt() - 1].answer == "true" && cpur1p1.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur1p1Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur1p1Id.text.toString().toInt() - 1].countryId
+//                    cpur1p1_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur1p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur1p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur1p1Name.setTextColor(textColor)
-//                    cpur1p1Number.setTextColor(textColor)
+//                    cpur1p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur1p1_name.setTextColor(textColor)
+//                    cpur1p1_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur1p2Id.text.toString().toInt() - 1].answer == "true" && cpur1p2.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur1p2_id.text.toString().toInt() - 1].answer == "true" && cpur1p2.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur1p2Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur1p2Id.text.toString().toInt() - 1].countryId
+//                    cpur1p2_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur1p2_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur1p2Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur1p2Name.setTextColor(textColor)
-//                    cpur1p2Number.setTextColor(textColor)
+//                    cpur1p2_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur1p2_name.setTextColor(textColor)
+//                    cpur1p2_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur1p3Id.text.toString().toInt() - 1].answer == "true" && cpur1p3.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur1p3_id.text.toString().toInt() - 1].answer == "true" && cpur1p3.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur1p3Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur1p3Id.text.toString().toInt() - 1].countryId
+//                    cpur1p3_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur1p3_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur1p3Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur1p3Name.setTextColor(textColor)
-//                    cpur1p3Number.setTextColor(textColor)
+//                    cpur1p3_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur1p3_name.setTextColor(textColor)
+//                    cpur1p3_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur1p4Id.text.toString().toInt() - 1].answer == "true" && cpur1p4.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur1p4_id.text.toString().toInt() - 1].answer == "true" && cpur1p4.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur1p4Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur1p4Id.text.toString().toInt() - 1].countryId
+//                    cpur1p4_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur1p4_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur1p4Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur1p4Name.setTextColor(textColor)
-//                    cpur1p4Number.setTextColor(textColor)
+//                    cpur1p4_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur1p4_name.setTextColor(textColor)
+//                    cpur1p4_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur1p5Id.text.toString().toInt() - 1].answer == "true" && cpur1p5.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur1p5_id.text.toString().toInt() - 1].answer == "true" && cpur1p5.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur1p5Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur1p5Id.text.toString().toInt() - 1].countryId
+//                    cpur1p5_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur1p5_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur1p5Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur1p5Name.setTextColor(textColor)
-//                    cpur1p5Number.setTextColor(textColor)
+//                    cpur1p5_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur1p5_name.setTextColor(textColor)
+//                    cpur1p5_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur2p1Id.text.toString().toInt() - 1].answer == "true" && cpur2p1.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur2p1_id.text.toString().toInt() - 1].answer == "true" && cpur2p1.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur2p1Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur2p1Id.text.toString().toInt() - 1].countryId
+//                    cpur2p1_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur2p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur2p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur2p1Name.setTextColor(textColor)
-//                    cpur2p1Number.setTextColor(textColor)
+//                    cpur2p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur2p1_name.setTextColor(textColor)
+//                    cpur2p1_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur2p2Id.text.toString().toInt() - 1].answer == "true" && cpur2p2.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur2p2_id.text.toString().toInt() - 1].answer == "true" && cpur2p2.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur2p2Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur2p2Id.text.toString().toInt() - 1].countryId
+//                    cpur2p2_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur2p2_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur2p2Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur2p2Name.setTextColor(textColor)
-//                    cpur2p2Number.setTextColor(textColor)
+//                    cpur2p2_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur2p2_name.setTextColor(textColor)
+//                    cpur2p2_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur2p3Id.text.toString().toInt() - 1].answer == "true" && cpur2p3.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur2p3_id.text.toString().toInt() - 1].answer == "true" && cpur2p3.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur2p3Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur2p3Id.text.toString().toInt() - 1].countryId
+//                    cpur2p3_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur2p3_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur2p3Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur2p3Name.setTextColor(textColor)
-//                    cpur2p3Number.setTextColor(textColor)
+//                    cpur2p3_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur2p3_name.setTextColor(textColor)
+//                    cpur2p3_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur2p4Id.text.toString().toInt() - 1].answer == "true" && cpur2p4.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur2p4_id.text.toString().toInt() - 1].answer == "true" && cpur2p4.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur2p4Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur2p4Id.text.toString().toInt() - 1].countryId
+//                    cpur2p4_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur2p4_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur2p4Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur2p4Name.setTextColor(textColor)
-//                    cpur2p4Number.setTextColor(textColor)
+//                    cpur2p4_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur2p4_name.setTextColor(textColor)
+//                    cpur2p4_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur2p5Id.text.toString().toInt() - 1].answer == "true" && cpur2p5.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur2p5_id.text.toString().toInt() - 1].answer == "true" && cpur2p5.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur2p5Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur2p5Id.text.toString().toInt() - 1].countryId
+//                    cpur2p5_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur2p5_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur2p5Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur2p5Name.setTextColor(textColor)
-//                    cpur2p5Number.setTextColor(textColor)
+//                    cpur2p5_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur2p5_name.setTextColor(textColor)
+//                    cpur2p5_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur3p1Id.text.toString().toInt() - 1].answer == "true" && cpur3p1.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur3p1_id.text.toString().toInt() - 1].answer == "true" && cpur3p1.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur3p1Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur3p1Id.text.toString().toInt() - 1].countryId
+//                    cpur3p1_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur3p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur3p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur3p1Name.setTextColor(textColor)
-//                    cpur3p1Number.setTextColor(textColor)
+//                    cpur3p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur3p1_name.setTextColor(textColor)
+//                    cpur3p1_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur3p2Id.text.toString().toInt() - 1].answer == "true" && cpur3p2.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur3p2_id.text.toString().toInt() - 1].answer == "true" && cpur3p2.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur3p2Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur3p2Id.text.toString().toInt() - 1].countryId
+//                    cpur3p2_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur3p2_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur3p2Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur3p2Name.setTextColor(textColor)
-//                    cpur3p2Number.setTextColor(textColor)
+//                    cpur3p2_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur3p2_name.setTextColor(textColor)
+//                    cpur3p2_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur3p3Id.text.toString().toInt() - 1].answer == "true" && cpur3p3.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur3p3_id.text.toString().toInt() - 1].answer == "true" && cpur3p3.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur3p3Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur3p3Id.text.toString().toInt() - 1].countryId
+//                    cpur3p3_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur3p3_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur3p3Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur3p3Name.setTextColor(textColor)
-//                    cpur3p3Number.setTextColor(textColor)
+//                    cpur3p3_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur3p3_name.setTextColor(textColor)
+//                    cpur3p3_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur3p4Id.text.toString().toInt() - 1].answer == "true" && cpur3p4.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur3p4_id.text.toString().toInt() - 1].answer == "true" && cpur3p4.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur3p4Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur3p4Id.text.toString().toInt() - 1].countryId
+//                    cpur3p4_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur3p4_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur3p4Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur3p4Name.setTextColor(textColor)
-//                    cpur3p4Number.setTextColor(textColor)
+//                    cpur3p4_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur3p4_name.setTextColor(textColor)
+//                    cpur3p4_number.setTextColor(textColor)
 //                }
-//                if (allUserPlayer[cpur3p5Id.text.toString().toInt() - 1].answer == "true" && cpur3p5.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur3p5_id.text.toString().toInt() - 1].answer == "true" && cpur3p5.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur3p5Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur3p5Id.text.toString().toInt() - 1].countryId
+//                    cpur3p5_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur3p5_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur3p5Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur3p5Name.setTextColor(textColor)
-//                    cpur3p5Number.setTextColor(textColor)
+//                    cpur3p5_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur3p5_name.setTextColor(textColor)
+//                    cpur3p5_number.setTextColor(textColor)
 //                }
 //
 //                //Shrawan
-//                if (allUserPlayer[cpur0p1Id.text.toString().toInt() - 1].answer == "true" && cpur0p1.visibility == View.VISIBLE) {
+//                if (allUserPlayer[cpur0p1_id.text.toString().toInt() - 1].answer == "true" && cpur0p1.visibility == View.VISIBLE) {
 //                    cpuPlayerNameShow += 1
-//                    cpur0p1Txt.visibility = View.VISIBLE
-//                    val countryID = allUserPlayer[cpur0p1Id.text.toString().toInt() - 1].countryId
+//                    cpur0p1_txt.visibility = View.VISIBLE
+//                    val countryID = allUserPlayer[cpur0p1_id.text.toString().toInt() - 1].country_id
 //                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-//                    cpur0p1Img.setImageResource(setGames.getTShirtImage(countryID))
-//                    cpur0p1Name.setTextColor(textColor)
-//                    cpur0p1Number.setTextColor(textColor)
+//                    cpur0p1_img.setImageResource(setGames.getTShirtImage(countryID))
+//                    cpur0p1_name.setTextColor(textColor)
+//                    cpur0p1_number.setTextColor(textColor)
 //                }
 //
 //                playerSelect()
@@ -9951,45 +11411,44 @@
 //            if (userType.equals("USER",true))
 //            {
 //
-//                userScreen.visibility = View.VISIBLE
-//                cpuScreen.visibility = View.GONE
-//                userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-//                opposeTeam_playerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+//                user_screen.visibility = View.VISIBLE
+//                cpu_screen.visibility = View.GONE
+//                user_name.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+//                oppose_team_player_name.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
 //
-//                r1p1Img.setOnClickListener(this)
-//                r1p2Img.setOnClickListener(this)
-//                r1p3Img.setOnClickListener(this)
-//                r1p4Img.setOnClickListener(this)
-//                r1p5Img.setOnClickListener(this)
+//                r1p1_img.setOnClickListener(this)
+//                r1p2_img.setOnClickListener(this)
+//                r1p3_img.setOnClickListener(this)
+//                r1p4_img.setOnClickListener(this)
+//                r1p5_img.setOnClickListener(this)
 //
-//                r2p1Img.setOnClickListener(this)
-//                r2p2Img.setOnClickListener(this)
-//                r2p3Img.setOnClickListener(this)
-//                r2p4Img.setOnClickListener(this)
-//                r2p5Img.setOnClickListener(this)
+//                r2p1_img.setOnClickListener(this)
+//                r2p2_img.setOnClickListener(this)
+//                r2p3_img.setOnClickListener(this)
+//                r2p4_img.setOnClickListener(this)
+//                r2p5_img.setOnClickListener(this)
 //
-//                r3p1Img.setOnClickListener(this)
-//                r3p2Img.setOnClickListener(this)
-//                r3p3Img.setOnClickListener(this)
-//                r3p4Img.setOnClickListener(this)
-//                r3p5Img.setOnClickListener(this)
+//                r3p1_img.setOnClickListener(this)
+//                r3p2_img.setOnClickListener(this)
+//                r3p3_img.setOnClickListener(this)
+//                r3p4_img.setOnClickListener(this)
+//                r3p5_img.setOnClickListener(this)
 //
-//                r0p1Img.setOnClickListener(this)//Shrawan
+//                r0p1_img.setOnClickListener(this)//Shrawan
 //
-//                btShoot.setOnClickListener(this)
+//                bt_shoot.setOnClickListener(this)
 //                bt_pass.setOnClickListener(this)
 //
 //
 //                if (totalPlayerNameShow != 0) {
 ////                    selectPlayPlayer(sessionManager.getMySelectedTeamPlayerNum())
 //                    root_button.visibility = View.VISIBLE
-// if (totalPlayerNameShow == 1) {
-//                         btShoot.visibility = View.GONE
-//                     }
-//
+//                    /* if (totalPlayerNameShow == 1) {
+//                         bt_shoot.visibility = View.GONE
+//                     }*/
 //                    //Shrawan
 //                    if (totalPlayerNameShow == 1 || isGoalClick) {
-//                        btShoot.visibility = View.GONE
+//                        bt_shoot.visibility = View.GONE
 //                        if (isGoalClick){
 //                            isGoalClick = false
 //                        }
@@ -9998,10 +11457,10 @@
 //
 //            }
 //            else {
-//                cpuScreen.visibility = View.VISIBLE
-//                userScreen.visibility = View.GONE
-//                opposeTeam_playerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
-//                userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+//                cpu_screen.visibility = View.VISIBLE
+//                user_screen.visibility = View.GONE
+//                oppose_team_player_name.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+//                user_name.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
 //
 //
 //                if (cpuPlayerNameShow != 0) {
@@ -10032,100 +11491,100 @@
 //    //This function is used for select player which term (User or cpu)
 //    private fun selectPlayPlayer(playerNum: Int) {
 //        if (!isTimerFinish) {
-//            if (r1p1.visibility == View.VISIBLE && r1p1Txt.visibility == View.VISIBLE && r1p1Id.text.toString().toInt() == playerNum) {
+//            if (r1p1.visibility == View.VISIBLE && r1p1_txt.visibility == View.VISIBLE && r1p1_id.text.toString().toInt() == playerNum) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r1p1Select, r1p1Id)
+//                showPlayerReachPowerUser(r1p1_select, r1p1_id)
 //            }
-//            if (r1p2.visibility == View.VISIBLE && r1p2Txt.visibility == View.VISIBLE && r1p2Id.text.toString()
+//            if (r1p2.visibility == View.VISIBLE && r1p2_txt.visibility == View.VISIBLE && r1p2_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r1p2Select, r1p2Id)
+//                showPlayerReachPowerUser(r1p2_select, r1p2_id)
 //            }
-//            if (r1p3.visibility == View.VISIBLE && r1p3Txt.visibility == View.VISIBLE && r1p3Id.text.toString()
+//            if (r1p3.visibility == View.VISIBLE && r1p3_txt.visibility == View.VISIBLE && r1p3_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r1p3Select, r1p3Id)
+//                showPlayerReachPowerUser(r1p3_select, r1p3_id)
 //            }
-//            if (r1p4.visibility == View.VISIBLE && r1p4Txt.visibility == View.VISIBLE && r1p4Id.text.toString()
+//            if (r1p4.visibility == View.VISIBLE && r1p4_txt.visibility == View.VISIBLE && r1p4_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r1p4Select, r1p4Id)
+//                showPlayerReachPowerUser(r1p4_select, r1p4_id)
 //            }
-//            if (r1p5.visibility == View.VISIBLE && r1p5Txt.visibility == View.VISIBLE && r1p5Id.text.toString()
+//            if (r1p5.visibility == View.VISIBLE && r1p5_txt.visibility == View.VISIBLE && r1p5_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r1p5Select, r1p5Id)
+//                showPlayerReachPowerUser(r1p5_select, r1p5_id)
 //            }
-//            if (r2p1.visibility == View.VISIBLE && r2p1Txt.visibility == View.VISIBLE && r2p1Id.text.toString()
+//            if (r2p1.visibility == View.VISIBLE && r2p1_txt.visibility == View.VISIBLE && r2p1_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r2p1Select, r2p1Id)
+//                showPlayerReachPowerUser(r2p1_select, r2p1_id)
 //            }
-//            if (r2p2.visibility == View.VISIBLE && r2p2Txt.visibility == View.VISIBLE && r2p2Id.text.toString()
+//            if (r2p2.visibility == View.VISIBLE && r2p2_txt.visibility == View.VISIBLE && r2p2_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r2p2Select, r2p2Id)
+//                showPlayerReachPowerUser(r2p2_select, r2p2_id)
 //            }
-//            if (r2p3.visibility == View.VISIBLE && r2p3Txt.visibility == View.VISIBLE && r2p3Id.text.toString()
+//            if (r2p3.visibility == View.VISIBLE && r2p3_txt.visibility == View.VISIBLE && r2p3_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r2p3Select, r2p3Id)
+//                showPlayerReachPowerUser(r2p3_select, r2p3_id)
 //            }
-//            if (r2p4.visibility == View.VISIBLE && r2p4Txt.visibility == View.VISIBLE && r2p4Id.text.toString()
+//            if (r2p4.visibility == View.VISIBLE && r2p4_txt.visibility == View.VISIBLE && r2p4_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r2p4Select, r2p4Id)
+//                showPlayerReachPowerUser(r2p4_select, r2p4_id)
 //            }
-//            if (r2p5.visibility == View.VISIBLE && r2p5Txt.visibility == View.VISIBLE && r2p5Id.text.toString()
+//            if (r2p5.visibility == View.VISIBLE && r2p5_txt.visibility == View.VISIBLE && r2p5_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r2p5Select, r2p5Id)
+//                showPlayerReachPowerUser(r2p5_select, r2p5_id)
 //            }
-//            if (r3p1.visibility == View.VISIBLE && r3p1Txt.visibility == View.VISIBLE && r3p1Id.text.toString()
+//            if (r3p1.visibility == View.VISIBLE && r3p1_txt.visibility == View.VISIBLE && r3p1_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r3p1Select, r3p1Id)
+//                showPlayerReachPowerUser(r3p1_select, r3p1_id)
 //            }
-//            if (r3p2.visibility == View.VISIBLE && r3p2Txt.visibility == View.VISIBLE && r3p2Id.text.toString()
+//            if (r3p2.visibility == View.VISIBLE && r3p2_txt.visibility == View.VISIBLE && r3p2_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r3p2Select, r3p2Id)
+//                showPlayerReachPowerUser(r3p2_select, r3p2_id)
 //            }
-//            if (r3p3.visibility == View.VISIBLE && r3p3Txt.visibility == View.VISIBLE && r3p3Id.text.toString()
+//            if (r3p3.visibility == View.VISIBLE && r3p3_txt.visibility == View.VISIBLE && r3p3_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r3p3Select, r3p3Id)
+//                showPlayerReachPowerUser(r3p3_select, r3p3_id)
 //            }
-//            if (r3p4.visibility == View.VISIBLE && r3p4Txt.visibility == View.VISIBLE && r3p4Id.text.toString()
+//            if (r3p4.visibility == View.VISIBLE && r3p4_txt.visibility == View.VISIBLE && r3p4_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r3p4Select, r3p4Id)
+//                showPlayerReachPowerUser(r3p4_select, r3p4_id)
 //            }
-//            if (r3p5.visibility == View.VISIBLE && r3p5Txt.visibility == View.VISIBLE && r3p5Id.text.toString()
+//            if (r3p5.visibility == View.VISIBLE && r3p5_txt.visibility == View.VISIBLE && r3p5_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(r3p5Select, r3p5Id)
+//                showPlayerReachPowerUser(r3p5_select, r3p5_id)
 //            }
 //            //Shrawan
 //            if (r0p1.visibility == View.VISIBLE &&
-//                r0p1Txt.visibility == View.VISIBLE && r0p1Id.text.toString().toInt() == playerNum) {
+//                r0p1_txt.visibility == View.VISIBLE && r0p1_id.text.toString().toInt() == playerNum) {
 //                selectionPower = true
-//                Log.d("@@@@@@@@@@@","${r0p1Id.text.toString().toInt()}  $playerNum")
-//                showPlayerReachPowerUser(r0p1Select, r0p1Id)
+//                Log.d("@@@@@@@@@@@","${r0p1_id.text.toString().toInt()}  $playerNum")
+//                showPlayerReachPowerUser(r0p1_select, r0p1_id)
 //            }
 //
 //        }
@@ -10134,103 +11593,103 @@
 //    private fun selectCpuPlayPlayer(playerNum: Int) {
 //        if (!isTimerFinish) {
 //
-//            if (cpur1p1.visibility == View.VISIBLE && cpur1p1Txt.visibility == View.VISIBLE && cpur1p1Id.text.toString()
+//            if (cpur1p1.visibility == View.VISIBLE && cpur1p1_txt.visibility == View.VISIBLE && cpur1p1_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur1p1Select, cpur1p1Id)
+//                showPlayerReachPowerUser(cpur1p1_select, cpur1p1_id)
 //            }
-//            if (cpur1p2.visibility == View.VISIBLE && cpur1p2Txt.visibility == View.VISIBLE && cpur1p2Id.text.toString()
+//            if (cpur1p2.visibility == View.VISIBLE && cpur1p2_txt.visibility == View.VISIBLE && cpur1p2_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur1p2Select, cpur1p2Id)
+//                showPlayerReachPowerUser(cpur1p2_select, cpur1p2_id)
 //            }
-//            if (cpur1p3.visibility == View.VISIBLE && cpur1p3Txt.visibility == View.VISIBLE && cpur1p3Id.text.toString()
+//            if (cpur1p3.visibility == View.VISIBLE && cpur1p3_txt.visibility == View.VISIBLE && cpur1p3_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur1p3Select, cpur1p3Id)
+//                showPlayerReachPowerUser(cpur1p3_select, cpur1p3_id)
 //            }
-//            if (cpur1p4.visibility == View.VISIBLE && cpur1p4Txt.visibility == View.VISIBLE && cpur1p4Id.text.toString()
+//            if (cpur1p4.visibility == View.VISIBLE && cpur1p4_txt.visibility == View.VISIBLE && cpur1p4_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur1p4Select, cpur1p4Id)
+//                showPlayerReachPowerUser(cpur1p4_select, cpur1p4_id)
 //            }
-//            if (cpur1p5.visibility == View.VISIBLE && cpur1p5Txt.visibility == View.VISIBLE && cpur1p5Id.text.toString()
+//            if (cpur1p5.visibility == View.VISIBLE && cpur1p5_txt.visibility == View.VISIBLE && cpur1p5_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur1p5Select, cpur1p5Id)
+//                showPlayerReachPowerUser(cpur1p5_select, cpur1p5_id)
 //            }
-//            if (cpur2p1.visibility == View.VISIBLE && cpur2p1Txt.visibility == View.VISIBLE && cpur2p1Id.text.toString()
+//            if (cpur2p1.visibility == View.VISIBLE && cpur2p1_txt.visibility == View.VISIBLE && cpur2p1_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur2p1Select, cpur2p1Id)
+//                showPlayerReachPowerUser(cpur2p1_select, cpur2p1_id)
 //            }
-//            if (cpur2p2.visibility == View.VISIBLE && cpur2p2Txt.visibility == View.VISIBLE && cpur2p2Id.text.toString()
+//            if (cpur2p2.visibility == View.VISIBLE && cpur2p2_txt.visibility == View.VISIBLE && cpur2p2_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur2p2Select, cpur2p2Id)
+//                showPlayerReachPowerUser(cpur2p2_select, cpur2p2_id)
 //            }
-//            if (cpur2p3.visibility == View.VISIBLE && cpur2p3Txt.visibility == View.VISIBLE && cpur2p3Id.text.toString()
+//            if (cpur2p3.visibility == View.VISIBLE && cpur2p3_txt.visibility == View.VISIBLE && cpur2p3_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur2p3Select, cpur2p3Id)
+//                showPlayerReachPowerUser(cpur2p3_select, cpur2p3_id)
 //            }
-//            if (cpur2p4.visibility == View.VISIBLE && cpur2p4Txt.visibility == View.VISIBLE && cpur2p4Id.text.toString()
+//            if (cpur2p4.visibility == View.VISIBLE && cpur2p4_txt.visibility == View.VISIBLE && cpur2p4_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur2p4Select, cpur2p4Id)
+//                showPlayerReachPowerUser(cpur2p4_select, cpur2p4_id)
 //            }
-//            if (cpur2p5.visibility == View.VISIBLE && cpur2p5Txt.visibility == View.VISIBLE && cpur2p5Id.text.toString()
+//            if (cpur2p5.visibility == View.VISIBLE && cpur2p5_txt.visibility == View.VISIBLE && cpur2p5_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur2p5Select, cpur2p5Id)
+//                showPlayerReachPowerUser(cpur2p5_select, cpur2p5_id)
 //            }
-//            if (cpur3p1.visibility == View.VISIBLE && cpur3p1Txt.visibility == View.VISIBLE && cpur3p1Id.text.toString()
+//            if (cpur3p1.visibility == View.VISIBLE && cpur3p1_txt.visibility == View.VISIBLE && cpur3p1_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur3p1Select, cpur3p1Id)
+//                showPlayerReachPowerUser(cpur3p1_select, cpur3p1_id)
 //            }
-//            if (cpur3p2.visibility == View.VISIBLE && cpur3p2Txt.visibility == View.VISIBLE && cpur3p2Id.text.toString()
+//            if (cpur3p2.visibility == View.VISIBLE && cpur3p2_txt.visibility == View.VISIBLE && cpur3p2_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur3p2Select, cpur3p2Id)
+//                showPlayerReachPowerUser(cpur3p2_select, cpur3p2_id)
 //            }
-//            if (cpur3p3.visibility == View.VISIBLE && cpur3p3Txt.visibility == View.VISIBLE && cpur3p3Id.text.toString()
+//            if (cpur3p3.visibility == View.VISIBLE && cpur3p3_txt.visibility == View.VISIBLE && cpur3p3_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur3p3Select, cpur3p3Id)
+//                showPlayerReachPowerUser(cpur3p3_select, cpur3p3_id)
 //            }
-//            if (cpur3p4.visibility == View.VISIBLE && cpur3p4Txt.visibility == View.VISIBLE && cpur3p4Id.text.toString()
+//            if (cpur3p4.visibility == View.VISIBLE && cpur3p4_txt.visibility == View.VISIBLE && cpur3p4_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur3p4Select, cpur3p4Id)
+//                showPlayerReachPowerUser(cpur3p4_select, cpur3p4_id)
 //            }
-//            if (cpur3p5.visibility == View.VISIBLE && cpur3p5Txt.visibility == View.VISIBLE && cpur3p5Id.text.toString()
+//            if (cpur3p5.visibility == View.VISIBLE && cpur3p5_txt.visibility == View.VISIBLE && cpur3p5_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur3p5Select, cpur3p5Id)
+//                showPlayerReachPowerUser(cpur3p5_select, cpur3p5_id)
 //            }
 //
 //            //Shrawan
-//            if (cpur0p1.visibility == View.VISIBLE && cpur0p1Txt.visibility == View.VISIBLE && cpur0p1Id.text.toString()
+//            if (cpur0p1.visibility == View.VISIBLE && cpur0p1_txt.visibility == View.VISIBLE && cpur0p1_id.text.toString()
 //                    .toInt() == playerNum
 //            ) {
 //                selectionPower = true
-//                showPlayerReachPowerUser(cpur0p1Select, cpur0p1Id)
+//                showPlayerReachPowerUser(cpur0p1_select, cpur0p1_id)
 //            }
 //            autoButtonClick()
 //        }
@@ -10240,7 +11699,7 @@
 //    private fun playAlertBox(drawableImg: Int, action: String) {
 //        val dialog = Dialog(requireContext(), R.style.myFullscreenAlertDialogStyle)
 //        dialog.setCancelable(false)
-//        dialog.setContentView(R.layout.showImage_box)
+//        dialog.setContentView(R.layout.show_image_box)
 //        val imgChange: ImageView = dialog.findViewById(R.id.img_change)
 //
 //        Glide.with(requireContext())
@@ -10263,7 +11722,7 @@
 //                    Handler(Looper.myLooper()!!).postDelayed({
 //                        dialog.dismiss()
 //                        sessionManager.setExtraTimeUser("ExtraTime")
-//                        playAlertBox(R.drawable.extraTimeImg, "ExtraTime")
+//                        playAlertBox(R.drawable.extra_time_img, "ExtraTime")
 //                    }, 3000)
 //                }
 //                if (action.equals("ExtraTime",true)){
@@ -10280,7 +11739,7 @@
 //                            extraPLayerDbHelper.deleteAllPlayers()
 //                            getGuessTeamList(dialog, screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
 //                        } else {
-//                            alertError(getString(R.string.noInternet))
+//                            alertError(getString(R.string.no_internet))
 //                        }
 //                    }, 3000)
 //                }
@@ -10297,7 +11756,7 @@
 //                            dialog.dismiss()
 //                            getGuessTeamList(dialog, screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
 //                        } else {
-//                            alertError(getString(R.string.noInternet))
+//                            alertError(getString(R.string.no_internet))
 //                        }
 //                    }, 3000)
 //                }
@@ -10313,7 +11772,7 @@
 //                            extraPLayerDbHelper.deleteAllPlayers()
 //                            getGuessTeamList(dialog, screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
 //                        } else {
-//                            alertError(getString(R.string.noInternet))
+//                            alertError(getString(R.string.no_internet))
 //                        }
 //                    }, 3000)
 //                }
@@ -10345,7 +11804,7 @@
 //                        extraPLayerDbHelper.deleteAllPlayers()
 //                        getGuessTeamList(dialog, screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
 //                    } else {
-//                        alertError(getString(R.string.noInternet))
+//                        alertError(getString(R.string.no_internet))
 //                    }
 //                }, 3000)
 //            }
@@ -10357,9 +11816,9 @@
 //
 //    // This function is used for get guess player list from database api
 //    private fun getGuessTeamList(dialog: Dialog?, defender: String, midfielder: String, attacker: String, cpuDefender: String, cpuMidFielder: String, cpuAttacker: String) {
-//        val matchNo = (sessionManager.getGameNumber()-1)
+//        val match_no = (sessionManager.getGameNumber()-1)
 //        getGuessPlayerListViewmodel.getGuessPlayerList("$token", defender, midfielder, attacker, "", "",
-//            matchNo.toString())
+//            match_no.toString())
 //        getGuessPlayerListViewmodel.getGuessPlayerListResponse.observe(this) { response ->
 //            Log.d("@@@Error ","Api response "+response)
 //            if (response != null) {
@@ -10402,10 +11861,10 @@
 //                                                myPlayerDbHelper.addPlayer(
 //                                                    surnames,
 //                                                    data.is_captain.toString(),
-//                                                    data.countryId.toString(),
+//                                                    data.country_id.toString(),
 //                                                    data.type.toString(),
 //                                                    data.designation.toString(),
-//                                                    data.jerseyNumber.toString(),
+//                                                    data.jersey_number.toString(),
 //                                                    "false",
 //                                                    "false",
 //                                                )
@@ -10428,10 +11887,10 @@
 //                                                myPlayerDbHelper.addPlayer(
 //                                                    surnames,
 //                                                    data.is_captain.toString(),
-//                                                    data.countryId.toString(),
+//                                                    data.country_id.toString(),
 //                                                    data.type.toString(),
 //                                                    data.designation.toString(),
-//                                                    data.jerseyNumber.toString(),
+//                                                    data.jersey_number.toString(),
 //                                                    "false",
 //                                                    "false",
 //                                                )
@@ -10454,10 +11913,10 @@
 //                                                myPlayerDbHelper.addPlayer(
 //                                                    surnames,
 //                                                    data.is_captain.toString(),
-//                                                    data.countryId.toString(),
+//                                                    data.country_id.toString(),
 //                                                    data.type.toString(),
 //                                                    data.designation.toString(),
-//                                                    data.jerseyNumber.toString(),
+//                                                    data.jersey_number.toString(),
 //                                                    "false",
 //                                                    "false",
 //                                                )
@@ -10481,10 +11940,10 @@
 //                                            myPlayerDbHelper.addPlayer(
 //                                                surnames,
 //                                                data.is_captain.toString(),
-//                                                data.countryId.toString(),
+//                                                data.country_id.toString(),
 //                                                data.type.toString(),
 //                                                data.designation.toString(),
-//                                                data.jerseyNumber.toString(),
+//                                                data.jersey_number.toString(),
 //                                                "false",
 //                                                "false"
 //                                            )
@@ -10515,10 +11974,10 @@
 //                                                cpuDbHelper.addPlayer(
 //                                                    surnames,
 //                                                    data.is_captain.toString(),
-//                                                    data.countryId.toString(),
+//                                                    data.country_id.toString(),
 //                                                    data.type.toString(),
 //                                                    data.designation.toString(),
-//                                                    data.jerseyNumber.toString(),
+//                                                    data.jersey_number.toString(),
 //                                                    "false",
 //                                                    "false",
 //                                                )
@@ -10541,10 +12000,10 @@
 //                                                cpuDbHelper.addPlayer(
 //                                                    surnames,
 //                                                    data.is_captain.toString(),
-//                                                    data.countryId.toString(),
+//                                                    data.country_id.toString(),
 //                                                    data.type.toString(),
 //                                                    data.designation.toString(),
-//                                                    data.jerseyNumber.toString(),
+//                                                    data.jersey_number.toString(),
 //                                                    "false",
 //                                                    "false",
 //                                                )
@@ -10567,10 +12026,10 @@
 //                                                cpuDbHelper.addPlayer(
 //                                                    surnames,
 //                                                    data.is_captain.toString(),
-//                                                    data.countryId.toString(),
+//                                                    data.country_id.toString(),
 //                                                    data.type.toString(),
 //                                                    data.designation.toString(),
-//                                                    data.jerseyNumber.toString(),
+//                                                    data.jersey_number.toString(),
 //                                                    "false",
 //                                                    "false",
 //                                                )
@@ -10594,10 +12053,10 @@
 //                                            cpuDbHelper.addPlayer(
 //                                                surnames,
 //                                                data.is_captain.toString(),
-//                                                data.countryId.toString(),
+//                                                data.country_id.toString(),
 //                                                data.type.toString(),
 //                                                data.designation.toString(),
-//                                                data.jerseyNumber.toString(),
+//                                                data.jersey_number.toString(),
 //                                                "false",
 //                                                "false"
 //                                            )
@@ -10619,10 +12078,10 @@
 //                                        extraPLayerDbHelper.addPlayer(
 //                                            surnames,
 //                                            data.is_captain.toString(),
-//                                            data.countryId.toString(),
+//                                            data.country_id.toString(),
 //                                            data.type.toString(),
 //                                            data.designation.toString(),
-//                                            data.jerseyNumber.toString(),
+//                                            data.jersey_number.toString(),
 //                                            "false",
 //                                            "USER"
 //                                        )
@@ -10709,7 +12168,7 @@
 //        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
 //        layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
 //        dialog.window!!.attributes = layoutParams
-//        val tvTitle: TextView = dialog.findViewById(R.id.tvTitle)
+//        val tvTitle: TextView = dialog.findViewById(R.id.tv_title)
 //        val btnOk: LinearLayout = dialog.findViewById(R.id.btn_ok)
 //        val btText: TextView = dialog.findViewById(R.id.btText)
 //        btText.text = "Retry"
@@ -10730,30 +12189,30 @@
 //        when (onSelectedScreen) {
 //            "5-2-3" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r1p4Id,
-//                    r1p5Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r3p1Id,
-//                    r3p2Id,
-//                    r3p3Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r1p4_id,
+//                    r1p5_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r3p1_id,
+//                    r3p2_id,
+//                    r3p3_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur1p4Id,
-//                    cpur1p5Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur3p1Id,
-//                    cpur3p2Id,
-//                    cpur3p3Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur1p4_id,
+//                    cpur1p5_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur3p1_id,
+//                    cpur3p2_id,
+//                    cpur3p3_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10763,30 +12222,30 @@
 //            }  // Done
 //            "5-4-1" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r1p4Id,
-//                    r1p5Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r2p3Id,
-//                    r2p4Id,
-//                    r3p1Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r1p4_id,
+//                    r1p5_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r2p3_id,
+//                    r2p4_id,
+//                    r3p1_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur1p4Id,
-//                    cpur1p5Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur2p3Id,
-//                    cpur2p4Id,
-//                    cpur3p1Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur1p4_id,
+//                    cpur1p5_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur2p3_id,
+//                    cpur2p4_id,
+//                    cpur3p1_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10796,30 +12255,30 @@
 //            }  // Done
 //            "5-3-2" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r1p4Id,
-//                    r1p5Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r2p3Id,
-//                    r3p1Id,
-//                    r3p2Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r1p4_id,
+//                    r1p5_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r2p3_id,
+//                    r3p1_id,
+//                    r3p2_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur1p4Id,
-//                    cpur1p5Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur2p3Id,
-//                    cpur3p1Id,
-//                    cpur3p2Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur1p4_id,
+//                    cpur1p5_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur2p3_id,
+//                    cpur3p1_id,
+//                    cpur3p2_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10829,30 +12288,30 @@
 //            }  // Done
 //            "3-5-2" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r2p3Id,
-//                    r2p4Id,
-//                    r2p5Id,
-//                    r3p1Id,
-//                    r3p2Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r2p3_id,
+//                    r2p4_id,
+//                    r2p5_id,
+//                    r3p1_id,
+//                    r3p2_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur2p3Id,
-//                    cpur2p4Id,
-//                    cpur2p5Id,
-//                    cpur3p1Id,
-//                    cpur3p2Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur2p3_id,
+//                    cpur2p4_id,
+//                    cpur2p5_id,
+//                    cpur3p1_id,
+//                    cpur3p2_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10862,30 +12321,30 @@
 //            }  // Done
 //            "4-5-1" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r1p4Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r2p3Id,
-//                    r2p4Id,
-//                    r2p5Id,
-//                    r3p1Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r1p4_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r2p3_id,
+//                    r2p4_id,
+//                    r2p5_id,
+//                    r3p1_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur1p4Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur2p3Id,
-//                    cpur2p4Id,
-//                    cpur2p5Id,
-//                    cpur3p1Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur1p4_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur2p3_id,
+//                    cpur2p4_id,
+//                    cpur2p5_id,
+//                    cpur3p1_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10895,30 +12354,30 @@
 //            }  // Done
 //            "4-4-2" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r1p4Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r2p3Id,
-//                    r2p4Id,
-//                    r3p1Id,
-//                    r3p2Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r1p4_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r2p3_id,
+//                    r2p4_id,
+//                    r3p1_id,
+//                    r3p2_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur1p4Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur2p3Id,
-//                    cpur2p4Id,
-//                    cpur3p1Id,
-//                    cpur3p2Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur1p4_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur2p3_id,
+//                    cpur2p4_id,
+//                    cpur3p1_id,
+//                    cpur3p2_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10928,30 +12387,30 @@
 //            }  // Done
 //            "4-3-3" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r1p4Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r2p3Id,
-//                    r3p1Id,
-//                    r3p2Id,
-//                    r3p3Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r1p4_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r2p3_id,
+//                    r3p1_id,
+//                    r3p2_id,
+//                    r3p3_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur1p4Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur2p3Id,
-//                    cpur3p1Id,
-//                    cpur3p2Id,
-//                    cpur3p3Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur1p4_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur2p3_id,
+//                    cpur3p1_id,
+//                    cpur3p2_id,
+//                    cpur3p3_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10961,30 +12420,30 @@
 //            }  // Done
 //            "3-4-3" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r2p3Id,
-//                    r2p4Id,
-//                    r3p1Id,
-//                    r3p2Id,
-//                    r3p3Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r2p3_id,
+//                    r2p4_id,
+//                    r3p1_id,
+//                    r3p2_id,
+//                    r3p3_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur2p3Id,
-//                    cpur2p4Id,
-//                    cpur3p1Id,
-//                    cpur3p2Id,
-//                    cpur3p3Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur2p3_id,
+//                    cpur2p4_id,
+//                    cpur3p1_id,
+//                    cpur3p2_id,
+//                    cpur3p3_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -10994,30 +12453,30 @@
 //            }  // Done
 //            "4-2-4" -> {
 //                val textViews: MutableList<TextView> = mutableListOf(
-//                    r1p1Id,
-//                    r1p2Id,
-//                    r1p3Id,
-//                    r1p4Id,
-//                    r2p1Id,
-//                    r2p2Id,
-//                    r3p1Id,
-//                    r3p2Id,
-//                    r3p3Id,
-//                    r3p4Id,
-//                    r0p1Id //Shrawan
+//                    r1p1_id,
+//                    r1p2_id,
+//                    r1p3_id,
+//                    r1p4_id,
+//                    r2p1_id,
+//                    r2p2_id,
+//                    r3p1_id,
+//                    r3p2_id,
+//                    r3p3_id,
+//                    r3p4_id,
+//                    r0p1_id //Shrawan
 //                )
 //                val textViewsCPU: MutableList<TextView> = mutableListOf(
-//                    cpur1p1Id,
-//                    cpur1p2Id,
-//                    cpur1p3Id,
-//                    cpur1p4Id,
-//                    cpur2p1Id,
-//                    cpur2p2Id,
-//                    cpur3p1Id,
-//                    cpur3p2Id,
-//                    cpur3p3Id,
-//                    cpur3p4Id,
-//                    cpur0p1Id //Shrawan
+//                    cpur1p1_id,
+//                    cpur1p2_id,
+//                    cpur1p3_id,
+//                    cpur1p4_id,
+//                    cpur2p1_id,
+//                    cpur2p2_id,
+//                    cpur3p1_id,
+//                    cpur3p2_id,
+//                    cpur3p3_id,
+//                    cpur3p4_id,
+//                    cpur0p1_id //Shrawan
 //                )
 //                selectedPlayerNum = if (userType.equals("USER",true)) {
 //                    textViews[playerIdUser - 1]
@@ -11026,7 +12485,7 @@
 //                }
 //            }  // Done
 //            else -> {
-//                Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTHSHORT).show()
+//                Toast.makeText(requireContext(), "Formation is not Exist $onSelectedScreen", Toast.LENGTH_SHORT).show()
 //            }
 //        }
 //    }
@@ -11035,20 +12494,20 @@
 //    private fun winAlertBox(int: Int) {
 //        val dialog = Dialog(requireContext(), R.style.myFullscreenAlertDialogStyle)
 //        dialog.setCancelable(false)
-//        dialog.setContentView(R.layout.showImage_box)
+//        dialog.setContentView(R.layout.show_image_box)
 //        val imgChange: ImageView = dialog.findViewById(R.id.img_change)
 //        sessionManager.changeMusic(21, 0)
 //        if (int==0){
-//            imgChange.setImageResource(R.drawable.eliminatedImg)
+//            imgChange.setImageResource(R.drawable.eliminated_img)
 //        }
 //        if (int==2){
-//            imgChange.setImageResource(R.drawable.winnerImg)
+//            imgChange.setImageResource(R.drawable.winner_img)
 //        }
 //        if (int==1){
-//            imgChange.setImageResource(R.drawable.penaltiesImg)
+//            imgChange.setImageResource(R.drawable.penalties_img)
 //        }
 //        if (int==3){
-//            imgChange.setImageResource(R.drawable.winnerImg)
+//            imgChange.setImageResource(R.drawable.winner_img)
 //        }
 //        moveToScoreFragment(int,dialog)
 //        dialog.show()
@@ -11059,8 +12518,8 @@
 //    }
 //
 //    private fun moveToScoreFragment(moveType:Int,dialog:Dialog){
-//        val cpuName = opposeTeam_playerName.text.toString()
-//        val myName = userName.text.toString()
+//        val cpuName = oppose_team_player_name.text.toString()
+//        val myName = user_name.text.toString()
 //        Handler(Looper.myLooper()!!).postDelayed({
 //            dialog.dismiss()
 //            if (moveType==0){

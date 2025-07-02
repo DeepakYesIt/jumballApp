@@ -293,6 +293,31 @@ class MainRepositoryImpl @Inject constructor(private val api: ApiEndPoint) : Mai
 
     }
 
+    override suspend fun saveScoreList(
+        successCallback: (response: NetworkResult<String>) -> Unit,
+        totalGoal: String,
+        totalGoalConsole: String,
+        matchStatus: String,
+        captianId: String,
+        total_defence: String,
+        opponent_guessed: String,
+        my_guesses: String
+    ) {
+        try {
+            api.saveScore(totalGoal , totalGoalConsole ,matchStatus,captianId,total_defence,opponent_guessed,my_guesses).apply {
+                if (isSuccessful) {
+                    body()?.let {
+                        successCallback(NetworkResult.Success(it.toString()))
+                    } ?: successCallback(NetworkResult.Error(ErrorMessage.apiError))
+                } else {
+                    successCallback(NetworkResult.Error(ErrorMessage.serverError))
+                }
+            }
+        } catch (e: Exception) {
+            successCallback(NetworkResult.Error(ErrorMessage.serverError))
+        }
+    }
+
     override suspend fun getGuessPlayerList(
         successCallback: (response: NetworkResult<String>) -> Unit,
         defender: String,

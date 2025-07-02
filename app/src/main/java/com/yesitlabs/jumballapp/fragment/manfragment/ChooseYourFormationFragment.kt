@@ -53,7 +53,6 @@ class ChooseYourFormationFragment : Fragment(),
     private lateinit var extraPLayerDbHelper: ExtraPlayerDatabaseHelper
 
     lateinit var sessionManager: SessionManager
-    private lateinit var getGuessPlayerListViewmodel: GetGuessPlayerListViewModel
     private lateinit var viewmodel: PlayerListViewModel
     var token: String? = null
     private var setGames: SetGames = SetGames()
@@ -75,9 +74,6 @@ class ChooseYourFormationFragment : Fragment(),
         binding.card1.setBackgroundResource(R.drawable.active_bg)
         binding.card2.setBackgroundResource(R.drawable.in_active_bg)
         binding.card3.setBackgroundResource(R.drawable.in_active_bg)
-
-
-        getGuessPlayerListViewmodel = ViewModelProvider(this)[GetGuessPlayerListViewModel::class.java]
         viewmodel = ViewModelProvider(requireActivity())[PlayerListViewModel::class.java]
 
         cpuDbHelper = CPUPlayerDatabaseHelper(requireContext())

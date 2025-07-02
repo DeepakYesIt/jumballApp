@@ -15,7 +15,9 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
 import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.activity.GroupDetailsActivity
@@ -23,19 +25,21 @@ import com.yesitlabs.jumballapp.activity.MainActivity
 import com.yesitlabs.jumballapp.database.player_dtl.CPUPlayerDatabaseHelper
 import com.yesitlabs.jumballapp.database.team_dtl.TeamDatabaseHelper
 import com.yesitlabs.jumballapp.databinding.FragmentFinalScoreBinding
-import com.yesitlabs.jumballapp.network.viewModel.SaveScoreViewModel
+import com.yesitlabs.jumballapp.errormassage.ErrorMessage
+import com.yesitlabs.jumballapp.model.SaveScoreResp
+import com.yesitlabs.jumballapp.network.NetworkResult
+import com.yesitlabs.jumballapp.viewmodeljumball.SaveScoreViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class FinalScoreFragment : Fragment(){
 
     lateinit var sessionManager: SessionManager
     private lateinit var binding: FragmentFinalScoreBinding
     private lateinit var teamDbHelper: TeamDatabaseHelper
-    private lateinit var saveScoreViewmodel: SaveScoreViewModel
+    private lateinit var viewmodel: SaveScoreViewModel
     var captianId=""
-    var my_guesses=""
-    var opponent_guessed=""
-    var total_defence=""
     private lateinit var cpuDbHelper: CPUPlayerDatabaseHelper
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -52,7 +56,7 @@ class FinalScoreFragment : Fragment(){
         sessionManager.changeMusic(0, 1)
         teamDbHelper = TeamDatabaseHelper(requireContext())
         cpuDbHelper = CPUPlayerDatabaseHelper(requireContext())
-        saveScoreViewmodel = ViewModelProvider(this)[SaveScoreViewModel::class.java]
+        viewmodel = ViewModelProvider(this)[SaveScoreViewModel::class.java]
 
 
         Log.d("@Error","number :-  "+sessionManager.getGameNumber())
@@ -87,10 +91,6 @@ class FinalScoreFragment : Fragment(){
                 if (data.teamID == 1) {
                     binding.userName.text = data.captainName
                 }
-               /* if (data.teamID == sessionManager.getTeamDetails()) {
-                    binding.opposeTeamPlayerName.text = data.captainName
-                }*/
-
                 if(sessionManager.getGameNumber() <= 3)  { //for first 3 match
                     if (data.teamID == sessionManager.getTeamDetails()) {
                         binding.opposeTeamPlayerName.text = data.captainName
@@ -100,7 +100,6 @@ class FinalScoreFragment : Fragment(){
                 }else if(sessionManager.getGameNumber() == 5){ // for 5th match
                     binding.opposeTeamPlayerName.text = "Lizard mascot"
                 }
-
             }
             Log.d("@Error ","after TeamDatabaseHelper")
         } else {
@@ -131,58 +130,69 @@ class FinalScoreFragment : Fragment(){
         Log.e("@Error captianId", sessionManager.getcpuNameSuggessionPass().toString())
 
 
-        if (binding.cpuScoreTv.text.toString().toInt() >= binding.MyTeamScore.text.toString().toInt()) {
-            storeScore(binding.MyTeamScore.text.toString(), binding.cpuScoreTv.text.toString(), "0")
-        } else {
-            storeScore(binding.MyTeamScore.text.toString(), binding.cpuScoreTv.text.toString(), "1")
-        }
+        val myTeamScore = binding.MyTeamScore.text.toString().toInt()
+        val cpuScore = binding.cpuScoreTv.text.toString().toInt()
+        val result = if (cpuScore >= myTeamScore) "0" else "1"
 
+        if (sessionManager.isNetworkAvailable()) {
+            storeScore(myTeamScore.toString(), cpuScore.toString(), result)
+        } else {
+            sessionManager.alertError(ErrorMessage.netWorkError)
+        }
 
     }
 
 
     // This is used for store user score of every match in database
     private fun storeScore(totalGoal: String, totalGoalConsole: String, matchStatus: String) {
-        saveScoreViewmodel.saveScoreList("Bearer " + sessionManager.fetchAuthToken()!!, totalGoal, totalGoalConsole, matchStatus,captianId,sessionManager.getTotalDefence().toString(),sessionManager.getcpuNameSuggessionPass().toString(),sessionManager.getMyNameSuggessionPass().toString())
-        saveScoreViewmodel.saveScoreListResponse.observe(requireActivity()) { response ->
-            binding.tvProgressBar.visibility = View.VISIBLE
-            sessionManager.saveMyNameSuggessionPass(0)
-            sessionManager.savecpuNameSuggessionPass(0)
-            sessionManager.saveTotalDefence(0)
-
-            if (response != null) {
-                val scoreResp = response.body()
-                if (scoreResp != null) {
-                    if (scoreResp.success && scoreResp.code == 200L) {
-                        binding.tvProgressBar.visibility = View.GONE
-                        checkScore()
-                    } else {
-                        Toast.makeText(requireContext(), scoreResp.message, Toast.LENGTH_SHORT).show()
-//                        findNavController().navigate(R.id.action_scoreBoardFragment_to_dashBoradFragment)
-//                        findNavController().navigate(R.id.dashBoardFragment)
-                        binding.tvProgressBar.visibility = View.GONE
-                        val intent=Intent(requireContext(),MainActivity::class.java)
-                        startActivity(intent)
-                        requireActivity().finish()
+        sessionManager.showMe(requireContext())
+        lifecycleScope.launch {
+            viewmodel.saveScoreList({
+                sessionManager.dismissMe()
+                sessionManager.saveMyNameSuggessionPass(0)
+                sessionManager.savecpuNameSuggessionPass(0)
+                sessionManager.saveTotalDefence(0)
+                when (it) {
+                    is NetworkResult.Success -> {
+                        try {
+                            val gson = Gson()
+                            val model = gson.fromJson(it.data, SaveScoreResp::class.java)
+                            if (model.code == 200 && model.success) {
+                                checkScore()
+                            } else {
+                                Toast.makeText(requireContext(),model.message,Toast.LENGTH_SHORT).show()
+                                moveToNextScreen()
+                            }
+                        }catch (e:Exception){
+                            Log.d("signup","message:---"+e.message)
+                            moveToNextScreen()
+                        }
+                    }
+                    is NetworkResult.Error -> {
+                        Log.d("signup","message:---"+it.message)
+                        moveToNextScreen()
+                    }
+                    else -> {
+                        sessionManager.alertError(it.message.toString())
                     }
                 }
-            } else {
-                binding.tvProgressBar.visibility = View.GONE
-                Toast.makeText(requireContext(), "Server Issue!", Toast.LENGTH_SHORT).show()
-                val intent=Intent(requireContext(),MainActivity::class.java)
-                startActivity(intent)
-                requireActivity().finish()
-            }
-
+            }, totalGoal, totalGoalConsole, matchStatus,captianId,sessionManager.getTotalDefence().toString(),sessionManager.getcpuNameSuggessionPass().toString(),sessionManager.getMyNameSuggessionPass().toString())
         }
 
 
+
+
+    }
+
+    private fun moveToNextScreen(){
+        val intent=Intent(requireContext(),MainActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
     }
 
     // This is used for check user score of every match
     private fun checkScore() {
 
-//        if (sessionManager.getMatchType() == "worldcup") {
             if (sessionManager.getMyScore() > sessionManager.getCpuScore()) {
                 sessionManager.changeMusic(13, 0)
                 teamDbHelper.updateW(1, 3)
@@ -196,10 +206,8 @@ class FinalScoreFragment : Fragment(){
                 teamDbHelper.updateL(1, 3)
             }
             teamDbHelper.updatePLD(1, 1)
-//        }
 
         Handler(Looper.getMainLooper()).postDelayed({
-//            if (sessionManager.getMatchType().equals("worldcup",true)) {
                 if (binding.cpuScoreTv.text.toString().toInt() == binding.MyTeamScore.text.toString().toInt()) {
 
                     sessionManager.setGameNumber(sessionManager.getGameNumber()+1)
@@ -221,13 +229,6 @@ class FinalScoreFragment : Fragment(){
                         requireActivity().finish()
                     }
                     if (binding.cpuScoreTv.text.toString().toInt() > binding.MyTeamScore.text.toString().toInt()) {
-                        //Match Loss
-//                        sessionManager.resetScore()
-//                        sessionManager.resetGameNumberScore()
-////                        findNavController().navigate(R.id.dashBoardFragment)
-//                        val intent=Intent(requireContext(),MainActivity::class.java)
-//                        startActivity(intent)
-//                        requireActivity().finish()
                         val intent = Intent(requireContext(), GroupDetailsActivity::class.java)
                         // Match Win
                         intent.putExtra("win", 1)
@@ -236,14 +237,6 @@ class FinalScoreFragment : Fragment(){
                         requireActivity().finish()
                     }
                 }
-//            } else {
-//                sessionManager.resetScore()
-//                sessionManager.resetGameNumberScore()
-////                findNavController().navigate(R.id.dashBoardFragment)
-//                val intent=Intent(requireContext(),MainActivity::class.java)
-//                startActivity(intent)
-//                requireActivity().finish()
-//            }
         }, 2000)
 
     }

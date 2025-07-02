@@ -462,6 +462,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="playerUserCPUFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-108" />
+                            <option name="y" value="1120" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="player_name_guess">
                     <value>
                       <LayoutPositions>

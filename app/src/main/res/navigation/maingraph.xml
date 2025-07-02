@@ -288,6 +288,11 @@
         android:id="@+id/suddenDeathFragment"
         android:name="com.yesitlabs.jumballapp.fragment.manfragment.SuddenDeathFragment"
         android:label="SuddenDeathFragment" />
+    <fragment
+        android:id="@+id/playerUserCPUFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PlayerUserCPUFragment"
+        android:label="fragment_player_user_c_p_u"
+        tools:layout="@layout/fragment_player_user_c_p_u" />
 
 
 </navigation>

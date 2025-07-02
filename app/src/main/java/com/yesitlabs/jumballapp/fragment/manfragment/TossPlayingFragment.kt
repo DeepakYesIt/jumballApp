@@ -190,7 +190,8 @@ class TossPlayingFragment : Fragment() {
             Log.e("Winner", winner)
             val bundle = Bundle()
             bundle.putString("userType", "user"/*winner*/)
-            findNavController().navigate(R.id.playScreenFragment, bundle)
+//            findNavController().navigate(R.id.playScreenFragment, bundle)
+            findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         }, 1000)
         dialog.show()
     }

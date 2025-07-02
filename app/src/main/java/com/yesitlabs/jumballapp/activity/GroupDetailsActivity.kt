@@ -18,8 +18,11 @@ import com.yesitlabs.jumballapp.model.teamListModel.TeamListModel
 import com.yesitlabs.jumballapp.SessionManager
 
 import com.yesitlabs.jumballapp.databinding.ActivityGroupDetalsBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
+
+@AndroidEntryPoint
 class GroupDetailsActivity : AppCompatActivity() {
 
     var adapter: OnGroupAdapter? = null

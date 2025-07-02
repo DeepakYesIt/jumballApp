@@ -18,9 +18,11 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
+import com.google.gson.Gson
 import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.adapter.AdpterNameHint
@@ -29,53 +31,47 @@ import com.yesitlabs.jumballapp.database.player_dtl.ExtraPlayerDatabaseHelper
 import com.yesitlabs.jumballapp.database.player_dtl.PlayerDatabaseHelper
 import com.yesitlabs.jumballapp.database.player_dtl.PlayerModel
 import com.yesitlabs.jumballapp.databinding.FragmentPlayerGuessNameBinding
+import com.yesitlabs.jumballapp.errormassage.ErrorMessage
 import com.yesitlabs.jumballapp.gameRule.SetGames
+import com.yesitlabs.jumballapp.model.GuessPlayerListResp
 import com.yesitlabs.jumballapp.model.guessName.GuessName
+import com.yesitlabs.jumballapp.network.NetworkResult
 import com.yesitlabs.jumballapp.network.viewModel.GetGuessPlayerListViewModel
+import com.yesitlabs.jumballapp.viewmodeljumball.PlayerListViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.util.Locale
 import kotlin.random.Random
 
 
+@AndroidEntryPoint
 class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     View.OnClickListener {
-
-
     private var countDownTimer: CountDownTimer?=null
-
     private lateinit var adapterNameHint: AdpterNameHint
     private var hintList = ArrayList<GuessName>()
     private var answerList = ArrayList<GuessName>()
-
     private var playerName: String? = "Null"
     private var userType: String = "null"
     private var playerNum: String = "null"
     private var playerId: String = "null"
-
+    private lateinit var viewmodel: PlayerListViewModel
     //Shrawan
     private var isGoalClick = false
-
     private var quizTime = 50
     private var maxTime = 50
-
     private var isTimerRunning = true
-
     private lateinit var cpuDbHelper: CPUPlayerDatabaseHelper
     private lateinit var myPlayerDbHelper: PlayerDatabaseHelper
     private lateinit var extraPLayerDbHelper: ExtraPlayerDatabaseHelper
-
     private var allCpuPlayer = ArrayList<PlayerModel>()
     private var allUserPlayer = ArrayList<PlayerModel>()
-
-
     lateinit var sessionManager: SessionManager
-    private lateinit var getGuessPlayerListViewmodel: GetGuessPlayerListViewModel
     var token: String? = null
     private var setGames: SetGames = SetGames()
     var dialog:Dialog?=null
-
     private var playerPower = "NO"
     val random =Random.nextInt(1, 3)
-
     private lateinit var binding: FragmentPlayerGuessNameBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -88,7 +84,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         super.onViewCreated(view, savedInstanceState)
 
         sessionManager = SessionManager(requireContext())
-        getGuessPlayerListViewmodel = ViewModelProvider(this)[GetGuessPlayerListViewModel::class.java]
+        viewmodel = ViewModelProvider(requireActivity())[PlayerListViewModel::class.java]
 
         playerName = requireArguments().getString("Name").toString().uppercase(Locale.ROOT)
         playerNum = requireArguments().getString("Num").toString().uppercase(Locale.ROOT)
@@ -770,7 +766,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             extraPLayerDbHelper.deleteAllPlayers()
             getGuessTeamList(screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
         } else {
-            alertError(getString(R.string.no_internet))
+            alertError(ErrorMessage.netWorkError)
         }
 
 //        Handler(Looper.myLooper()!!).postDelayed({
@@ -785,339 +781,348 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
 
     // This function is used for get guess player list from database api
     private fun getGuessTeamList(defender: String, midfielder: String, attacker: String, cpuDefender: String, cpuMidFielder: String, cpuAttacker: String) {
-        getGuessPlayerListViewmodel.getGuessPlayerListResponse.observe(viewLifecycleOwner) { response ->
-            if (response != null) {
-                if (response.isSuccessful) {
-                    val teamResponse = response.body()
-                    if (teamResponse != null) {
-                        if (teamResponse.data != null) {
-                            if (teamResponse.data.myplayer != null) {
-                                if (sessionManager.getGameCondition() == 0) {
-                                    sessionManager.increaseTimer(60000)
-                                    sessionManager.setGameGameCondition(1)
-                                } else {
-                                    sessionManager.increaseTimer(120000)
-                                }
-
-                                var df = defender.toInt()
-                                var mf = midfielder.toInt()
-                                var fw = attacker.toInt()
-
-                                Log.e("Player", myPlayerDbHelper.getAllPlayers().size.toString())
-
+        val matchNo = (sessionManager.getGameNumber()-1)
+//        sessionManager.showMe(requireContext())
+        lifecycleScope.launch {
+            viewmodel.getGuessPlayerList({
+                sessionManager.dismissMe()
+                when (it) {
+                    is NetworkResult.Success -> {
+                        try {
+                            val gson = Gson()
+                            val model = gson.fromJson(it.data, GuessPlayerListResp::class.java)
+                            if (model.code == 200 && model.success) {
                                 try {
-                                    // Defender
-                                    for (data in teamResponse.data.myplayer) {
-
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setMyPlayerId(data.id)
-                                        }
-
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
-
-                                        if (data.designation == "DF") {
-                                            if (df > 0) {
-                                                df -= 1
-                                                myPlayerDbHelper.addPlayer(
-                                                    surnames,
-                                                    data.is_captain.toString(),
-                                                    data.country_id.toString(),
-                                                    data.type.toString(),
-                                                    data.designation.toString(),
-                                                    data.jersey_number.toString(),
-                                                    "false",
-                                                    "false",
-                                                )
+                                    model.data?.let { data->
+                                        if (data.myplayer != null) {
+                                            if (sessionManager.getGameCondition() == 0) {
+                                                sessionManager.increaseTimer(60000)
+                                                sessionManager.setGameGameCondition(1)
+                                            } else {
+                                                sessionManager.increaseTimer(120000)
                                             }
-                                        }
-                                    }
+
+                                            var df = defender.toInt()
+                                            var mf = midfielder.toInt()
+                                            var fw = attacker.toInt()
+
+                                            Log.e("Player", myPlayerDbHelper.getAllPlayers().size.toString())
+
+                                            try {
+                                                // Defender
+                                                for (data in data.myplayer) {
+
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setMyPlayerId(data.id)
+                                                    }
+
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    if (data.designation == "DF") {
+                                                        if (df > 0) {
+                                                            df -= 1
+                                                            myPlayerDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false",
+                                                            )
+                                                        }
+                                                    }
+                                                }
 
 
-                                    // MidFielder
-                                    for (data in teamResponse.data.myplayer) {
+                                                // MidFielder
+                                                for (data in data.myplayer) {
 
 
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setMyPlayerId(data.id)
-                                        }
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setMyPlayerId(data.id)
+                                                    }
 
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
 
-                                        if (data.designation == "MF") {
-                                            if (mf > 0) {
-                                                mf -= 1
-                                                myPlayerDbHelper.addPlayer(
-                                                    surnames,
-                                                    data.is_captain.toString(),
-                                                    data.country_id.toString(),
-                                                    data.type.toString(),
-                                                    data.designation.toString(),
-                                                    data.jersey_number.toString(),
-                                                    "false",
-                                                    "false",
-                                                )
+                                                    if (data.designation == "MF") {
+                                                        if (mf > 0) {
+                                                            mf -= 1
+                                                            myPlayerDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false",
+                                                            )
+                                                        }
+                                                    }
+                                                }
+
+
+                                                //Striker
+                                                for (data in data.myplayer) {
+
+
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setMyPlayerId(data.id)
+                                                    }
+
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    if (data.designation == "FW") {
+                                                        if (fw > 0) {
+                                                            fw -= 1
+                                                            myPlayerDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false",
+                                                            )
+                                                        }
+                                                    }
+                                                }
+
+
+                                                // Goalkeeper
+                                                //Shrawan
+                                                for (data in data.myplayer) {
+
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setCpuPlayerId(data.id)
+                                                    }
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    if (data.designation == "GK") {
+                                                        myPlayerDbHelper.addPlayer(
+                                                            surnames,
+                                                            data.is_captain.toString(),
+                                                            data.country_id.toString(),
+                                                            data.type.toString(),
+                                                            data.designation.toString(),
+                                                            data.jersey_number.toString(),
+                                                            "false",
+                                                            "false"
+                                                        )
+                                                    }
+                                                }
+
+
+                                            } catch (e: Exception) {
+                                                Log.e("My Player Database Error", e.toString())
                                             }
+
                                         }
-                                    }
+                                        if (data.cpuplayer != null) {
+
+                                            var df = cpuDefender.toInt()
+                                            var mf = cpuMidFielder.toInt()
+                                            var fw = cpuAttacker.toInt()
+
+                                            try {
+                                                // Defender
+                                                for (data in data.cpuplayer) {
+
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setCpuPlayerId(data.id)
+                                                    }
+
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    if (data.designation == "DF") {
+                                                        if (df > 0) {
+                                                            df -= 1
+                                                            cpuDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false",
+                                                            )
+                                                        }
+                                                    }
 
 
-                                    //Striker
-                                    for (data in teamResponse.data.myplayer) {
+                                                }
 
 
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setMyPlayerId(data.id)
-                                        }
+                                                // MidFielder
+                                                for (data in data.cpuplayer) {
 
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setCpuPlayerId(data.id)
+                                                    }
 
-                                        if (data.designation == "FW") {
-                                            if (fw > 0) {
-                                                fw -= 1
-                                                myPlayerDbHelper.addPlayer(
-                                                    surnames,
-                                                    data.is_captain.toString(),
-                                                    data.country_id.toString(),
-                                                    data.type.toString(),
-                                                    data.designation.toString(),
-                                                    data.jersey_number.toString(),
-                                                    "false",
-                                                    "false",
-                                                )
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    if (data.designation == "MF") {
+                                                        if (mf > 0) {
+                                                            mf -= 1
+                                                            cpuDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false",
+                                                            )
+                                                        }
+                                                    }
+                                                }
+
+
+                                                //Striker
+                                                for (data in data.cpuplayer) {
+
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setCpuPlayerId(data.id)
+                                                    }
+
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    if (data.designation == "FW") {
+                                                        if (fw > 0) {
+                                                            fw -= 1
+                                                            cpuDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false",
+                                                            )
+                                                        }
+                                                    }
+                                                }
+
+                                                //Shrawan
+                                                for (data in data.cpuplayer) {
+
+                                                    if (data.is_captain == 1) {
+                                                        sessionManager.setCpuPlayerId(data.id)
+                                                    }
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    if (data.designation == "GK") {
+                                                        cpuDbHelper.addPlayer(
+                                                            surnames,
+                                                            data.is_captain.toString(),
+                                                            data.country_id.toString(),
+                                                            data.type.toString(),
+                                                            data.designation.toString(),
+                                                            data.jersey_number.toString(),
+                                                            "false",
+                                                            "false"
+                                                        )
+                                                    }
+                                                }
+
+
+                                            } catch (e: Exception) {
+                                                Log.e("My Player Database Error", e.toString())
                                             }
+
                                         }
+                                        if (data.SubtitutePlyer != null) {
+
+
+                                            try {
+                                                // Extra Player
+                                                for (data in data.SubtitutePlyer) {
+
+                                                    val surnames = try {
+                                                        data.name!!.split(" ").last()
+                                                    } catch (e: Exception) {
+                                                        "SYSTEM"
+                                                    }
+
+                                                    extraPLayerDbHelper.addPlayer(
+                                                        surnames,
+                                                        data.is_captain.toString(),
+                                                        data.country_id.toString(),
+                                                        data.type.toString(),
+                                                        data.designation.toString(),
+                                                        data.jersey_number.toString(),
+                                                        "false",
+                                                        "USER"
+                                                    )
+
+                                                }
+
+
+                                            } catch (e: Exception) {
+                                                Log.e("My Player Database Error", e.toString())
+                                            }
+
+                                        }
+                                        checkAllPlayer()
                                     }
-
-
-                                    // Goalkeeper
-                                    //Shrawan
-                                    for (data in teamResponse.data.myplayer) {
-
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setCpuPlayerId(data.id)
-                                        }
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
-
-                                        if (data.designation == "GK") {
-                                            myPlayerDbHelper.addPlayer(
-                                                surnames,
-                                                data.is_captain.toString(),
-                                                data.country_id.toString(),
-                                                data.type.toString(),
-                                                data.designation.toString(),
-                                                data.jersey_number.toString(),
-                                                "false",
-                                                "false"
-                                            )
-                                        }
-                                    }
-
-
-                                } catch (e: Exception) {
-                                    Log.e("My Player Database Error", e.toString())
+                                }catch (e:Exception){
+                                    Log.d("signup","message:---"+e.message)
                                 }
-
+                            } else {
+                                sessionManager.alertError(model.message)
                             }
-                            if (teamResponse.data.cpuplayer != null) {
-
-                                var df = cpuDefender.toInt()
-                                var mf = cpuMidFielder.toInt()
-                                var fw = cpuAttacker.toInt()
-
-                                try {
-                                    // Defender
-                                    for (data in teamResponse.data.cpuplayer) {
-
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setCpuPlayerId(data.id)
-                                        }
-
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
-
-                                        if (data.designation == "DF") {
-                                            if (df > 0) {
-                                                df -= 1
-                                                cpuDbHelper.addPlayer(
-                                                    surnames,
-                                                    data.is_captain.toString(),
-                                                    data.country_id.toString(),
-                                                    data.type.toString(),
-                                                    data.designation.toString(),
-                                                    data.jersey_number.toString(),
-                                                    "false",
-                                                    "false",
-                                                )
-                                            }
-                                        }
-
-
-                                    }
-
-
-                                    // MidFielder
-                                    for (data in teamResponse.data.cpuplayer) {
-
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setCpuPlayerId(data.id)
-                                        }
-
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
-
-                                        if (data.designation == "MF") {
-                                            if (mf > 0) {
-                                                mf -= 1
-                                                cpuDbHelper.addPlayer(
-                                                    surnames,
-                                                    data.is_captain.toString(),
-                                                    data.country_id.toString(),
-                                                    data.type.toString(),
-                                                    data.designation.toString(),
-                                                    data.jersey_number.toString(),
-                                                    "false",
-                                                    "false",
-                                                )
-                                            }
-                                        }
-                                    }
-
-
-                                    //Striker
-                                    for (data in teamResponse.data.cpuplayer) {
-
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setCpuPlayerId(data.id)
-                                        }
-
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
-
-                                        if (data.designation == "FW") {
-                                            if (fw > 0) {
-                                                fw -= 1
-                                                cpuDbHelper.addPlayer(
-                                                    surnames,
-                                                    data.is_captain.toString(),
-                                                    data.country_id.toString(),
-                                                    data.type.toString(),
-                                                    data.designation.toString(),
-                                                    data.jersey_number.toString(),
-                                                    "false",
-                                                    "false",
-                                                )
-                                            }
-                                        }
-                                    }
-
-                                    //Shrawan
-                                    for (data in teamResponse.data.cpuplayer) {
-
-                                        if (data.is_captain == 1) {
-                                            sessionManager.setCpuPlayerId(data.id)
-                                        }
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
-
-                                        if (data.designation == "GK") {
-                                            cpuDbHelper.addPlayer(
-                                                surnames,
-                                                data.is_captain.toString(),
-                                                data.country_id.toString(),
-                                                data.type.toString(),
-                                                data.designation.toString(),
-                                                data.jersey_number.toString(),
-                                                "false",
-                                                "false"
-                                            )
-                                        }
-                                    }
-
-
-                                } catch (e: Exception) {
-                                    Log.e("My Player Database Error", e.toString())
-                                }
-
-                            }
-                            if (teamResponse.data.SubtitutePlyer != null) {
-
-
-                                try {
-                                    // Extra Player
-                                    for (data in teamResponse.data.SubtitutePlyer) {
-
-                                        val surnames = try {
-                                            data.name!!.split(" ").last()
-                                        } catch (e: Exception) {
-                                            "SYSTEM"
-                                        }
-
-                                        extraPLayerDbHelper.addPlayer(
-                                            surnames,
-                                            data.is_captain.toString(),
-                                            data.country_id.toString(),
-                                            data.type.toString(),
-                                            data.designation.toString(),
-                                            data.jersey_number.toString(),
-                                            "false",
-                                            "USER"
-                                        )
-
-                                    }
-
-
-                                } catch (e: Exception) {
-                                    Log.e("My Player Database Error", e.toString())
-                                }
-
-                            }
-                            checkAllPlayer()
-                        } else {
-                            sessionManager.alertError("Player list not found !")
+                        }catch (e:Exception){
+                            Log.d("signup","message:---"+e.message)
                         }
-
-                    } else {
-                        sessionManager.alertError(response.message().toString())
                     }
-                } else {
-                    sessionManager.alertError(response.errorBody().toString())
+                    is NetworkResult.Error -> {
+                        sessionManager.alertError(it.message.toString())
+                    }
+                    else -> {
+                        sessionManager.alertError(it.message.toString())
+                    }
                 }
-
-            } else {
-                sessionManager.alertError("Check Your Internet Connection")
-            }
+            }, defender, midfielder, attacker, "", "",matchNo.toString())
         }
-        val match_no = (sessionManager.getGameNumber()-1)
-        getGuessPlayerListViewmodel.getGuessPlayerList("$token", defender, midfielder,
-            attacker, "", "",match_no.toString())
     }
 
     // This function is used for check cpu and user team player list and verify

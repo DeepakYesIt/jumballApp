@@ -92,17 +92,6 @@ class TournamentTreeActivity : AppCompatActivity() {
                 }
                 //  Final Match
                 3 -> {
-                /*    if (sessionManager.getGameWin() == 3) {
-                        if (sessionManager.isNetworkAvailable()) {
-                            worldCupWon()
-                        } else {
-                            sessionManager.alertError(getString(R.string.no_internet))
-                        }
-                    } else {
-//                        sessionManager.setGameNumber(1)
-                        sessionManager.setGameWin(0)
-                        moveToNextScreen()
-                    }*/
                     moveToNextScreen()
                 }
                 // Special Match 1  Assistant Manager
@@ -116,7 +105,6 @@ class TournamentTreeActivity : AppCompatActivity() {
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
-//                    moveToNextScreen()
                 }else -> {
                     Log.e("Game Number", sessionManager.getGameNumber().toString())
                     Log.e("Game Win", sessionManager.getGameWin().toString())

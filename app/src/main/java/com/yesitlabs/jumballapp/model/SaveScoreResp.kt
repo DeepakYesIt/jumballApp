@@ -3,7 +3,7 @@
 package com.yesitlabs.jumballapp.model
 
 data class SaveScoreResp (
-    val code: Long,
+    val code: Int,
     val success: Boolean,
     val message: String
 )

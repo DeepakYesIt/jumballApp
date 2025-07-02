@@ -8,6 +8,6 @@ data class PlayerModel(
     val type: String,
     val designation: String,
     val jersey_number: String,
-    val answer: String,
+    var answer: String,
     val use: String,
 )
