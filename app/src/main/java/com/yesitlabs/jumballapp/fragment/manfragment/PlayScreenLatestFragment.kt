@@ -1,47 +1,47 @@
-package com.yesitlabs.jumballapp.fragment.manfragment
-import android.annotation.SuppressLint
-import android.app.Dialog
-import android.content.Intent
-import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.bumptech.glide.Glide
-import com.yesitlabs.jumballapp.R
-import com.yesitlabs.jumballapp.database.player_dtl.CPUPlayerDatabaseHelper
-import com.yesitlabs.jumballapp.database.player_dtl.PlayerDatabaseHelper
-import com.yesitlabs.jumballapp.database.player_dtl.PlayerModel
-import com.yesitlabs.jumballapp.database.team_dtl.TeamDatabaseHelper
-import com.yesitlabs.jumballapp.gameRule.SetGames
-import com.yesitlabs.jumballapp.SessionManager
-import com.yesitlabs.jumballapp.ValueStore
-import com.yesitlabs.jumballapp.activity.MainActivity
-import com.yesitlabs.jumballapp.database.player_dtl.ExtraPlayerDatabaseHelper
-import com.yesitlabs.jumballapp.databinding.FragmentPlayScreenBinding
-import com.yesitlabs.jumballapp.network.viewModel.GetGuessPlayerListViewModel
-import dagger.hilt.android.AndroidEntryPoint
-import java.util.Locale
-import kotlin.random.Random
-
-
-
+//package com.yesitlabs.jumballapp.fragment.manfragment
+//import android.annotation.SuppressLint
+//import android.app.Dialog
+//import android.content.Intent
+//import android.os.Bundle
+//import android.os.CountDownTimer
+//import android.os.Handler
+//import android.os.Looper
+//import android.util.Log
+//import android.view.LayoutInflater
+//import android.view.View
+//import android.view.ViewGroup
+//import android.view.WindowManager
+//import android.widget.ImageView
+//import android.widget.LinearLayout
+//import android.widget.TextView
+//import android.widget.Toast
+//import androidx.activity.OnBackPressedCallback
+//import androidx.constraintlayout.widget.ConstraintLayout
+//import androidx.core.content.ContextCompat
+//import androidx.fragment.app.Fragment
+//import androidx.lifecycle.ViewModelProvider
+//import androidx.navigation.fragment.findNavController
+//import com.bumptech.glide.Glide
+//import com.yesitlabs.jumballapp.R
+//import com.yesitlabs.jumballapp.database.player_dtl.CPUPlayerDatabaseHelper
+//import com.yesitlabs.jumballapp.database.player_dtl.PlayerDatabaseHelper
+//import com.yesitlabs.jumballapp.database.player_dtl.PlayerModel
+//import com.yesitlabs.jumballapp.database.team_dtl.TeamDatabaseHelper
+//import com.yesitlabs.jumballapp.gameRule.SetGames
+//import com.yesitlabs.jumballapp.SessionManager
+//import com.yesitlabs.jumballapp.ValueStore
+//import com.yesitlabs.jumballapp.activity.MainActivity
+//import com.yesitlabs.jumballapp.database.player_dtl.ExtraPlayerDatabaseHelper
+//import com.yesitlabs.jumballapp.databinding.FragmentPlayScreenBinding
+//import com.yesitlabs.jumballapp.network.viewModel.GetGuessPlayerListViewModel
+//import dagger.hilt.android.AndroidEntryPoint
+//import java.util.Locale
+//import kotlin.random.Random
+//
+//
+//
 //@AndroidEntryPoint
-//class PlayScreenFragment : Fragment(), View.OnClickListener {
+//class PlayScreenLatestFragment : Fragment(), View.OnClickListener {
 //
 //    private lateinit var binding: FragmentPlayScreenBinding
 //    private var setGames: SetGames = SetGames()

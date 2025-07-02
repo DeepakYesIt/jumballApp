@@ -30,9 +30,7 @@ class TossPlayingFragment : Fragment() {
     private var headSelect = false
     var winner = "user"
     private var type=""
-
     lateinit var sessionManager : SessionManager
-
     private lateinit var binding: FragmentTossPlayingBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -189,9 +187,9 @@ class TossPlayingFragment : Fragment() {
         Handler(Looper.myLooper()!!).postDelayed({
             Log.e("Winner", winner)
             val bundle = Bundle()
-            bundle.putString("userType", "user"/*winner*/)
+            bundle.putString("userType", "cpu"/*winner*/)
 //            findNavController().navigate(R.id.playScreenFragment, bundle)
-            findNavController().navigate(R.id.playerUserCPUFragment, bundle)
+          findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         }, 1000)
         dialog.show()
     }

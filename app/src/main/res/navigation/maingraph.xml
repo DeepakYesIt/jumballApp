@@ -293,6 +293,10 @@
         android:name="com.yesitlabs.jumballapp.fragment.manfragment.PlayerUserCPUFragment"
         android:label="fragment_player_user_c_p_u"
         tools:layout="@layout/fragment_player_user_c_p_u" />
+    <fragment
+        android:id="@+id/PlayScreenLatestFragment"
+        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PlayScreenLatestFragment"
+        android:label="PlayScreenLatestFragment" />
 
 
 </navigation>

@@ -9,5 +9,5 @@ data class PlayerModel(
     val designation: String,
     val jersey_number: String,
     var answer: String,
-    val use: String,
+    var use: String,
 )

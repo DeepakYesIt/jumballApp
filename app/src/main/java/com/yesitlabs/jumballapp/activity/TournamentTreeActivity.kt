@@ -311,7 +311,6 @@ class TournamentTreeActivity : AppCompatActivity() {
 
         Handler(Looper.myLooper()!!).postDelayed({
             dialog.dismiss()
-//            sessionManager.setGameNumber(sessionManager.getGameNumber() + 1)
             val intent = Intent(this, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)

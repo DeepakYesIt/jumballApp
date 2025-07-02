@@ -124,7 +124,8 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         val result = if (randomNumber % 2 == 0) {
             "even"
         } else {
-            "odd"
+//            "odd"
+            "even"
         }
 
         if (userType.equals("USER",true)) {
@@ -165,7 +166,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         }
 
         // Remove this if condition if you want to show auto play its use for hide autoplay
-        if (userType == "CPU") {
+        if (userType.equals("CPU",true)) {
             // Show Directly Result
             if (result.equals("even",true)){
                 sessionManager.savecpuNameSuggessionPass(sessionManager.getcpuNameSuggessionPass()+1)
@@ -649,7 +650,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     // This is used for guess right name
     private fun rightAnswer() {
 
-        if (userType == "USER") {
+        if (userType.equals("USER")) {
             sessionManager.setFirstGamgeStartUser(true)
             sessionManager.setFirstGamgeStartCPU(false)
             sessionManager.saveMyNameSuggessionPass(sessionManager.getMyNameSuggessionPass()+1)
@@ -668,19 +669,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         bundle.putString("userType", userType)
         bundle.putInt("id", playerId.toInt())
 
-        /*if (sessionManager.getGameCondition() == 0) {
-            sessionManager.increaseTimer(60000)
-            sessionManager.setGameGameCondition(1)
-        } else {
-            sessionManager.increaseTimer(180000)
-           *//* if (sessionManager.getGameCondition() == 2) {
-                sessionManager.increaseTimer(60000)
-                sessionManager.setGameGameCondition(3)
-            } else {
-                sessionManager.increaseTimer(180000)
-            }*//*
-        }*/
-
         if (sessionManager.getGameCondition() == 0) {
             sessionManager.increaseTimer(60000)
             sessionManager.setGameGameCondition(1)
@@ -688,7 +676,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             sessionManager.increaseTimer(180000)
         }
 
-        if (userType == "USER") {
+        if (userType.equals("USER",true)) {
             if (playerPower.uppercase() == "GOLD") {
                 sessionManager.setSpecialPower(true)
             }
@@ -703,7 +691,8 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         bundle.putBoolean("isGoalClick",isGoalClick) //Shrawan
 
 //        findNavController().navigate(R.id.action_guessPlayerNameFragment_to_playScreenFragment, bundle)
-        findNavController().navigate(R.id.playScreenFragment, bundle)
+//        findNavController().navigate(R.id.playScreenFragment, bundle)
+        findNavController().navigate(R.id.playerUserCPUFragment, bundle)
 
     }
 
@@ -1177,7 +1166,8 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         }
         bundle.putInt("id", playerId.toInt())
         bundle.putBoolean("isGoalClick",isGoalClick)//Shrawan
-        findNavController().navigate(R.id.playScreenFragment, bundle)
+//        findNavController().navigate(R.id.playScreenFragment, bundle)
+        findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         Handler(Looper.myLooper()!!).postDelayed({
             sessionManager.changeMusic(1, 1)
             dialog?.dismiss()
@@ -1253,7 +1243,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         val btText: TextView = dialog.findViewById(R.id.btText)
         btText.text = "Retry"
         tvTitle.text = msg
-        btnOk.setOnClickListener(View.OnClickListener {
+        btnOk.setOnClickListener({
             dialog.dismiss()
             wrongAnswer()
         })

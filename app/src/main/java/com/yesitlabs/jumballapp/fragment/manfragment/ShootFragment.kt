@@ -783,27 +783,19 @@ class ShootFragment : Fragment(), View.OnClickListener {
                                                         )
                                                     }
                                                 }
-
-
                                             } catch (e: Exception) {
                                                 Log.e("My Player Database Error", e.toString())
                                             }
-
                                         }
-
                                         if (data.SubtitutePlyer != null) {
-
-
                                             try {
                                                 // Extra Player
                                                 for (data in data.SubtitutePlyer) {
-
                                                     val surnames = try {
                                                         data.name!!.split(" ").last()
                                                     } catch (e: Exception) {
                                                         "SYSTEM"
                                                     }
-
                                                     extraPLayerDbHelper.addPlayer(
                                                         surnames,
                                                         data.is_captain.toString(),
@@ -814,17 +806,11 @@ class ShootFragment : Fragment(), View.OnClickListener {
                                                         "false",
                                                         "USER"
                                                     )
-
                                                 }
-
-
                                             } catch (e: Exception) {
                                                 Log.e("My Player Database Error", e.toString())
                                             }
-
                                         }
-
-
                                         checkAllPlayer(win)
                                     }
                                 }catch (e:Exception){
@@ -851,13 +837,8 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
     // This function is used for check cpu and user team player list and verify
     private fun checkAllPlayer(win: Boolean) {
-
-//        Toast.makeText(requireContext(), "win status :-$win",Toast.LENGTH_SHORT).show()
-
         if (myPlayerDbHelper.getAllPlayers().size < 10) {
-
             val remain = 10 - myPlayerDbHelper.getAllPlayers().size
-
             if (remain > 1) {
                 for (i in 0 until remain) {
                     myPlayerDbHelper.addPlayer(
@@ -874,7 +855,6 @@ class ShootFragment : Fragment(), View.OnClickListener {
             } else {
                 myPlayerDbHelper.addPlayer("SYSTEM", "0", "ENG", "no", "MF", "10", "false", "false")
             }
-
         }
 
         if (cpuDbHelper.getAllPlayers().size < 10) {

@@ -2,8 +2,9 @@ package com.yesitlabs.jumballapp.fragment.manfragment
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +16,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.ValueStore
@@ -28,7 +31,7 @@ import com.yesitlabs.jumballapp.gameRule.SetGames
 import java.util.Locale
 
 
-class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
+class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
     private lateinit var binding: FragmentPlayerUserCPUBinding
     lateinit var sessionManager: SessionManager
     private lateinit var extraPLayerDbHelper: ExtraPlayerDatabaseHelper
@@ -38,7 +41,6 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
     private var cpuPass = 0
     private var userType: String? = null
     private var playerIdUser = 0
-    //Shrawan
     private var  isGoalClick  = false
     private lateinit var cpuDbHelper: CPUPlayerDatabaseHelper
     private lateinit var myPlayerDbHelper: PlayerDatabaseHelper
@@ -46,7 +48,18 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
     private var allCpuPlayer = ArrayList<PlayerModel>()
     private var allUserPlayer = ArrayList<PlayerModel>()
     private var setGames: SetGames = SetGames()
-
+    private var isCpuActive = false
+    // List to store clickable players and their views
+    val clickablePlayers = mutableListOf<Pair<View, PlayerModel>>()
+    private val handler = Handler(Looper.getMainLooper())
+    private val runnable = object : Runnable {
+        override fun run() {
+            if (isCpuActive) {
+                selectCpuButton()
+                handler.postDelayed(this, 3000) // Repeat every 3 seconds
+            }
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPlayerUserCPUBinding.inflate(inflater, container, false)
@@ -110,25 +123,6 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
         cpuDbHelper = CPUPlayerDatabaseHelper(requireContext())
         myPlayerDbHelper = PlayerDatabaseHelper(requireContext())
 
-//        val team = listOf(
-//            Player("Alex Martinez", 1, "Goalkeeper", "Starter"),
-//            // 3 Defenders
-//            Player("Ryan Blake", 2, "Defender", "Starter"),
-//            Player("Jamal Okafor", 3, "Defender", "Starter"),
-//            Player("Luca Fernandez", 4, "Defender", "Starter"),
-//            // 2 Midfielders
-//            Player("Kevin Liu", 6, "Midfielder", "Starter"),
-//            Player("Daniel Costa", 7, "Midfielder", "Starter"),
-//
-//            // 5 Attackers (Wingers/Forwards)
-//            Player("Carlos Mendes", 9, "Attacker", "Starter"),
-//            Player("Jordan Knox", 10, "Attacker", "Starter"),
-//            Player("Ahmed Salah", 11, "Attacker", "Starter"),
-//            Player("Leo Anders", 8, "Attacker", "Starter"),
-//            Player("Samir Patel", 14, "Attacker", "Starter") // Central striker
-//        )
-//        setupFootballFormation("3-2-5-1",team)
-
         timerLogic()
 
         setPlayerScreens()
@@ -171,7 +165,6 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
         binding.cpuScoreTv.text = sessionManager.getCpuScore().toString()
         binding.userGoalTv.text = sessionManager.getMyScore().toString()
 
-
         if (userType.equals("USER",true)){
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
@@ -179,12 +172,80 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
         }else{
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
-            setupFootballFormation("3-2-5-1",allUserPlayer)
+            setupFootballFormationCpu("3-2-5-1",allUserPlayer)
+
         }
 
+    }
+
+    private fun selectCpuButton(){
+        // ✅ Trigger click on a random eligible player
+        if (clickablePlayers.isNotEmpty()) {
+            /*val randomIndex = (1 until clickablePlayers.size).random()
+            val (viewToClick, _) = clickablePlayers[randomIndex]
+
+            // Optional: Add a small delay before triggering (helps after layout inflation)
+            viewToClick.postDelayed({
+                // ✅ Show Toast for random player
+                Toast.makeText(requireContext(), "Auto-selected: ", Toast.LENGTH_SHORT).show()
+                viewToClick.performClick()
+            }, 300L) // 300 milliseconds delay*/
+
+            val countAnswer = allUserPlayer.count { it.answer.equals("true",true) }?:0
+            Toast.makeText(requireContext(), "countAnswer :-$countAnswer",Toast.LENGTH_SHORT).show()
+            if (countAnswer==0){
+                val targetNumbers = listOf("6", "7")
+                val randomTarget = targetNumbers.random()
+
+                val targetPlayer = clickablePlayers.firstOrNull { (_, player) ->
+                    player.id == randomTarget && player.designation == "MF"
+                }
+                if (targetPlayer != null) {
+                    val (viewToClick, player) = targetPlayer
+                    viewToClick.postDelayed({
+                        stopCpuProcess()
+                        val bundle = Bundle()
+                        bundle.putString("Name", player.name)
+                        bundle.putString("userType", userType)
+                        bundle.putString("Num", player.jersey_number)
+                        bundle.putString("id", player.id)
+                        Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
+                        findNavController().navigate(R.id.player_name_guess, bundle)
+                        Toast.makeText(requireContext(), "Auto-selected MF #${player.id}", Toast.LENGTH_SHORT).show()
+                        viewToClick.performClick()
+                    }, 300L)
+                }
+            }else{
+                stopCpuProcess()
+                cpuPassBall()
+                /*val randomTarget =  (1..11).random().toString()
+                Log.d("Random number", "*****$randomTarget")
+                val targetPlayer = clickablePlayers.firstOrNull { (_, player) ->
+                    player.id == randomTarget
+                }
+                if (targetPlayer != null) {
+                    val (viewToClick, player) = targetPlayer
+                    viewToClick.postDelayed({
+                        *//*if (!player.answer.equals("true",true)){
+
+                            *//**//*val bundle = Bundle()
+                            bundle.putString("Name", player.name)
+                            bundle.putString("userType", userType)
+                            bundle.putString("Num", player.jersey_number)
+                            bundle.putString("id", player.id)
+                            Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
+                            findNavController().navigate(R.id.player_name_guess, bundle)
+                            Toast.makeText(requireContext(), "Auto-selected MF #${player.id}", Toast.LENGTH_SHORT).show()
+                            viewToClick.performClick()*//**//*
+                        }*//*
+                        stopCpuProcess()
+                        cpuPassBall()
+                    }, 300L)
+                }*/
+            }
 
 
-
+        }
     }
 
     private fun timerLogic(){
@@ -272,14 +333,11 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
                 binding.layProgess.progress = startTime - 2700000
             }
         }
-
-
-
     }
 
     private fun backButton(){
         val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true /* enabled by default */) {
+            object : OnBackPressedCallback(true  /*enabled by default*/ ) {
                 override fun handleOnBackPressed() {
                     requireActivity().finish()
                 }
@@ -290,16 +348,13 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
     @SuppressLint("SetTextI18n")
     private fun setupFootballFormation(players1: String, players: List<PlayerModel>) {
         binding.formationContainer.removeAllViews()
-
         // Group players by position
-
         val groupedPlayers = listOf(
             "FW" to players.filter { it.designation == "FW" },
             "MF" to players.filter { it.designation == "MF" },
             "DF" to players.filter { it.designation == "DF" },
             "GK" to players.filter { it.designation == "GK" },
         )
-
         for ((position, playersInPosition) in groupedPlayers) {
             // Create a row for the position
             val row = LinearLayout(requireContext()).apply {
@@ -311,10 +366,8 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
                 orientation = LinearLayout.HORIZONTAL
                 gravity = android.view.Gravity.CENTER_HORIZONTAL
             }
-
             // Add space before players to center them
             row.addView(Space(requireContext()), LayoutParams(0, LayoutParams.MATCH_PARENT, 1f))
-
             for ((index, player) in playersInPosition.withIndex()) {
                 val playerView = LayoutInflater.from(requireContext()).inflate(R.layout.playerview, row, false)
                 val rpSelect = playerView.findViewById<ImageView>(R.id.rp_select)
@@ -353,13 +406,12 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
                     }else{
                         binding.rootButton.visibility=View.GONE
                     }
-
                 }else{
                     playerImage.setImageResource(R.drawable.user_guess_white)
                     rpSelect.visibility = View.GONE
                     rpName.visibility = View.GONE
                     rpNumber.visibility = View.GONE
-                    if (player.type.equals("yes",true)){
+                    if (player.use.equals("true",true)){
                         rpSelect.visibility = View.VISIBLE
                     }else{
                         rpSelect.visibility = View.GONE
@@ -368,53 +420,126 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
                         val countAnswer = players.count { it.answer.equals("true",true) }?:0
                         if (countAnswer==0){
                             if (player.designation.equals("MF",true)){
-                                val playerIndex = players.indexOfFirst { it.jersey_number == player.jersey_number  }
-                                if (playerIndex != -1) {
-                                    players[playerIndex].answer = "true"
-                                }
+                                val bundle = Bundle()
+                                bundle.putString("Name", player.name)
+                                bundle.putString("userType", userType)
+                                bundle.putString("Num", player.jersey_number)
+                                bundle.putString("id", player.id)
+                                Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
+                                findNavController().navigate(R.id.player_name_guess, bundle)
                             }
                         }else{
-                            if (player.designation.equals("GK",true)){
-                                players.forEach {
-                                    it.answer="true"
-                                }
-                            }else{
-                                val playerIndex = players.indexOfFirst { it.jersey_number == player.jersey_number  }
-                                if (playerIndex != -1) {
-                                    players[playerIndex].answer = "true"
-                                }
+                            if (player.use.equals("true",true)){
+                                val bundle = Bundle()
+                                bundle.putString("Name", player.name)
+                                bundle.putString("userType", userType)
+                                bundle.putString("Num", player.jersey_number)
+                                bundle.putString("id", player.id)
+                                Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
+                                findNavController().navigate(R.id.player_name_guess, bundle)
                             }
-
                         }
-                        Toast.makeText(requireContext(),"player Name -"+player.name,Toast.LENGTH_SHORT).show()
-                        // Refresh with filter for that position only
-                        setupFootballFormation("", players)
                     }
                 }
-
                 row.addView(playerView)
-
                 // Add space between players
                 if (index < playersInPosition.size - 1) {
                     row.addView(Space(requireContext()), LayoutParams(0, LayoutParams.MATCH_PARENT, 1f))
                 }
             }
-
             // Add space after players to center them
             row.addView(Space(requireContext()), LayoutParams(0, LayoutParams.MATCH_PARENT, 1f))
-
             // Add the row to the container
             binding.formationContainer.addView(row)
         }
     }
 
-    data class Player(
-        val name: String,
-        val number: Int,
-        val position: String,
-        val status: String,
-        var showStatus: Boolean = false
-    )
+    @SuppressLint("SetTextI18n")
+    private fun setupFootballFormationCpu(players1: String, players: List<PlayerModel>) {
+        binding.formationContainer.removeAllViews()
+        // Group players by position
+        val groupedPlayers = listOf(
+            "FW" to players.filter { it.designation == "FW" },
+            "MF" to players.filter { it.designation == "MF" },
+            "DF" to players.filter { it.designation == "DF" },
+            "GK" to players.filter { it.designation == "GK" },
+        )
+        for ((position, playersInPosition) in groupedPlayers) {
+            // Create a row for the position
+            val row = LinearLayout(requireContext()).apply {
+                layoutParams = LayoutParams(
+                    LayoutParams.MATCH_PARENT,
+                    0,
+                    1f
+                )
+                orientation = LinearLayout.HORIZONTAL
+                gravity = android.view.Gravity.CENTER_HORIZONTAL
+            }
+            // Add space before players to center them
+            row.addView(Space(requireContext()), LayoutParams(0, LayoutParams.MATCH_PARENT, 1f))
+            for ((index, player) in playersInPosition.withIndex()) {
+                val playerView = LayoutInflater.from(requireContext()).inflate(R.layout.playerview, row, false)
+                val rpSelect = playerView.findViewById<ImageView>(R.id.rp_select)
+                val playerImage = playerView.findViewById<ImageView>(R.id.rp_img)
+                val rpName = playerView.findViewById<TextView>(R.id.rp_name)
+                val rpNumber = playerView.findViewById<TextView>(R.id.rp_number)
+
+                // Set margin on playerView
+                val layoutParams = LayoutParams(
+                    playerView.layoutParams.width,
+                    playerView.layoutParams.height
+                ).apply {
+                    topMargin = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._5sdp) // or use a fixed value e.g., 16
+                }
+
+                playerView.layoutParams = layoutParams
+                if (player.answer.equals("true",true)){
+                    rpSelect.visibility = View.GONE
+                    rpName.visibility = View.VISIBLE
+                    rpNumber.visibility = View.VISIBLE
+                    rpName.text = player.name
+                    val countryID = player.country_id
+                    val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
+                    playerImage.setImageResource(setGames.getTShirtImage(countryID))
+                    rpNumber.setTextColor(textColor)
+                    val countAnswer = players.count { it.answer.equals("true",true) }?:0
+                    if (countAnswer!=0){
+                        binding.rootButton.visibility=View.VISIBLE
+                        if (countAnswer>1){
+                            binding.btShoot.visibility=View.VISIBLE
+                            binding.btPass.visibility=View.VISIBLE
+                        }else{
+                            binding.btShoot.visibility=View.GONE
+                            binding.btPass.visibility=View.VISIBLE
+                        }
+                    }else{
+                        binding.rootButton.visibility=View.GONE
+                    }
+                }else{
+                    playerImage.setImageResource(R.drawable.user_guess_white)
+                    rpSelect.visibility = View.GONE
+                    rpName.visibility = View.GONE
+                    rpNumber.visibility = View.GONE
+                    if (player.use.equals("true",true)){
+                        rpSelect.visibility = View.VISIBLE
+                    }else{
+                        rpSelect.visibility = View.GONE
+                    }
+                    clickablePlayers.add(Pair(playerView, player))
+                    autoButtonClick()
+                }
+                row.addView(playerView)
+                // Add space between players
+                if (index < playersInPosition.size - 1) {
+                    row.addView(Space(requireContext()), LayoutParams(0, LayoutParams.MATCH_PARENT, 1f))
+                }
+            }
+            // Add space after players to center them
+            row.addView(Space(requireContext()), LayoutParams(0, LayoutParams.MATCH_PARENT, 1f))
+            // Add the row to the container
+            binding.formationContainer.addView(row)
+        }
+    }
 
     override fun onClick(item: View?) {
         when (item!!.id) {
@@ -425,23 +550,122 @@ class PlayerUserCPUFragment : Fragment() , View.OnClickListener{
     }
 
     private fun userPassBall() {
-            isGoalClick = false
             if (userType.equals("USER",true)) {
-                val targetIds = setOf(1, 2, 3, 6, 7, 8, 9)
-                allCpuPlayer = allCpuPlayer
-                    .map { player ->
-                        if (player.id.toInt()  in targetIds) {
-                            player.copy(type = "yes")
-                        } else {
-                            player
-                        }
+                val plarerId=sessionManager.getMySelectedTeamPlayerNum()
+                val player = allCpuPlayer.find { it.id.toInt() == plarerId }
+                if (player != null) {
+                    if (player.is_captain.equals("0", ignoreCase = true)) {
+                        val targetMap = mapOf(
+                            1 to setOf(2, 6),
+                            2 to setOf(1, 6, 3,11),
+                            3 to setOf(2, 6, 7, 4,11),
+                            4 to setOf(3, 5, 7,11),
+                            5 to setOf(4, 7),
+                            6 to setOf(1, 2, 3, 7, 8, 9),
+                            7 to setOf(6,3,4,5,9,10),
+                            8 to setOf(6, 9),
+                            9 to setOf(6,7,8,10),
+                            10 to setOf(9,7),
+                            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                        )
+                        val targetIds = targetMap[plarerId] ?: emptySet()
+                        allCpuPlayer = allCpuPlayer
+                            .map { player ->
+                                if (player.id.toInt()  in targetIds) {
+                                    player.copy(use = "true")
+                                } else {
+                                    player.copy(use = "false")
+                                }
+                            }
+                            .toCollection(ArrayList())  // ensures you get an ArrayList<PlayerModel>
+                    } else {
+                        allCpuPlayer = allCpuPlayer
+                            .map { player ->
+                                player.copy(use = "true")
+                            }
+                            .toCollection(ArrayList())
                     }
-                    .toCollection(ArrayList())  // ensures you get an ArrayList<PlayerModel>
-                setupFootballFormation("3-2-5-1",allCpuPlayer)
-                Toast.makeText(requireContext(),"pass user ",Toast.LENGTH_SHORT).show()
-            } /*else {
-                autoButtonClick()
-            }*/
+                    setupFootballFormation("3-2-5-1",allCpuPlayer)
+                }
+            }
+    }
+
+    private fun cpuPassBall() {
+        if (userType.equals("cpu",true)) {
+            val plarerId=sessionManager.getMySelectedTeamPlayerNum()
+            val player = allUserPlayer.find { it.id.toInt() == plarerId }
+            if (player != null) {
+                if (player.is_captain.equals("0", ignoreCase = true)) {
+                    val targetMap = mapOf(
+                        1 to setOf(2, 6),
+                        2 to setOf(1, 6, 3,11),
+                        3 to setOf(2, 6, 7, 4,11),
+                        4 to setOf(3, 5, 7,11),
+                        5 to setOf(4, 7),
+                        6 to setOf(1, 2, 3, 7, 8, 9),
+                        7 to setOf(6,3,4,5,9,10),
+                        8 to setOf(6, 9),
+                        9 to setOf(6,7,8,10),
+                        10 to setOf(9,7),
+                        11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                    )
+                    val targetIds = targetMap[plarerId] ?: emptySet()
+                    allUserPlayer = allUserPlayer
+                        .map { player ->
+                            if (player.id.toInt()  in targetIds) {
+                                player.copy(use = "true")
+                            } else {
+                                player.copy(use = "false")
+                            }
+                        }
+                        .toCollection(ArrayList())  // ensures you get an ArrayList<PlayerModel>
+                } else {
+                    allUserPlayer = allUserPlayer
+                        .map { player ->
+                            player.copy(use = "true")
+                        }
+                        .toCollection(ArrayList())
+                }
+                setupFootballFormationCpu("3-2-5-1",allUserPlayer)
+            }
+        }
+    }
+
+
+    //This function is used for cpu button auto click (AI module)
+    private fun autoButtonClick() {
+        Log.e("CPU Button", "Auto Click")
+        try {
+            startCpuProcess()
+        } catch (e: Exception) {
+            Log.d("***** CPU Button", "Auto Click" + e.message)
+        }
+    }
+
+    fun startCpuProcess() {
+        isCpuActive = true
+        handler.postDelayed(runnable, 3000) // Start delayed execution
+    }
+
+    fun stopCpuProcess() {
+        isCpuActive = false
+        handler.removeCallbacks(runnable) // Stop execution
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        onDestroyAndOnStop()
+        Log.e("@@@Error","Distro Timer Hold")
+    }
+    override fun onStop() {
+        onDestroyAndOnStop()
+        Log.e("@@@Error","Stop TimerHold")
+        super.onStop()
+    }
+
+    private  fun onDestroyAndOnStop(){
+        sessionManager.saveTimer(startTime)
+        stopCpuProcess()
     }
 
 }
