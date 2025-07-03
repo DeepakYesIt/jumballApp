@@ -185,6 +185,7 @@ class SessionManager(var context: Context) {
         editor.putBoolean("lifeline11", true)
         editor.putBoolean("specialPower", false)
         editor.putString("ExtraTime", "Normal")
+        editor.putString("lifelineStatus1", "No")
         editor.apply()
     }
 
@@ -231,12 +232,20 @@ class SessionManager(var context: Context) {
         editor.apply()
     }
 
+    fun setLifeLineStatus1(status:String) {
+        editor.putString("lifelineStatus1", status)
+        editor.apply()
+    }
+
     fun getLifeLine1(): Boolean {
         return prefs.getBoolean("lifeline1", true)
     }
+    fun getLifeLineStatus1(): String? {
+        return prefs.getString("lifelineStatus1", "No")
+    }
 
     fun getLifeLine11(): Boolean {
-        return prefs.getBoolean("lifeline11", true)
+        return prefs.getBoolean("lifeline11", false)
     }
 
     fun setMyPlayerId(id : Int) {

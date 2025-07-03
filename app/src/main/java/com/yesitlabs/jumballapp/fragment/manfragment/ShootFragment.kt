@@ -13,6 +13,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -44,21 +45,15 @@ class ShootFragment : Fragment(), View.OnClickListener {
     var size: Int = 2
     private var userType: String = "USER"
     private var selectedPlayerNum: Int = 1
-
-    private var selectionPower = false
     private lateinit var viewmodel: PlayerListViewModel
 
     private lateinit var teamDbHelper: TeamDatabaseHelper
     private lateinit var cpuDbHelper: CPUPlayerDatabaseHelper
     private lateinit var myPlayerDbHelper: PlayerDatabaseHelper
     private lateinit var extraPLayerDbHelper: ExtraPlayerDatabaseHelper
-
     private var allCpuPlayer = ArrayList<PlayerModel>()
     private var allUserPlayer = ArrayList<PlayerModel>()
-
-
     lateinit var sessionManager: SessionManager
-    var token: String? = null
     private var setGames: SetGames = SetGames()
 
     private lateinit var binding: FragmentShootBinding
@@ -82,8 +77,8 @@ class ShootFragment : Fragment(), View.OnClickListener {
         allCpuPlayer = cpuDbHelper.getAllPlayers()
         allUserPlayer = myPlayerDbHelper.getAllPlayers()
 
-        token = "Bearer " + sessionManager.fetchAuthToken()
 
+        backButton()
         size=requireArguments().getInt("size")
 
         sessionManager.saveMyPass(0)
@@ -115,6 +110,16 @@ class ShootFragment : Fragment(), View.OnClickListener {
             binding. r24g4.setOnClickListener(this)
         }
 
+    }
+
+    private fun backButton(){
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true  /*enabled by default*/ ) {
+                override fun handleOnBackPressed() {
+                    Log.d("******","not back because this screen is required")
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     // This function is used for set structure of boxes in screen
@@ -341,31 +346,12 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
     // This is used for goal failed
     private fun goalFailed() {
-
-
-//        if (userType == "USER") {
-//            sessionManager.setFirstGamgeStartUser(true)
-//            sessionManager.setFirstGamgeStartCPU(false)
-//        } else {
-//            sessionManager.setFirstGamgeStartCPU(true)
-//            sessionManager.setFirstGamgeStartUser(false)
-//        }
-
-
-        val screen = setGames.setScreen(
-            sessionManager.getUserScreenType()
-        )
-
-        val cpuScreen = setGames.setScreen(
-            sessionManager.getCpuScreenType()
-        )
-
+        val screen = setGames.setScreen(sessionManager.getUserScreenType())
+        val cpuScreen = setGames.setScreen(sessionManager.getCpuScreenType())
         if (sessionManager.isNetworkAvailable()) {
-
             cpuDbHelper.deleteAllPlayers()
             myPlayerDbHelper.deleteAllPlayers()
             extraPLayerDbHelper.deleteAllPlayers()
-
             getGuessTeamList(
                 false,
                 screen.r1.toString(),

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import com.yesitlabs.jumballapp.R
@@ -29,6 +30,9 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         sessionManager = SessionManager(this)
         //Comment By Shrawan
+
+
+
         sessionManager.changeMusic(0,1)
         changeSplashLogo()
     }

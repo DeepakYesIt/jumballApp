@@ -14,6 +14,8 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -27,6 +29,7 @@ import com.yesitlabs.jumballapp.database.player_dtl.PlayerDatabaseHelper
 import com.yesitlabs.jumballapp.database.player_dtl.PlayerModel
 import com.yesitlabs.jumballapp.database.team_dtl.TeamDatabaseHelper
 import com.yesitlabs.jumballapp.databinding.FragmentGoalkeaperBinding
+import com.yesitlabs.jumballapp.errormassage.ErrorMessage
 import com.yesitlabs.jumballapp.gameRule.SetGames
 import com.yesitlabs.jumballapp.model.GuessPlayerListResp
 import com.yesitlabs.jumballapp.network.NetworkResult
@@ -91,17 +94,8 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
         token = "Bearer " + sessionManager.fetchAuthToken()
 
 
-        Log.d("******","selectBox not assigne value :="+selectBox)
-
-
         size = requireArguments().getInt("size")
         selectBox = requireArguments().getInt("select_box")
-
-
-        Log.d("******","size :- ="+size)
-        Log.d("******","selectBox assigne value :="+selectBox)
-
-
 
 
 
@@ -109,12 +103,16 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
         selectedPlayerNum = requireArguments().getInt("selected_player_num")
 
         Log.e("Goalkeeper argument", requireArguments().toString())
+        Log.d("******","size :- ="+size)
+        Log.d("******","selectBox assigne value :="+selectBox)
+        backButton()
+
         sessionManager.saveMyPass(0)
         sessionManager.saveCpuPass(0)
 
         setStructure(size)
 
-        if (userType == "USER") {
+        if (userType.equals("USER",true)) {
             binding.r1g1.setOnClickListener(this)
             binding.r1g2.setOnClickListener(this)
             binding.r1g3.setOnClickListener(this)
@@ -133,6 +131,15 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
 
     }
 
+    private fun backButton(){
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true  /*enabled by default*/ ) {
+                override fun handleOnBackPressed() {
+                   Log.d("******","not back because this screen is required")
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
 
     // This is used for set goal screen structure
     private fun setStructure(size: Int) {
@@ -241,17 +248,9 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
                 binding.r24g22.setImageResource(R.drawable.shoot_img)
                 binding.r24g33.setImageResource(R.drawable.shoot_img_right)
                 binding.r24g44.setImageResource(R.drawable.shoot_img_right)
-
-
             }
 
             else -> {
-               /* r1.weightSum = 4f
-                r2.visibility = View.GONE
-                r1g3.visibility = View.GONE
-                r1g4.visibility = View.GONE
-                r1.weightSum = 2f
-                r.weightSum = 1f*/
                 binding.r1.weightSum = 4f
                 binding.r2.visibility = View.VISIBLE
                 binding.r21.visibility = View.GONE
@@ -259,8 +258,6 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
                 binding.r23.visibility = View.GONE
                 binding.r24.visibility = View.VISIBLE
                 binding. r.weightSum = 2f
-
-
                 binding.r1g11.setImageResource(R.drawable.shoot_img)
                 binding.r1g22.setImageResource(R.drawable.shoot_img)
                 binding.r1g33.setImageResource(R.drawable.shoot_img_right)
@@ -280,24 +277,15 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
     // This is used for reset  box color
     private fun setSelectColor() {
 
-        binding.r1g1Select.visibility = View.GONE
-        binding.r1g2Select.visibility = View.GONE
-        binding.r1g3Select.visibility = View.GONE
-        binding.r1g4Select.visibility = View.GONE
+        val viewsToHide = listOf(
+            binding.r1g1Select, binding.r1g2Select, binding.r1g3Select, binding.r1g4Select,
+            binding.r21g1Select,
+            binding.r22g1Select, binding.r22g2Select,
+            binding.r23g1Select, binding.r23g2Select, binding.r23g3Select,
+            binding.r24g1Select, binding.r24g2Select, binding.r24g3Select, binding.r24g4Select
+        )
 
-        binding.r21g1Select.visibility = View.GONE
-
-        binding.r22g1Select.visibility = View.GONE
-        binding.r22g2Select.visibility = View.GONE
-
-        binding.r23g1Select.visibility = View.GONE
-        binding.r23g2Select.visibility = View.GONE
-        binding.r23g3Select.visibility = View.GONE
-
-        binding.r24g1Select.visibility = View.GONE
-        binding.r24g2Select.visibility = View.GONE
-        binding.r24g3Select.visibility = View.GONE
-        binding.r24g4Select.visibility = View.GONE
+        viewsToHide.forEach { it.visibility = View.GONE }
 
     }
 
@@ -309,59 +297,59 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
             when (view.id) {
 
                 R.id.r1g1 -> {
-                    selectKickGoalBox(1, binding.r1g1Select)
+                    selectKickGoalBox(1, binding.r1g1Select,binding.r1g1)
                 }
 
                 R.id.r1g2 -> {
-                    selectKickGoalBox(2, binding.r1g2Select)
+                    selectKickGoalBox(2, binding.r1g2Select,binding.r1g2)
                 }
 
                 R.id.r1g3 -> {
-                    selectKickGoalBox(3, binding.r1g3Select)
+                    selectKickGoalBox(3, binding.r1g3Select,binding.r1g3)
                 }
 
                 R.id.r1g4 -> {
-                    selectKickGoalBox(4, binding.r1g4Select)
+                    selectKickGoalBox(4, binding.r1g4Select, binding.r1g4)
                 }
 
                 R.id.r21g1 -> {
-                    selectKickGoalBox(5, binding.r21g1Select)
+                    selectKickGoalBox(5, binding.r21g1Select, binding.r21g1)
                 }
 
                 R.id.r22g1 -> {
-                    selectKickGoalBox(5, binding.r22g1Select)
+                    selectKickGoalBox(5, binding.r22g1Select, binding.r22g1)
                 }
 
                 R.id.r22g2 -> {
-                    selectKickGoalBox(6, binding.r22g2Select)
+                    selectKickGoalBox(6, binding.r22g2Select, binding.r22g2)
                 }
 
                 R.id.r23g1 -> {
-                    selectKickGoalBox(5, binding.r23g1Select)
+                    selectKickGoalBox(5, binding.r23g1Select, binding.r23g1)
                 }
 
                 R.id.r23g2 -> {
-                    selectKickGoalBox(6, binding.r23g2Select)
+                    selectKickGoalBox(6, binding.r23g2Select, binding.r23g2)
                 }
 
                 R.id.r23g3 -> {
-                    selectKickGoalBox(7, binding.r23g3Select)
+                    selectKickGoalBox(7, binding.r23g3Select, binding.r23g3)
                 }
 
                 R.id.r24g1 -> {
-                    selectKickGoalBox(5, binding.r24g1Select)
+                    selectKickGoalBox(5, binding.r24g1Select, binding.r24g1)
                 }
 
                 R.id.r24g2 -> {
-                    selectKickGoalBox(6, binding.r24g2Select)
+                    selectKickGoalBox(6, binding.r24g2Select, binding.r24g2)
                 }
 
                 R.id.r24g3 -> {
-                    selectKickGoalBox(7, binding.r24g3Select)
+                    selectKickGoalBox(7, binding.r24g3Select, binding.r24g3)
                 }
 
                 R.id.r24g4 -> {
-                    selectKickGoalBox(8, binding.r24g4Select)
+                    selectKickGoalBox(8, binding.r24g4Select, binding.r24g4)
                 }
 
 
@@ -370,34 +358,57 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
     }
 
     // This is used for cpu select box working [Auto]
-    private fun selectKickGoalBox(selectBoxValue: Int, r1g1Select: View?) {
-        if (!selectionPower) {
-            r1g1Select?.visibility = View.VISIBLE
-            selectionPower = true
-
-            Log.d("******", "select user :- $selectBoxValue")
-            Handler(Looper.myLooper()!!).postDelayed({
-                /*if (selectBoxValue == selectBox) {
-                    goalFailed()
-                } else {
-                    goalSuccessfully()
-                }*/
-
-                if (selectBoxValue == selectBox) {
-                    goalSuccessfully()
-                } else {
-                    goalFailed()
-                }
-
-
-            }, 3000)
+    private fun selectKickGoalBox(selectBoxValue: Int, r1g1Select: View?, r24g4: ConstraintLayout) {
+        val views = listOf(
+            binding.r1g1Select,
+            binding.r1g2Select,
+            binding.r1g3Select,
+            binding.r1g4Select,
+            binding.r21g1Select,
+            binding.r22g1Select,
+            binding.r22g2Select,
+            binding.r23g1Select,
+            binding.r23g2Select,
+            binding.r23g3Select,
+            binding.r24g1Select,
+            binding.r24g2Select,
+            binding.r24g3Select,
+            binding.r24g4Select
+        )
+        views.forEach { view ->
+            view.visibility = if (view == r1g1Select) View.VISIBLE else View.GONE
         }
+        val selectViews = listOf(
+            binding.r1g1,
+            binding.r1g2,
+            binding.r1g3,
+            binding.r1g4,
+            binding.r21g1,
+            binding.r22g1,
+            binding.r22g2,
+            binding.r23g1,
+            binding.r23g2,
+            binding.r23g3,
+            binding.r24g1,
+            binding.r24g2,
+            binding.r24g3,
+            binding.r24g4
+        )
+        selectViews.forEach { view ->
+            view.isEnabled=false
+        }
+        Log.d("******", "select user :- $selectBoxValue")
+        Handler(Looper.myLooper()!!).postDelayed({
+            if (selectBoxValue == selectBox) {
+                goalSuccessfully()
+            } else {
+                goalFailed()
+            }
+        }, 3000)
     }
 
     // This is used for goal failed
     private fun goalFailed() {
-
-
 
         if (userType == "USER") {
             sessionManager.setFirstGamgeStartUser(true)
@@ -417,7 +428,6 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
             cpuDbHelper.deleteAllPlayers()
             myPlayerDbHelper.deleteAllPlayers()
             extraPLayerDbHelper.deleteAllPlayers()
-
             getGuessTeamList(
                 false,
                 screen.r1.toString(),
@@ -428,7 +438,7 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
                 cpuScreen.r3.toString()
             )
         }else{
-            alertError( getString(R.string.no_internet))
+            alertError(ErrorMessage.netWorkError)
         }
     }
 
@@ -446,11 +456,9 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
         }
 
 
-        sessionManager.saveSelectedTeamPlayerNum(
-            selectedPlayerNum
-        )
+        sessionManager.saveSelectedTeamPlayerNum(selectedPlayerNum)
 
-        if (sessionManager.getMatchType() == "worldcup"){
+        if (sessionManager.getMatchType().equals("worldcup",true)){
             teamDbHelper.updateA(1,1)
         }
 
@@ -465,30 +473,9 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
             cpuDbHelper.deleteAllPlayers()
             myPlayerDbHelper.deleteAllPlayers()
             extraPLayerDbHelper.deleteAllPlayers()
-
-            // every condition change all the player play
-            /*getGuessTeamList(
-                true,
-                screen.r1.toString(),
-                screen.r2.toString(),
-                screen.r3.toString(),
-                cpuScreen.r1.toString(),
-                cpuScreen.r2.toString(),
-                cpuScreen.r3.toString()
-            )*/
-
-
-            getGuessTeamList(
-                true,
-                screen.r1.toString(),
-                screen.r2.toString(),
-                screen.r3.toString(),
-                cpuScreen.r1.toString(),
-                cpuScreen.r2.toString(),
-                cpuScreen.r3.toString()
-            )
+            getGuessTeamList(true, screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
         }else{
-            alertError(getString(R.string.no_internet))
+            alertError(ErrorMessage.netWorkError)
         }
 
     }
@@ -505,14 +492,10 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
         Handler(Looper.myLooper()!!).postDelayed({
             sessionManager.increaseTimer(120000)
             val bundle = Bundle()
-//            if (userType == "USER") {
-//                bundle.putString("userType", "CPU")
-//            } else {
-                bundle.putString("userType", userType)
-//            }
+            bundle.putString("userType", userType)
             sessionManager.changeMusic(1,1)
-//            findNavController().navigate(R.id.action_goalKeaperFragment_to_playScreenFragment, bundle)
-            findNavController().navigate(R.id.playScreenFragment, bundle)
+//            findNavController().navigate(R.id.playScreenFragment, bundle)
+            findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         },2000)
 
         Handler(Looper.myLooper()!!).postDelayed({
@@ -838,9 +821,6 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
 
     // This function is used for check cpu and user team player list and verify
     private fun checkAllPlayer(win :Boolean) {
-
-//        Toast.makeText(requireContext(), "win status :-$win",Toast.LENGTH_SHORT).show()
-
         if (myPlayerDbHelper.getAllPlayers().size < 10) {
 
             val remain = 10 - myPlayerDbHelper.getAllPlayers().size
@@ -852,13 +832,10 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
             } else {
                 myPlayerDbHelper.addPlayer("SYSTEM", "0", "ENG", "no", "MF", "10", "false", "false")
             }
-
         }
 
         if (cpuDbHelper.getAllPlayers().size < 10) {
-
             val remain = 10 - cpuDbHelper.getAllPlayers().size
-
             if (remain > 1) {
                 for (i in 0 until remain) {
                     cpuDbHelper.addPlayer("ANDROID", "0", "ENG", "no", "MF", "10", "false", "false")
@@ -866,7 +843,6 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
             } else {
                 cpuDbHelper.addPlayer("ANDROID", "0", "ENG", "no", "MF", "10", "false", "false")
             }
-
         }
 
         Log.e("My Team :", myPlayerDbHelper.getAllPlayers().toString())
@@ -875,8 +851,6 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
         Log.e("CPU Team Size :", cpuDbHelper.getAllPlayers().size.toString())
         Log.e("Extra Team :", extraPLayerDbHelper.getAllPlayers().toString())
         Log.e("Extra Team Size :", extraPLayerDbHelper.getAllPlayers().size.toString())
-
-
         if (win){
             playAlertBox( R.drawable.goal_alert,"CPU")
         }else{
@@ -906,19 +880,8 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
                     sessionManager.changeMusic(21, 0)
                     playAlertBox(R.drawable.over_img, "CPU")
                 }
-
-                /* else -> {
-                     sessionManager.changeMusic(22, 0)
-                     playAlertBox(R.drawable.over_img, "CPU")
-                 }*/
-
             }
-
-//            playAlertBox( R.drawable.saved_img,"USER")
         }
-
-
-
     }
 
 
@@ -927,9 +890,6 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
         val dialog= Dialog(requireContext(), R.style.BottomSheetDialog)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.alertbox_error)
-
-
-
         val layoutParams = WindowManager.LayoutParams()
         layoutParams.copyFrom(dialog.window!!.attributes)
         layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT

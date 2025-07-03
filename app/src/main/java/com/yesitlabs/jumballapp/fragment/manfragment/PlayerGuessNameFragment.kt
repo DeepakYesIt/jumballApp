@@ -15,6 +15,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -67,7 +68,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     private var allCpuPlayer = ArrayList<PlayerModel>()
     private var allUserPlayer = ArrayList<PlayerModel>()
     lateinit var sessionManager: SessionManager
-    var token: String? = null
     private var setGames: SetGames = SetGames()
     var dialog:Dialog?=null
     private var playerPower = "NO"
@@ -94,16 +94,12 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         //Shrawan
         isGoalClick = requireArguments().getBoolean("isGoalClick",false)//Shrawan
 
-        token = "Bearer " + sessionManager.fetchAuthToken()
-
 
         binding.tvNumber.text = playerNum
         binding.tvNumber.visibility = View.GONE
 
         attachTimer()
         countDownTimer?.start()
-
-
 
         cpuDbHelper = CPUPlayerDatabaseHelper(requireContext())
         myPlayerDbHelper = PlayerDatabaseHelper(requireContext())
@@ -117,6 +113,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
 
         hintList = setGames.shuffleName(playerName!!)
         answerList = setGames.getCharactersList(playerName!!)
+
         // Generate a random number between 0 and 100 (inclusive)
         val randomNumber = Random.nextInt(0, answerList.size)
 
@@ -172,13 +169,19 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             }else{
                 wrongAnswer()
             }
-
         } else {
             resetPage(userType)
         }
+    }
 
-        // uncomment This function for Show auto Play
-        //  resetPage(userType)
+    private fun backButton(){
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true  /*enabled by default*/ ) {
+                override fun handleOnBackPressed() {
+                    Log.d("******","not back because this screen is required")
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     private fun setLifeLineBox() {
@@ -187,13 +190,11 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         } else {
             binding.lifeLine1.setBackgroundResource(R.drawable.rectangle_3)
         }
-
         if (!sessionManager.getLifeLine2()) {
             binding.lifeLine2.setBackgroundResource(R.drawable.rectangle_3__1_)
         } else {
             binding.lifeLine2.setBackgroundResource(R.drawable.rectangle_3)
         }
-
         if (!sessionManager.getLifeLine3()) {
             binding.lifeLine3.setBackgroundResource(R.drawable.rectangle_3__1_)
         } else {
@@ -209,13 +210,11 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     // This is used for reset the page or reset button
     private fun resetPage(userType: String) {
         binding.tvName.text = ""
-
         for (data in hintList) {
             data.backgoung_color = R.color.hint_color_unselect
             data.text_color = R.color.black
             data.used = false
         }
-
         for (data in answerList) {
             data.backgoung_color = R.color.hint_color_unselect
             data.text_color = R.color.black
@@ -225,7 +224,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         val layoutManager = FlexboxLayoutManager(context)
         layoutManager.justifyContent = JustifyContent.CENTER
         binding.rcyHint.layoutManager = layoutManager
-
         binding.rcyHint.layoutManager = layoutManager
         adapterNameHint = AdpterNameHint(hintList, answerList, requireActivity(), userType)
         binding.rcyHint.adapter = adapterNameHint
@@ -276,6 +274,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             binding.lifeLine2.setOnClickListener(this)
             binding.lifeLine3.setOnClickListener(this)
         }
+
     }
 
     // This is used for attach the timer in screen
@@ -296,29 +295,25 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
 
 
     override fun onClick(view: View?) {
-
         sessionManager.playClickSound()
-
         when (view?.id) {
             R.id.bt_reset -> {
                 if (userType.equals("USER",true)) {
                     resetPage(userType)
                 }
-
             }
-
             R.id.life_line_1 -> {
                 if (userType.equals("USER",true)) {
                     if (sessionManager.getLifeLine1()) {
-                        useLifeLine1()
                         sessionManager.increaseTimer(120000)
                         sessionManager.disableLifeLine1()
+                        sessionManager.setLifeLineStatus1("Yes")
                         sessionManager.disableLifeLine11(true)
+                        useLifeLine1()
                     }
                 }
                 setLifeLineBox()
             }
-
             R.id.life_line_2 -> {
                 if (userType .equals("USER",true)) {
                     if (sessionManager.getLifeLine2()) {
@@ -331,11 +326,9 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                         sessionManager.increaseTimer(120000)
                         sessionManager.disableLifeLine2()
                     }
-
                 }
                 setLifeLineBox()
             }
-
             R.id.life_line_3 -> {
                 if (userType .equals("USER",true)) {
                     if (sessionManager.getLifeLine3()) {
@@ -345,21 +338,17 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                     } else {
                         if (sessionManager.getSpecialPower()) {
                             sessionManager.setSpecialPower(false)
-//                            useLifeLine3()
                         }
                     }
                 }
                 setLifeLineBox()
-
             }
         }
-
 
     }
 
     // This is used for Use of Lifeline 1
     private fun useLifeLine1() {
-
         sessionManager.changeMusic(5, 0)
         if (userType .equals("USER",true)) {
             val row = setGames.setScreen(sessionManager.getCpuScreenType())
@@ -367,26 +356,23 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             bundle.putString("userType", "CPU")
             bundle.putInt("PlayerNum", setGames.getRandomNumber(row.r1))
             bundle.putInt("id", playerId.toInt())
-            findNavController().navigate(R.id.playScreenFragment, bundle)
+//            findNavController().navigate(R.id.playScreenFragment, bundle)
+            findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         } else {
             val row = setGames.setScreen(sessionManager.getUserScreenType())
             val bundle = Bundle()
             bundle.putString("userType", "USER")
             bundle.putInt("PlayerNum", setGames.getRandomNumber(row.r1))
             bundle.putInt("id", playerId.toInt())
-            findNavController().navigate(R.id.playScreenFragment, bundle)
+            findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         }
     }
 
     // This is used for Use of Lifeline 2
     private fun useLifeLine2() {
-
         sessionManager.changeMusic(5, 0)
         val lifeLinePlayerList = extraPLayerDbHelper.getAllPlayers()
-
-
         var position = 0
-
         for (i in 0 until lifeLinePlayerList.size) {
             if (lifeLinePlayerList[i].designation == allCpuPlayer[playerId.toInt() - 1].designation && lifeLinePlayerList[i].userType == "CPU" && lifeLinePlayerList[i].answer == "NO") {
                 position = i
@@ -396,9 +382,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 break
             }
         }
-
         val data = lifeLinePlayerList[position]
-
         cpuDbHelper.updatePlayerDetails(
             playerId.toLong(),
             data.name,
@@ -415,7 +399,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         hintList = setGames.shuffleName(playerName!!)
         answerList = setGames.getCharactersList(playerName!!)
         resetPage("USER")
-
     }
 
     // This is used for Use of Lifeline 3
@@ -425,30 +408,21 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         if (answerList.size in 2..5) {
             useAssistantManager(1)
         }
-
         if (answerList.size in 6..7) {
             useAssistantManager(2)
         }
-
         if (answerList.size >= 8) {
             useAssistantManager(3)
         }
-
-
     }
 
     // This is used for assistant manager lifeline 1
     @SuppressLint("NotifyDataSetChanged", "SetTextI18n")
     private fun useAssistantManager(inputPower: Int) {
-
         var changePower = inputPower
-
         var selectText = binding.tvName.text.toString()
-
         Log.e("Select Player Length", selectText.length.toString())
         Log.e("answer_list Length", answerList.size.toString())
-
-
         if (selectText.isEmpty()) {
             for (power in 0 until changePower) {
                 for (i in 0 until hintList.size) {
@@ -464,10 +438,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             }
             Log.e("Entry Power", "1 ")
             checkName()
-
         } else {
-
-
             try {
                 for (i in selectText.indices) {
                     if (selectText[i].toString() != answerList[i].hint) {
@@ -477,7 +448,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                         break
                     }
                 }
-
                 for (hintText in 0 until hintList.size) {
                     if (hintList[hintText].used && !selectText.contains(hintList[hintText].hint)) {
                         hintList[hintText].backgoung_color = R.color.hint_color_unselect
@@ -487,10 +457,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                         adapterNameHint.notifyItemChanged(hintText)
                     }
                 }
-
-
                 val sizeAns = selectText.length
-
                 for (ans in sizeAns until answerList.size) {
                     for (hint in 0 until hintList.size) {
                         if (changePower > 0) {
@@ -507,15 +474,11 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                         }
                     }
                 }
-
                 adapterNameHint.notifyDataSetChanged()
-
             } catch (e: Exception) {
                 Log.e("Assent Manager Hint Error", e.toString())
             }
-
             checkName()
-
         }
     }
 
