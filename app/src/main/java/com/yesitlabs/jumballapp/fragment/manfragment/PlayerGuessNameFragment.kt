@@ -124,12 +124,10 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         val result = if (randomNumber % 2 == 0) {
             "even"
         } else {
-//            "odd"
-            "even"
+            "odd"
         }
 
         if (userType.equals("USER",true)) {
-//            Toast.makeText(requireContext(), playerName.toString(), Toast.LENGTH_LONG).show()
             for (data in allCpuPlayer) {
                 if (data.id == playerId) {
                     playerPower = data.type.uppercase()
@@ -224,16 +222,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             data.used = false
         }
 
-
-        val spanCount = if (hintList.size < 8) {
-            hintList.size
-        } else {
-            8
-        }
-
-
-
-
         val layoutManager = FlexboxLayoutManager(context)
         layoutManager.justifyContent = JustifyContent.CENTER
         binding.rcyHint.layoutManager = layoutManager
@@ -250,7 +238,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             }
         })
 
-        if (userType == "CPU") {
+        if (userType.equals("CPU",true)) {
             // Show Directly Result
             when (setGames.getRandomNumber(5)) {
                 1 -> {
@@ -278,9 +266,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 }
 
             }
-
             // Display Auto Play Mode
-
             val num = setGames.getRandomGustedPlayerName(hintList, answerList)
             autoPlay(num, 0)
         } else {
@@ -290,8 +276,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             binding.lifeLine2.setOnClickListener(this)
             binding.lifeLine3.setOnClickListener(this)
         }
-
-
     }
 
     // This is used for attach the timer in screen
@@ -317,14 +301,14 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
 
         when (view?.id) {
             R.id.bt_reset -> {
-                if (userType == "USER") {
+                if (userType.equals("USER",true)) {
                     resetPage(userType)
                 }
 
             }
 
             R.id.life_line_1 -> {
-                if (userType == "USER") {
+                if (userType.equals("USER",true)) {
                     if (sessionManager.getLifeLine1()) {
                         useLifeLine1()
                         sessionManager.increaseTimer(120000)
@@ -336,7 +320,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             }
 
             R.id.life_line_2 -> {
-                if (userType == "USER") {
+                if (userType .equals("USER",true)) {
                     if (sessionManager.getLifeLine2()) {
                         useLifeLine2()
                         countDownTimer?.cancel()
@@ -353,7 +337,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             }
 
             R.id.life_line_3 -> {
-                if (userType == "USER") {
+                if (userType .equals("USER",true)) {
                     if (sessionManager.getLifeLine3()) {
                         useLifeLine3()
                         sessionManager.increaseTimer(120000)
@@ -377,7 +361,7 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     private fun useLifeLine1() {
 
         sessionManager.changeMusic(5, 0)
-        if (userType == "USER") {
+        if (userType .equals("USER",true)) {
             val row = setGames.setScreen(sessionManager.getCpuScreenType())
             val bundle = Bundle()
             bundle.putString("userType", "CPU")

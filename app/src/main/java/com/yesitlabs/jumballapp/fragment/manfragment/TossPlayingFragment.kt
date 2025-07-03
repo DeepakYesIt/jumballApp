@@ -187,7 +187,7 @@ class TossPlayingFragment : Fragment() {
         Handler(Looper.myLooper()!!).postDelayed({
             Log.e("Winner", winner)
             val bundle = Bundle()
-            bundle.putString("userType", "cpu"/*winner*/)
+            bundle.putString("userType", /*"cpu"*/winner)
 //            findNavController().navigate(R.id.playScreenFragment, bundle)
           findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         }, 1000)

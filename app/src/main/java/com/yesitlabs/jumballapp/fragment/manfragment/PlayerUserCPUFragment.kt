@@ -32,6 +32,7 @@ import java.util.Locale
 
 
 class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
+
     private lateinit var binding: FragmentPlayerUserCPUBinding
     lateinit var sessionManager: SessionManager
     private lateinit var extraPLayerDbHelper: ExtraPlayerDatabaseHelper
@@ -96,8 +97,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }
             }
         }
-
-
 
         myPass = sessionManager.getMyPass()
         cpuPass = sessionManager.getCpuPass()
@@ -168,41 +167,27 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         if (userType.equals("USER",true)){
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
-            setupFootballFormation("3-2-5-1",allCpuPlayer)
+            stopCpuProcess()
+            setupFootballFormation(sessionManager.getUserScreenType(),allCpuPlayer)
         }else{
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
-            setupFootballFormationCpu("3-2-5-1",allUserPlayer)
-
+            setupFootballFormationCpu(sessionManager.getUserScreenType(),allUserPlayer)
         }
-
     }
 
     private fun selectCpuButton(){
-        // ✅ Trigger click on a random eligible player
         if (clickablePlayers.isNotEmpty()) {
-            /*val randomIndex = (1 until clickablePlayers.size).random()
-            val (viewToClick, _) = clickablePlayers[randomIndex]
-
-            // Optional: Add a small delay before triggering (helps after layout inflation)
-            viewToClick.postDelayed({
-                // ✅ Show Toast for random player
-                Toast.makeText(requireContext(), "Auto-selected: ", Toast.LENGTH_SHORT).show()
-                viewToClick.performClick()
-            }, 300L) // 300 milliseconds delay*/
-
             val countAnswer = allUserPlayer.count { it.answer.equals("true",true) }?:0
-            Toast.makeText(requireContext(), "countAnswer :-$countAnswer",Toast.LENGTH_SHORT).show()
             if (countAnswer==0){
-                val targetNumbers = listOf("6", "7")
-                val randomTarget = targetNumbers.random()
-
+                val randomTarget =  (6..7).random().toString()
                 val targetPlayer = clickablePlayers.firstOrNull { (_, player) ->
-                    player.id == randomTarget && player.designation == "MF"
+                    player.id == randomTarget
                 }
                 if (targetPlayer != null) {
                     val (viewToClick, player) = targetPlayer
-                    viewToClick.postDelayed({
+                    viewToClick.performClick()
+                    viewToClick.setOnClickListener {
                         stopCpuProcess()
                         val bundle = Bundle()
                         bundle.putString("Name", player.name)
@@ -210,41 +195,48 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                         bundle.putString("Num", player.jersey_number)
                         bundle.putString("id", player.id)
                         Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
+                        Log.e("Send Detail of bundel"," ***** $bundle")
                         findNavController().navigate(R.id.player_name_guess, bundle)
-                        Toast.makeText(requireContext(), "Auto-selected MF #${player.id}", Toast.LENGTH_SHORT).show()
-                        viewToClick.performClick()
-                    }, 300L)
+                    }
                 }
             }else{
-                stopCpuProcess()
-                cpuPassBall()
-                /*val randomTarget =  (1..11).random().toString()
-                Log.d("Random number", "*****$randomTarget")
-                val targetPlayer = clickablePlayers.firstOrNull { (_, player) ->
-                    player.id == randomTarget
-                }
-                if (targetPlayer != null) {
-                    val (viewToClick, player) = targetPlayer
-                    viewToClick.postDelayed({
-                        *//*if (!player.answer.equals("true",true)){
-
-                            *//**//*val bundle = Bundle()
-                            bundle.putString("Name", player.name)
-                            bundle.putString("userType", userType)
-                            bundle.putString("Num", player.jersey_number)
-                            bundle.putString("id", player.id)
-                            Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
-                            findNavController().navigate(R.id.player_name_guess, bundle)
-                            Toast.makeText(requireContext(), "Auto-selected MF #${player.id}", Toast.LENGTH_SHORT).show()
-                            viewToClick.performClick()*//**//*
-                        }*//*
+                val countSelect = allUserPlayer.count { it.use.equals("true",true) }?:0
+                if (countSelect==0){
+                    stopCpuProcess()
+                    cpuPassBall()
+                }else{
+                    val result = if (countAnswer % 2 == 0) {
+                        "even"
+                    } else {
+                        "odd"
+                    }
+                    if (result.equals("even",true)){
+                        val randomTarget =  (1..11).random().toString()
+                        Log.d("Random number", "*****$randomTarget")
+                        val targetPlayer = allUserPlayer.find {
+                            it.id==randomTarget
+                        }
+                        if (targetPlayer != null) {
+                            Log.d("@@@Error", "******$targetPlayer")
+                            if (targetPlayer.use.equals("true",true)){
+                                if (targetPlayer.answer.equals("false",true)){
+                                    val bundle = Bundle()
+                                    bundle.putString("Name", targetPlayer.name)
+                                    bundle.putString("userType", userType)
+                                    bundle.putString("Num", targetPlayer.jersey_number)
+                                    bundle.putString("id", targetPlayer.id)
+                                    Log.e("Send Detail of Quiz", userType + " " + targetPlayer.name + " " + targetPlayer.jersey_number)
+                                    findNavController().navigate(R.id.player_name_guess, bundle)
+                                    Toast.makeText(requireContext(), "Auto-selected MF #${targetPlayer.id}", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
+                    }else{
                         stopCpuProcess()
-                        cpuPassBall()
-                    }, 300L)
-                }*/
+                        Toast.makeText(requireContext(),"Soot",Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
-
-
         }
     }
 
@@ -346,7 +338,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
     }
 
     @SuppressLint("SetTextI18n")
-    private fun setupFootballFormation(players1: String, players: List<PlayerModel>) {
+    private fun setupFootballFormation(formationType: String, players: List<PlayerModel>) {
         binding.formationContainer.removeAllViews()
         // Group players by position
         val groupedPlayers = listOf(
@@ -502,24 +494,17 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
                     playerImage.setImageResource(setGames.getTShirtImage(countryID))
                     rpNumber.setTextColor(textColor)
+                    binding.rootButton.visibility=View.GONE
                     val countAnswer = players.count { it.answer.equals("true",true) }?:0
                     if (countAnswer!=0){
-                        binding.rootButton.visibility=View.VISIBLE
-                        if (countAnswer>1){
-                            binding.btShoot.visibility=View.VISIBLE
-                            binding.btPass.visibility=View.VISIBLE
-                        }else{
-                            binding.btShoot.visibility=View.GONE
-                            binding.btPass.visibility=View.VISIBLE
-                        }
-                    }else{
-                        binding.rootButton.visibility=View.GONE
+
                     }
                 }else{
                     playerImage.setImageResource(R.drawable.user_guess_white)
                     rpSelect.visibility = View.GONE
                     rpName.visibility = View.GONE
                     rpNumber.visibility = View.GONE
+
                     if (player.use.equals("true",true)){
                         rpSelect.visibility = View.VISIBLE
                     }else{
@@ -527,6 +512,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     }
                     clickablePlayers.add(Pair(playerView, player))
                     autoButtonClick()
+
                 }
                 row.addView(playerView)
                 // Add space between players
@@ -546,6 +532,34 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             R.id.bt_pass -> {
                     userPassBall()
             }
+            R.id.bt_shoot -> {
+                    userShoot()
+            }
+        }
+    }
+
+    private fun userShoot(){
+        val plarerId=sessionManager.getMySelectedTeamPlayerNum()
+        val player = allCpuPlayer.find { it.id.toInt() == plarerId }
+        if (!player?.designation.equals("GK",true)){
+            val bundle = Bundle()
+            bundle.putString("userType", "USER")
+            bundle.putInt("selected_player_num", plarerId)
+            val size = 0
+            for (data in allCpuPlayer) {
+                if (data.id.toInt() == plarerId) {
+                    if (data.designation.uppercase() == "DF") {
+                        bundle.putInt("size", size + 2 + myPass)
+                    } else {
+                        if (data.designation.uppercase() == "MF") {
+                            bundle.putInt("size", size + 3 + myPass)
+                        } else {
+                            bundle.putInt("size", size + 4 + myPass)
+                        }
+                    }
+                }
+            }
+            findNavController().navigate(R.id.shoot_Screen, bundle)
         }
     }
 
@@ -555,19 +569,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 val player = allCpuPlayer.find { it.id.toInt() == plarerId }
                 if (player != null) {
                     if (player.is_captain.equals("0", ignoreCase = true)) {
-                        val targetMap = mapOf(
-                            1 to setOf(2, 6),
-                            2 to setOf(1, 6, 3,11),
-                            3 to setOf(2, 6, 7, 4,11),
-                            4 to setOf(3, 5, 7,11),
-                            5 to setOf(4, 7),
-                            6 to setOf(1, 2, 3, 7, 8, 9),
-                            7 to setOf(6,3,4,5,9,10),
-                            8 to setOf(6, 9),
-                            9 to setOf(6,7,8,10),
-                            10 to setOf(9,7),
-                            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                        )
+                        val targetMap = getTargetMap()
                         val targetIds = targetMap[plarerId] ?: emptySet()
                         allCpuPlayer = allCpuPlayer
                             .map { player ->
@@ -591,46 +593,175 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
     }
 
     private fun cpuPassBall() {
-        if (userType.equals("cpu",true)) {
-            val plarerId=sessionManager.getMySelectedTeamPlayerNum()
-            val player = allUserPlayer.find { it.id.toInt() == plarerId }
-            if (player != null) {
-                if (player.is_captain.equals("0", ignoreCase = true)) {
-                    val targetMap = mapOf(
-                        1 to setOf(2, 6),
-                        2 to setOf(1, 6, 3,11),
-                        3 to setOf(2, 6, 7, 4,11),
-                        4 to setOf(3, 5, 7,11),
-                        5 to setOf(4, 7),
-                        6 to setOf(1, 2, 3, 7, 8, 9),
-                        7 to setOf(6,3,4,5,9,10),
-                        8 to setOf(6, 9),
-                        9 to setOf(6,7,8,10),
-                        10 to setOf(9,7),
-                        11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-                    )
-                    val targetIds = targetMap[plarerId] ?: emptySet()
-                    allUserPlayer = allUserPlayer
-                        .map { player ->
-                            if (player.id.toInt()  in targetIds) {
-                                player.copy(use = "true")
-                            } else {
-                                player.copy(use = "false")
-                            }
-                        }
-                        .toCollection(ArrayList())  // ensures you get an ArrayList<PlayerModel>
-                } else {
-                    allUserPlayer = allUserPlayer
-                        .map { player ->
+        val plarerId=sessionManager.getSelectedTeamPlayerNum()
+        Log.d("@@@@Error", "****** plarerId$plarerId")
+        val player = allUserPlayer.find { it.id.toInt() == plarerId }
+        if (player != null) {
+            if (player.is_captain.equals("0", ignoreCase = true)) {
+                val targetMap = getTargetMap()
+                val targetIds = targetMap[plarerId] ?: emptySet()
+                allUserPlayer = allUserPlayer
+                    .map { player ->
+                        if (player.id.toInt()  in targetIds) {
                             player.copy(use = "true")
+                        } else {
+                            player.copy(use = "false")
                         }
-                        .toCollection(ArrayList())
-                }
-                setupFootballFormationCpu("3-2-5-1",allUserPlayer)
+                    }
+                    .toCollection(ArrayList())  // ensures you get an ArrayList<PlayerModel>
+            } else {
+                allUserPlayer = allUserPlayer
+                    .map { player ->
+                        player.copy(use = "true")
+                    }
+                    .toCollection(ArrayList())
             }
+            setupFootballFormationCpu("3-2-5-1",allUserPlayer)
         }
     }
 
+
+    private fun getTargetMap(): Map<Int, Set<Int>> {
+        val data = sessionManager.getUserScreenType()?.lowercase()
+
+        val map523 = mapOf(
+            1 to setOf(2, 6),
+            2 to setOf(1, 6, 3, 11),
+            3 to setOf(2, 6, 7, 4, 11),
+            4 to setOf(3, 5, 7, 11),
+            5 to setOf(4, 7),
+            6 to setOf(1, 2, 3, 7, 8, 9),
+            7 to setOf(6, 3, 4, 5, 9, 10),
+            8 to setOf(6, 9),
+            9 to setOf(6, 7, 8, 10),
+            10 to setOf(9, 7),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        val map541 = mapOf(
+            1 to setOf(2, 6),
+            2 to setOf(1, 3, 6, 11),
+            3 to setOf(2, 4, 7, 8, 11),
+            4 to setOf(3, 5, 8, 9, 11),
+            5 to setOf(4, 9),
+            6 to setOf(1, 2, 4),
+            7 to setOf(10, 2, 3, 6, 8),
+            8 to setOf(3, 4, 7, 9),
+            9 to setOf(8, 5),
+            10 to setOf(7, 8),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        val map532 = mapOf(
+            1 to setOf(2, 6),
+            2 to setOf(6, 3, 11),
+            3 to setOf(2, 4, 6, 7, 8, 11),
+            4 to setOf(3, 5, 7, 8, 11),
+            5 to setOf(4, 8),
+            6 to setOf(2, 3, 7, 9),
+            7 to setOf(6, 8, 3, 2, 4),
+            8 to setOf(7, 4, 5),
+            9 to setOf(6, 7, 10),
+            10 to setOf(9, 8, 7),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        val map352 = mapOf(
+            1 to setOf(2, 11, 4, 5, 6),
+            2 to setOf(1, 3, 11, 5, 6, 7),
+            3 to setOf(2, 11, 6, 7, 8),
+            4 to setOf(1, 5),
+            5 to setOf(1, 2, 4, 6, 9),
+            6 to setOf(1, 2, 3, 5, 7, 9, 10),
+            7 to setOf(6, 8, 2, 3, 10),
+            8 to setOf(7, 3),
+            9 to setOf(10, 5, 6),
+            10 to setOf(9, 6, 7),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        val map451 = mapOf(
+            1 to setOf(2, 5, 6),
+            2 to setOf(1, 11, 3, 5, 6),
+            3 to setOf(2, 4, 11, 7, 8),
+            4 to setOf(3, 8, 9),
+            5 to setOf(1, 6),
+            6 to setOf(1, 2, 5, 7),
+            7 to setOf(6, 8, 2, 3, 10),
+            8 to setOf(3, 4, 7, 9, 10),
+            9 to setOf(8, 4),
+            10 to setOf(6, 7, 8),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        val map442 = mapOf(
+            1 to setOf(2, 5),
+            2 to setOf(1, 3, 6, 11),
+            3 to setOf(2, 4, 11, 7),
+            4 to setOf(3, 7, 8),
+            5 to setOf(1, 6),
+            6 to setOf(5, 2, 7, 9),
+            7 to setOf(6, 8, 3, 10),
+            8 to setOf(4, 7),
+            9 to setOf(7, 6, 10),
+            10 to setOf(7, 8, 9),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        val map433 = mapOf(
+            1 to setOf(2,3,11,5),
+            2 to setOf(1, 3,11,5,6),
+            3 to setOf(2,11,4,6,7),
+            4 to setOf(3,7),
+            5 to setOf(1,2,8),
+            6 to setOf(5,7,2,3,9),
+            7 to setOf(6,10,3,4),
+            8 to setOf(5,9,6),
+            9 to setOf(8,10,6),
+            10 to setOf(9,7),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        val map343 = mapOf(
+            1 to setOf(2,5,11),
+            2 to setOf(1, 3,11,5,6),
+            3 to setOf(2,11,6,7),
+            4 to setOf(1,5,8),
+            5 to setOf(4,6,1,2),
+            6 to setOf(5,7,2,3,9,10),
+            7 to setOf(3,6,10),
+            8 to setOf(4,5,9),
+            9 to setOf(8,10,5,6),
+            10 to setOf(9,6,7),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+        val map424 = mapOf(
+            1 to setOf(2,11),
+            2 to setOf(1, 3,11,5),
+            3 to setOf(2,11,6,4),
+            4 to setOf(3,11),
+            5 to setOf(2,6,8),
+            6 to setOf(5,3,9),
+            7 to setOf(8,5),
+            8 to setOf(7,9,5),
+            9 to setOf(8,10,6),
+            10 to setOf(9,6),
+            11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+        )
+
+        return when (data) {
+            "5-2-3" -> map523
+            "5-4-1" -> map541
+            "5-3-2" -> map532
+            "3-5-2" -> map352
+            "4-5-1" -> map451
+            "4-4-2" -> map442
+            "4-3-3" -> map433
+            "3-4-3" -> map343
+            "4-2-4" -> map424
+            else -> emptyMap()  // return empty map if no match
+        }
+    }
 
     //This function is used for cpu button auto click (AI module)
     private fun autoButtonClick() {
@@ -667,5 +798,4 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         sessionManager.saveTimer(startTime)
         stopCpuProcess()
     }
-
 }

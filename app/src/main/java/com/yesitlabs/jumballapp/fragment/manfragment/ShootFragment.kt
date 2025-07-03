@@ -13,7 +13,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -28,12 +28,9 @@ import com.yesitlabs.jumballapp.gameRule.SetGames
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.database.player_dtl.ExtraPlayerDatabaseHelper
 import com.yesitlabs.jumballapp.databinding.FragmentShootBinding
-import com.yesitlabs.jumballapp.databinding.FragmentShowingCardBinding
 import com.yesitlabs.jumballapp.errormassage.ErrorMessage
 import com.yesitlabs.jumballapp.model.GuessPlayerListResp
-import com.yesitlabs.jumballapp.model.navigateSafe
 import com.yesitlabs.jumballapp.network.NetworkResult
-import com.yesitlabs.jumballapp.network.viewModel.GetGuessPlayerListViewModel
 import com.yesitlabs.jumballapp.viewmodeljumball.PlayerListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -87,13 +84,6 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
         token = "Bearer " + sessionManager.fetchAuthToken()
 
-        /*size = if (requireArguments().getInt("size") > 8) {
-            8
-        } else {
-            requireArguments().getInt("size")
-        }*/
-
-
         size=requireArguments().getInt("size")
 
         sessionManager.saveMyPass(0)
@@ -101,13 +91,14 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
         userType = requireArguments().getString("userType").toString().uppercase(Locale.ROOT)
         selectedPlayerNum = requireArguments().getInt("selected_player_num")
+
         Log.d("******","size :- ="+size)
         Log.d("******","selectBox assigne value :="+selectedPlayerNum)
         Log.e("shoot argument", requireArguments().toString())
 
         setStructure(size)
 
-        if (userType == "USER") {
+        if (userType.equals("USER",true)) {
             binding.r1g1.setOnClickListener(this)
             binding.r1g2.setOnClickListener(this)
             binding.r1g3.setOnClickListener(this)
@@ -193,12 +184,6 @@ class ShootFragment : Fragment(), View.OnClickListener {
             }
 
             else -> {
-                /* r.weightSum = 1f
-                 r1.weightSum = 4f
-                 r2.visibility = View.GONE
-                 r1g3.visibility = View.GONE
-                 r1g4.visibility = View.GONE
-                 r1.weightSum = 2f*/
                 binding.r.weightSum = 2f
                 binding.r1.weightSum = 4f
                 binding.r2.visibility = View.VISIBLE
@@ -216,26 +201,22 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
     // This function is used for reset the select box color
     private fun setSelectColor() {
-
-        binding.r1g1Select.visibility = View.GONE
-        binding.r1g2Select.visibility = View.GONE
-        binding.r1g3Select.visibility = View.GONE
-        binding.r1g4Select.visibility = View.GONE
-
-        binding.r21g1Select.visibility = View.GONE
-
-        binding.r22g1Select.visibility = View.GONE
-        binding.r22g2Select.visibility = View.GONE
-
-        binding.r23g1Select.visibility = View.GONE
-        binding.r23g2Select.visibility = View.GONE
-        binding.r23g3Select.visibility = View.GONE
-
-        binding.r24g1Select.visibility = View.GONE
-        binding.r24g2Select.visibility = View.GONE
-        binding.r24g3Select.visibility = View.GONE
-        binding.r24g4Select.visibility = View.GONE
-
+        listOf(
+            binding.r1g1Select,
+            binding.r1g2Select,
+            binding.r1g3Select,
+            binding.r1g4Select,
+            binding.r21g1Select,
+            binding.r22g1Select,
+            binding.r22g2Select,
+            binding.r23g1Select,
+            binding.r23g2Select,
+            binding.r23g3Select,
+            binding.r24g1Select,
+            binding.r24g2Select,
+            binding.r24g3Select,
+            binding.r24g4Select
+        ).forEach { it.visibility = View.GONE }
     }
 
     override fun onClick(view: View?) {
@@ -244,61 +225,47 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
         if (view != null) {
             when (view.id) {
-
                 R.id.r1g1 -> {
-                    selectKickGoalBox(1, binding.r1g1Select)
+                    selectKickGoalBox(1, binding.r1g1Select,binding.r1g1)
                 }
-
                 R.id.r1g2 -> {
-                    selectKickGoalBox(2, binding.r1g2Select)
+                    selectKickGoalBox(2, binding.r1g2Select,binding.r1g2)
                 }
-
                 R.id.r1g3 -> {
-                    selectKickGoalBox(3, binding.r1g3Select)
+                    selectKickGoalBox(3, binding.r1g3Select,binding.r1g3)
                 }
-
                 R.id.r1g4 -> {
-                    selectKickGoalBox(4, binding.r1g4Select)
+                    selectKickGoalBox(4, binding.r1g4Select,binding.r1g4)
                 }
-
                 R.id.r21g1 -> {
-                    selectKickGoalBox(5, binding.r21g1Select)
+                    selectKickGoalBox(5, binding.r21g1Select,binding.r21g1)
                 }
-
                 R.id.r22g1 -> {
-                    selectKickGoalBox(5, binding.r22g1Select)
+                    selectKickGoalBox(5, binding.r22g1Select,binding.r22g1)
                 }
-
                 R.id.r22g2 -> {
-                    selectKickGoalBox(6, binding.r22g2Select)
+                    selectKickGoalBox(6, binding.r22g2Select,binding.r22g2)
                 }
-
                 R.id.r23g1 -> {
-                    selectKickGoalBox(5, binding.r23g1Select)
+                    selectKickGoalBox(5, binding.r23g1Select,binding.r23g1)
                 }
-
                 R.id.r23g2 -> {
-                    selectKickGoalBox(6, binding.r23g2Select)
+                    selectKickGoalBox(6, binding.r23g2Select,binding.r23g2)
                 }
-
                 R.id.r23g3 -> {
-                    selectKickGoalBox(7, binding.r23g3Select)
+                    selectKickGoalBox(7, binding.r23g3Select,binding.r23g3)
                 }
-
                 R.id.r24g1 -> {
-                    selectKickGoalBox(5, binding.r24g1Select)
+                    selectKickGoalBox(5, binding.r24g1Select,binding.r24g1)
                 }
-
                 R.id.r24g2 -> {
-                    selectKickGoalBox(6, binding.r24g2Select)
+                    selectKickGoalBox(6, binding.r24g2Select,binding.r24g2)
                 }
-
                 R.id.r24g3 -> {
-                    selectKickGoalBox(7, binding.r24g3Select)
+                    selectKickGoalBox(7, binding.r24g3Select,binding.r24g3)
                 }
-
                 R.id.r24g4 -> {
-                    selectKickGoalBox(8, binding.r24g4Select)
+                    selectKickGoalBox(8, binding.r24g4Select,binding.r24g4)
                 }
 
 
@@ -307,41 +274,63 @@ class ShootFragment : Fragment(), View.OnClickListener {
     }
 
     // This function is used for working on select box
-    private fun selectKickGoalBox(selectBox: Int, r1g1Select: View?) {
-
-
-        if (!selectionPower) {
-            r1g1Select?.visibility = View.VISIBLE
-
-            Handler(Looper.myLooper()!!).postDelayed({
-                val bundle = Bundle()
-                if (userType == "USER") {
-                    bundle.putString("userType", "CPU")
-                } else {
-                    bundle.putString("userType", "USER")
-                }
-                bundle.putInt("select_box", selectBox)
-                bundle.putInt("selected_player_num", selectedPlayerNum)
-                bundle.putInt("size", size)
-                Log.e("Shoot to Kick", bundle.toString())
-
-                val num = setGames.getRandomNumber(size)
-
-                checkGoal(num, selectBox)
-
-            }, 3000)
-
+    private fun selectKickGoalBox(selectBox: Int, r1g1Select: View?, r24g4: ConstraintLayout) {
+        val views = listOf(
+            binding.r1g1Select,
+            binding.r1g2Select,
+            binding.r1g3Select,
+            binding.r1g4Select,
+            binding.r21g1Select,
+            binding.r22g1Select,
+            binding.r22g2Select,
+            binding.r23g1Select,
+            binding.r23g2Select,
+            binding.r23g3Select,
+            binding.r24g1Select,
+            binding.r24g2Select,
+            binding.r24g3Select,
+            binding.r24g4Select
+        )
+        views.forEach { view ->
+            view.visibility = if (view == r1g1Select) View.VISIBLE else View.GONE
         }
+        val selectViews = listOf(
+            binding.r1g1,
+            binding.r1g2,
+            binding.r1g3,
+            binding.r1g4,
+            binding.r21g1,
+            binding.r22g1,
+            binding.r22g2,
+            binding.r23g1,
+            binding.r23g2,
+            binding.r23g3,
+            binding.r24g1,
+            binding.r24g2,
+            binding.r24g3,
+            binding.r24g4
+        )
+        selectViews.forEach { view ->
+            view.isEnabled=false
+        }
+        Handler(Looper.myLooper()!!).postDelayed({
+            val bundle = Bundle()
+            if (userType.equals("USER",true)) {
+                bundle.putString("userType", "CPU")
+            } else {
+                bundle.putString("userType", "USER")
+            }
+            bundle.putInt("select_box", selectBox)
+            bundle.putInt("selected_player_num", selectedPlayerNum)
+            bundle.putInt("size", size)
+            Log.e("Shoot to Kick", bundle.toString())
+            val num = setGames.getRandomNumber(size)
+            checkGoal(num, selectBox)
+        }, 3000)
     }
 
     // This function is used for check goal or not
     private fun checkGoal(cpuBox: Int, userBox: Int) {
-        /* if (cpuBox == userBox) {
-             goalFailed()
-         } else {
-             goalSuccessfully()
-         }*/
-
         if (cpuBox == userBox) {
             goalSuccessfully()
         } else {
@@ -394,8 +383,7 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
     // This function is used for when goal is success
     private fun goalSuccessfully() {
-
-        if (userType == "USER") {
+        if (userType.equals("USER",true)) {
             sessionManager.setFirstGamgeStartUser(true)
             sessionManager.setFirstGamgeStartCPU(false)
         } else {
@@ -405,7 +393,7 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
         sessionManager.saveSelectedTeamPlayerNum(selectedPlayerNum)
 
-        if (sessionManager.getMatchType() == "worldcup") {
+        if (sessionManager.getMatchType().equals("worldcup",true)) {
             teamDbHelper.updateF(1, 1)
         }
 
@@ -420,11 +408,9 @@ class ShootFragment : Fragment(), View.OnClickListener {
         )
 
         if (sessionManager.isNetworkAvailable()) {
-
             cpuDbHelper.deleteAllPlayers()
             myPlayerDbHelper.deleteAllPlayers()
             extraPLayerDbHelper.deleteAllPlayers()
-
             getGuessTeamList(
                 true,
                 screen.r1.toString(),
@@ -450,35 +436,6 @@ class ShootFragment : Fragment(), View.OnClickListener {
         val imgChange: ImageView = dialog.findViewById(R.id.img_change)
         imgChange.setImageResource(drawableImg)
 
-
-        /* sessionManager.increaseTimer(120000)
-
-
-         val bundle = Bundle()
-         sessionManager.changeMusic(1, 1)
- //        bundle.putString("userType", player)
-
-         if (userType == "USER") {
-             bundle.putString("userType","CPU")
-         }else{
-             bundle.putString("userType","USER")
-         }
- //        findNavController().navigateSafe(R.id.action_shootScrenFragment_to_playScreenFragment, bundle)
-         Handler(Looper.myLooper()!!).postDelayed({
-             val bundle = Bundle()
-             sessionManager.changeMusic(1, 1)
-             bundle.putString("userType", player)
-             findNavController().navigateSafe(R.id.playScreenFragment, bundle)
-         }, 2000)
-
-         Handler(Looper.myLooper()!!).postDelayed({
-             dialog.dismiss()
-         }, 3500)
-
- //        Handler(Looper.myLooper()!!).postDelayed({
- //            dialog.dismiss()
- //        }, 3500)*/
-
         Handler(Looper.myLooper()!!).postDelayed({
             sessionManager.increaseTimer(120000)
             val bundle = Bundle()
@@ -489,8 +446,8 @@ class ShootFragment : Fragment(), View.OnClickListener {
                 bundle.putString("userType", "USER")
             }
             sessionManager.changeMusic(1,1)
-//            findNavController().navigate(R.id.action_goalKeaperFragment_to_playScreenFragment, bundle)
-            findNavController().navigate(R.id.playScreenFragment, bundle)
+//            findNavController().navigate(R.id.playScreenFragment, bundle)
+            findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         },2000)
 
         Handler(Looper.myLooper()!!).postDelayed({
@@ -511,9 +468,7 @@ class ShootFragment : Fragment(), View.OnClickListener {
         cpuMidFielder: String,
         cpuAttacker: String
     ) {
-
         val matchNo = (sessionManager.getGameNumber()-1)
-//        sessionManager.showMe(requireContext())
         lifecycleScope.launch {
             viewmodel.getGuessPlayerList({
                 sessionManager.dismissMe()
@@ -526,14 +481,10 @@ class ShootFragment : Fragment(), View.OnClickListener {
                                 try {
                                     model.data?.let { data->
                                         if (data.myplayer != null) {
-
-
                                             var df = defender.toInt()
                                             var mf = midfielder.toInt()
                                             var fw = attacker.toInt()
-
                                             Log.e("Player", myPlayerDbHelper.getAllPlayers().size.toString())
-
                                             try {
                                                 // Defender
                                                 for (data in data.myplayer) {
@@ -858,9 +809,7 @@ class ShootFragment : Fragment(), View.OnClickListener {
         }
 
         if (cpuDbHelper.getAllPlayers().size < 10) {
-
             val remain = 10 - cpuDbHelper.getAllPlayers().size
-
             if (remain > 1) {
                 for (i in 0 until remain) {
                     cpuDbHelper.addPlayer("ANDROID", "0", "ENG", "no", "MF", "10", "false", "false")
@@ -907,12 +856,6 @@ class ShootFragment : Fragment(), View.OnClickListener {
                     sessionManager.changeMusic(21, 0)
                     playAlertBox(R.drawable.over_img, "CPU")
                 }
-
-                /* else -> {
-                     sessionManager.changeMusic(22, 0)
-                     playAlertBox(R.drawable.over_img, "CPU")
-                 }*/
-
             }
         }
 
