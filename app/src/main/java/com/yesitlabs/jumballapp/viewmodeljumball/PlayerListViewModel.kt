@@ -17,6 +17,11 @@ class PlayerListViewModel  @Inject constructor(private val repository: MainRepos
     }
 
 
+    suspend fun worldCupWon(successCallback: (response: NetworkResult<String>) -> Unit,  count : String){
+        repository.worldCupWon({ successCallback(it) }, count)
+    }
+
+
 
 
 }

@@ -26,18 +26,12 @@ import com.yesitlabs.jumballapp.model.penaltiesmodel.PenalitesUserCPUStore
 class SessionManager(var context: Context) {
 
     private var dialog: Dialog? = null
-
-
     private var prefs: SharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
     private val editor: SharedPreferences.Editor = prefs.edit()
-
     private var isLoginPrefs: SharedPreferences = context.getSharedPreferences("isLogin", Context.MODE_PRIVATE)
     private val isLoginEditor: SharedPreferences.Editor = isLoginPrefs.edit()
-
     private var settingPrefs : SharedPreferences = context.getSharedPreferences("setting", Context.MODE_PRIVATE)
     private val settingEditor: SharedPreferences.Editor = settingPrefs.edit()
-
-
 
     fun changeMusic( value : Int , repeatMusic : Int){
         val intent = Intent(context, MusicService::class.java)
@@ -179,6 +173,8 @@ class SessionManager(var context: Context) {
         editor.putInt("cpuPass", 0)
 //        editor.putInt("gameNumber", 1)
         editor.putInt("gameCondition", 0)
+        editor.putInt("TotalDefence", 0)
+        editor.putInt("cpuNamePass", 0)
         editor.putBoolean("lifeline3", true)
         editor.putBoolean("lifeline2", true)
         editor.putBoolean("lifeline1", true)
@@ -265,7 +261,6 @@ class SessionManager(var context: Context) {
 
 
     fun saveMyPass(myPass: Int) {
-//        val pass = getMyPass() + myPass
         editor.putInt("myPass", myPass)
         editor.apply()
     }
@@ -273,20 +268,17 @@ class SessionManager(var context: Context) {
 
 
     fun saveMyNameSuggessionPass(myPass: Int) {
-        val pass = getMyNameSuggessionPass() + myPass
-        editor.putInt("myNamePass", pass)
+        editor.putInt("myNamePass", myPass)
         editor.apply()
     }
 
     fun savecpuNameSuggessionPass(myPass: Int) {
-        val pass = getcpuNameSuggessionPass() + myPass
-        editor.putInt("cpuNamePass", pass)
+        editor.putInt("cpuNamePass", myPass)
         editor.apply()
     }
 
     fun saveTotalDefence(myPass: Int) {
-        val pass = getTotalDefence() + myPass
-        editor.putInt("TotalDefence", pass)
+        editor.putInt("TotalDefence", myPass)
         editor.apply()
     }
 
@@ -315,7 +307,6 @@ class SessionManager(var context: Context) {
     }
 
     fun saveCpuPass(cpuPass: Int) {
-//        val pass = getCpuPass() + cpuPass
         editor.putInt("cpuPass", cpuPass)
         editor.apply()
     }

@@ -26,8 +26,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        sessionManager = SessionManager(this)
 
+        sessionManager = SessionManager(this)
+        ValueStore.setValue(0)
         sessionManager.setExtraTimeUser("Normal")
         observeSessionExpiration()
 
@@ -62,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
         stopService(Intent(this, MusicService::class.java))
     }
-
 
 
 }

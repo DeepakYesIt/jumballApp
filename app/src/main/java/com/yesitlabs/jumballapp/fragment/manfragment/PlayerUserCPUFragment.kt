@@ -14,6 +14,7 @@ import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams
 import android.widget.Space
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -40,6 +41,7 @@ import com.yesitlabs.jumballapp.viewmodeljumball.PlayerListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
+
 
 /*
  * Developed by: Deepak Kumar Agrahari
@@ -86,20 +88,9 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         sessionManager = SessionManager(requireContext())
         extraPLayerDbHelper = ExtraPlayerDatabaseHelper(requireContext())
         viewmodel = ViewModelProvider(requireActivity())[PlayerListViewModel::class.java]
-        setTimerLogic()
-        Log.d("@@@Error ", "getExtraTime"+sessionManager.getExtraTime())
-        Log.d("@@@Error ", "sessionManager.getTimer"+sessionManager.getTimer())
-        Log.d("@@@Error ", "match count"+sessionManager.getGameNumber())
-        Log.d("@@@Error ", "timer count"+sessionManager.getTimer())
-        Log.d("@@@Error ", "startTime$startTime")
-        Log.d("@@@Error ", "totalTime$totalTime")
-        Log.d("@@@Error ", "myPass$myPass")
-        Log.d("@@@Error ", "cpuPass$cpuPass")
-        Log.d("@@@Error ", "userType$userType")
         cpuDbHelper = CPUPlayerDatabaseHelper(requireContext())
         myPlayerDbHelper = PlayerDatabaseHelper(requireContext())
-        timerLogic()
-        setPlayerScreens()
+        setTimerLogic()
         backButton()
         binding.btShoot.setOnClickListener(this)
         binding.btPass.setOnClickListener(this)
@@ -137,6 +128,18 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }
             }
         }
+
+        Log.d("@@@Error ", "getExtraTime"+sessionManager.getExtraTime())
+        Log.d("@@@Error ", "sessionManager.getTimer"+sessionManager.getTimer())
+        Log.d("@@@Error ", "match count"+sessionManager.getGameNumber())
+        Log.d("@@@Error ", "timer count"+sessionManager.getTimer())
+        Log.d("@@@Error ", "startTime$startTime")
+        Log.d("@@@Error ", "totalTime$totalTime")
+        Log.d("@@@Error ", "myPass$myPass")
+        Log.d("@@@Error ", "cpuPass$cpuPass")
+        Log.d("@@@Error ", "userType$userType")
+
+        timerLogic()
     }
     @SuppressLint("SetTextI18n")
     private fun setPlayerScreens(){
@@ -161,19 +164,26 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }
             }
         } else {
-            binding.userName.text = sessionManager.getName()?.split(" ")?.drop(1)?.joinToString(" ")
+//            binding.userName.text = sessionManager.getName()?.split(" ")?.drop(1)?.joinToString(" ")
+            binding.userName.text = sessionManager.getName().toString()
             binding.opposeTeamPlayerName.text = "CPU"
         }
         binding.cpuScoreTv.text = sessionManager.getCpuScore().toString()
         binding.userGoalTv.text = sessionManager.getMyScore().toString()
+        val topPaddingInPx: Int  // or any value
+        val topmarginBottomPx: Int  // or any value
         if (userType.equals("USER",true)){
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+            topPaddingInPx = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._20sdp) // or any value
+            topmarginBottomPx = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._45sdp) // or any value
             stopCpuProcess()
             setupFootballFormation(sessionManager.getUserScreenType(),allCpuPlayer)
         }else{
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+            topPaddingInPx = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._10sdp) // or any value
+            topmarginBottomPx = resources.getDimensionPixelSize(com.intuit.sdp.R.dimen._75sdp) // or any value
             if (sessionManager.getLifeLineStatus1().equals("Yes",true)){
                 sessionManager.setLifeLineStatus1("No")
                 allUserPlayer.forEach { player ->
@@ -185,6 +195,14 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             startCpuProcess()
             setupFootballFormationCpu(sessionManager.getUserScreenType(),allUserPlayer)
         }
+
+       // Set top padding, keep other paddings as-is
+        binding.playerPitch.setPadding(binding.playerPitch.paddingLeft, topPaddingInPx, binding.playerPitch.paddingRight, binding.playerPitch.paddingBottom)
+        val layoutParams =  binding.formationContainer.layoutParams as ViewGroup.MarginLayoutParams
+
+        // Keep existing margins and update only the bottom
+        layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, layoutParams.rightMargin, topmarginBottomPx)
+
     }
     private fun selectCpuButton(){
         if (clickablePlayers.isNotEmpty()) {
@@ -207,6 +225,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     if (targetPlayer != null) {
                         if (targetPlayer.use.equals("true",true)){
                             if (targetPlayer.answer.equals("false",true)){
+                                stopCpuProcess()
                                 moveToPlayNameScreen(targetPlayer)
                             }
                         }
@@ -218,24 +237,23 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     stopCpuProcess()
                     cpuPassBall()
                 }else{
-                    if (countAnswer>1){
-                        val result = if (randomTarget.toInt() % 2 == 0) { "even" } else { "odd" }
-                        if (result.equals("even",true)){
-                            val targetPlayer = allUserPlayer.find {
-                                it.id==randomTarget
-                            }
-                            if (targetPlayer != null) {
-                                Log.d("@@@Error", "******$targetPlayer")
-                                if (targetPlayer.use.equals("true",true)){
-                                    if (targetPlayer.answer.equals("false",true)){
-                                        moveToPlayNameScreen(targetPlayer)
-                                    }
+                    Log.d("Cpu pass logic","yes")
+                    Log.d("Cpu pass logic", "yes$randomTarget")
+                    val result = if (randomTarget.toInt() % 2 == 0) { "even" } else { "odd" }
+                    if (result.equals("even",true)){
+                        val targetPlayer = allUserPlayer.find {
+                            it.id==randomTarget
+                        }
+                        if (targetPlayer != null) {
+                            Log.d("@@@Error", "******$targetPlayer")
+                            if (targetPlayer.use.equals("true",true)){
+                                if (targetPlayer.answer.equals("false",true)){
+                                    moveToPlayNameScreen(targetPlayer)
                                 }
                             }
-                        }else{
-                            cpuSelectLogic()
                         }
                     }else{
+                        Log.d("Cpu pass logic", "yesss$randomTarget")
                         cpuSelectLogic()
                     }
                 }
@@ -273,16 +291,20 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     }
                 }
             }
-            val num = setGames.getRandomNumber(size)
+            val num =(1..size).random()
             Log.e("Gold Kick", num.toString())
             Log.d("******", "play screen  :=$num")
             bundle.putInt("select_box", num)
             bundle.putInt("size", size)
             Log.e("Shoot to Kick", bundle.toString())
             findNavController().navigate(R.id.goal_keeper_Screen, bundle)
+        }else{
+            startCpuProcess()
         }
     }
     private fun timerLogic(){
+        binding.rootButton.visibility=View.GONE
+        stopCpuProcess()
         val min = startTime / 60000
         binding.tvCount.text = "‘$min"
         val timeForNoise = startTime / 60000
@@ -301,21 +323,15 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             Log.e("Time ", min.toString())
         }
         Log.d("@@@Error ","******** "+sessionManager.getExtraTime())
+        sessionManager.changeMusic(6, 0)
         if (sessionManager.getExtraTime().equals("ExtraTime",true) || sessionManager.getExtraTime().equals("TimeHalf",true)){
-            sessionManager.changeMusic(6, 0)
-            if (sessionManager.getExtraTime().equals("ExtraTime",true)){
-                Log.d("@@@Error","when TimeHalf time set")
-                if (startTime >= 900000){
-                    totalTime = 900000L
-                    startTime = 0
+            val extraTime = sessionManager.getExtraTime()
+            if (startTime >= 900000L) {
+                if (extraTime.equals("ExtraTime", ignoreCase = true)) {
+                    Log.d("@@@Error", "when TimeHalf time set")
                     setCondition("ExtraTime")
-                }
-            }
-            if (sessionManager.getExtraTime().equals("TimeHalf",true)){
-                if (startTime >= 900000){
-                    Log.d("@@@Error","when FinalTime time set")
-                    totalTime = 900000L
-                    startTime = 0
+                } else if (extraTime.equals("TimeHalf", ignoreCase = true)) {
+                    Log.d("@@@Error", "when FinalTime time set")
                     sessionManager.setExtraTimeUser("TimeHalfEnd")
                     setCondition("TimeHalfEnd")
                 }
@@ -325,33 +341,29 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             } else {
                 binding.layProgess.progress = startTime - 900000
             }
-
         }else{
             Log.e("@@@Error", "Full getValue "+ ValueStore.getValue1())
-            if (startTime >= 5400000 && ValueStore.getValue1() ==0){
+            if (startTime >= 2700000 && ValueStore.getValue() == 0) {
+                ValueStore.setValue(1)
+                Log.d("@@@Error","when half time start");
+                Log.e("Half Time", "Yaa hui")
+                sessionManager.setExtraTimeUser("halftime")
+                playAlertBox(R.drawable.half_time_img, "halftime");
+            }
+            if (startTime >= 5400000 && ValueStore.getValue1() == 0) {
                 ValueStore.setValue1(1)
-                Log.d("@@@Error","when FullTime time set")
+                Log.d("@@@Error","when FullTime time set");
                 Log.e("@@@Error", "Full time")
-                sessionManager.changeMusic(6, 0)
-                if (sessionManager.getGameNumber()==3){
-                    totalTime = 900000L
-                    startTime = 0
-                    sessionManager.setExtraTimeUser("FullTime")
-                    Log.e("@@@Error", "second")
-                    playAlertBox(R.drawable.full_time_img, "FullTime")
-                }else{
-                    sessionManager.setExtraTimeUser("timeOver")
-                    Log.e("@@@Error", "timeOver")
-                    playAlertBox(R.drawable.full_time_img, "timeOver")
-                }
-            }else{
-                if (startTime >= 2700000 && ValueStore.getValue() == 0) {
-                    ValueStore.setValue(1)
-                    Log.d("@@@Error","when half time start")
-                    Log.e("Half Time", "Yaa hui")
-                    sessionManager.changeMusic(6, 0)
-                    sessionManager.setExtraTimeUser("halftime")
-                    playAlertBox(R.drawable.half_time_img, "halftime")
+                if (sessionManager.getGameNumber() == 3) {
+                    totalTime = 900000L;
+                    startTime = 0;
+                    sessionManager.setExtraTimeUser("FullTime");
+                    Log.e("@@@Error", "second");
+                    playAlertBox(R.drawable.full_time_img, "FullTime");
+                } else {
+                    sessionManager.setExtraTimeUser("timeOver");
+                    Log.e("@@@Error", "timeOver");
+                    playAlertBox(R.drawable.full_time_img, "timeOver");
                 }
             }
             if(startTime <= 2700000) {
@@ -360,6 +372,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 binding.layProgess.progress = startTime - 2700000
             }
         }
+        setPlayerScreens()
     }
     private fun playAlertBox(drawableImg: Int, action: String) {
         val dialog = Dialog(requireContext(), R.style.myFullscreenAlertDialogStyle)
@@ -391,10 +404,12 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                         Handler(Looper.myLooper()!!).postDelayed({
                             totalTime = 900000L
                             startTime = 0
+                            stopCpuProcess()
                             apiCall(dialog)
                         }, 3000)
                     }
                     "halftime", "TimeHalf" -> {
+                        stopCpuProcess()
                         commonApi(dialog)
                     }
                 }
@@ -419,20 +434,36 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         }, 3000)
     }
     private fun setCondition(status:String){
+        val myScore = sessionManager.getMyScore()
+        val cpuScore = sessionManager.getCpuScore()
+        val gameNumber = sessionManager.getGameNumber()
         Log.e("@@@Error", "status $status")
         Log.e("@@@Error","getMyScore "+sessionManager.getMyScore())
         Log.e("@@@Error","getCpuScore "+sessionManager.getCpuScore())
         if (sessionManager.getMatchType().equals("worldcup",true)){
             if (status.equals("timeOver",true)){
-                if (sessionManager.getMyScore() == sessionManager.getCpuScore()){
-                    moveToScoreScreen()
-                }else if (sessionManager.getMyScore() > sessionManager.getCpuScore()){
-                    if (sessionManager.getGameNumber()>=3){
-                        winAlertBox(3)
-                    }else{
-                        moveToScoreScreen()
-                    }
-                }else{
+                if (myScore > cpuScore && gameNumber >= 3) {
+                    winAlertBox(3);
+                } else {
+                    moveToScoreScreen();
+                }
+            }
+            if (status.equals("ExtraTime",true)){
+                if (myScore == cpuScore) {
+                    sessionManager.setExtraTimeUser("TimeHalf");
+                    playAlertBox(R.drawable.extra_time_ht_img, "TimeHalf");
+                } else if (myScore > cpuScore && gameNumber >= 3) {
+                    winAlertBox(3);
+                } else {
+                    moveToScoreScreen();
+                }
+            }
+            if (status.equals("TimeHalfEnd", true)) {
+                if (myScore == cpuScore) {
+                    winAlertBox(1)
+                } else if (myScore > cpuScore && gameNumber >= 3) {
+                    winAlertBox(3)
+                } else {
                     moveToScoreScreen()
                 }
             }
@@ -499,6 +530,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         findNavController().navigate(R.id.score_fragment, bundle)
     }
     private fun apiCall(dialog: Dialog) {
+        onDestroyAndOnStop()
         val screen = setGames.setScreen(sessionManager.getUserScreenType())
         val cpuScreen = setGames.setScreen(sessionManager.getCpuScreenType())
         if (sessionManager.isNetworkAvailable()) {
@@ -559,7 +591,16 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     if (data.designation == "DF") {
                                                         if (df > 0) {
                                                             df -= 1
-                                                            myPlayerDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "false",)
+                                                            myPlayerDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false"
+                                                            )
                                                         }
                                                     }
                                                 }
@@ -576,7 +617,16 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     if (data.designation == "MF") {
                                                         if (mf > 0) {
                                                             mf -= 1
-                                                            myPlayerDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "false",)
+                                                            myPlayerDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false"
+                                                            )
                                                         }
                                                     }
                                                 }
@@ -593,7 +643,16 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     if (data.designation == "FW") {
                                                         if (fw > 0) {
                                                             fw -= 1
-                                                            myPlayerDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "false",)
+                                                            myPlayerDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false"
+                                                            )
                                                         }
                                                     }
                                                 }
@@ -635,7 +694,16 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     if (data.designation == "DF") {
                                                         if (df > 0) {
                                                             df -= 1
-                                                            cpuDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "false",)
+                                                            cpuDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false"
+                                                            )
                                                         }
                                                     }
                                                 }
@@ -652,7 +720,16 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     if (data.designation == "MF") {
                                                         if (mf > 0) {
                                                             mf -= 1
-                                                            cpuDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "false",)
+                                                            cpuDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false"
+                                                            )
                                                         }
                                                     }
                                                 }
@@ -669,7 +746,16 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     if (data.designation == "FW") {
                                                         if (fw > 0) {
                                                             fw -= 1
-                                                            cpuDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "false",)
+                                                            cpuDbHelper.addPlayer(
+                                                                surnames,
+                                                                data.is_captain.toString(),
+                                                                data.country_id.toString(),
+                                                                data.type.toString(),
+                                                                data.designation.toString(),
+                                                                data.jersey_number.toString(),
+                                                                "false",
+                                                                "false"
+                                                            )
                                                         }
                                                     }
                                                 }
@@ -761,8 +847,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         Log.e("Extra Team Size :", extraPLayerDbHelper.getAllPlayers().size.toString())
         userType = if (userType.equals("CPU",true)) { "USER" } else { "CPU" }
         setTimerLogic()
-        timerLogic()
-        setPlayerScreens()
+//        timerLogic()
+//        setPlayerScreens()
         Handler(Looper.myLooper()!!).postDelayed({
             dialog?.dismiss()
         }, 2000)
@@ -880,11 +966,12 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         binding.formationContainer.removeAllViews()
         // Group players by position
         val groupedPlayers = listOf(
-            "FW" to players.filter { it.designation == "FW" },
-            "MF" to players.filter { it.designation == "MF" },
-            "DF" to players.filter { it.designation == "DF" },
             "GK" to players.filter { it.designation == "GK" },
+            "DF" to players.filter { it.designation == "DF" },
+            "MF" to players.filter { it.designation == "MF" },
+            "FW" to players.filter { it.designation == "FW" },
         )
+
         for ((position, playersInPosition) in groupedPlayers) {
             // Create a row for the position
             val row = LinearLayout(requireContext()).apply {
@@ -964,20 +1051,26 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             val bundle = Bundle()
             bundle.putString("userType", "USER")
             bundle.putInt("selected_player_num", playerId)
-            val size = 0
+            var size = 0
             for (data in allCpuPlayer) {
                 if (data.id.toInt() == playerId) {
-                    if (data.designation.uppercase() == "DF") {
-                        bundle.putInt("size", size + 2 + myPass)
+                    size = if (data.designation.uppercase() == "DF") {
+                        size + 2 + myPass
                     } else {
                         if (data.designation.uppercase() == "MF") {
-                            bundle.putInt("size", size + 3 + myPass)
+                            size + 3 + myPass
                         } else {
-                            bundle.putInt("size", size + 4 + myPass)
+                            size + 4 + myPass
                         }
                     }
                 }
             }
+
+            val num =(1..size).random()
+            Log.e("Gold Kick", num.toString())
+            Log.d("******", "play screen  :=$num")
+            bundle.putInt("select_box", num)
+            bundle.putInt("size", size)
             findNavController().navigate(R.id.shoot_Screen, bundle)
         }
     }
@@ -1053,14 +1146,14 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         val map541 = mapOf(
             1 to setOf(2, 6),
-            2 to setOf(1, 3, 6, 11),
+            2 to setOf(1, 2,3, 6, 11),
             3 to setOf(2, 4, 7, 8, 11),
             4 to setOf(3, 5, 8, 9, 11),
             5 to setOf(4, 9),
-            6 to setOf(1, 2, 4),
+            6 to setOf(1, 2, 7),
             7 to setOf(10, 2, 3, 6, 8),
             8 to setOf(3, 4, 7, 9,10),
-            9 to setOf(8, 5),
+            9 to setOf(8, 5,10),
             10 to setOf(7, 8),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         val map532 = mapOf(
@@ -1070,47 +1163,47 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             4 to setOf(3, 5, 7, 8, 11),
             5 to setOf(4, 8),
             6 to setOf(2, 3, 7, 9),
-            7 to setOf(6, 8, 3, 2, 4),
-            8 to setOf(7, 4, 5),
+            7 to setOf(6, 8, 3, 2, 4,9,10),
+            8 to setOf(7, 4, 5,10),
             9 to setOf(6, 7, 10),
             10 to setOf(9, 8, 7),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         // Balanced
         val map352 = mapOf(
-            1 to setOf(2, 11, 4, 5, 6),
-            2 to setOf(1, 3, 11, 5, 6, 7),
-            3 to setOf(2, 11, 6, 7, 8),
-            4 to setOf(1, 5),
-            5 to setOf(1, 2, 4, 6, 9),
-            6 to setOf(1, 2, 3, 5, 7, 9, 10),
-            7 to setOf(6, 8, 2, 3, 10),
-            8 to setOf(7, 3),
-            9 to setOf(10, 5, 6),
-            10 to setOf(9, 6, 7),
+            1 to setOf(2,11,5,6),
+            2 to setOf(1,3,11,6),
+            3 to setOf(2,11,6,7),
+            4 to setOf(1,5),
+            5 to setOf(1,4,6,9),
+            6 to setOf(2,5,7,9,10),
+            7 to setOf(6,8,3,10),
+            8 to setOf(7,3),
+            9 to setOf(10,5,6),
+            10 to setOf(9,6,7),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         val map451 = mapOf(
-            1 to setOf(2, 5, 6),
-            2 to setOf(1, 11, 3, 5, 6),
-            3 to setOf(2, 4, 11, 7, 8),
-            4 to setOf(3, 8, 9),
-            5 to setOf(1, 6),
-            6 to setOf(1, 2, 5, 7),
-            7 to setOf(6, 8, 2, 3, 10),
-            8 to setOf(3, 4, 7, 9, 10),
-            9 to setOf(8, 4),
+            1 to setOf(2,5,6),
+            2 to setOf(1,11,3,5,6,7),
+            3 to setOf(2,4,11, 7,8),
+            4 to setOf(3,8,9),
+            5 to setOf(1,6),
+            6 to setOf(1,2,5,7),
+            7 to setOf(6,8,2,3,10),
+            8 to setOf(3,4,7,9,10),
+            9 to setOf(8,4),
             10 to setOf(6, 7, 8),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         val map442 = mapOf(
-            1 to setOf(2, 5),
-            2 to setOf(1, 3, 6, 11),
-            3 to setOf(2, 4, 11, 7),
-            4 to setOf(3, 7, 8),
-            5 to setOf(1, 6),
-            6 to setOf(5, 2, 7, 9),
-            7 to setOf(6, 8, 3, 10),
-            8 to setOf(4, 7),
-            9 to setOf(7, 6, 10),
-            10 to setOf(7, 8, 9),
+            1 to setOf(2,5,6),
+            2 to setOf(1,3, 6, 11),
+            3 to setOf(2,4, 11, 7),
+            4 to setOf(3,7, 8),
+            5 to setOf(1,2,6,9),
+            6 to setOf(5,2, 7, 9),
+            7 to setOf(6,8, 3, 10),
+            8 to setOf(4,7,10),
+            9 to setOf(5,7,6, 10),
+            10 to setOf(7,6,8, 9),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         // Attacking
         val map433 = mapOf(
@@ -1126,26 +1219,26 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             10 to setOf(9,7),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         val map343 = mapOf(
-            1 to setOf(2,5,11),
-            2 to setOf(1, 3,11,5,6),
-            3 to setOf(2,11,6,7),
+            1 to setOf(2,4,5,11),
+            2 to setOf(1,3,5,6,11),
+            3 to setOf(2,6,7,11),
             4 to setOf(1,5,8),
-            5 to setOf(4,6,1,2),
-            6 to setOf(5,7,2,3,9,10),
+            5 to setOf(1,2,4,6,8,9),
+            6 to setOf(2,3,5,7,9,10),
             7 to setOf(3,6,10),
             8 to setOf(4,5,9),
             9 to setOf(8,10,5,6),
             10 to setOf(9,6,7),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
         val map424 = mapOf(
-            1 to setOf(2,11),
-            2 to setOf(1, 3,11,5),
+            1 to setOf(2,5),
+            2 to setOf(1, 3,5,11),
             3 to setOf(2,11,6,4),
-            4 to setOf(3,11),
-            5 to setOf(2,6,8),
+            4 to setOf(3,6),
+            5 to setOf(2,3,6,8),
             6 to setOf(5,3,9),
             7 to setOf(8,5),
-            8 to setOf(7,9,5),
+            8 to setOf(7,5,6,9),
             9 to setOf(8,10,6),
             10 to setOf(9,6),
             11 to setOf(1, 2, 3, 4, 5, 6, 7, 8, 9, 10))
@@ -1162,6 +1255,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             else -> emptyMap()  // return empty map if no match
         }
     }
+
     fun startCpuProcess() {
         isCpuActive = true
         handler.postDelayed(runnable, 3000) // Start delayed execution

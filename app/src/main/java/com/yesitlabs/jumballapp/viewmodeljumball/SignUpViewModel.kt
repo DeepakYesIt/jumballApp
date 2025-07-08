@@ -11,9 +11,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SignUpViewModel  @Inject constructor(private val repository: MainRepository) : ViewModel() {
 
-    suspend fun signUpModel(successCallback: (response: NetworkResult<String>) -> Unit, emailOrPhone: String, password: String){
-        repository.signUpModel({ successCallback(it) }, emailOrPhone,password)
-    }
+
 
     suspend fun userSingUpOtp(successCallback: (response: NetworkResult<String>) -> Unit, email: String){
         repository.userSingUpOtp({ successCallback(it) }, email)

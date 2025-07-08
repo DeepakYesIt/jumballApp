@@ -55,7 +55,7 @@ class ShootFragment : Fragment(), View.OnClickListener {
     private var allUserPlayer = ArrayList<PlayerModel>()
     lateinit var sessionManager: SessionManager
     private var setGames: SetGames = SetGames()
-
+    private var selectBox = 0
     private lateinit var binding: FragmentShootBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -80,12 +80,12 @@ class ShootFragment : Fragment(), View.OnClickListener {
 
         backButton()
         size=requireArguments().getInt("size")
-
         sessionManager.saveMyPass(0)
         sessionManager.saveCpuPass(0)
 
         userType = requireArguments().getString("userType").toString().uppercase(Locale.ROOT)
         selectedPlayerNum = requireArguments().getInt("selected_player_num")
+        selectBox = requireArguments().getInt("select_box")
 
         Log.d("******","size :- ="+size)
         Log.d("******","selectBox assigne value :="+selectedPlayerNum)
@@ -329,14 +329,13 @@ class ShootFragment : Fragment(), View.OnClickListener {
             bundle.putInt("selected_player_num", selectedPlayerNum)
             bundle.putInt("size", size)
             Log.e("Shoot to Kick", bundle.toString())
-            val num = setGames.getRandomNumber(size)
-            checkGoal(num, selectBox)
+            checkGoal(selectBox)
         }, 3000)
     }
 
     // This function is used for check goal or not
-    private fun checkGoal(cpuBox: Int, userBox: Int) {
-        if (cpuBox == userBox) {
+    private fun checkGoal(userBox: Int) {
+        if (selectBox == userBox) {
             goalSuccessfully()
         } else {
             goalFailed()
@@ -376,23 +375,13 @@ class ShootFragment : Fragment(), View.OnClickListener {
             sessionManager.setFirstGamgeStartCPU(true)
             sessionManager.setFirstGamgeStartUser(false)
         }
-
         sessionManager.saveSelectedTeamPlayerNum(selectedPlayerNum)
-
         if (sessionManager.getMatchType().equals("worldcup",true)) {
             teamDbHelper.updateF(1, 1)
         }
-
         sessionManager.putMyScore(1)
-
-        val screen = setGames.setScreen(
-            sessionManager.getUserScreenType()
-        )
-
-        val cpuScreen = setGames.setScreen(
-            sessionManager.getCpuScreenType()
-        )
-
+        val screen = setGames.setScreen(sessionManager.getUserScreenType())
+        val cpuScreen = setGames.setScreen(sessionManager.getCpuScreenType())
         if (sessionManager.isNetworkAvailable()) {
             cpuDbHelper.deleteAllPlayers()
             myPlayerDbHelper.deleteAllPlayers()
@@ -432,7 +421,6 @@ class ShootFragment : Fragment(), View.OnClickListener {
                 bundle.putString("userType", "USER")
             }
             sessionManager.changeMusic(1,1)
-//            findNavController().navigate(R.id.playScreenFragment, bundle)
             findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         },2000)
 

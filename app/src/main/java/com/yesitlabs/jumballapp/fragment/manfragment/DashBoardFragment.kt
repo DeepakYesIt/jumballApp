@@ -49,7 +49,6 @@ class DashBoardFragment : Fragment(), View.OnClickListener {
         binding.laySettings.setOnClickListener(this)
         binding.layStatistics.setOnClickListener(this)
 
-
         // This line use for system back button
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,

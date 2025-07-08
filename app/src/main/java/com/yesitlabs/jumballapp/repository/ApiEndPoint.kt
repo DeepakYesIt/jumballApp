@@ -28,34 +28,21 @@ import retrofit2.http.Query
 
 interface ApiEndPoint {
 
-    @POST("forget_password")
+    @POST(ApiNameEndPoint.forgetPassword)
     @FormUrlEncoded
     suspend fun forgotPasswordOtp(@Field("email") email: String): Response<JsonObject>
 
-    @POST("forget_reset_password")
+    @POST(ApiNameEndPoint.forgetResetPassword)
     @FormUrlEncoded
     suspend fun resetPassword(
         @Field("email") email: String, @Field("password") password: String,
         @Field("conform_password") confirmPassword: String
     ): Response<JsonObject>
 
-
-    @GET("player_profile_data")
+    @GET(ApiNameEndPoint.playerProfileData)
     suspend fun getProfileData(): Response<JsonObject>
 
-
-    @POST("profile-update")
-    @FormUrlEncoded
-    suspend fun sendProfileData(
-        @Field("name") name: String,
-        @Field("country_id") countryId: String,
-        @Field("skill_level") skillLevel: String,
-        @Field("position") position: String,
-        @Field("play_style") playStyle: String,
-        @Field("world_cup_id") worldCupId: String
-    ): Response<JsonObject>
-
-    @POST("profile-update")
+    @POST(ApiNameEndPoint.profileUpdate)
     @Multipart
     suspend fun sendProfileDataWithImage(
         @Part("name") name: RequestBody,
@@ -68,11 +55,11 @@ interface ApiEndPoint {
     ): Response<JsonObject>
 
 
-    @POST("profile_delete")
+    @POST(ApiNameEndPoint.profileDelete)
     suspend fun profileDelete(): Response<JsonObject>
 
 
-    @POST("user_logout")
+    @POST(ApiNameEndPoint.userLogout)
     suspend fun userLogout(): Response<JsonObject>
 
 
@@ -80,13 +67,13 @@ interface ApiEndPoint {
     suspend fun setting(): Response<JsonObject>
 
 
-    @POST("music_status_change")
+    @POST(ApiNameEndPoint.musicStatusChange)
     @FormUrlEncoded
     suspend fun musicStatusChange(
         @Field("music") music: String
     ):Response<JsonObject>
 
-    @POST("sound_effect_status_change")
+    @POST(ApiNameEndPoint.soundEffectStatusChange)
     @FormUrlEncoded
     suspend fun soundEffectStatusChange(
         @Field("sound_effect") music: String
@@ -111,7 +98,7 @@ interface ApiEndPoint {
 
 
     @FormUrlEncoded
-    @POST("register")
+    @POST(ApiNameEndPoint.register)
     suspend fun userSingUp(
         @Field("name") name: String,
         @Field("email") email: String,
@@ -125,7 +112,7 @@ interface ApiEndPoint {
         @Field("email") email: String,
     ): Response<JsonObject>
 
-    @GET("guess_player_list_data")
+    @GET(ApiNameEndPoint.guessPlayerListData)
     suspend fun getGuessPlayerList(
         @Query("defender") defender : String,
         @Query("midfilder") midFilder : String,
@@ -135,15 +122,15 @@ interface ApiEndPoint {
         @Query("match_no") match_no: String
     ): Response<JsonObject>
 
-    @GET("privacypolicy")
+    @GET(ApiNameEndPoint.privacypolicy)
     suspend fun getPrivacyAndPolicy(): Response<JsonObject>
 
-    @GET("termandcondition")
+    @GET(ApiNameEndPoint.termandcondition)
     suspend fun getTermAndCondition(): Response<JsonObject>
 
 
     @FormUrlEncoded
-    @POST("SaveScore")
+    @POST(ApiNameEndPoint.SaveScore)
     suspend fun saveScore(
         @Field("total_goal") totalGoal: String,
         @Field("total_goal_console") totalGoalConsole: String,
@@ -155,26 +142,24 @@ interface ApiEndPoint {
     ): Response<JsonObject>
 
     @FormUrlEncoded
-    @Headers("Accept: application/json")
-    @POST("WonWorldCup")
+    @POST(ApiNameEndPoint.WonWorldCup)
     suspend fun worldCupWon(
-        @Header("Authorization") token: String,
         @Field("total_won") totalGoal: String
-    ): Response<SaveScoreResp>?
+    ):Response<JsonObject>
 
-    @GET("GetScroreBoard")
+    @GET(ApiNameEndPoint.GetScroreBoard)
     suspend fun getScoreBoard(
     ): Response<JsonObject>
 
-    @GET("getUserSticker")
+    @GET(ApiNameEndPoint.getUserSticker)
     suspend fun getSticker(): Response<JsonObject>
 
     //        @GET("getSticker")
-    @GET("get_randmally_sticker")
+    @GET(ApiNameEndPoint.getRandmallySticker)
     suspend fun getCaricature(@Query("match_no") match_no: String): Response<JsonObject>
 
 
-    @GET("getScoreBord")
+    @GET(ApiNameEndPoint.getScoreBord)
     suspend fun getTeam(@Query("is_first") is_first: String): Response<JsonObject>
 
 }

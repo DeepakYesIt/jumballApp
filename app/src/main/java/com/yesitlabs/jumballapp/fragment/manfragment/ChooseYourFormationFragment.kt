@@ -51,10 +51,8 @@ class ChooseYourFormationFragment : Fragment(),
     private lateinit var cpuDbHelper: CPUPlayerDatabaseHelper
     private lateinit var myPlayerDbHelper: PlayerDatabaseHelper
     private lateinit var extraPLayerDbHelper: ExtraPlayerDatabaseHelper
-
     lateinit var sessionManager: SessionManager
     private lateinit var viewmodel: PlayerListViewModel
-    var token: String? = null
     private var setGames: SetGames = SetGames()
 
 
@@ -84,10 +82,6 @@ class ChooseYourFormationFragment : Fragment(),
         cpuDbHelper.deleteAllPlayers()
         myPlayerDbHelper.deleteAllPlayers()
         extraPLayerDbHelper.deleteAllPlayers()
-
-
-        token = "Bearer " + sessionManager.fetchAuthToken()
-
 
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true /* enabled by default */) {
@@ -252,14 +246,14 @@ class ChooseYourFormationFragment : Fragment(),
                 val cpuScreen = setGames.setScreen(sessionManager.getCpuScreenType())
 
                 if (sessionManager.isNetworkAvailable()) {
+                    binding.btnProceed.visibility = View.GONE
                     getGuessTeamList(screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
                 } else {
+                    binding.btnProceed.visibility = View.VISIBLE
                     sessionManager.alertError(ErrorMessage.netWorkError)
                 }
-
             }
         }
-
     }
 
     // This function is used for get guess player list from database api
@@ -532,21 +526,28 @@ class ChooseYourFormationFragment : Fragment(),
                                            }
                                        }
                                        checkAllPlayer()
+                                   }?: run {
+                                       binding.btnProceed.visibility = View.VISIBLE
                                    }
                                 }catch (e:Exception){
+                                    binding.btnProceed.visibility = View.VISIBLE
                                     Log.d("signup","message:---"+e.message)
                                 }
                             } else {
+                                binding.btnProceed.visibility = View.VISIBLE
                                 sessionManager.alertError(model.message)
                             }
                         }catch (e:Exception){
+                            binding.btnProceed.visibility = View.VISIBLE
                             Log.d("signup","message:---"+e.message)
                         }
                     }
                     is NetworkResult.Error -> {
+                        binding.btnProceed.visibility = View.VISIBLE
                         sessionManager.alertError(it.message.toString())
                     }
                     else -> {
+                        binding.btnProceed.visibility = View.VISIBLE
                         sessionManager.alertError(it.message.toString())
                     }
                 }
@@ -566,7 +567,6 @@ class ChooseYourFormationFragment : Fragment(),
             } else {
                 myPlayerDbHelper.addPlayer("SYSTEM", "0", "ENG", "no", "MF", "10", "false", "false")
             }
-
         }
 
         if (cpuDbHelper.getAllPlayers().size < 10) {

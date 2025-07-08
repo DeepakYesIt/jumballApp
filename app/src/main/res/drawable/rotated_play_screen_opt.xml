@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/rotated_play_screen_opt.xml -->
+<rotate xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromDegrees="180"
+    android:toDegrees="180"
+    android:pivotX="50%"
+    android:pivotY="50%" >
+
+    <bitmap
+        android:src="@drawable/play_screen_opt" />
+</rotate>

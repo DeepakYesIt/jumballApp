@@ -13,10 +13,6 @@ import javax.inject.Inject
 
 class MainRepositoryImpl @Inject constructor(private val api: ApiEndPoint) : MainRepository {
 
-    override suspend fun signUpModel(successCallback: (response: NetworkResult<String>) -> Unit, emailOrPhone: String, password: String) {
-
-    }
-
     override suspend fun userSingUpOtp(successCallback: (response: NetworkResult<String>) -> Unit, email: String) {
         try {
             api.userSingUpOtp(email).apply {
@@ -329,6 +325,25 @@ class MainRepositoryImpl @Inject constructor(private val api: ApiEndPoint) : Mai
     ) {
         try {
             api.getGuessPlayerList(defender ,midFielder, attacker,userCaptainId,cpuCaptainId,match_no).apply {
+                if (isSuccessful) {
+                    body()?.let {
+                        successCallback(NetworkResult.Success(it.toString()))
+                    } ?: successCallback(NetworkResult.Error(ErrorMessage.apiError))
+                } else {
+                    successCallback(NetworkResult.Error(ErrorMessage.serverError))
+                }
+            }
+        } catch (e: Exception) {
+            successCallback(NetworkResult.Error(ErrorMessage.serverError))
+        }
+    }
+
+    override suspend fun worldCupWon(
+        successCallback: (response: NetworkResult<String>) -> Unit,
+        count: String
+    ) {
+        try {
+            api.worldCupWon(count).apply {
                 if (isSuccessful) {
                     body()?.let {
                         successCallback(NetworkResult.Success(it.toString()))

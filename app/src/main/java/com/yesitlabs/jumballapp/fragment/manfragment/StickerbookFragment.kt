@@ -48,6 +48,7 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
             if(sessionManager.isNetworkAvailable()){
                 getSticker()
             }else{
+                setStickerList()
                 Toast.makeText(requireContext(), ErrorMessage.netWorkError, Toast.LENGTH_SHORT).show()
             }
 
@@ -86,7 +87,9 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
                                     Log.d("signup", "message:---" + e.message)
                                 }
                             } else {
-                                sessionManager.alertError(model.message)
+                                if (!model.message.equals("no data found",true)){
+                                    sessionManager.alertError(model.message)
+                                }
                             }
                         } catch (e: Exception) {
                             Log.d("signup", "message:---" + e.message)

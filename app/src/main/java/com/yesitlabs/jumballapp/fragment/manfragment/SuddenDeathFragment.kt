@@ -8,32 +8,36 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
 import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.activity.MainActivity
 import com.yesitlabs.jumballapp.databinding.FragmentSuddenDeathBinding
-import com.yesitlabs.jumballapp.databinding.FragmentTermsAndConditionBinding
+import com.yesitlabs.jumballapp.model.SaveScoreResp
+import com.yesitlabs.jumballapp.network.NetworkResult
 import com.yesitlabs.jumballapp.network.viewModel.PenaltyScreenViewModel
-import com.yesitlabs.jumballapp.network.viewModel.WorldCupWonViewModel
+import com.yesitlabs.jumballapp.viewmodeljumball.PlayerListViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class SuddenDeathFragment : Fragment() {
-
 
     private var userType = "USER"
     private var user = ""
     private var cpu = ""
     lateinit var sessionManager : SessionManager
     private lateinit var viewModel : PenaltyScreenViewModel
-    private lateinit var worldCupWonViewmodel: WorldCupWonViewModel
+    private lateinit var worldCupWonViewmodel: PlayerListViewModel
 
     private lateinit var binding: FragmentSuddenDeathBinding
 
@@ -50,12 +54,9 @@ class SuddenDeathFragment : Fragment() {
         sessionManager.changeMusic(1, 1)
         viewModel = ViewModelProvider(requireActivity())[PenaltyScreenViewModel::class.java]
 
-
-
         userType=arguments?.getString("userType","USER").toString()
         user=arguments?.getString("player1","").toString()
         cpu=arguments?.getString("player2","").toString()
-
 
         requireActivity().onBackPressedDispatcher.addCallback(
             this,
@@ -67,17 +68,18 @@ class SuddenDeathFragment : Fragment() {
 
     }
 
-    fun setBackgroundGreen(img:ImageView){
+    private fun setBackgroundGreen(img:ImageView){
         img.setBackgroundResource(R.drawable.ball_2)
     }
-    fun setBackgroundRed(img: ImageView){
+    private fun setBackgroundRed(img: ImageView){
         img.setBackgroundResource(R.drawable.ball_1)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        worldCupWonViewmodel = ViewModelProvider(this)[WorldCupWonViewModel::class.java]
+        worldCupWonViewmodel = ViewModelProvider(requireActivity())[PlayerListViewModel::class.java]
 
         binding.playerName1.text = user
         binding.playerName2.text = cpu
@@ -89,9 +91,6 @@ class SuddenDeathFragment : Fragment() {
         Log.d("Error ","user count "+viewModel.cpuPoint)
 
         settingUiData()
-
-
-
 
         Handler().postDelayed({
             if(viewModel.cpuPoint != viewModel.userPoint){
@@ -109,9 +108,7 @@ class SuddenDeathFragment : Fragment() {
                     val bundle=Bundle()
                     bundle.putString("userType",userType)
                     findNavController().navigate(R.id.penaltiesPlayUserFragment,bundle)
-
                 }, 3000)
-//                alertBoxAccordingToResponse(R.drawable.extra_time_ht_img,"extra")
             }
         },2000)
 
@@ -119,38 +116,50 @@ class SuddenDeathFragment : Fragment() {
 
     // This function is used for store the data world cup is won or loss
     private fun worldCupWon() {
-
-
-
-        worldCupWonViewmodel.worldCupWonResponse.observe(viewLifecycleOwner) { response ->
-            if (response != null) {
-                val wonResp = response.body()
-                Log.d("@@@Api Response ","******"+wonResp?.message)
-                if (wonResp != null) {
-                    if(viewModel.cpuPoint > viewModel.userPoint){
-                        alertBoxAccordingToResponse(R.drawable.eliminated_img,"loss")
-                    }else{
-                        alertBoxAccordingToResponse(R.drawable.winner_img,"Win")
-                    }
-                } else {
-                    val intent = Intent(requireContext(), MainActivity::class.java)
-                    startActivity(intent)
-                    Toast.makeText(requireContext(), response.message().toString(), Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(requireContext(), "Record Not Register !", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-
-        if(viewModel.cpuPoint > viewModel.userPoint){
-            worldCupWonViewmodel.worldCupWon("Bearer " +sessionManager.fetchAuthToken()!!,"0")
+        val count=if(viewModel.cpuPoint > viewModel.userPoint){
+            "0"
         }else{
-            worldCupWonViewmodel.worldCupWon("Bearer " +sessionManager.fetchAuthToken()!!,"1")
+            "1"
         }
+        lifecycleScope.launch {
+            worldCupWonViewmodel.worldCupWon({
+                sessionManager.dismissMe()
+                when (it) {
+                    is NetworkResult.Success -> {
+                        try {
+                            val gson = Gson()
+                            val model = gson.fromJson(it.data, SaveScoreResp::class.java)
+                            if (model.code == 200 && model.success) {
+                                if(viewModel.cpuPoint > viewModel.userPoint){
+                                    alertBoxAccordingToResponse(R.drawable.eliminated_img,"loss")
+                                }else{
+                                    alertBoxAccordingToResponse(R.drawable.winner_img,"Win")
+                                }
+                            } else {
+                                moveScreen()
+                                Toast.makeText(requireContext(),model.message, Toast.LENGTH_SHORT).show()
+                            }
+                        }catch (e:Exception){
+                            moveScreen()
+                            Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    is NetworkResult.Error -> {
+                        moveScreen()
+                        Toast.makeText(requireContext(),it.message, Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        moveScreen()
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }, count)
+        }
+    }
 
-
-
+    private fun moveScreen(){
+        val intent = Intent(requireContext(), MainActivity::class.java)
+        startActivity(intent)
     }
 
 
@@ -244,20 +253,8 @@ class SuddenDeathFragment : Fragment() {
 
         imgChange.setImageResource(savedImg)
 
-
-
-
         Handler(Looper.myLooper()!!).postDelayed({
             dialog.dismiss()
-            /*if (type.equals("loss",true)){
-                sessionManager.resetScore()
-                val intent = Intent(requireContext(), MainActivity::class.java)
-                startActivity(intent)
-                requireActivity()
-            }
-            if (type.equals("win",true)){
-
-            }*/
             if (type.equals("extra",true)){
                 viewModel.loopCount =0
                 viewModel.count =0
@@ -276,7 +273,6 @@ class SuddenDeathFragment : Fragment() {
                 bundle.putString("myTeamName", binding.playerName1.text.toString())
                 findNavController().navigate(R.id.score_fragment, bundle)
             }
-
         }, 3000)
 
         dialog.show()

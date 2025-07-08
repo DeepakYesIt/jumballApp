@@ -303,7 +303,9 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
     }
     // This is used for goal successful
     private fun goalSuccessfully() {
-        sessionManager.saveTotalDefence(sessionManager.getTotalDefence()+1)
+        val diff=sessionManager.getTotalDefence()
+        sessionManager.saveTotalDefence(diff+1)
+        Log.d("diff","--------"+diff +"**********"+sessionManager.getTotalDefence())
         sessionManager.saveSelectedTeamPlayerNum(selectedPlayerNum)
 
         if (sessionManager.getMatchType().equals("worldcup",true)){

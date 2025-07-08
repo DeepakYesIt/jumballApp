@@ -176,7 +176,13 @@ class FinalScoreFragment : Fragment(){
                         sessionManager.alertError(it.message.toString())
                     }
                 }
-            }, totalGoal, totalGoalConsole, matchStatus,captianId,sessionManager.getTotalDefence().toString(),sessionManager.getcpuNameSuggessionPass().toString(),sessionManager.getMyNameSuggessionPass().toString())
+            }, totalGoal,
+                totalGoalConsole,
+                matchStatus,
+                captianId,
+                sessionManager.getTotalDefence().toString(),
+                sessionManager.getcpuNameSuggessionPass().toString(),
+                sessionManager.getMyNameSuggessionPass().toString())
         }
 
 
@@ -209,7 +215,6 @@ class FinalScoreFragment : Fragment(){
 
         Handler(Looper.getMainLooper()).postDelayed({
                 if (binding.cpuScoreTv.text.toString().toInt() == binding.MyTeamScore.text.toString().toInt()) {
-
                     sessionManager.setGameNumber(sessionManager.getGameNumber()+1)
                     // Match Draw
                     //Match Loss
@@ -240,60 +245,5 @@ class FinalScoreFragment : Fragment(){
         }, 2000)
 
     }
-
-
-    // This function is used for display the alert box of world cup is won or loss
-    @SuppressLint("SuspiciousIndentation")
-    private fun winAlertBox(int: Int) {
-        val dialog = Dialog(requireContext(), R.style.myFullscreenAlertDialogStyle)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.show_image_box)
-        val imgChange: ImageView = dialog.findViewById(R.id.img_change)
-
-        sessionManager.changeMusic(21, 0)
-
-
-        if (int==0){
-            imgChange.setImageResource(R.drawable.eliminated_img)
-        }else{
-            imgChange.setImageResource(R.drawable.winner_img)
-        }
-
-        Handler(Looper.myLooper()!!).postDelayed({
-            dialog.dismiss()
-        }, 2000)
-
-        Handler(Looper.myLooper()!!).postDelayed({
-            dialog.dismiss()
-            if (int==0){
-                sessionManager.resetScore()
-                sessionManager.resetGameNumberScore()
-                findNavController().navigate(R.id.action_scoreBoardFragment_to_dashBoradFragment)
-            }else{
-                sessionManager.setGameNumber(sessionManager.getGameNumber() + 1)
-                val intent = Intent(requireContext(), GroupDetailsActivity::class.java)
-
-                 /* if (binding.cpuScoreTv.text.toString().toInt() == binding.MyTeamScore.text.toString().toInt()) {
-                      // Match Draw
-                      intent.putExtra("win", 0)
-                  }*/
-
-                if (binding.cpuScoreTv.text.toString().toInt() < binding.MyTeamScore.text.toString().toInt()) {
-                    // Match Win
-                    intent.putExtra("win", 1)
-                }
-
-                 if (binding.cpuScoreTv.text.toString().toInt() > binding.MyTeamScore.text.toString().toInt()) {
-                     //Match Loss
-                     intent.putExtra("win", 2)
-                 }
-                startActivity(intent)
-                requireActivity().finish()
-            }
-        }, 1000)
-
-        dialog.show()
-    }
-
 }
 

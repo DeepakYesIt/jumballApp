@@ -1,33 +1,25 @@
 package com.yesitlabs.jumballapp.activity
 
-import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
-import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.database.team_dtl.TeamDatabaseHelper
 import com.yesitlabs.jumballapp.databinding.ActivityTurnamentTreeBinding
 import com.yesitlabs.jumballapp.model.teamListModel.TeamListModel
-import com.yesitlabs.jumballapp.network.viewModel.WorldCupWonViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
-
+@AndroidEntryPoint
 class TournamentTreeActivity : AppCompatActivity() {
 
     lateinit var sessionManager: SessionManager
-
     private var win = 0
-
-    private lateinit var worldCupWonViewmodel: WorldCupWonViewModel
     private var teamDetail: ArrayList<TeamListModel> = ArrayList()
     private lateinit var teamDbHelper: TeamDatabaseHelper
     private lateinit var binding: ActivityTurnamentTreeBinding
@@ -44,32 +36,18 @@ class TournamentTreeActivity : AppCompatActivity() {
                     Log.d("*****", "Back Stop")
                 }
             }
-
         onBackPressedDispatcher.addCallback(this, callback)
-
-
         sessionManager = SessionManager(this)
-
         sessionManager.changeMusic(3, 1)
 
-        worldCupWonViewmodel = ViewModelProvider(this)[WorldCupWonViewModel::class.java]
-
         win = intent.getIntExtra("win", 0)
-
         setScreen()
-
         if (win !=0) {
             sessionManager.setGameWin(sessionManager.getGameWin()+1)
         }
-
         Log.e("Game Number", sessionManager.getGameNumber().toString())
         Log.e("Game Win", sessionManager.getGameWin().toString())
-
         if (win == 0) {
-            // Dashboard
-            /*val intent = Intent(this, SelectTossActivity::class.java)
-            startActivity(intent)*/
-
             // Deepak
             sessionManager.resetScore()
             sessionManager.resetGameNumberScore()
@@ -80,7 +58,6 @@ class TournamentTreeActivity : AppCompatActivity() {
         } else {
             Log.e("Game Number", sessionManager.getGameNumber().toString())
             Log.e("Game Win", sessionManager.getGameWin().toString())
-
             when (sessionManager.getGameNumber()) {
                 // Semi Final Match 1
                 1 -> {
@@ -217,25 +194,21 @@ class TournamentTreeActivity : AppCompatActivity() {
         } else {
             binding.tvTeamName29.text = binding.tvTeamName22.text.toString()
         }
-
         if (Random.nextInt(1, 3) == 2) {
             binding.tvTeamName210.text = binding.tvTeamName23.text.toString()
         } else {
             binding.tvTeamName210.text = binding.tvTeamName24.text.toString()
         }
-
         if (Random.nextInt(1, 3) == 2) {
             binding.tvTeamName211.text = binding.tvTeamName25.text.toString()
         } else {
             binding.tvTeamName211.text = binding.tvTeamName26.text.toString()
         }
-
         if (Random.nextInt(1, 3) == 2) {
             binding.tvTeamName212.text = binding.tvTeamName27.text.toString()
         } else {
             binding.tvTeamName212.text = binding.tvTeamName28.text.toString()
         }
-
 
         //QF1 vs QF2
         if (Random.nextInt(1, 3) == 2) {
@@ -250,73 +223,12 @@ class TournamentTreeActivity : AppCompatActivity() {
             binding.tvTeamName214.text = binding.tvTeamName212.text.toString()
         }
 
-
         // final
         if (Random.nextInt(1, 3) == 2) {
             binding.tvTeamName215.text = binding.tvTeamName213.text.toString()
         } else {
             binding.tvTeamName215.text = binding.tvTeamName214.text.toString()
         }
-
-    }
-
-    // This function is used for store the data world cup is won or loss
-    private fun worldCupWon() {
-        worldCupWonViewmodel.worldCupWonResponse.observe(this) { response ->
-            if (response != null) {
-                val wonResp = response.body()
-                if (wonResp != null) {
-                    Handler(Looper.myLooper()!!).postDelayed({
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }, 2000)
-                    /*if (wonResp.success && wonResp.code == 200L) {
-                        winAlertBox(0)
-                    } else {
-                        Toast.makeText(this, wonResp.message, Toast.LENGTH_SHORT).show()
-                        winAlertBox(1)
-                    }*/
-                } else {
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    Toast.makeText(this, response.message().toString(), Toast.LENGTH_SHORT).show()
-                }
-            } else {
-                Toast.makeText(this, "Record Not Register !", Toast.LENGTH_SHORT).show()
-            }
-        }
-//        worldCupWonViewmodel.worldCupWon(sessionManager.fetchAuthToken()!!)
-    }
-
-    // This function is used for display the alert box of world cup is won or loss
-    private fun winAlertBox(win: Int) {
-        val dialog = Dialog(this, R.style.myFullscreenAlertDialogStyle)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.show_image_box)
-        val imgChange: ImageView = dialog.findViewById(R.id.img_change)
-
-        if (win == 0) {
-            sessionManager.changeMusic(4, 0)
-            imgChange.setImageResource(R.drawable.winner_img)
-        } else {
-            sessionManager.changeMusic(21, 0)
-            imgChange.setImageResource(R.drawable.eliminated_img)
-        }
-
-
-        Handler(Looper.myLooper()!!).postDelayed({
-            dialog.dismiss()
-        }, 2000)
-
-        Handler(Looper.myLooper()!!).postDelayed({
-            dialog.dismiss()
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-            startActivity(intent)
-        }, 1000)
-
-        dialog.show()
     }
 
 }

@@ -19,9 +19,10 @@ import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.database.team_dtl.TeamDatabaseHelper
 import com.yesitlabs.jumballapp.databinding.FragmentPenaltiesPlayUserBinding
 import com.yesitlabs.jumballapp.network.viewModel.PenaltyScreenViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
-
+@AndroidEntryPoint
 class PenaltiesPlayUserFragment : Fragment(R.layout.fragment_penalties_play_user) {
 
     private lateinit var viewModel : PenaltyScreenViewModel
