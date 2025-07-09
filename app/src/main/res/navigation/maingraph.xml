@@ -7,123 +7,108 @@
 
     <fragment
         android:id="@+id/dashBoardFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.DashBoardFragment"
+        android:name="com.jumball.app.fragment.manfragment.DashBoardFragment"
         android:label="fragment_dash_board"
-        tools:layout="@layout/fragment_dash_board">
-    </fragment>
+        tools:layout="@layout/fragment_dash_board"/>
 
     <fragment
         android:id="@+id/Matchdayscreen_fragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ShowingCardFragment">
-    </fragment>
+        android:name="com.jumball.app.fragment.manfragment.ShowingCardFragment"/>
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.SettingsFragment"
+        android:name="com.jumball.app.fragment.manfragment.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings">
-    </fragment>
+        tools:layout="@layout/fragment_settings"/>
     <fragment
         android:id="@+id/termsAndConditionFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TermsAndConditionFragment"
+        android:name="com.jumball.app.fragment.manfragment.TermsAndConditionFragment"
         android:label="fragment_terms_and_condition"
         tools:layout="@layout/fragment_terms_and_condition" />
     <fragment
         android:id="@+id/privacyPolicyFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PrivacyPolicyFragment"
+        android:name="com.jumball.app.fragment.manfragment.PrivacyPolicyFragment"
         android:label="fragment_privacy_policy"
         tools:layout="@layout/fragment_privacy_policy" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ProfileFragment"
+        android:name="com.jumball.app.fragment.manfragment.ProfileFragment"
         android:label="ProfileFragment" />
     <fragment
         android:id="@+id/statisticsFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.StatisticsFragment"
+        android:name="com.jumball.app.fragment.manfragment.StatisticsFragment"
         android:label="StatisticsFragment" />
     <fragment
         android:id="@+id/stickerbookFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.StickerbookFragment"
+        android:name="com.jumball.app.fragment.manfragment.StickerbookFragment"
         android:label="fragment_stickerbook"
         tools:layout="@layout/fragment_stickerbook" />
     <fragment
         android:id="@+id/trainingFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TrainingFragment"
+        android:name="com.jumball.app.fragment.manfragment.TrainingFragment"
         android:label="fragment_training"
-        tools:layout="@layout/fragment_training">
-    </fragment>
+        tools:layout="@layout/fragment_training"/>
     <fragment
         android:id="@+id/traningPlayerInfoFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TrainingPlayerInfoFragment"
-        android:label="TraningPlayerInfoFragment">
-    </fragment>
+        android:name="com.jumball.app.fragment.manfragment.TrainingPlayerInfoFragment"
+        android:label="TraningPlayerInfoFragment"/>
     <fragment
         android:id="@+id/chooseYourFormationFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ChooseYourFormationFragment"
-        android:label="ChooseYourFormationFragment">
-    </fragment>
+        android:name="com.jumball.app.fragment.manfragment.ChooseYourFormationFragment"
+        android:label="ChooseYourFormationFragment"/>
     <fragment
         android:id="@+id/groupFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.GroupFragment"
+        android:name="com.jumball.app.fragment.manfragment.GroupFragment"
         android:label="fragment_group"
-        tools:layout="@layout/fragment_group">
-    </fragment>
+        tools:layout="@layout/fragment_group"/>
     <fragment
         android:id="@+id/matchdayScreenFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.MatchDayScreenFragment"
+        android:name="com.jumball.app.fragment.manfragment.MatchDayScreenFragment"
         android:label="fragment_matchday_screen"
-        tools:layout="@layout/fragment_matchday_screen">
-    </fragment>
+        tools:layout="@layout/fragment_matchday_screen"/>
     <fragment
         android:id="@+id/selectTossFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.SelectTossFragment"
+        android:name="com.jumball.app.fragment.manfragment.SelectTossFragment"
         android:label="fragment_select_toss"
-        tools:layout="@layout/fragment_select_toss">
-    </fragment>
+        tools:layout="@layout/fragment_select_toss"/>
     <fragment
         android:id="@+id/score_fragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.FinalScoreFragment"
+        android:name="com.jumball.app.fragment.manfragment.FinalScoreFragment"
         android:label="fragment_final_score"
-        tools:layout="@layout/fragment_final_score">
-    </fragment>
+        tools:layout="@layout/fragment_final_score"/>
     <fragment
         android:id="@+id/player_name_guess"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PlayerGuessNameFragment"
+        android:name="com.jumball.app.fragment.manfragment.PlayerGuessNameFragment"
         android:label="guess_player_name"
-        tools:layout="@layout/guess_player_name">
-    </fragment>
+        tools:layout="@layout/guess_player_name"/>
     <fragment
         android:id="@+id/shoot_Screen"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.ShootFragment"
+        android:name="com.jumball.app.fragment.manfragment.ShootFragment"
         android:label="fragment_shoot"
-        tools:layout="@layout/fragment_shoot">
-    </fragment>
+        tools:layout="@layout/fragment_shoot"/>
     <fragment
         android:id="@+id/goal_keeper_Screen"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.GoalKeeperScreenFragment"
+        android:name="com.jumball.app.fragment.manfragment.GoalKeeperScreenFragment"
         android:label="fragment_goalkeaper"
-        tools:layout="@layout/fragment_goalkeaper">
-
-    </fragment>
+        tools:layout="@layout/fragment_goalkeaper"/>
     <fragment
         android:id="@+id/tossPlayingFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.TossPlayingFragment"
+        android:name="com.jumball.app.fragment.manfragment.TossPlayingFragment"
         android:label="fragment_toss_playing"
-        tools:layout="@layout/fragment_toss_playing">
-    </fragment>
+        tools:layout="@layout/fragment_toss_playing"/>
 
     <fragment
         android:id="@+id/penaltiesPlayUserFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PenaltiesPlayUserFragment"
+        android:name="com.jumball.app.fragment.manfragment.PenaltiesPlayUserFragment"
         android:label="fragment_penalties_play_user"
         tools:layout="@layout/fragment_penalties_play_user" />
     <fragment
         android:id="@+id/suddenDeathFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.SuddenDeathFragment"
+        android:name="com.jumball.app.fragment.manfragment.SuddenDeathFragment"
         android:label="SuddenDeathFragment" />
     <fragment
         android:id="@+id/playerUserCPUFragment"
-        android:name="com.yesitlabs.jumballapp.fragment.manfragment.PlayerUserCPUFragment"
+        android:name="com.jumball.app.fragment.manfragment.PlayerUserCPUFragment"
         android:label="fragment_player_user_c_p_u"
         tools:layout="@layout/fragment_player_user_c_p_u" />
 </navigation>

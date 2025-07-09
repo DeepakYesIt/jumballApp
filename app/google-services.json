@@ -2,9 +2,45 @@
   "project_info": {
     "project_number": "245011236147",
     "project_id": "jumball-app",
-    "storage_bucket": "jumball-app.appspot.com"
+    "storage_bucket": "jumball-app.firebasestorage.app"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245011236147:android:7950bebcdb89b8d4ea6a46",
+        "android_client_info": {
+          "package_name": "com.jumball.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245011236147-or5i24pqj5buphbivhfsq2lj761tjls8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqyRgoOVspGYsJKyBvqMofJ8lp1d4hdZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245011236147-i502ech18qtie0ehhkqrja2bdokiqb90.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "245011236147-64kbb9jviumi3lddrhc2kaltd3pokhat.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "abc.Jumball"
+              }
+            }
+          ]
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:245011236147:android:a7d7697e05cb112eea6a46",
@@ -14,11 +50,27 @@
       },
       "oauth_client": [
         {
+          "client_id": "245011236147-4lvm21d25ndiqmjr23uqdm6v550162am.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "fcf165e05e981387d8f0b0aae7e02d28c781d50c"
+          }
+        },
+        {
           "client_id": "245011236147-9fvqsgt7s8qkm61sks4lk7phh1bco4tu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.yesitlabs.jumballapp",
             "certificate_hash": "8e6c32853ac55b9fe243262423b4098c4d6373e0"
+          }
+        },
+        {
+          "client_id": "245011236147-al0ni8h1evtp4n8dgm7ecrdrdq1c9d42.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "60394ede461502cff41388159f472a9f3de941d2"
           }
         },
         {
@@ -30,11 +82,27 @@
           }
         },
         {
+          "client_id": "245011236147-ci7tm81jbldn8ka2g53iisrrb51stnb2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "8105b1423b2f4b9b79e0c880922df0ccc7f3988f"
+          }
+        },
+        {
           "client_id": "245011236147-f2kmq65a32tsk61r743inudhfpjrnsr9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.yesitlabs.jumballapp",
             "certificate_hash": "8ab58f594831ea74cc6998d475b2484c382f43f9"
+          }
+        },
+        {
+          "client_id": "245011236147-jr3q45r9ha542q3p61rcsbegesfd6qkc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yesitlabs.jumballapp",
+            "certificate_hash": "2139a3855d628045c657b3e123cc9fc83782d871"
           }
         },
         {

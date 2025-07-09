@@ -1,0 +1,35 @@
+package com.jumball.app.viewmodeljumball
+
+import androidx.lifecycle.ViewModel
+import com.jumball.app.network.NetworkResult
+import com.jumball.app.repository.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+
+import javax.inject.Inject
+
+
+@HiltViewModel
+class SignUpViewModel  @Inject constructor(private val repository: MainRepository) : ViewModel() {
+
+
+
+    suspend fun userSingUpOtp(successCallback: (response: NetworkResult<String>) -> Unit, email: String){
+        repository.userSingUpOtp({ successCallback(it) }, email)
+    }
+
+    suspend fun userSingUp(successCallback: (response: NetworkResult<String>) -> Unit, name:String, email: String,pass:String){
+        repository.userSingUp({ successCallback(it) },name, email , pass)
+    }
+    suspend fun forgotPasswordOtp(successCallback: (response: NetworkResult<String>) -> Unit, email: String){
+        repository.forgotPasswordOtp({ successCallback(it) }, email)
+    }
+
+    suspend fun socialLogin(successCallback: (response: NetworkResult<String>) -> Unit, name: String, email: String, fcmToken: String){
+        repository.socialLogin({ successCallback(it) }, name,email,fcmToken)
+    }
+
+    suspend fun setting(successCallback: (response: NetworkResult<String>) -> Unit){
+        repository.setting { successCallback(it) }
+    }
+
+}

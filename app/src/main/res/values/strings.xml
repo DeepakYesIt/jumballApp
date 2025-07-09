@@ -56,7 +56,6 @@
     <string name="resend_verification_code_in">Resend verification code in</string>
     <string name="next">Next</string>
     <string name="create_password">Create Password</string>
-    <!--    <string name="firbase_webclient_id">932855206716-u1993l6ps0a9snrgedlj88scjvhralm7.apps.googleusercontent.com</string>-->
     <string name="firbase_webclient_id">245011236147-or5i24pqj5buphbivhfsq2lj761tjls8.apps.googleusercontent.com</string>
     <string name="no_internet">Check your internet connection</string>
 
