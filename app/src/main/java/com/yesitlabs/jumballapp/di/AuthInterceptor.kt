@@ -16,7 +16,7 @@ class AuthInterceptor(var context: Context) : Interceptor {
         val requestBuilder: Request.Builder = chain.request().newBuilder()
         val token = getBearerToken()
         Log.d("token :- ", "*******$token")
-        if (token.isNotEmpty()) {
+        if (token != null && token.isNotEmpty()) {
             requestBuilder.addHeader("Authorization", "Bearer $token")
             requestBuilder.addHeader("Accept", "application/json") // Removed extra space after "Accept"
         }

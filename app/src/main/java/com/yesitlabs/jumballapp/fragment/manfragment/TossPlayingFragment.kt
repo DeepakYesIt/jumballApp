@@ -21,7 +21,6 @@ import androidx.navigation.fragment.findNavController
 import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.model.navigateSafe
 import com.yesitlabs.jumballapp.SessionManager
-import com.yesitlabs.jumballapp.activity.PenaltiesPlayActivity
 import com.yesitlabs.jumballapp.databinding.FragmentTossPlayingBinding
 
 class TossPlayingFragment : Fragment() {

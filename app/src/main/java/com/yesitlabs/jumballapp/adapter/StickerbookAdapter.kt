@@ -1,11 +1,16 @@
 package com.yesitlabs.jumballapp.adapter
 
+import android.graphics.drawable.Drawable
+import com.bumptech.glide.request.target.Target
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
 import com.yesitlabs.jumballapp.AppConstant.Companion.STICKER_URL
 import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.databinding.ItemStickerbookBinding
@@ -38,9 +43,33 @@ class StickerbookAdapter(
             if (sticker.isNotEmpty()) {
                 Glide.with(requireActivity)
                     .load("$STICKER_URL$sticker")
-                    .placeholder(R.drawable.s_image)
-                    .error(R.drawable.s_image)
+                    .placeholder(R.drawable.noimage)
+                    .error(R.drawable.noimage)
+                    .listener(object : RequestListener<Drawable> {
+                        override fun onLoadFailed(
+                            e: GlideException?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            binding.loader.visibility = View.GONE // Hide loader on error
+                            return false // Allow Glide to handle setting the error image
+                        }
+
+                        override fun onResourceReady(
+                            resource: Drawable?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            dataSource: DataSource?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            binding.loader.visibility = View.GONE // Hide loader on success
+                            return false // Allow Glide to handle setting the image
+                        }
+                    })
                     .into(binding.stickerImg)
+            }else{
+                binding.loader.visibility = View.GONE // Hide loader on success
             }
         }
     }

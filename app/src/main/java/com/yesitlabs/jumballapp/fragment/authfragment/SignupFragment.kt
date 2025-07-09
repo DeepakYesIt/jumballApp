@@ -120,7 +120,7 @@ class SignupFragment : Fragment(), View.OnClickListener {
 
     }
 
-    fun logOutGoogle(){
+    private fun logOutGoogle(){
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .build()
@@ -207,6 +207,7 @@ class SignupFragment : Fragment(), View.OnClickListener {
                                         bundle.putString(AppConstant.NAME, binding.edFullname.text.toString().trim())
                                         bundle.putString(AppConstant.EMAIL, binding.edSignupEmail.text.toString().trim())
                                         bundle.putString(AppConstant.PASSWORD, binding.edPassSu.text.toString().trim())
+                                        bundle.putString(AppConstant.OTP, signUpModel.data.otp.toString())
                                         findNavController().navigate(R.id.otpVerificationFragment, bundle)
                                     }catch (e:Exception){
                                         Log.d("signup","message:---"+e.message)

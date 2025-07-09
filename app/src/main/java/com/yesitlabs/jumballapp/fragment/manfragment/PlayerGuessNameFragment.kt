@@ -37,7 +37,6 @@ import com.yesitlabs.jumballapp.gameRule.SetGames
 import com.yesitlabs.jumballapp.model.GuessPlayerListResp
 import com.yesitlabs.jumballapp.model.guessName.GuessName
 import com.yesitlabs.jumballapp.network.NetworkResult
-import com.yesitlabs.jumballapp.network.viewModel.GetGuessPlayerListViewModel
 import com.yesitlabs.jumballapp.viewmodeljumball.PlayerListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -57,8 +56,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     private var playerNum: String = "null"
     private var playerId: String = "null"
     private lateinit var viewmodel: PlayerListViewModel
-    //Shrawan
-    private var isGoalClick = false
     private var quizTime = 50
     private var maxTime = 50
     private var isTimerRunning = true
@@ -82,62 +79,50 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         sessionManager = SessionManager(requireContext())
         viewmodel = ViewModelProvider(requireActivity())[PlayerListViewModel::class.java]
-
         playerName = requireArguments().getString("Name").toString().uppercase(Locale.ROOT)
         playerNum = requireArguments().getString("Num").toString().uppercase(Locale.ROOT)
         userType = requireArguments().getString("userType").toString().uppercase(Locale.ROOT)
         playerId = requireArguments().getString("id").toString().uppercase(Locale.ROOT)
-
-        //Shrawan
-        isGoalClick = requireArguments().getBoolean("isGoalClick",false)//Shrawan
-
-
         binding.tvNumber.text = playerNum
         binding.tvNumber.visibility = View.GONE
-
+        backButton()
         attachTimer()
         countDownTimer?.start()
-
         cpuDbHelper = CPUPlayerDatabaseHelper(requireContext())
         myPlayerDbHelper = PlayerDatabaseHelper(requireContext())
         extraPLayerDbHelper = ExtraPlayerDatabaseHelper(requireContext())
-
         allCpuPlayer = cpuDbHelper.getAllPlayers()
         allUserPlayer = myPlayerDbHelper.getAllPlayers()
-
-
         Log.e("Guess Start", "Jai HO")
-
         hintList = setGames.shuffleName(playerName!!)
         answerList = setGames.getCharactersList(playerName!!)
-
         // Generate a random number between 0 and 100 (inclusive)
-        val randomNumber = Random.nextInt(0, answerList.size)
-
+        val randomNumber = Random.nextInt(0, 100)
         // Check if the number is even or odd
-        val result = if (randomNumber % 2 == 0) {
-            "even"
-        } else {
-            "odd"
-        }
-
+        val result = if (randomNumber % 2 == 0) { "even" } else { "odd" }
         if (userType.equals("USER",true)) {
             for (data in allCpuPlayer) {
                 if (data.id == playerId) {
                     playerPower = data.type.uppercase()
                 }
             }
+            resetPage(userType)
         } else {
             for (data in allUserPlayer) {
                 if (data.id == playerId) {
                     playerPower = data.type.uppercase()
                 }
             }
+            // Show Directly Result
+            if (result.equals("even",true)){
+                sessionManager.savecpuNameSuggessionPass(sessionManager.getcpuNameSuggessionPass()+1)
+                rightAnswer()
+            }else{
+                wrongAnswer()
+            }
         }
-
         when (playerPower.uppercase()) {
             "PURPLE" -> {
                 val tintColor = ContextCompat.getColor(requireContext(), R.color.purpleBand)
@@ -158,19 +143,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 val tintColor = ContextCompat.getColor(requireContext(), R.color.white)
                 binding.tshirtBand.setColorFilter(tintColor)
             }
-        }
-
-        // Remove this if condition if you want to show auto play its use for hide autoplay
-        if (userType.equals("CPU",true)) {
-            // Show Directly Result
-            if (result.equals("even",true)){
-                sessionManager.savecpuNameSuggessionPass(sessionManager.getcpuNameSuggessionPass()+1)
-                rightAnswer()
-            }else{
-                wrongAnswer()
-            }
-        } else {
-            resetPage(userType)
         }
     }
 
@@ -227,7 +199,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         binding.rcyHint.layoutManager = layoutManager
         adapterNameHint = AdpterNameHint(hintList, answerList, requireActivity(), userType)
         binding.rcyHint.adapter = adapterNameHint
-
         adapterNameHint.setOnItemClickListener(object : AdpterNameHint.OnItemClickListener {
             @SuppressLint("SetTextI18n")
             override fun onItemClick(item: String) {
@@ -235,34 +206,14 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 checkName()
             }
         })
-
         if (userType.equals("CPU",true)) {
             // Show Directly Result
             when (setGames.getRandomNumber(5)) {
                 1 -> {
                     rightAnswer()
-                }
-
-                2 -> {
+                }else -> {
                     wrongAnswer()
                 }
-
-                3 -> {
-                    wrongAnswer()
-                }
-
-                4 -> {
-                    wrongAnswer()
-                }
-
-                5 -> {
-                    wrongAnswer()
-                }
-
-                else -> {
-                    wrongAnswer()
-                }
-
             }
             // Display Auto Play Mode
             val num = setGames.getRandomGustedPlayerName(hintList, answerList)
@@ -274,7 +225,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             binding.lifeLine2.setOnClickListener(this)
             binding.lifeLine3.setOnClickListener(this)
         }
-
     }
 
     // This is used for attach the timer in screen
@@ -285,14 +235,12 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 binding.timerProgress.max = maxTime
                 binding.timerProgress.progress = quizTime
             }
-
             override fun onFinish() {
                 countDownTimer?.cancel()
                 wrongAnswer()
             }
         }
     }
-
 
     override fun onClick(view: View?) {
         sessionManager.playClickSound()
@@ -344,7 +292,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 setLifeLineBox()
             }
         }
-
     }
 
     // This is used for Use of Lifeline 1
@@ -356,7 +303,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             bundle.putString("userType", "CPU")
             bundle.putInt("PlayerNum", setGames.getRandomNumber(row.r1))
             bundle.putInt("id", playerId.toInt())
-//            findNavController().navigate(R.id.playScreenFragment, bundle)
             findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         } else {
             val row = setGames.setScreen(sessionManager.getUserScreenType())
@@ -596,33 +542,24 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
 
     // This is used for guess right name
     private fun rightAnswer() {
-
-        if (userType.equals("USER")) {
-            sessionManager.setFirstGamgeStartUser(true)
-            sessionManager.setFirstGamgeStartCPU(false)
+        if (userType.equals("USER",true)) {
             sessionManager.saveMyNameSuggessionPass(sessionManager.getMyNameSuggessionPass()+1)
             sessionManager.saveMyPass(sessionManager.getMyPass()+1)
             sessionManager.saveCpuPass(0)
         } else {
-            sessionManager.setFirstGamgeStartCPU(true)
-            sessionManager.setFirstGamgeStartUser(false)
             sessionManager.savecpuNameSuggessionPass(sessionManager.getcpuNameSuggessionPass()+1)
             sessionManager.saveMyPass(0)
             sessionManager.saveCpuPass(sessionManager.getCpuPass()+1)
         }
-
         val bundle = Bundle()
-
         bundle.putString("userType", userType)
         bundle.putInt("id", playerId.toInt())
-
         if (sessionManager.getGameCondition() == 0) {
             sessionManager.increaseTimer(60000)
             sessionManager.setGameGameCondition(1)
         } else {
             sessionManager.increaseTimer(180000)
         }
-
         if (userType.equals("USER",true)) {
             if (playerPower.uppercase() == "GOLD") {
                 sessionManager.setSpecialPower(true)
@@ -633,25 +570,12 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             sessionManager.saveSelectedTeamPlayerNum(playerId.toInt())
             myPlayerDbHelper.updatePlayerAnswer(playerId.toLong(), "true")
         }
-
         Log.e("Answer", "Right")
-        bundle.putBoolean("isGoalClick",isGoalClick) //Shrawan
-
-//        findNavController().navigate(R.id.action_guessPlayerNameFragment_to_playScreenFragment, bundle)
-//        findNavController().navigate(R.id.playScreenFragment, bundle)
         findNavController().navigate(R.id.playerUserCPUFragment, bundle)
-
     }
 
     // This is used for guess wrong name
     private fun wrongAnswer() {
-        if (userType == "USER") {
-            sessionManager.setFirstGamgeStartUser(true)
-            sessionManager.setFirstGamgeStartCPU(false)
-        } else {
-            sessionManager.setFirstGamgeStartCPU(true)
-            sessionManager.setFirstGamgeStartUser(false)
-        }
         sessionManager.saveMyPass(0)
         sessionManager.saveCpuPass(0)
         when (random) {
@@ -668,20 +592,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 playAlertBox(R.drawable.lost_possession)
             }
         }
-//        val screen = setGames.setScreen(sessionManager.getUserScreenType())
-//
-//        val cpuScreen = setGames.setScreen(sessionManager.getCpuScreenType())
-//
-//        if (sessionManager.isNetworkAvailable()) {
-//            cpuDbHelper.deleteAllPlayers()
-//            myPlayerDbHelper.deleteAllPlayers()
-//            extraPLayerDbHelper.deleteAllPlayers()
-//            getGuessTeamList(screen.r1.toString(), screen.r2.toString(), screen.r3.toString(), cpuScreen.r1.toString(), cpuScreen.r2.toString(), cpuScreen.r3.toString())
-//        } else {
-//            alertError(getString(R.string.no_internet))
-//        }
-
-
     }
 
     // This is used for display alert box of name guess successfully or not
@@ -704,16 +614,8 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         } else {
             alertError(ErrorMessage.netWorkError)
         }
-
-//        Handler(Looper.myLooper()!!).postDelayed({
-//            sessionManager.changeMusic(1, 1)
-//            dialog?.dismiss()
-//
-//        }, 3500)
-
         dialog?.show()
     }
-
 
     // This function is used for get guess player list from database api
     private fun getGuessTeamList(defender: String, midfielder: String, attacker: String, cpuDefender: String, cpuMidFielder: String, cpuAttacker: String) {
@@ -1104,7 +1006,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         Log.e("CPU Team Size :", cpuDbHelper.getAllPlayers().size.toString())
         Log.e("Extra Team :", extraPLayerDbHelper.getAllPlayers().toString())
         Log.e("Extra Team Size :", extraPLayerDbHelper.getAllPlayers().size.toString())
-
         val bundle = Bundle()
         if (userType.equals("CPU",true)) {
             bundle.putString("userType", "USER")
@@ -1112,74 +1013,17 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             bundle.putString("userType", "CPU")
         }
         bundle.putInt("id", playerId.toInt())
-        bundle.putBoolean("isGoalClick",isGoalClick)//Shrawan
-//        findNavController().navigate(R.id.playScreenFragment, bundle)
         findNavController().navigate(R.id.playerUserCPUFragment, bundle)
         Handler(Looper.myLooper()!!).postDelayed({
             sessionManager.changeMusic(1, 1)
             dialog?.dismiss()
         }, 1000)
-
-
     }
-
-    // This function is used for Select CPU play screen formation [Auto]
-    private fun selectCpuScreen(): String {
-        val screen: String
-
-        val randomNumber = Random.nextInt(1, 10)
-
-        when (randomNumber) {
-
-            1 -> {
-                screen = "5-2-3"
-            }
-
-            2 -> {
-                screen = "5-4-1"
-            }
-
-            3 -> {
-                screen = "5-3-2"
-            }
-
-            4 -> {
-                screen = "3-5-2"
-            }
-
-            5 -> {
-                screen = "4-5-1"
-            }
-
-            6 -> {
-                screen = "4-4-2"
-            }
-
-            7 -> {
-                screen = "4-3-3"
-            }
-
-            8 -> {
-                screen = "3-4-3"
-            }
-
-            else -> {
-                screen = "4-2-4"
-            }
-
-        }
-
-
-        return screen
-    }
-
     @SuppressLint("SetTextI18n")
     fun alertError(msg: String) {
         val dialog = Dialog(requireContext(), R.style.BottomSheetDialog)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.alertbox_error)
-
-
         val layoutParams = WindowManager.LayoutParams()
         layoutParams.copyFrom(dialog.window!!.attributes)
         layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
@@ -1190,10 +1034,10 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
         val btText: TextView = dialog.findViewById(R.id.btText)
         btText.text = "Retry"
         tvTitle.text = msg
-        btnOk.setOnClickListener({
+        btnOk.setOnClickListener {
             dialog.dismiss()
             wrongAnswer()
-        })
+        }
         dialog.show()
     }
 

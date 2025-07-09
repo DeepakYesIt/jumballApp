@@ -70,14 +70,6 @@ object NetworkModule {
                 Log.d("@@@@@@@@", "response: ${response.code}")
                 if (response.code == 401) {
                     SessionEventBus.emitSessionExpired()
-//                    // Return an empty 204-like response
-//                    return@addInterceptor Response.Builder()
-//                        .code(200)
-//                        .request(chain.request())
-//                        .message("No Content")
-//                        .protocol(Protocol.HTTP_1_1)
-//                        .body(ResponseBody.create(null, "")) // requires `MediaType?` as first param
-//                        .build()
                 }
                 response // Return the response
             }

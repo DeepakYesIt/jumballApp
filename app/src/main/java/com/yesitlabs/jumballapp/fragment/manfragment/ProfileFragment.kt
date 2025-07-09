@@ -66,7 +66,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sessionManager = SessionManager(requireContext())
-        viewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity())[ProfileViewModel::class.java]
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         binding.btnBack.setOnClickListener(this)
         binding.btnEdit.setOnClickListener(this)
@@ -222,7 +222,6 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                                                     binding.autoStyleOfPlay.setAdapter(styleOfPlayDataAdapter)
                                                 }
                                             }
-
                                             cupmodelList.clear()
                                             data.worldCup?.let { list->
                                                 if (list.size>0){
@@ -248,6 +247,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                             }
                         }
                         is NetworkResult.Error -> {
+                            Log.d("Error ","******"+it.message)
                             sessionManager.alertError(it.message.toString())
                         }
                         else -> {
@@ -278,29 +278,34 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             }
 
             R.id.btn_edit -> {
-                if (sessionManager.getCheckLogin().equals("yes",true)) {
-                    if (binding.tvEdit.text.toString().equals("Edit",true)) {
-                        binding.tvEdit.text = "Update"
-                        isCheck(false)
-                    } else {
-                        if (isValidation()) {
-                            val surname: String = binding.edProfileName.text.toString()
-                            val countryId = countryList.firstOrNull { it.name == binding.autoCountry.text.toString() }?.id.toString()
-                            val skillLevel = binding.autoSkillLevel.text.toString()
-                            val autoPosition = binding.autoPosition.text.toString()
-                            val autoPlay = binding.autoStyleOfPlay.text.toString()
-                            val worldCupId = cupmodelList.firstOrNull { binding.autoWorldCupSmall.text.toString().contains(it.year, ignoreCase = true) }?.id.toString()
-                            Log.e("SurName",surname )
-                            Log.e("countryId",countryId)
-                            Log.e("skillLevel",skillLevel )
-                            Log.e("autoPosition",autoPosition )
-                            Log.e("worldCupId",worldCupId)
-                            sendProfileDataWithImage(surname, countryId, skillLevel, autoPosition, autoPlay, worldCupId)
+                if (sessionManager.isNetworkAvailable()) {
+                    if (sessionManager.getCheckLogin().equals("yes",true)) {
+                        if (binding.tvEdit.text.toString().equals("Edit",true)) {
+                            binding.tvEdit.text = "Update"
+                            isCheck(false)
+                        } else {
+                            if (isValidation()) {
+                                val surname: String = binding.edProfileName.text.toString()
+                                val countryId = countryList.firstOrNull { it.name == binding.autoCountry.text.toString() }?.id.toString()
+                                val skillLevel = binding.autoSkillLevel.text.toString()
+                                val autoPosition = binding.autoPosition.text.toString()
+                                val autoPlay = binding.autoStyleOfPlay.text.toString()
+                                val worldCupId = cupmodelList.firstOrNull { binding.autoWorldCupSmall.text.toString().contains(it.year, ignoreCase = true) }?.id.toString()
+                                Log.e("SurName",surname )
+                                Log.e("countryId",countryId)
+                                Log.e("skillLevel",skillLevel )
+                                Log.e("autoPosition",autoPosition )
+                                Log.e("worldCupId",worldCupId)
+                                sendProfileDataWithImage(surname, countryId, skillLevel, autoPosition, autoPlay, worldCupId)
+                            }
                         }
+                    } else {
+                        sessionManager.alertError("Login First")
                     }
-                } else {
-                    sessionManager.alertError("Login First")
+                }else{
+                    sessionManager.alertError(ErrorMessage.netWorkError)
                 }
+
             }
         }
     }

@@ -7,21 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.database.team_dtl.TeamDatabaseHelper
 import com.yesitlabs.jumballapp.databinding.FragmentDashBoardBinding
-import com.yesitlabs.jumballapp.network.viewModel.LoginViewModel
 
 
 class DashBoardFragment : Fragment(), View.OnClickListener {
 
     private lateinit var binding: FragmentDashBoardBinding
     lateinit var sessionManager: SessionManager
-    private lateinit var loginViewModel: LoginViewModel
+
     private lateinit var teamDbHelper: TeamDatabaseHelper
 
 
@@ -35,10 +33,6 @@ class DashBoardFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         sessionManager = SessionManager(requireContext())
-
-        loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-
-
 
         Log.e("Match No.", sessionManager.getGameNumber().toString())
 

@@ -1,6 +1,7 @@
 package com.yesitlabs.jumballapp.repository
 
 
+import android.util.Log
 import com.yesitlabs.jumballapp.errormassage.ErrorMessage
 import com.yesitlabs.jumballapp.network.NetworkResult
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -9,6 +10,7 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
 import javax.inject.Inject
+import kotlin.coroutines.cancellation.CancellationException
 
 
 class MainRepositoryImpl @Inject constructor(private val api: ApiEndPoint) : MainRepository {
@@ -87,7 +89,11 @@ class MainRepositoryImpl @Inject constructor(private val api: ApiEndPoint) : Mai
                     successCallback(NetworkResult.Error(ErrorMessage.serverError))
                 }
             }
+        } catch (e: CancellationException) {
+            Log.e("Job", "Cancelled: ${e.message}")
+            // Avoid rethrowing unless you need to propagate
         } catch (e: Exception) {
+            Log.d("Api Error","******"+e.message)
             successCallback(NetworkResult.Error(ErrorMessage.serverError))
         }
     }

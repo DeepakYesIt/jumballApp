@@ -19,16 +19,15 @@ import androidx.lifecycle.lifecycleScope
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
-import com.yesitlabs.jumballapp.R
-import com.yesitlabs.jumballapp.network.viewModel.SettingViewModel
-import com.yesitlabs.jumballapp.activity.AuthActivity
-import com.yesitlabs.jumballapp.MusicService
 import com.yesitlabs.jumballapp.BaseApplication
-import com.yesitlabs.jumballapp.network.NetworkResult
+import com.yesitlabs.jumballapp.MusicService
+import com.yesitlabs.jumballapp.R
 import com.yesitlabs.jumballapp.SessionManager
+import com.yesitlabs.jumballapp.activity.AuthActivity
 import com.yesitlabs.jumballapp.databinding.FragmentSettingsBinding
 import com.yesitlabs.jumballapp.errormassage.ErrorMessage
 import com.yesitlabs.jumballapp.model.LoginResp
+import com.yesitlabs.jumballapp.network.NetworkResult
 import com.yesitlabs.jumballapp.viewmodeljumball.SettingsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -36,10 +35,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class SettingsFragment : Fragment(),View.OnClickListener{
-
     lateinit var base: BaseApplication
-    private lateinit var settingViewModel: SettingViewModel
-
     lateinit var sessionManager: SessionManager
     private lateinit var binding: FragmentSettingsBinding
     private lateinit var viewModel: SettingsViewModel
@@ -53,7 +49,6 @@ class SettingsFragment : Fragment(),View.OnClickListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         base= BaseApplication()
         super.onViewCreated(view, savedInstanceState)
-        settingViewModel = ViewModelProvider(this)[SettingViewModel::class.java]
         viewModel = ViewModelProvider(this)[SettingsViewModel::class.java]
         sessionManager = SessionManager(requireContext())
 

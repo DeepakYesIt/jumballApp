@@ -32,7 +32,6 @@ import com.yesitlabs.jumballapp.model.GetGroupDetailResp
 import com.yesitlabs.jumballapp.model.GuessPlayerListResp
 import com.yesitlabs.jumballapp.model.ImageModel
 import com.yesitlabs.jumballapp.network.NetworkResult
-import com.yesitlabs.jumballapp.network.viewModel.GetGuessPlayerListViewModel
 import com.yesitlabs.jumballapp.viewmodeljumball.PlayerListViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

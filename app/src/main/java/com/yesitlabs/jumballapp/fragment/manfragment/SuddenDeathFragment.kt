@@ -160,6 +160,7 @@ class SuddenDeathFragment : Fragment() {
     private fun moveScreen(){
         val intent = Intent(requireContext(), MainActivity::class.java)
         startActivity(intent)
+        requireActivity().finish()
     }
 
 

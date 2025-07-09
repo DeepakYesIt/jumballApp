@@ -2,7 +2,6 @@ package com.yesitlabs.jumballapp.fragment.authfragment
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -26,7 +25,6 @@ import com.yesitlabs.jumballapp.model.SignupOtpResp
 import com.yesitlabs.jumballapp.model.SingUpResp
 import com.yesitlabs.jumballapp.model.forgotmodel.ForgotApiModel
 import com.yesitlabs.jumballapp.network.NetworkResult
-import com.yesitlabs.jumballapp.network.viewModel.SignUpViewmodel
 import com.yesitlabs.jumballapp.viewmodeljumball.SignUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

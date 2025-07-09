@@ -14,7 +14,6 @@ import android.widget.LinearLayout
 import android.widget.LinearLayout.LayoutParams
 import android.widget.Space
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -42,12 +41,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.util.Locale
 
-
 /*
  * Developed by: Deepak Kumar Agrahari
  * Purpose: Implements conditional navigation based on player attributes and quiz responses.
  */
-
 @AndroidEntryPoint
 class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
     private lateinit var viewmodel: PlayerListViewModel
@@ -164,8 +161,12 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }
             }
         } else {
-//            binding.userName.text = sessionManager.getName()?.split(" ")?.drop(1)?.joinToString(" ")
-            binding.userName.text = sessionManager.getName().toString()
+            val nameParts = sessionManager.getName()?.split(" ") ?: emptyList()
+            binding.userName.text = if (nameParts.size > 1) {
+                nameParts.drop(1).joinToString(" ")
+            } else {
+                nameParts.firstOrNull() ?: ""
+            }
             binding.opposeTeamPlayerName.text = "CPU"
         }
         binding.cpuScoreTv.text = sessionManager.getCpuScore().toString()
@@ -345,25 +346,25 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             Log.e("@@@Error", "Full getValue "+ ValueStore.getValue1())
             if (startTime >= 2700000 && ValueStore.getValue() == 0) {
                 ValueStore.setValue(1)
-                Log.d("@@@Error","when half time start");
+                Log.d("@@@Error","when half time start")
                 Log.e("Half Time", "Yaa hui")
                 sessionManager.setExtraTimeUser("halftime")
-                playAlertBox(R.drawable.half_time_img, "halftime");
+                playAlertBox(R.drawable.half_time_img, "halftime")
             }
             if (startTime >= 5400000 && ValueStore.getValue1() == 0) {
                 ValueStore.setValue1(1)
-                Log.d("@@@Error","when FullTime time set");
+                Log.d("@@@Error","when FullTime time set")
                 Log.e("@@@Error", "Full time")
                 if (sessionManager.getGameNumber() == 3) {
-                    totalTime = 900000L;
-                    startTime = 0;
-                    sessionManager.setExtraTimeUser("FullTime");
-                    Log.e("@@@Error", "second");
-                    playAlertBox(R.drawable.full_time_img, "FullTime");
+                    totalTime = 900000L
+                    startTime = 0
+                    sessionManager.setExtraTimeUser("FullTime")
+                    Log.e("@@@Error", "second")
+                    playAlertBox(R.drawable.full_time_img, "FullTime")
                 } else {
-                    sessionManager.setExtraTimeUser("timeOver");
-                    Log.e("@@@Error", "timeOver");
-                    playAlertBox(R.drawable.full_time_img, "timeOver");
+                    sessionManager.setExtraTimeUser("timeOver")
+                    Log.e("@@@Error", "timeOver")
+                    playAlertBox(R.drawable.full_time_img, "timeOver")
                 }
             }
             if(startTime <= 2700000) {
@@ -443,19 +444,19 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         if (sessionManager.getMatchType().equals("worldcup",true)){
             if (status.equals("timeOver",true)){
                 if (myScore > cpuScore && gameNumber >= 3) {
-                    winAlertBox(3);
+                    winAlertBox(3)
                 } else {
-                    moveToScoreScreen();
+                    moveToScoreScreen()
                 }
             }
             if (status.equals("ExtraTime",true)){
                 if (myScore == cpuScore) {
-                    sessionManager.setExtraTimeUser("TimeHalf");
-                    playAlertBox(R.drawable.extra_time_ht_img, "TimeHalf");
+                    sessionManager.setExtraTimeUser("TimeHalf")
+                    playAlertBox(R.drawable.extra_time_ht_img, "TimeHalf")
                 } else if (myScore > cpuScore && gameNumber >= 3) {
-                    winAlertBox(3);
+                    winAlertBox(3)
                 } else {
-                    moveToScoreScreen();
+                    moveToScoreScreen()
                 }
             }
             if (status.equals("TimeHalfEnd", true)) {
@@ -579,25 +580,25 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                             Log.e("Player", myPlayerDbHelper.getAllPlayers().size.toString())
                                             try {
                                                 // Defender
-                                                for (data in data.myplayer) {
-                                                    if (data.is_captain == 1) {
-                                                        sessionManager.setMyPlayerId(data.id)
+                                                for (dataLoop in data.myplayer) {
+                                                    if (dataLoop.is_captain == 1) {
+                                                        sessionManager.setMyPlayerId(dataLoop.id)
                                                     }
                                                     val surnames = try {
-                                                        data.name!!.split(" ").last()
+                                                        dataLoop.name!!.split(" ").last()
                                                     } catch (e: Exception) {
                                                         "SYSTEM"
                                                     }
-                                                    if (data.designation == "DF") {
+                                                    if (dataLoop.designation == "DF") {
                                                         if (df > 0) {
                                                             df -= 1
                                                             myPlayerDbHelper.addPlayer(
                                                                 surnames,
-                                                                data.is_captain.toString(),
-                                                                data.country_id.toString(),
-                                                                data.type.toString(),
-                                                                data.designation.toString(),
-                                                                data.jersey_number.toString(),
+                                                                dataLoop.is_captain.toString(),
+                                                                dataLoop.country_id.toString(),
+                                                                dataLoop.type.toString(),
+                                                                dataLoop.designation.toString(),
+                                                                dataLoop.jersey_number.toString(),
                                                                 "false",
                                                                 "false"
                                                             )
@@ -659,17 +660,17 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
 
                                                 // Goalkeeper
                                                 //Shrawan
-                                                for (data in data.myplayer) {
-                                                    if (data.is_captain == 1) {
-                                                        sessionManager.setCpuPlayerId(data.id)
+                                                for (dataLoop in data.myplayer) {
+                                                    if (dataLoop.is_captain == 1) {
+                                                        sessionManager.setCpuPlayerId(dataLoop.id)
                                                     }
                                                     val surnames = try {
-                                                        data.name!!.split(" ").last()
+                                                        dataLoop.name!!.split(" ").last()
                                                     } catch (e: Exception) {
                                                         "SYSTEM"
                                                     }
-                                                    if (data.designation == "GK") {
-                                                        myPlayerDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "false")
+                                                    if (dataLoop.designation == "GK") {
+                                                        myPlayerDbHelper.addPlayer(surnames, dataLoop.is_captain.toString(), dataLoop.country_id.toString(), dataLoop.type.toString(), dataLoop.designation.toString(), dataLoop.jersey_number.toString(), "false", "false")
                                                     }
                                                 }
                                             } catch (e: Exception) {
@@ -847,8 +848,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         Log.e("Extra Team Size :", extraPLayerDbHelper.getAllPlayers().size.toString())
         userType = if (userType.equals("CPU",true)) { "USER" } else { "CPU" }
         setTimerLogic()
-//        timerLogic()
-//        setPlayerScreens()
         Handler(Looper.myLooper()!!).postDelayed({
             dialog?.dismiss()
         }, 2000)
@@ -1065,7 +1064,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     }
                 }
             }
-
             val num =(1..size).random()
             Log.e("Gold Kick", num.toString())
             Log.d("******", "play screen  :=$num")
@@ -1074,7 +1072,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             findNavController().navigate(R.id.shoot_Screen, bundle)
         }
     }
-
     private fun userPassBall() {
             if (userType.equals("USER",true)) {
                 val playerId=sessionManager.getMySelectedTeamPlayerNum()
@@ -1101,7 +1098,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }
             }
     }
-
     private fun cpuPassBall() {
         val playerId=sessionManager.getSelectedTeamPlayerNum()
         Log.d("@@@@Error", "****** plarerId$playerId")
@@ -1128,7 +1124,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             setupFootballFormationCpu("3-2-5-1",allUserPlayer)
         }
     }
-
     private fun getTargetMap(): Map<Int, Set<Int>> {
         val data = sessionManager.getUserScreenType().lowercase()
         // Defensive
@@ -1255,7 +1250,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             else -> emptyMap()  // return empty map if no match
         }
     }
-
     fun startCpuProcess() {
         isCpuActive = true
         handler.postDelayed(runnable, 3000) // Start delayed execution

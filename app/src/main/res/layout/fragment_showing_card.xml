@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/authbackground"
     tools:context=".fragment.manfragment.ShowingCardFragment">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,14 +16,12 @@
         android:layout_marginBottom="@dimen/_20sdp"
         android:fillViewport="true"
         tools:ignore="UselessParent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_30sdp"
             android:orientation="vertical"
             android:paddingBottom="@dimen/_20sdp">
-
             <TextView
                 android:id="@+id/Match_number"
                 android:layout_width="wrap_content"
@@ -36,7 +33,6 @@
                 android:text="M A T C H D A Y   1"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/_20sdp" />
-
             <ImageView
                 android:id="@+id/friendlyicon"
                 android:layout_width="@dimen/_270sdp"
@@ -45,17 +41,16 @@
                 android:layout_marginTop="@dimen/_30sdp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/s_image" />
-
-            <ProgressBar
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/loader"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                android:visibility="gone"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_50sdp"
-                android:layout_height="@dimen/_50sdp"
-                android:elevation="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:visibility="gone" />
+                app:lottie_rawRes="@raw/loader" />
         </LinearLayout>
     </ScrollView>
-
-
 </RelativeLayout>

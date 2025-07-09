@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -36,6 +37,10 @@ class ShowingCardFragment : Fragment() {
     lateinit var sessionManager: SessionManager
     private lateinit var viewModel: CaricatureViewModel
     private lateinit var binding: FragmentShowingCardBinding
+    // Declare these at class level (or where appropriate)
+    private var handler: Handler ? = null
+    private lateinit var runnable: Runnable
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentShowingCardBinding.inflate(inflater, container, false)
@@ -50,12 +55,25 @@ class ShowingCardFragment : Fragment() {
         sessionManager.changeMusic(0,1)
         viewModel = ViewModelProvider(requireActivity())[CaricatureViewModel::class.java]
 
+        backButton()
+
         if (sessionManager.isNetworkAvailable()) {
             getCaricature()
         } else {
             Toast.makeText(requireContext(),ErrorMessage.netWorkError,Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun backButton(){
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true /* enabled by default */) {
+                override fun handleOnBackPressed() {
+                    handler?.removeCallbacks(runnable ?: return)
+                    findNavController().navigate(R.id.dashBoardFragment)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
 
     // This is used for get caricature image from database
@@ -115,16 +133,14 @@ class ShowingCardFragment : Fragment() {
     }
 
     private fun moveToNextScreen() {
-        Handler(Looper.myLooper()!!).postDelayed({
-            try {
-                sessionManager.setMatchType("friendly")
-                sessionManager.resetScore()
-                sessionManager.resetGameNumberScore()
-                findNavController().navigate(R.id.match_day_to_chooseYourFormationFragment)
-            }catch (e:Exception){
-                Log.d("******","Error :- "+e.message.toString())
-            }
-        }, 3000)
+        handler = Handler(Looper.myLooper()!!)
+        runnable = Runnable {
+            sessionManager.setMatchType("friendly")
+            sessionManager.resetScore()
+            sessionManager.resetGameNumberScore()
+            findNavController().navigate(R.id.chooseYourFormationFragment)
+        }
+        handler?.postDelayed(runnable, 3000)
     }
 
 }

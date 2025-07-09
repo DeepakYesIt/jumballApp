@@ -103,7 +103,6 @@ class ResetFragment : Fragment(),View.OnClickListener {
         }
     }
 
-
     private fun resetPassword(){
         sessionManager.showMe(requireContext())
         lifecycleScope.launch {

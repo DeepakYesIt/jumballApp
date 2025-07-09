@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,15 +14,11 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.google.gson.Gson
 import com.yesitlabs.jumballapp.R
-import com.yesitlabs.jumballapp.BaseApplication
 import com.yesitlabs.jumballapp.SessionManager
 import com.yesitlabs.jumballapp.databinding.FragmentPrivacyPolicyBinding
-import com.yesitlabs.jumballapp.databinding.FragmentProfileBinding
 import com.yesitlabs.jumballapp.errormassage.ErrorMessage
 import com.yesitlabs.jumballapp.model.privacyPolicy.PrivacyPolicyResp
-import com.yesitlabs.jumballapp.model.termAndCondion.Term_condition_resp
 import com.yesitlabs.jumballapp.network.NetworkResult
-import com.yesitlabs.jumballapp.network.viewModel.GetPrivacyPolicyViewModel
 import com.yesitlabs.jumballapp.viewmodeljumball.TermsAndPrivacyViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -31,19 +26,12 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class PrivacyPolicyFragment : Fragment() , View.OnClickListener{
-
-    private lateinit var getPrivacyPolicyViewmodel: GetPrivacyPolicyViewModel
-
     var token: String? = null
     lateinit var sessionManager: SessionManager
-
     private lateinit var binding: FragmentPrivacyPolicyBinding
     private lateinit var viewModel: TermsAndPrivacyViewModel
-
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPrivacyPolicyBinding.inflate(inflater, container, false)
-
         return binding.root
     }
     @RequiresApi(Build.VERSION_CODES.N)
@@ -51,18 +39,12 @@ class PrivacyPolicyFragment : Fragment() , View.OnClickListener{
         super.onViewCreated(view, savedInstanceState)
         sessionManager = SessionManager(requireContext())
         viewModel = ViewModelProvider(this)[TermsAndPrivacyViewModel::class.java]
-        getPrivacyPolicyViewmodel = ViewModelProvider(this)[GetPrivacyPolicyViewModel::class.java]
-
-
 
         if (sessionManager.isNetworkAvailable()) {
             getPrivacyPolicy()
         } else {
             sessionManager.alertError(ErrorMessage.netWorkError)
         }
-
-
-
         binding.btnBack.setOnClickListener(this)
     }
 

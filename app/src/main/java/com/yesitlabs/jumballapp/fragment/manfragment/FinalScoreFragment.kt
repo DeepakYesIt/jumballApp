@@ -103,7 +103,12 @@ class FinalScoreFragment : Fragment(){
             }
             Log.d("@Error ","after TeamDatabaseHelper")
         } else {
-            binding.userName.text = sessionManager.getName()?.split(" ")?.drop(1)?.joinToString(" ")
+            val nameParts = sessionManager.getName()?.split(" ") ?: emptyList()
+            binding.userName.text = if (nameParts.size > 1) {
+                nameParts.drop(1).joinToString(" ")
+            } else {
+                nameParts.firstOrNull() ?: ""
+            }
             binding.opposeTeamPlayerName.text = "CPU"
         }
 

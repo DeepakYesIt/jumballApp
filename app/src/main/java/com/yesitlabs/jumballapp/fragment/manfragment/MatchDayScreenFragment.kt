@@ -28,6 +28,9 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MatchDayScreenFragment : Fragment() {
 
+    // Declare these at class level (or where appropriate)
+    private var handler: Handler ? = null
+    private lateinit var runnable: Runnable
 
     lateinit var sessionManager: SessionManager
 
@@ -48,13 +51,7 @@ class MatchDayScreenFragment : Fragment() {
         sessionManager = SessionManager(requireContext())
 
 
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true /* enabled by default */) {
-                override fun handleOnBackPressed() {
-                    findNavController().navigate(R.id.dashBoardFragment)
-                }
-            }
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        backButton()
 
         creatureImg = requireArguments().getString("creatureImg").toString()
 
@@ -91,11 +88,24 @@ class MatchDayScreenFragment : Fragment() {
 
     }
 
+    private fun backButton(){
+        val callback: OnBackPressedCallback =
+            object : OnBackPressedCallback(true /* enabled by default */) {
+                override fun handleOnBackPressed() {
+                    handler?.removeCallbacks(runnable ?: return)
+                    findNavController().navigate(R.id.dashBoardFragment)
+                }
+            }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
+
     private fun moveToNextScreen() {
-        Handler(Looper.myLooper()!!).postDelayed({
+        handler = Handler(Looper.myLooper()!!)
+        runnable = Runnable {
             sessionManager.setMatchType("worldcup")
-            findNavController().navigate(R.id.chooseYourFormationFragment )
-        }, 3000)
+            findNavController().navigate(R.id.chooseYourFormationFragment)
+        }
+        handler?.postDelayed(runnable, 3000)
     }
 
 
