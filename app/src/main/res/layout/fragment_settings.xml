@@ -91,7 +91,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_2sdp"
                     android:background="#2FFFFFFF" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_50sdp"
@@ -115,7 +114,7 @@
 
                     <ToggleButton
                         android:id="@+id/event_music"
-                        android:layout_width="@dimen/_45sdp"
+                        android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_marginStart="@dimen/_25sdp"
                         android:background="@drawable/toggle_activate_suspend"
@@ -155,7 +154,7 @@
 
                     <ToggleButton
                         android:id="@+id/sound_effect"
-                        android:layout_width="@dimen/_45sdp"
+                        android:layout_width="@dimen/_40sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_marginStart="@dimen/_25sdp"
                         android:background="@drawable/toggle_activate_suspend"

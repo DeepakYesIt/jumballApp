@@ -292,33 +292,6 @@ class SignupFragment : Fragment(), View.OnClickListener {
 
     // This function is used for get user setting details from database
     private fun setting() {
-       /* sessionManager.showMe(requireContext())
-        val token: String = "Bearer " + sessionManager.fetchAuthToken()
-        signUpViewmodel.setting({
-            sessionManager.dismissMe()
-            when (it) {
-                is NetworkResult.Success -> {
-                    if (it.data?.data?.setting?.music == 1) {
-                        sessionManager.setMusic(1)
-                    } else {
-                        sessionManager.setMusic(0)
-                    }
-                    if (it.data?.data?.setting?.sound_effect == 1) {
-                        sessionManager.setSoundEffect(1)
-                    } else {
-                        sessionManager.setSoundEffect(0)
-                    }
-                    moveToMainActivity()
-                }
-                is NetworkResult.Error -> {
-                    Log.e("Setting Error",it.message.toString())
-                    Toast.makeText(context, it.message.toString(), Toast.LENGTH_LONG).show()
-                }
-                else -> {
-                    sessionManager.dismissMe()
-                }
-            }
-        }, token)*/
         sessionManager.showMe(requireContext())
         lifecycleScope.launch {
             viewModel.setting {

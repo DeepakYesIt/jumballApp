@@ -60,7 +60,7 @@ class ShowingCardFragment : Fragment() {
         if (sessionManager.isNetworkAvailable()) {
             getCaricature()
         } else {
-            Toast.makeText(requireContext(),ErrorMessage.netWorkError,Toast.LENGTH_SHORT).show()
+            sessionManager.alertError(ErrorMessage.netWorkError)
         }
 
     }

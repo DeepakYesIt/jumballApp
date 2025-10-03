@@ -78,9 +78,8 @@ class ForgetPasswordFragment : Fragment(), View.OnClickListener {
                     if(sessionManager.isNetworkAvailable()){
                         sendOtp()
                     }else{
-                        Toast.makeText(requireContext(), ErrorMessage.netWorkError, Toast.LENGTH_SHORT).show()
+                        sessionManager.alertError(ErrorMessage.netWorkError)
                     }
-
                 }
             }
         }

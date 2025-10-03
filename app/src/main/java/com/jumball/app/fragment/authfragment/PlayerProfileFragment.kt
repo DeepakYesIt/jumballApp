@@ -196,7 +196,7 @@ class PlayerProfileFragment : Fragment(),View.OnClickListener {
                         sendProfileData(surname, countryId,skillLevel,autoPosition, autoPlay)
                     }
                 }else{
-                    Toast.makeText(requireContext(), ErrorMessage.netWorkError, Toast.LENGTH_SHORT).show()
+                    sessionManager.alertError(ErrorMessage.netWorkError)
                 }
 
             }

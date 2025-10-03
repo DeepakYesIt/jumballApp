@@ -13,6 +13,7 @@ import com.google.gson.Gson
 import com.jumball.app.R
 import com.jumball.app.SessionManager
 import com.jumball.app.databinding.FragmentStatisticsBinding
+import com.jumball.app.errormassage.ErrorMessage
 import com.jumball.app.model.ScoreBoardResp
 import com.jumball.app.network.NetworkResult
 import com.jumball.app.viewmodeljumball.StatisticsViewModel
@@ -39,7 +40,7 @@ class StatisticsFragment : Fragment() {
             if (sessionManager.isNetworkAvailable()) {
                 getScoreBoard()
             } else {
-                sessionManager.alertError( getString(R.string.no_internet))
+                sessionManager.alertError(ErrorMessage.netWorkError)
             }
         }
     }

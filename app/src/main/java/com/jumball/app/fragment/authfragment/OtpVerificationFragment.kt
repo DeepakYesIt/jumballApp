@@ -109,7 +109,7 @@ class OtpVerificationFragment : Fragment(), View.OnClickListener {
                         signupOtpSend(email)
                     }
                 }else{
-                    Toast.makeText(requireContext(), ErrorMessage.netWorkError, Toast.LENGTH_SHORT).show()
+                    sessionManager.alertError(ErrorMessage.netWorkError)
                 }
             }
         }
@@ -241,10 +241,10 @@ class OtpVerificationFragment : Fragment(), View.OnClickListener {
     private fun isOtpValid(): Boolean {
         val result = true
         if (binding.edOtp.otp?.isEmpty() == true) {
-            sessionManager.alertError( "Please enter otp")
+            sessionManager.alertError(ErrorMessage.otpError)
             return false
         } else if (!binding.edOtp.otp.equals(otp)) {
-            sessionManager.alertError("Please enter the correct verification code")
+            sessionManager.alertError(ErrorMessage.otpValidationError)
             return false
         }
         return result
