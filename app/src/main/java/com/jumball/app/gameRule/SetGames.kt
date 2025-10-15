@@ -2,6 +2,7 @@ package com.jumball.app.gameRule
 
 import android.util.Log
 import com.jumball.app.R
+import com.jumball.app.database.player_dtl.PlayerModel
 import com.jumball.app.model.guessName.GuessName
 import kotlin.random.Random
 
@@ -289,42 +290,141 @@ class SetGames {
     }
 
 
-    fun getTShirtImage(country : String): Int {
+    fun getTShirtImage(country : String,playerData: PlayerModel): Int {
 
         return when(country){
-            "QAT" -> R.drawable.readicon
-            "ECU" -> R.drawable.yellowicon
-            "SEN" -> R.drawable.newwhiteicon
-            "NED" -> R.drawable.orangeicon
-            "ENG" -> R.drawable.newwhiteicon
-            "IRN" -> R.drawable.newwhiteicon
-            "USA" -> R.drawable.newwhiteicon
-            "WAL" -> R.drawable.readicon
-            "ARG" -> R.drawable.argicon
-            "KSA" -> R.drawable.newwhiteicon
-            "MEX" -> R.drawable.greenicon
-            "POL" -> R.drawable.newwhiteicon
-            "FRA" -> R.drawable.navyblueicon
-            "AUS" -> R.drawable.goldenyellowicon
-            "DEN" -> R.drawable.readicon
-            "TUN" -> R.drawable.readicon
-            "ESP" -> R.drawable.readicon
-            "CRC" -> R.drawable.readicon
-            "GER" -> R.drawable.newwhiteicon
-            "JPN" -> R.drawable.japicon
-            "BEL" -> R.drawable.readicon
-            "CAN" -> R.drawable.readicon
-            "MAR" -> R.drawable.readicon
-            "CRO" -> R.drawable.croicon
-            "BRA" -> R.drawable.goldenyellowicon
-            "SRB" -> R.drawable.readicon
-            "SUI" -> R.drawable.readicon
-            "CMR" -> R.drawable.greenicon
-            "POR" -> R.drawable.poricon
-            "GHA" -> R.drawable.newwhiteicon
-            "URU" -> R.drawable.uruicon
-            "KOR" -> R.drawable.readicon
-            else -> R.drawable.newwhiteicon
+            "QAT" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "ECU" -> when {
+                playerData.is_captain == "1"-> R.drawable.yellowiconcaption
+                else ->  R.drawable.yellowicon
+            }
+            "SEN" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "NED" -> when {
+                playerData.is_captain == "1"-> R.drawable.orangeiconcaption
+                else ->  R.drawable.orangeicon
+            }
+            "ENG" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "IRN" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "USA" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "WAL" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "ARG" -> when {
+                playerData.is_captain == "1"-> R.drawable.argiconcaption
+                else ->  R.drawable.argicon
+            }
+            "KSA" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "MEX" -> when {
+                playerData.is_captain == "1"-> R.drawable.greeniconcaption
+                else ->  R.drawable.greenicon
+            }
+            "POL" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "FRA" -> when {
+                playerData.is_captain == "1"-> R.drawable.navyblueiconcaption
+                else ->  R.drawable.navyblueicon
+            }
+            "AUS" -> when {
+                playerData.is_captain == "1"-> R.drawable.goldenyellowiconcaption
+                else ->  R.drawable.goldenyellowicon
+            }
+            "DEN" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "TUN" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "ESP" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "CRC" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "GER" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "JPN" -> when {
+                playerData.is_captain == "1"-> R.drawable.japiconcaption
+                else ->  R.drawable.japicon
+            }
+            "BEL" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "CAN" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "MAR" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "CRO" -> when {
+                playerData.is_captain == "1"-> R.drawable.croiconcaption
+                else ->  R.drawable.croicon
+            }
+            "BRA" -> when {
+                playerData.is_captain == "1"-> R.drawable.goldenyellowiconcaption
+                else ->  R.drawable.goldenyellowicon
+            }
+            "SRB" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "SUI" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            "CMR" -> when {
+                playerData.is_captain == "1"-> R.drawable.greeniconcaption
+                else ->  R.drawable.greenicon
+            }
+            "POR" -> when {
+                playerData.is_captain == "1"-> R.drawable.poriconcaption
+                else ->  R.drawable.poricon
+            }
+            "GHA" -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
+            "URU" -> when {
+                playerData.is_captain == "1"-> R.drawable.uruiconcaption
+                else ->  R.drawable.uruicon
+            }
+            "KOR" -> when {
+                playerData.is_captain == "1"-> R.drawable.readiconcaption
+                else ->  R.drawable.readicon
+            }
+            else -> when {
+                playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
+                else ->  R.drawable.newwhiteicon
+            }
 
            /* "QAT" -> R.drawable.qat
             "ECU" -> R.drawable.ecu
@@ -397,6 +497,9 @@ class SetGames {
         }
 
     }
+
+
+
     fun getTShirtTextColor(country: String) : Int{
         return when(country){
             "QAT" -> R.color.white

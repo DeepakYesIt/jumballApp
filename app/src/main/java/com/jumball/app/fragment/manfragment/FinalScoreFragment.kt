@@ -75,7 +75,7 @@ class FinalScoreFragment : Fragment(){
             val allTeam = teamDbHelper.getAllTeams()
             for (data in allTeam) {
                 if (data.teamID == 1) {
-                    binding.userName.text = data.captainName.uppercase()
+                    binding.userName.text = sessionManager.getLastName(data.captainName?.uppercase()?:"")
                 }
                 if(sessionManager.getGameNumber() <= 3)  { //for first 3 match
                     val cpuName = cpuDbHelper.getAllPlayers().find { it.is_captain.equals("1",true) }
@@ -88,12 +88,7 @@ class FinalScoreFragment : Fragment(){
             }
             Log.d("@Error ","after TeamDatabaseHelper")
         } else {
-            val nameParts = sessionManager.getName()?.split(" ") ?: emptyList()
-            binding.userName.text = if (nameParts.size > 1) {
-                nameParts.drop(1).joinToString(" ").uppercase()
-            } else {
-                nameParts.firstOrNull() ?: "".uppercase()
-            }
+            binding.userName.text=sessionManager.getLastName(sessionManager.getName()?.uppercase()?:"")
             binding.opposeTeamPlayerName.text = "CPU"
         }
         Log.d("@Error ","after worldcup")
@@ -161,7 +156,8 @@ class FinalScoreFragment : Fragment(){
                 captainId,
                 sessionManager.getTotalDefence().toString(),
                 sessionManager.getcpuNameSuggessionPass().toString(),
-                sessionManager.getMyNameSuggessionPass().toString())
+                sessionManager.getMyNameSuggessionPass().toString(),
+                sessionManager.getGameNumber().toString())
         }
     }
     private fun moveToNextScreen(){

@@ -77,7 +77,7 @@ class PenaltiesPlayUserFragment : Fragment(R.layout.fragment_penalties_play_user
         val allTeam = teamDbHelper.getAllTeams()
         for (data in allTeam) {
            if (data.teamID == 1) {
-               binding.myName.text = data.captainName.uppercase()
+               binding.myName.text = sessionManager.getLastName(data.captainName?.uppercase()?:"")
            }
             if(sessionManager.getGameNumber() <= 3)  { //for first 3 match
                 val cpuName = cpuDbHelper.getAllPlayers().find { it.is_captain.equals("1",true) }
@@ -88,9 +88,7 @@ class PenaltiesPlayUserFragment : Fragment(R.layout.fragment_penalties_play_user
                 binding.cpuName.text = "Lizard mascot"
             }
         }
-
         startGame()
-
     }
 
     private fun startGame(){

@@ -303,10 +303,10 @@ class MainRepositoryImpl @Inject constructor(private val api: ApiEndPoint) : Mai
         captianId: String,
         total_defence: String,
         opponent_guessed: String,
-        my_guesses: String
-    ) {
+        my_guesses: String,
+        matchNumber: String) {
         try {
-            api.saveScore(totalGoal , totalGoalConsole ,matchStatus,captianId,total_defence,opponent_guessed,my_guesses).apply {
+            api.saveScore(totalGoal , totalGoalConsole ,matchStatus,captianId,total_defence,opponent_guessed,my_guesses,matchNumber).apply {
                 if (isSuccessful) {
                     body()?.let {
                         successCallback(NetworkResult.Success(it.toString()))

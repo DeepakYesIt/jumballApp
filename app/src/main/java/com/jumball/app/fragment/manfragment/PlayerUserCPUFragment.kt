@@ -147,9 +147,11 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         if (sessionManager.getMatchType().equals("worldcup",true)) {
             teamDbHelper = TeamDatabaseHelper(requireContext())
             val allTeam = teamDbHelper.getAllTeams()
+
             for (data in allTeam) {
                 if (data.teamID == 1) {
-                    binding.userName.text = data.captainName.uppercase()
+                    Log.d("username","*****"+data.captainName.uppercase())
+                    binding.userName.text = sessionManager.getLastName(data.captainName.uppercase()?:"")
                 }
                 if(sessionManager.getGameNumber() <= 3)  { //for first 3 match
                     val cpuName = cpuDbHelper.getAllPlayers().find { it.is_captain.equals("1",true) }
@@ -162,11 +164,12 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             }
         } else {
             val nameParts = sessionManager.getName()?.split(" ") ?: emptyList()
-            binding.userName.text = if (nameParts.size > 1) {
-                nameParts.drop(1).joinToString(" ").uppercase()
-            } else {
-                nameParts.firstOrNull() ?: "".uppercase()
-            }
+//            binding.userName.text = if (nameParts.size > 1) {
+//                nameParts.drop(1).joinToString(" ").uppercase()
+//            } else {
+//                nameParts.firstOrNull() ?: "".uppercase()
+//            }
+            binding.userName.text = sessionManager.getLastName(sessionManager.getName()?.uppercase()?:"")
             binding.opposeTeamPlayerName.text = "CPU"
         }
         binding.cpuScoreTv.text = sessionManager.getCpuScore().toString()
@@ -207,6 +210,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, layoutParams.rightMargin, topmarginBottomPx)
 
     }
+
+
     private fun selectCpuButton(){
         if (clickablePlayers.isNotEmpty()) {
             val countAnswer = allUserPlayer.count { it.answer.equals("true",true) }?:0
@@ -925,7 +930,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     rpNumber.text = player.jersey_number
                     val countryID = player.country_id
                     val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-                    playerImage.setImageResource(setGames.getTShirtImage(countryID))
+                    playerImage.setImageResource(setGames.getTShirtImage(countryID,player))
                     rpNumber.setTextColor(textColor)
                     rpName.setTextColor(textColor)
                     val countAnswer = players.count { it.answer.equals("true",true) }?:0
@@ -942,7 +947,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                         binding.rootButton.visibility=View.GONE
                     }
                 }else{
-                    playerImage.setImageResource(R.drawable.user_guess_white)
+//                    playerImage.setImageResource(R.drawable.user_guess_white)
+                    playerImage.setImageResource(R.drawable.newwhiteicon)
                     rpSelect.visibility = View.GONE
                     rpName.visibility = View.GONE
                     rpNumber.visibility = View.GONE
@@ -1033,12 +1039,13 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     rpNumber.text = player.jersey_number
                     val countryID = player.country_id
                     val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-                    playerImage.setImageResource(setGames.getTShirtImage(countryID))
+                    playerImage.setImageResource(setGames.getTShirtImage(countryID,player))
                     rpNumber.setTextColor(textColor)
                     rpName.setTextColor(textColor)
                     binding.rootButton.visibility=View.GONE
                 }else{
-                    playerImage.setImageResource(R.drawable.user_guess_white)
+//                    playerImage.setImageResource(R.drawable.user_guess_white)
+                    playerImage.setImageResource(R.drawable.newwhiteicon)
                     rpSelect.visibility = View.GONE
                     rpName.visibility = View.GONE
                     rpNumber.visibility = View.GONE

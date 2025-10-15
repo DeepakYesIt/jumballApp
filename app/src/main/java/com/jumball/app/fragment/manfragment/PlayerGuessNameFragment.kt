@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.google.android.flexbox.JustifyContent
 import com.google.gson.Gson
@@ -130,17 +131,14 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 val tintColor = ContextCompat.getColor(requireContext(), R.color.purpleBand)
                 binding.tshirtBand.setColorFilter(tintColor)
             }
-
             "RED" -> {
                 val tintColor = ContextCompat.getColor(requireContext(), R.color.redBand)
                 binding.tshirtBand.setColorFilter(tintColor)
             }
-
             "GOLD" -> {
                 val tintColor = ContextCompat.getColor(requireContext(), R.color.goldBand)
                 binding.tshirtBand.setColorFilter(tintColor)
             }
-
             else -> {
                 val tintColor = ContextCompat.getColor(requireContext(), R.color.white)
                 binding.tshirtBand.setColorFilter(tintColor)
@@ -465,17 +463,16 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                         requireContext(),
                         setGames.getTShirtTextColor(countryID)
                     )
-                    binding.tvTshirtImg.setImageResource(setGames.getTShirtImage(countryID))
+                    binding.tvTshirtImg.setImageResource(setGames.getTShirtImage(countryID,allUserPlayer[playerId.toInt() - 1]))
                     binding.tvName.setTextColor(textColor)
                     binding.tvNumber.setTextColor(textColor)
 
                     if (playerPower.uppercase() != "NO") {
+//                        binding.tshirtBand.visibility = View.GONE
                         binding.tshirtBand.visibility = View.VISIBLE
                     } else {
                         binding.tshirtBand.visibility = View.GONE
                     }
-
-
                     rightAnswer()
                 } else {
                     wrongAnswer()
@@ -495,12 +492,13 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             if (binding.tvName.text.toString() == playerName) {
                 val countryID = allCpuPlayer[playerId.toInt() - 1].country_id
                 val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
-                binding.tvTshirtImg.setImageResource(setGames.getTShirtImage(countryID))
+                binding.tvTshirtImg.setImageResource(setGames.getTShirtImage(countryID,allCpuPlayer[playerId.toInt() - 1]))
                 binding.tvName.setTextColor(textColor)
                 binding.tvNumber.setTextColor(textColor)
                 binding.tvNumber.visibility = View.VISIBLE
                 if (playerPower.uppercase() != "NO") {
                     binding.tshirtBand.visibility = View.VISIBLE
+//                    binding.tshirtBand.visibility = View.GONE
                 } else {
                     binding.tshirtBand.visibility = View.GONE
                 }

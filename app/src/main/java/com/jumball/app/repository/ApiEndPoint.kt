@@ -125,6 +125,7 @@ interface ApiEndPoint {
         @Field("total_defence") total_defence: String,
         @Field("opponent_guessed") opponent_guessed: String,
         @Field("my_guesses") my_guesses: String,
+        @Field("match_no") matchNumber: String
     ): Response<JsonObject>
 
     @FormUrlEncoded

@@ -364,6 +364,14 @@ class SessionManager(var context: Context) {
         return prefs.getString("ExtraTime", "Normal")
     }
 
+
+    fun getLastName(fullName: String?): String {
+        val name = fullName?.trim() ?: return ""
+        if (name.isEmpty()) return ""
+        val parts = name.split(Regex("\\s+"))
+        return parts.last()
+    }
+
     fun setGameNumber(i: Int) {
         editor.putInt("gameNumber", i)
         editor.apply()

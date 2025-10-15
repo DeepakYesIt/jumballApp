@@ -25,6 +25,7 @@ import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class StickerbookFragment : Fragment(), View.OnClickListener {
+
     private var stickerList = ArrayList<String>()
     private lateinit var stickerbookAdapter: StickerbookAdapter
     lateinit var sessionManager: SessionManager
@@ -47,13 +48,10 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
                 setStickerList()
                 Toast.makeText(requireContext(), ErrorMessage.netWorkError, Toast.LENGTH_SHORT).show()
             }
-
         }else{
             setStickerList()
         }
-
         binding.btnBack.setOnClickListener(this)
-
     }
 
     // This function is used for get the earned sticker from server
@@ -70,7 +68,8 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
                             if (model.code == 200 && model.success) {
                                 try {
                                     // Remove duplicates
-                                    val uniqueData = model.data?.distinctBy { it.sticker_id } // Ensures uniqueness
+                                    val uniqueData = model.data?.distinctBy { it.sticker_id }?.toMutableList()
+                                    uniqueData?.sortWith(compareByDescending { it.sticker_id == 0 })
                                     for (i in uniqueData!!.indices){
                                         if (i==0 || i==2){
                                             stickerList.add("")
@@ -95,8 +94,7 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
                     is NetworkResult.Error -> {
                         setStickerList()
                         sessionManager.alertError(it.message.toString())
-                    }
-                    else -> {
+                    }else -> {
                         sessionManager.alertError(it.message.toString())
                     }
                 }
@@ -113,6 +111,8 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
         for (i in 0..diff){
             stickerList.add("")
         }
+
+
         stickerbookAdapter = StickerbookAdapter(stickerList, requireActivity())
         binding.rcySticker.adapter = stickerbookAdapter
         binding.rcySticker.layoutManager = GridLayoutManager(context, 4)

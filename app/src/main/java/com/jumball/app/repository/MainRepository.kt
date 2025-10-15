@@ -20,7 +20,7 @@ interface MainRepository {
     suspend fun sendProfileData(successCallback: (response: NetworkResult<String>) -> Unit, surname: String, countryId: String, skillLevel: String, autoPosition: String, autoPlay: String, worldCupId: String, filepath: String)
     suspend fun login(successCallback: (response: NetworkResult<String>) -> Unit, email: String, pass: String)
     suspend fun getCaricature(successCallback: (response: NetworkResult<String>) -> Unit, matchNo: String)
-    suspend fun saveScoreList(successCallback: (response: NetworkResult<String>) -> Unit, total_goal: String, total_goal_console: String, match_status: String,captianId:String,total_defence: String, opponent_guessed: String, my_guesses: String)
+    suspend fun saveScoreList(successCallback: (response: NetworkResult<String>) -> Unit, total_goal: String, total_goal_console: String, match_status: String,captianId:String,total_defence: String, opponent_guessed: String, my_guesses: String ,matchNumber: String)
     suspend fun getGuessPlayerList(successCallback: (response: NetworkResult<String>) -> Unit, defender : String, midFielder : String, attacker : String, userCaptainId : String, cpuCaptainId : String,match_no:String)
     suspend fun worldCupWon(successCallback: (response: NetworkResult<String>) -> Unit, count : String)
     suspend fun getTeam(successCallback: (response: NetworkResult<String>) -> Unit, is_first: String)
