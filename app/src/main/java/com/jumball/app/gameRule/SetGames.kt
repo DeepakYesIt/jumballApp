@@ -308,6 +308,7 @@ class SetGames {
             "NED" -> when {
                 playerData.is_captain == "1"-> R.drawable.orangeiconcaption
                 else ->  R.drawable.orangeicon
+                
             }
             "ENG" -> when {
                 playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
