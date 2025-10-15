@@ -589,8 +589,5 @@ class ChooseYourFormationFragment : Fragment(),
             bundle.putString("type", "dashboard")
             findNavController().navigate(R.id.selectTossFragment,bundle)
         }, 1000)
-
     }
-
-
 }

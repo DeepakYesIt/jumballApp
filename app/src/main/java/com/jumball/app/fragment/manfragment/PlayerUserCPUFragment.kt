@@ -45,14 +45,15 @@ import java.util.Locale
  * Developed by: Deepak Kumar Agrahari
  * Purpose: Implements conditional navigation based on player attributes and quiz responses.
  */
+
 @AndroidEntryPoint
 class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
     private lateinit var viewmodel: PlayerListViewModel
     private lateinit var binding: FragmentPlayerUserCPUBinding
     lateinit var sessionManager: SessionManager
     private lateinit var extraPLayerDbHelper: ExtraPlayerDatabaseHelper
-    var totalTime = 5400000L
-    var startTime = 0
+    private var totalTime = 5400000L
+    private var startTime = 0
     private var myPass = 0
     private var cpuPass = 0
     private var userType: String? = null
@@ -100,7 +101,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             playerIdUser = requireArguments().getInt("id")
             isGoalClick = requireArguments().getBoolean("isGoalClick",false)//Shrawan
         } else {
-            Log.e("Argument", "No")
+            Log.e("@@@Error Argument", "No")
         }
         if (sessionManager.getExtraTime().equals("ExtraTime",true) || sessionManager.getExtraTime().equals("TimeHalf",true)){
             binding.layProgess.max = 900000
@@ -125,7 +126,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }
             }
         }
-
         Log.d("@@@Error ", "getExtraTime"+sessionManager.getExtraTime())
         Log.d("@@@Error ", "sessionManager.getTimer"+sessionManager.getTimer())
         Log.d("@@@Error ", "match count"+sessionManager.getGameNumber())
@@ -135,7 +135,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         Log.d("@@@Error ", "myPass$myPass")
         Log.d("@@@Error ", "cpuPass$cpuPass")
         Log.d("@@@Error ", "userType$userType")
-
         timerLogic()
     }
     @SuppressLint("SetTextI18n")
@@ -150,12 +149,13 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             val allTeam = teamDbHelper.getAllTeams()
             for (data in allTeam) {
                 if (data.teamID == 1) {
-                    binding.userName.text = data.captainName
+                    binding.userName.text = data.captainName.uppercase()
                 }
                 if(sessionManager.getGameNumber() <= 3)  { //for first 3 match
-                    binding.opposeTeamPlayerName.text = data.captainName
+                    val cpuName = cpuDbHelper.getAllPlayers().find { it.is_captain.equals("1",true) }
+                    binding.opposeTeamPlayerName.text = cpuName?.name?:""
                 }else if(sessionManager.getGameNumber() == 4){ // for 4th match
-                    binding.opposeTeamPlayerName.text = "Asst. Manager"
+                    binding.opposeTeamPlayerName.text = "Manager"
                 }else if(sessionManager.getGameNumber() == 5){ // for 5th match
                     binding.opposeTeamPlayerName.text = "Lizard mascot"
                 }
@@ -163,16 +163,18 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         } else {
             val nameParts = sessionManager.getName()?.split(" ") ?: emptyList()
             binding.userName.text = if (nameParts.size > 1) {
-                nameParts.drop(1).joinToString(" ")
+                nameParts.drop(1).joinToString(" ").uppercase()
             } else {
-                nameParts.firstOrNull() ?: ""
+                nameParts.firstOrNull() ?: "".uppercase()
             }
             binding.opposeTeamPlayerName.text = "CPU"
         }
         binding.cpuScoreTv.text = sessionManager.getCpuScore().toString()
         binding.userGoalTv.text = sessionManager.getMyScore().toString()
+
         val topPaddingInPx: Int  // or any value
         val topmarginBottomPx: Int  // or any value
+
         if (userType.equals("USER",true)){
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
@@ -211,10 +213,10 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             val select = allUserPlayer.count { it.use.equals("true",true) }?:0
             val randomTarget =  (1..11).random().toString()
             val randomTargetLifeLine =  (1..5).random().toString()
-            Log.d("@@@Error", "Random number$randomTarget")
-            Log.d("@@@Error", "countAnswer $countAnswer")
-            Log.d("@@@Error", "select $select")
-            if (countAnswer==0){
+            Log.d("@@@Error ", "Random number$randomTarget")
+            Log.d("@@@Error ", "countAnswer $countAnswer")
+            Log.d("@@@Error ", "select $select")
+            if (countAnswer==0 || countAnswer==1){
                 if (select == 0){
                     val targetPlayer = allUserPlayer.find { it.id == randomTarget && it.designation.equals("MF",true) }
                     if (targetPlayer != null) {
@@ -238,15 +240,15 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     stopCpuProcess()
                     cpuPassBall()
                 }else{
-                    Log.d("Cpu pass logic","yes")
-                    Log.d("Cpu pass logic", "yes$randomTarget")
+                    Log.d("@@@Error ","Cpu pass logic yes")
+                    Log.d("@@@Error ", "Cpu pass logic yes$randomTarget")
                     val result = if (randomTarget.toInt() % 2 == 0) { "even" } else { "odd" }
                     if (result.equals("even",true)){
                         val targetPlayer = allUserPlayer.find {
                             it.id==randomTarget
                         }
                         if (targetPlayer != null) {
-                            Log.d("@@@Error", "******$targetPlayer")
+                            Log.d("@@@Error ", "******$targetPlayer")
                             if (targetPlayer.use.equals("true",true)){
                                 if (targetPlayer.answer.equals("false",true)){
                                     moveToPlayNameScreen(targetPlayer)
@@ -254,7 +256,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                             }
                         }
                     }else{
-                        Log.d("Cpu pass logic", "yesss$randomTarget")
+                        Log.d("@@@Error ", "Cpu pass logic yesss$randomTarget")
                         cpuSelectLogic()
                     }
                 }
@@ -267,7 +269,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         bundle.putString("userType", userType)
         bundle.putString("Num", targetPlayer.jersey_number)
         bundle.putString("id", targetPlayer.id)
-        Log.e("Send Detail of Quiz", userType + " " + targetPlayer.name + " " + targetPlayer.jersey_number)
+        Log.e("@@@Error Send Detail of Quiz", userType + " " + targetPlayer.name + " " + targetPlayer.jersey_number)
         findNavController().navigate(R.id.player_name_guess, bundle)
     }
     private fun cpuSelectLogic(){
@@ -292,12 +294,14 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     }
                 }
             }
-            val num =(1..size).random()
-            Log.e("Gold Kick", num.toString())
-            Log.d("******", "play screen  :=$num")
+
+            val latestSize = size-1
+            val num =(1..latestSize).random()
+            Log.e("@@@Error Gold Kick", num.toString())
+            Log.d("@@@Error ******", "play screen  :=$num")
             bundle.putInt("select_box", num)
-            bundle.putInt("size", size)
-            Log.e("Shoot to Kick", bundle.toString())
+            bundle.putInt("size", latestSize)
+            Log.e("@@@Error Shoot to Kick", bundle.toString())
             findNavController().navigate(R.id.goal_keeper_Screen, bundle)
         }else{
             startCpuProcess()
@@ -309,8 +313,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         val min = startTime / 60000
         binding.tvCount.text = "‘$min"
         val timeForNoise = startTime / 60000
-        Log.d("@@@Error", "***** $timeForNoise")
-        Log.d("@@@Error", "***** show time tv_count  $min")
+        Log.d("@@@Error ", "***** $timeForNoise")
+        Log.d("@@@Error ", "***** show time tv_count  $min")
         if (timeForNoise >= 3 && timeForNoise % 3 == 0) {
             sessionManager.changeMusic(14, 0)
         }
@@ -329,10 +333,10 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             val extraTime = sessionManager.getExtraTime()
             if (startTime >= 900000L) {
                 if (extraTime.equals("ExtraTime", ignoreCase = true)) {
-                    Log.d("@@@Error", "when TimeHalf time set")
+                    Log.d("@@@Error ", "when TimeHalf time set")
                     setCondition("ExtraTime")
                 } else if (extraTime.equals("TimeHalf", ignoreCase = true)) {
-                    Log.d("@@@Error", "when FinalTime time set")
+                    Log.d("@@@Error ", "when FinalTime time set")
                     sessionManager.setExtraTimeUser("TimeHalfEnd")
                     setCondition("TimeHalfEnd")
                 }
@@ -343,28 +347,43 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 binding.layProgess.progress = startTime - 900000
             }
         }else{
-            Log.e("@@@Error", "Full getValue "+ ValueStore.getValue1())
-            if (startTime >= 2700000 && ValueStore.getValue() == 0) {
-                ValueStore.setValue(1)
-                Log.d("@@@Error","when half time start")
-                Log.e("Half Time", "Yaa hui")
-                sessionManager.setExtraTimeUser("halftime")
-                playAlertBox(R.drawable.half_time_img, "halftime")
-            }
-            if (startTime >= 5400000 && ValueStore.getValue1() == 0) {
+            Log.e("@@@Error ", "Full getValue "+ ValueStore.getValue1())
+            if (startTime >= 5400000 /*&& ValueStore.getValue1() == 0*/) {
                 ValueStore.setValue1(1)
-                Log.d("@@@Error","when FullTime time set")
-                Log.e("@@@Error", "Full time")
-                if (sessionManager.getGameNumber() == 3) {
-                    totalTime = 900000L
-                    startTime = 0
-                    sessionManager.setExtraTimeUser("FullTime")
-                    Log.e("@@@Error", "second")
-                    playAlertBox(R.drawable.full_time_img, "FullTime")
+                Log.d("@@@Error ","when FullTime time set")
+                Log.e("@@@Error ", "Full time")
+                if (sessionManager.getGameNumber() > 3) {
+                    val myScore = sessionManager.getMyScore()
+                    val cpuScore = sessionManager.getCpuScore()
+                    if (myScore == cpuScore) {
+                        totalTime = 900000L
+                        startTime = 0
+                        sessionManager.setExtraTimeUser("FullTime")
+                        Log.e("@@@Error ", "second")
+                        playAlertBox(R.drawable.full_time_img, "FullTime")
+                    } else if (myScore > cpuScore) {
+                        sessionManager.setExtraTimeUser("timeOver")
+                        Log.e("@@@Error ", "timeOver")
+                        playAlertBox(R.drawable.full_time_img, "timeOver")
+                    } else {
+                        sessionManager.setExtraTimeUser("timeOverLoss")
+                        Log.e("@@@Error ", "timeOverLoss")
+                        playAlertBox(R.drawable.full_time_img, "timeOverLoss")
+                    }
                 } else {
                     sessionManager.setExtraTimeUser("timeOver")
-                    Log.e("@@@Error", "timeOver")
+                    Log.e("@@@Error ", "timeOver")
                     playAlertBox(R.drawable.full_time_img, "timeOver")
+                }
+            }else{
+                if (sessionManager.getExtraTime().equals("Normal")){
+                    if (startTime >= 2700000 /*&& ValueStore.getValue() == 0*/) {
+                        ValueStore.setValue(1)
+                        Log.d("@@@Error ","when half time start")
+                        Log.e("@@@Error ", "Half Time Yaa hui")
+                        sessionManager.setExtraTimeUser("halftime")
+                        playAlertBox(R.drawable.half_time_img, "halftime")
+                    }
                 }
             }
             if(startTime <= 2700000) {
@@ -383,8 +402,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         Glide.with(requireContext())
             .load(drawableImg)
             .into(imgChange)
-        Log.e("@@@Error","My Score "+sessionManager.getMyScore().toString())
-        Log.e("@@@Error","Cpu Score "+sessionManager.getCpuScore().toString())
+        Log.e("@@@Error ","My Score "+sessionManager.getMyScore().toString())
+        Log.e("@@@Error ","Cpu Score "+sessionManager.getCpuScore().toString())
         if (sessionManager.getMatchType().equals("worldcup",true)){
             if (action.equals("timeOver",true)){
                 Handler(Looper.myLooper()!!).postDelayed({
@@ -394,6 +413,13 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }, 3000)
             }else{
                 when (action) {
+                    "timeOverLoss" -> {
+                        Handler(Looper.myLooper()!!).postDelayed({
+                            dialog.dismiss()
+                            sessionManager.setExtraTimeUser("timeOver")
+                            moveToScoreScreen()
+                        }, 3000)
+                    }
                     "FullTime" -> {
                         Handler(Looper.myLooper()!!).postDelayed({
                             dialog.dismiss()
@@ -438,12 +464,12 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         val myScore = sessionManager.getMyScore()
         val cpuScore = sessionManager.getCpuScore()
         val gameNumber = sessionManager.getGameNumber()
-        Log.e("@@@Error", "status $status")
-        Log.e("@@@Error","getMyScore "+sessionManager.getMyScore())
-        Log.e("@@@Error","getCpuScore "+sessionManager.getCpuScore())
+        Log.e("@@@Error ", "status $status")
+        Log.e("@@@Error ","getMyScore "+sessionManager.getMyScore())
+        Log.e("@@@Error ","getCpuScore "+sessionManager.getCpuScore())
         if (sessionManager.getMatchType().equals("worldcup",true)){
             if (status.equals("timeOver",true)){
-                if (myScore > cpuScore && gameNumber >= 3) {
+                if (myScore > cpuScore && gameNumber > 3) {
                     winAlertBox(3)
                 } else {
                     moveToScoreScreen()
@@ -453,7 +479,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 if (myScore == cpuScore) {
                     sessionManager.setExtraTimeUser("TimeHalf")
                     playAlertBox(R.drawable.extra_time_ht_img, "TimeHalf")
-                } else if (myScore > cpuScore && gameNumber >= 3) {
+                } else if (myScore > cpuScore && gameNumber > 3) {
                     winAlertBox(3)
                 } else {
                     moveToScoreScreen()
@@ -462,7 +488,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             if (status.equals("TimeHalfEnd", true)) {
                 if (myScore == cpuScore) {
                     winAlertBox(1)
-                } else if (myScore > cpuScore && gameNumber >= 3) {
+                } else if (myScore > cpuScore && gameNumber > 3) {
                     winAlertBox(3)
                 } else {
                     moveToScoreScreen()
@@ -674,7 +700,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     }
                                                 }
                                             } catch (e: Exception) {
-                                                Log.e("My Player Database Error", e.toString())
+                                                Log.e("@@@Error My Player Database Error", e.toString())
                                             }
                                         }
                                         if (data.cpuplayer != null) {
@@ -778,7 +804,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     }
                                                 }
                                             } catch (e: Exception) {
-                                                Log.e("My Player Database Error", e.toString())
+                                                Log.e("@@@Error My Player Database Error", e.toString())
                                             }
                                         }
                                         if (data.SubtitutePlyer != null) {
@@ -793,19 +819,19 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                     extraPLayerDbHelper.addPlayer(surnames, data.is_captain.toString(), data.country_id.toString(), data.type.toString(), data.designation.toString(), data.jersey_number.toString(), "false", "USER")
                                                 }
                                             } catch (e: Exception) {
-                                                Log.e("My Player Database Error", e.toString())
+                                                Log.e("@@@Error My Player Database Error", e.toString())
                                             }
                                         }
                                         checkAllPlayer(dialog)
                                     }
                                 }catch (e:Exception){
-                                    Log.d("signup","message:---"+e.message)
+                                    Log.d("@@@Error signup","message:---"+e.message)
                                 }
                             } else {
                                 sessionManager.alertError(model.message)
                             }
                         }catch (e:Exception){
-                            Log.d("signup","message:---"+e.message)
+                            Log.d("@@@Error signup","message:---"+e.message)
                         }
                     }
                     is NetworkResult.Error -> {
@@ -840,12 +866,12 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 cpuDbHelper.addPlayer("ANDROID", "0", "ENG", "no", "MF", "10", "false", "false")
             }
         }
-        Log.e("My Team :", myPlayerDbHelper.getAllPlayers().toString())
-        Log.e("My Team Size :", myPlayerDbHelper.getAllPlayers().size.toString())
-        Log.e("CPU Team :", cpuDbHelper.getAllPlayers().toString())
-        Log.e("CPU Team Size :", cpuDbHelper.getAllPlayers().size.toString())
-        Log.e("Extra Team :", extraPLayerDbHelper.getAllPlayers().toString())
-        Log.e("Extra Team Size :", extraPLayerDbHelper.getAllPlayers().size.toString())
+        Log.e("@@@Error  My Team :", myPlayerDbHelper.getAllPlayers().toString())
+        Log.e("@@@Error  My Team Size :", myPlayerDbHelper.getAllPlayers().size.toString())
+        Log.e("@@@Error  CPU Team :", cpuDbHelper.getAllPlayers().toString())
+        Log.e("@@@Error  CPU Team Size :", cpuDbHelper.getAllPlayers().size.toString())
+        Log.e("@@@Error  Extra Team :", extraPLayerDbHelper.getAllPlayers().toString())
+        Log.e("@@@Error  Extra Team Size :", extraPLayerDbHelper.getAllPlayers().size.toString())
         userType = if (userType.equals("CPU",true)) { "USER" } else { "CPU" }
         setTimerLogic()
         Handler(Looper.myLooper()!!).postDelayed({
@@ -901,6 +927,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
                     playerImage.setImageResource(setGames.getTShirtImage(countryID))
                     rpNumber.setTextColor(textColor)
+                    rpName.setTextColor(textColor)
                     val countAnswer = players.count { it.answer.equals("true",true) }?:0
                     if (countAnswer!=0){
                         binding.rootButton.visibility=View.VISIBLE
@@ -933,7 +960,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                 bundle.putString("userType", userType)
                                 bundle.putString("Num", player.jersey_number)
                                 bundle.putString("id", player.id)
-                                Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
+                                Log.e("@@@Error Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
                                 findNavController().navigate(R.id.player_name_guess, bundle)
                             }
                         }else{
@@ -942,7 +969,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                 bundle.putString("userType", userType)
                                 bundle.putString("Num", player.jersey_number)
                                 bundle.putString("id", player.id)
-                                Log.e("Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
+                                Log.e("@@@Error Send Detail of Quiz", userType + " " + player.name + " " + player.jersey_number)
                                 findNavController().navigate(R.id.player_name_guess, bundle)
                             }
                         }
@@ -1008,6 +1035,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     val textColor = ContextCompat.getColor(requireContext(), setGames.getTShirtTextColor(countryID))
                     playerImage.setImageResource(setGames.getTShirtImage(countryID))
                     rpNumber.setTextColor(textColor)
+                    rpName.setTextColor(textColor)
                     binding.rootButton.visibility=View.GONE
                 }else{
                     playerImage.setImageResource(R.drawable.user_guess_white)
@@ -1064,14 +1092,16 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     }
                 }
             }
-            val num =(1..size).random()
-            Log.e("Gold Kick", num.toString())
-            Log.d("******", "play screen  :=$num")
+            val latestSize = size-1
+            val num =(1..latestSize).random()
+            Log.e("@@@Error  Gold Kick", num.toString())
+            Log.d("@@@Error  ******", "play screen  :=$num")
             bundle.putInt("select_box", num)
-            bundle.putInt("size", size)
+            bundle.putInt("size", latestSize)
             findNavController().navigate(R.id.shoot_Screen, bundle)
         }
     }
+
     private fun userPassBall() {
             if (userType.equals("USER",true)) {
                 val playerId=sessionManager.getMySelectedTeamPlayerNum()
@@ -1100,7 +1130,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
     }
     private fun cpuPassBall() {
         val playerId=sessionManager.getSelectedTeamPlayerNum()
-        Log.d("@@@@Error", "****** plarerId$playerId")
+        Log.d("@@@Error ", "****** playerId$playerId")
         val player = allUserPlayer.find { it.id.toInt() == playerId }
         if (player != null) {
             if (player.is_captain.equals("0", ignoreCase = true)) {
@@ -1261,11 +1291,11 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
     override fun onDestroy() {
         super.onDestroy()
         onDestroyAndOnStop()
-        Log.e("@@@Error","Distro Timer Hold")
+        Log.e("@@@Error ","Distro Timer Hold")
     }
     override fun onStop() {
         onDestroyAndOnStop()
-        Log.e("@@@Error","Stop TimerHold")
+        Log.e("@@@Error ","Stop TimerHold")
         super.onStop()
     }
     private  fun onDestroyAndOnStop(){

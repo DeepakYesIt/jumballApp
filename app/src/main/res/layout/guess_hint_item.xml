@@ -10,15 +10,15 @@
     android:layout_gravity="center"
     app:cardBackgroundColor="@color/hint_color_unselect">
 
-<TextView
-    android:id="@+id/hint_char"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="M"
-    android:fontFamily="@font/fredoka_one"
-    android:gravity="center"
-    android:textSize="@dimen/_10sdp"
-    android:textStyle="bold"
-    android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/hint_char"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@font/lato_black"
+        android:gravity="center"
+        android:text="Ć"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10sdp"
+        android:textStyle="bold" />
 
 </androidx.cardview.widget.CardView>

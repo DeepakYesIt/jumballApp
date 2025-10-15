@@ -343,6 +343,8 @@ class GoalKeeperScreenFragment : Fragment(), View.OnClickListener {
         }, 3500)
         dialog.show()
     }
+
+
     // This function is used for get guess player list from database api
     private fun getGuessTeamList(win : Boolean, defender: String, midfielder: String, attacker: String, cpuDefender: String, cpuMidFielder: String, cpuAttacker: String) {
         val matchNo = (sessionManager.getGameNumber()-1)

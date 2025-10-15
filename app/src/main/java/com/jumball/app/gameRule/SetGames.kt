@@ -292,7 +292,41 @@ class SetGames {
     fun getTShirtImage(country : String): Int {
 
         return when(country){
-            "QAT" -> R.drawable.qat
+            "QAT" -> R.drawable.readicon
+            "ECU" -> R.drawable.yellowicon
+            "SEN" -> R.drawable.newwhiteicon
+            "NED" -> R.drawable.orangeicon
+            "ENG" -> R.drawable.newwhiteicon
+            "IRN" -> R.drawable.newwhiteicon
+            "USA" -> R.drawable.newwhiteicon
+            "WAL" -> R.drawable.readicon
+            "ARG" -> R.drawable.argicon
+            "KSA" -> R.drawable.newwhiteicon
+            "MEX" -> R.drawable.greenicon
+            "POL" -> R.drawable.newwhiteicon
+            "FRA" -> R.drawable.navyblueicon
+            "AUS" -> R.drawable.goldenyellowicon
+            "DEN" -> R.drawable.readicon
+            "TUN" -> R.drawable.readicon
+            "ESP" -> R.drawable.readicon
+            "CRC" -> R.drawable.readicon
+            "GER" -> R.drawable.newwhiteicon
+            "JPN" -> R.drawable.japicon
+            "BEL" -> R.drawable.readicon
+            "CAN" -> R.drawable.readicon
+            "MAR" -> R.drawable.readicon
+            "CRO" -> R.drawable.croicon
+            "BRA" -> R.drawable.goldenyellowicon
+            "SRB" -> R.drawable.readicon
+            "SUI" -> R.drawable.readicon
+            "CMR" -> R.drawable.greenicon
+            "POR" -> R.drawable.poricon
+            "GHA" -> R.drawable.newwhiteicon
+            "URU" -> R.drawable.uruicon
+            "KOR" -> R.drawable.readicon
+            else -> R.drawable.newwhiteicon
+
+           /* "QAT" -> R.drawable.qat
             "ECU" -> R.drawable.ecu
             "SEN" -> R.drawable.sen
             "NED" -> R.drawable.ned
@@ -324,9 +358,9 @@ class SetGames {
             "GHA" -> R.drawable.gha
             "URU" -> R.drawable.uru
             "KOR" -> R.drawable.kor
-            else -> R.drawable.arg
+            else -> R.drawable.arg*/
 
-           /* "QAT" -> R.drawable.player_golkeeper_img
+            /*"QAT" -> R.drawable.player_golkeeper_img
             "ECU" -> R.drawable.player_golkeeper_img
             "SEN" -> R.drawable.player_golkeeper_img
             "NED" -> R.drawable.player_golkeeper_img
@@ -367,7 +401,7 @@ class SetGames {
         return when(country){
             "QAT" -> R.color.white
             "ECU" -> R.color.black
-            "SEN" -> R.color.white
+            "SEN" -> R.color.black
             "NED" -> R.color.black
             "ENG" -> R.color.black
             "IRN" -> R.color.black
@@ -383,7 +417,7 @@ class SetGames {
             "TUN" -> R.color.white
             "ESP" -> R.color.white
             "CRC" -> R.color.white
-            "GER" -> R.color.white
+            "GER" -> R.color.black
             "JPN" -> R.color.white
             "BEL" -> R.color.white
             "CAN" -> R.color.white

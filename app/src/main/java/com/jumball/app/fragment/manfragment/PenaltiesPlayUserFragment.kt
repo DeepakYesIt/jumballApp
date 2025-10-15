@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.jumball.app.R
 import com.jumball.app.SessionManager
+import com.jumball.app.database.player_dtl.CPUPlayerDatabaseHelper
 import com.jumball.app.database.team_dtl.TeamDatabaseHelper
 import com.jumball.app.databinding.FragmentPenaltiesPlayUserBinding
 import com.jumball.app.network.viewModel.PenaltyScreenViewModel
@@ -29,6 +30,8 @@ class PenaltiesPlayUserFragment : Fragment(R.layout.fragment_penalties_play_user
     private var userType = "USER" // CPU
     lateinit var sessionManager : SessionManager
     private lateinit var teamDbHelper: TeamDatabaseHelper
+    private lateinit var cpuDbHelper: CPUPlayerDatabaseHelper
+
 
     private lateinit var binding: FragmentPenaltiesPlayUserBinding
 
@@ -45,7 +48,7 @@ class PenaltiesPlayUserFragment : Fragment(R.layout.fragment_penalties_play_user
         sessionManager = SessionManager(requireContext())
         sessionManager.changeMusic(20,1)
         teamDbHelper = TeamDatabaseHelper(requireContext())
-
+        cpuDbHelper = CPUPlayerDatabaseHelper(requireContext())
         userType=arguments?.getString("userType","USER").toString()
 
         viewModel = ViewModelProvider(requireActivity())[PenaltyScreenViewModel::class.java]
@@ -69,22 +72,25 @@ class PenaltiesPlayUserFragment : Fragment(R.layout.fragment_penalties_play_user
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
         val allTeam = teamDbHelper.getAllTeams()
         for (data in allTeam) {
            if (data.teamID == 1) {
-               binding.myName.text = data.captainName
+               binding.myName.text = data.captainName.uppercase()
            }
             if(sessionManager.getGameNumber() <= 3)  { //for first 3 match
-                if (data.teamID == sessionManager.getTeamDetails()) {
-                    binding.cpuName.text = data.captainName
-                }
+                val cpuName = cpuDbHelper.getAllPlayers().find { it.is_captain.equals("1",true) }
+                binding.cpuName.text = cpuName?.name?:""
             }else if(sessionManager.getGameNumber() == 4){ // for 4th match
-                binding.cpuName.text = "Asst. Manager"
+                binding.cpuName.text = "Manager"
             }else if(sessionManager.getGameNumber() == 5){ // for 5th match
                 binding.cpuName.text = "Lizard mascot"
             }
         }
+
         startGame()
+
     }
 
     private fun startGame(){

@@ -87,7 +87,7 @@
                                     android:gravity="center"
                                     android:text="W"
                                     android:textColor="#FFFFFF"
-                                    android:textSize="@dimen/_10sdp" />
+                                    />
                             </LinearLayout>
 
                             <LinearLayout
@@ -259,8 +259,7 @@
                                     android:fontFamily="@font/fredoka_one"
                                     android:gravity="center"
                                     android:text=""
-                                    android:textColor="#000000"
-                                    android:textSize="@dimen/_10sdp" />
+                                    android:textColor="#000000" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -438,7 +437,7 @@
                                     android:gravity="center"
                                     android:text=""
                                     android:textColor="#000000"
-                                    android:textSize="@dimen/_10sdp" />
+                                     />
                             </LinearLayout>
 
                             <LinearLayout
@@ -616,7 +615,7 @@
                                     android:gravity="center"
                                     android:text=""
                                     android:textColor="#000000"
-                                    android:textSize="@dimen/_10sdp" />
+                                 />
                             </LinearLayout>
 
                             <LinearLayout
@@ -794,7 +793,7 @@
                                     android:gravity="center"
                                     android:text=""
                                     android:textColor="#000000"
-                                    android:textSize="@dimen/_10sdp" />
+                                    />
                             </LinearLayout>
 
                             <LinearLayout

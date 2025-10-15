@@ -15,14 +15,26 @@ class OnGroupAdapter(private val dataList: ArrayList<TeamListModel>) :
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        holder.bind(dataList[position])
+        holder.bind(dataList[position], position)
     }
 
     override fun getItemCount(): Int = dataList.size
 
     class VH(private val binding: ItemOngroupBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(team: TeamListModel) {
+        fun bind(team: TeamListModel, position: Int) {
+
+            when (position) {
+                0 -> {
+                    binding.textGroupTop.text = "A"
+                    binding.textGroupBottom.text = "B"
+                }
+                1 -> {
+                    binding.textGroupTop.text = "C"
+                    binding.textGroupBottom.text = "D"
+                }
+            }
+
             val names = listOf(
                 binding.name1, binding.name2, binding.name3, binding.name4,
                 binding.name5, binding.name6, binding.name7, binding.name8

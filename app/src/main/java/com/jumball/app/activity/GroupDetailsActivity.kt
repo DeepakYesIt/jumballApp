@@ -58,6 +58,7 @@ class GroupDetailsActivity : AppCompatActivity() {
         binding.viewpagerData.registerOnPageChangeCallback(object : OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
+                Log.d("checkPosition", position.toString())
                 currentOnBoardingIndicator(position)
             }
         })
@@ -79,21 +80,23 @@ class GroupDetailsActivity : AppCompatActivity() {
                     finish()
                 }
             }else{
-                val intent = if (winType.equals("Loss", ignoreCase = true)) {
-                    val intent = Intent(this, FullScreenActivity::class.java)
-                    intent.putExtra("win",win)
-                    intent.putExtra("winType",winType)
+                  if (winType.equals("Loss", ignoreCase = true)) {
+                      val intent = Intent(this, FullScreenActivity::class.java)
+                      intent.putExtra("win",win)
+                      intent.putExtra("winType",winType)
+                      startActivity(intent)
+                      finish()
                 } else {
                     sessionManager.resetScore()
-                    Intent(this@GroupDetailsActivity, TournamentTreeActivity::class.java).apply {
+                      val intent = Intent(this@GroupDetailsActivity, TournamentTreeActivity::class.java)
+                        .apply {
                         putExtra("win", win)
-                    }
+                        }
+                      startActivity(intent)
+                      finish()
                 }
-                startActivity(intent)
-                finish()
             }
         }
-
 
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true ) {
@@ -101,7 +104,6 @@ class GroupDetailsActivity : AppCompatActivity() {
                     Log.d("*****","Back Stop")
                 }
             }
-
         onBackPressedDispatcher.addCallback(this, callback)
 
     }
@@ -203,7 +205,7 @@ class GroupDetailsActivity : AppCompatActivity() {
             ))
 
         Log.e("Team ID" ,teamDetail.toString())
-        
+
 
 
         adapter = OnGroupAdapter(teamDetail)

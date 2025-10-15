@@ -27,9 +27,10 @@ class SplashActivity : AppCompatActivity() {
         binding = ActivitySplashBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
         sessionManager = SessionManager(this)
+
         //Comment By Shrawan
 
-
+//        sessionManager.setGameNumber(4)
 
         sessionManager.changeMusic(0,1)
         changeSplashLogo()

@@ -47,6 +47,8 @@ import kotlin.random.Random
 @AndroidEntryPoint
 class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     View.OnClickListener {
+
+
     private var countDownTimer: CountDownTimer?=null
     private lateinit var adapterNameHint: AdpterNameHint
     private var hintList = ArrayList<GuessName>()
@@ -463,8 +465,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                         requireContext(),
                         setGames.getTShirtTextColor(countryID)
                     )
-
-
                     binding.tvTshirtImg.setImageResource(setGames.getTShirtImage(countryID))
                     binding.tvName.setTextColor(textColor)
                     binding.tvNumber.setTextColor(textColor)
