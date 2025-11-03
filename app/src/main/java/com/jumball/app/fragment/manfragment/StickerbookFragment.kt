@@ -70,6 +70,8 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
                                     // Remove duplicates
                                     val uniqueData = model.data?.distinctBy { it.sticker_id }?.toMutableList()
                                     uniqueData?.sortWith(compareByDescending { it.sticker_id == 0 })
+                                    // ✅ Check if any item has sticker_id == 0
+                                    val hasZero = uniqueData!!.any { it.sticker_id == 0 }
                                     for (i in uniqueData!!.indices){
                                         if (i==0 || i==2){
                                             stickerList.add("")
@@ -77,6 +79,10 @@ class StickerbookFragment : Fragment(), View.OnClickListener {
                                         }else{
                                             stickerList.add(uniqueData[i].image)
                                         }
+                                    }
+                                    // ✅ If no sticker_id == 0 found, add "" at index 0
+                                    if (!hasZero) {
+                                        stickerList.add(0, "")
                                     }
                                 } catch (e: Exception) {
                                     Log.d("signup", "message:---" + e.message)

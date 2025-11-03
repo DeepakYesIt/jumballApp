@@ -37,7 +37,6 @@ object NetworkModule {
         return MainRepositoryImpl(api)
     }
 
-
     @Singleton
     @Provides
     fun provideAuthAuthenticator(@ApplicationContext context: Context): AuthInterceptor {
@@ -48,17 +47,12 @@ object NetworkModule {
     @Provides
     fun jumBallOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor { message -> Log.d("RetrofitLog", message) }
-
-
         if (BuildConfig.DEBUG) {
             loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
         }else{
             loggingInterceptor.level = HttpLoggingInterceptor.Level.NONE
         }
-
-
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
-
         return OkHttpClient.Builder()
             .addInterceptor(authInterceptor)
             .addInterceptor(loggingInterceptor)
@@ -68,7 +62,7 @@ object NetworkModule {
                 if (response.code == 401) {
                     SessionEventBus.emitSessionExpired()
                 }
-                response // Return the response
+                response
             }
             .connectTimeout(60, TimeUnit.SECONDS)
             .writeTimeout(60, TimeUnit.SECONDS)

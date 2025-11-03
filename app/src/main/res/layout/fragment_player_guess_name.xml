@@ -96,7 +96,7 @@
                     android:paddingStart="@dimen/_30sdp"
                     android:paddingTop="@dimen/_65sdp"
                     android:paddingEnd="@dimen/_25sdp"
-                    android:text="BELLINGHAM"
+                    android:text=""
                     android:textColor="#000000"
                     android:textStyle="bold"
                     android:textSize="@dimen/_12sdp"

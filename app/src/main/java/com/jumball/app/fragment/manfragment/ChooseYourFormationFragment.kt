@@ -352,7 +352,6 @@ class ChooseYourFormationFragment : Fragment(),
                                                        }
                                                    }
                                                }
-
                                                //Shrawan
                                                // Goalkeeper
                                                for (data in data.myplayer) {

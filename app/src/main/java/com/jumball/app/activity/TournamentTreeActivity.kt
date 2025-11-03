@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.jumball.app.SessionManager
 import com.jumball.app.database.team_dtl.TeamDatabaseHelper
 import com.jumball.app.databinding.ActivityTurnamentTreeBinding
-import com.jumball.app.model.teamListModel.TeamListModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.random.Random
 
@@ -20,7 +19,6 @@ class TournamentTreeActivity : AppCompatActivity() {
 
     lateinit var sessionManager: SessionManager
     private var win = 0
-    private var teamDetail: ArrayList<TeamListModel> = ArrayList()
     private lateinit var teamDbHelper: TeamDatabaseHelper
     private lateinit var binding: ActivityTurnamentTreeBinding
     
@@ -229,6 +227,7 @@ class TournamentTreeActivity : AppCompatActivity() {
         } else {
             binding.tvTeamName215.text = binding.tvTeamName214.text.toString()
         }
+
     }
 
 }

@@ -12,79 +12,58 @@ class SetGames {
     fun setScreen(screen: String) : ScreenRow
     {
         val screenSet  = ScreenRow(5,4,1)
-
         when (screen) {
-
             "5-2-3" -> {
-
                    screenSet.r1 = 5
                    screenSet.r2 = 2
                    screenSet.r3 = 3
-
             }
-
             "5-4-1" -> {
                 screenSet.r1 = 5
                 screenSet.r2 = 4
                 screenSet.r3 = 1
             }
-
             "5-3-2"-> {
                 screenSet.r1 = 5
                 screenSet.r2 = 3
                 screenSet.r3 = 2
             }
-
             "3-5-2" -> {
 
                 screenSet.r1 = 3
                 screenSet.r2 = 5
                 screenSet.r3 = 2
             }
-
-
             "4-5-1" -> {
-
                 screenSet.r1 = 4
                 screenSet.r2 = 5
                 screenSet.r3 = 1
             }
-
-
             "4-4-2" -> {
-
                 screenSet.r1 = 4
                 screenSet.r2 = 4
                 screenSet.r3 = 2
             }
-
             "4-3-3" -> {
                 screenSet.r1 = 4
                 screenSet.r2 = 3
                 screenSet.r3 = 3
             }
-
             "3-4-3" -> {
-
                 screenSet.r1 = 3
                 screenSet.r2 = 4
                 screenSet.r3 = 3
             }
-
             "4-2-4" -> {
-
                 screenSet.r1 = 4
                 screenSet.r2 = 2
                 screenSet.r3 = 4
             }
-
         }
-
         return screenSet
     }
 
     fun getRandomPlayer(row1 : Int , row2 : Int , row3 : Int ) : Int{
-
         when(Random.nextInt(1, 4)){
             1 -> {
                 if (row1 == 1)
@@ -137,20 +116,14 @@ class SetGames {
                         }
                         5->{
                             return 10
-                        }
-
-                        else ->{
+                        }else ->{
                             return 6
                         }
                     }
                 }
-
             }
-
             3 ->{
-
-                if (row3 == 1)
-                {
+                if (row3 == 1) {
                     return  11
                 }else{
                     when(Random.nextInt(1, row3)){
@@ -168,15 +141,11 @@ class SetGames {
                         }
                         5->{
                             return 15
-                        }
-
-                        else ->{
+                        }else ->{
                             return 11
                         }
                     }
                 }
-
-
             }
 
             else ->{
@@ -199,7 +168,6 @@ class SetGames {
                         5->{
                             return 5
                         }
-
                         else ->{
                             return 1
                         }
@@ -215,11 +183,8 @@ class SetGames {
     }
 
     fun getRandomGustedPlayerName(hintList: ArrayList<GuessName>, answerList: ArrayList<GuessName>):  ArrayList<Int> {
-
         val result  = ArrayList<Int>()
-
         when(Random.nextInt(1, 3)){
-
             1 -> {
                 for (data in answerList) {
                     for (i in 0 until hintList.size) {
@@ -230,11 +195,8 @@ class SetGames {
                     }
                 }
                 return result
-            }
-
-            else ->{
-
-              do {
+            }else ->{
+                do {
                     val num = getRandomNumber(hintList.size)
                     if (result.isEmpty()){
                         result.add(num)
@@ -244,12 +206,10 @@ class SetGames {
                         }
                     }
                 }while (result.size < hintList.size)
-
                 Log.e("hint_data" , result.toString() )
                 return result
             }
         }
-
     }
 
     fun shuffleName(name: String): ArrayList<GuessName> {
@@ -261,7 +221,6 @@ class SetGames {
 
     fun generatePermutations(letters: List<Char>): List<String> {
         if (letters.isEmpty()) return listOf("")
-
         val permutations = mutableListOf<String>()
         for ((index, letter) in letters.withIndex()) {
             val remainingLetters = letters.toMutableList()
@@ -291,7 +250,6 @@ class SetGames {
 
 
     fun getTShirtImage(country : String,playerData: PlayerModel): Int {
-
         return when(country){
             "QAT" -> when {
                 playerData.is_captain == "1"-> R.drawable.readiconcaption
@@ -308,7 +266,6 @@ class SetGames {
             "NED" -> when {
                 playerData.is_captain == "1"-> R.drawable.orangeiconcaption
                 else ->  R.drawable.orangeicon
-                
             }
             "ENG" -> when {
                 playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
@@ -421,8 +378,7 @@ class SetGames {
             "KOR" -> when {
                 playerData.is_captain == "1"-> R.drawable.readiconcaption
                 else ->  R.drawable.readicon
-            }
-            else -> when {
+            }else -> when {
                 playerData.is_captain == "1"-> R.drawable.newwhiteiconcaption
                 else ->  R.drawable.newwhiteicon
             }

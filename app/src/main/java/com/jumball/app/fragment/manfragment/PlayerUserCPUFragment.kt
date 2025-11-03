@@ -42,8 +42,10 @@ import kotlinx.coroutines.launch
 import java.util.Locale
 
 /*
- * Developed by: Deepak Kumar Agrahari
- * Purpose: Implements conditional navigation based on player attributes and quiz responses.
+ * Author: Deepak Kumar Agrahari
+ * Description: Handles conditional navigation logic based on player attributes
+ *              and quiz responses to determine the appropriate user flow.
+ * Created for: Business Logic Layer (Navigation & Flow Control)
  */
 
 @AndroidEntryPoint
@@ -147,7 +149,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         if (sessionManager.getMatchType().equals("worldcup",true)) {
             teamDbHelper = TeamDatabaseHelper(requireContext())
             val allTeam = teamDbHelper.getAllTeams()
-
             for (data in allTeam) {
                 if (data.teamID == 1) {
                     Log.d("username","*****"+data.captainName.uppercase())
@@ -174,10 +175,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         }
         binding.cpuScoreTv.text = sessionManager.getCpuScore().toString()
         binding.userGoalTv.text = sessionManager.getMyScore().toString()
-
         val topPaddingInPx: Int  // or any value
         val topmarginBottomPx: Int  // or any value
-
         if (userType.equals("USER",true)){
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
@@ -201,14 +200,11 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             startCpuProcess()
             setupFootballFormationCpu(sessionManager.getUserScreenType(),allUserPlayer)
         }
-
        // Set top padding, keep other paddings as-is
         binding.playerPitch.setPadding(binding.playerPitch.paddingLeft, topPaddingInPx, binding.playerPitch.paddingRight, binding.playerPitch.paddingBottom)
         val layoutParams =  binding.formationContainer.layoutParams as ViewGroup.MarginLayoutParams
-
         // Keep existing margins and update only the bottom
         layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, layoutParams.rightMargin, topmarginBottomPx)
-
     }
 
 
@@ -221,7 +217,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             Log.d("@@@Error ", "Random number$randomTarget")
             Log.d("@@@Error ", "countAnswer $countAnswer")
             Log.d("@@@Error ", "select $select")
-            if (countAnswer==0 || countAnswer==1){
+            if (countAnswer==0){
                 if (select == 0){
                     val targetPlayer = allUserPlayer.find { it.id == randomTarget && it.designation.equals("MF",true) }
                     if (targetPlayer != null) {
@@ -248,7 +244,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                     Log.d("@@@Error ","Cpu pass logic yes")
                     Log.d("@@@Error ", "Cpu pass logic yes$randomTarget")
                     val result = if (randomTarget.toInt() % 2 == 0) { "even" } else { "odd" }
-                    if (result.equals("even",true)){
+                    if (countAnswer == 1){
+                        Log.d("@@@Error ", "Cpu pass logic one player $randomTarget")
                         val targetPlayer = allUserPlayer.find {
                             it.id==randomTarget
                         }
@@ -261,8 +258,22 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                             }
                         }
                     }else{
-                        Log.d("@@@Error ", "Cpu pass logic yesss$randomTarget")
-                        cpuSelectLogic()
+                        if (result.equals("even",true)){
+                            val targetPlayer = allUserPlayer.find {
+                                it.id==randomTarget
+                            }
+                            if (targetPlayer != null) {
+                                Log.d("@@@Error ", "******$targetPlayer")
+                                if (targetPlayer.use.equals("true",true)){
+                                    if (targetPlayer.answer.equals("false",true)){
+                                        moveToPlayNameScreen(targetPlayer)
+                                    }
+                                }
+                            }
+                        }else{
+                            Log.d("@@@Error ", "Cpu pass logic yesss$randomTarget")
+                            cpuSelectLogic()
+                        }
                     }
                 }
             }
@@ -285,16 +296,30 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             val bundle = Bundle()
             bundle.putString("userType", "USER")
             bundle.putInt("selected_player_num", playerId)
+
+
             var size = 0
             for (data in allUserPlayer) {
                 if (data.id.toInt() == playerId) {
                     size = if (data.designation.uppercase() == "DF") {
-                        size + 2 + cpuPass
+                        if (player?.type.toString().equals("PURPLE",true)){
+                            size + 3 + cpuPass
+                        }else{
+                            size + 2 + cpuPass
+                        }
                     } else {
                         if (data.designation.uppercase() == "MF") {
-                            size + 3 + cpuPass
+                            if (player?.type.toString().equals("PURPLE",true)){
+                                size + 4 + cpuPass
+                            }else{
+                                size + 3 + cpuPass
+                            }
                         } else {
-                            size + 4 + cpuPass
+                            if (player?.type.toString().equals("PURPLE",true)){
+                                size + 5 + cpuPass
+                            }else{
+                                size + 4 + cpuPass
+                            }
                         }
                     }
                 }
@@ -1088,17 +1113,42 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             var size = 0
             for (data in allCpuPlayer) {
                 if (data.id.toInt() == playerId) {
-                    size = if (data.designation.uppercase() == "DF") {
-                        size + 2 + myPass
-                    } else {
-                        if (data.designation.uppercase() == "MF") {
+//                    size = if (data.designation.uppercase() == "DF") {
+//                        size + 2 + myPass
+//                    } else {
+//                        if (data.designation.uppercase() == "MF") {
+//                            size + 3 + myPass
+//                        } else {
+//                            size + 4 + myPass
+//                        }
+//                    }
+                    size = if (data.designation.uppercase().equals("DF",true)) {
+                        if (player?.type.toString().equals("PURPLE",true)){
                             size + 3 + myPass
+                        }else{
+                            size + 2 + myPass
+                        }
+                    } else {
+                        if (data.designation.uppercase().equals("MF",true)) {
+                            if (player?.type.toString().equals("PURPLE",true)){
+                                size + 4 + myPass
+                            }else{
+                                size + 3 + myPass
+                            }
                         } else {
-                            size + 4 + myPass
+                            if (player?.type.toString().equals("PURPLE",true)){
+                                size + 5 + myPass
+                            }else{
+                                size + 4 + myPass
+                            }
                         }
                     }
+
+
                 }
             }
+
+
             val latestSize = size-1
             val num =(1..latestSize).random()
             Log.e("@@@Error  Gold Kick", num.toString())

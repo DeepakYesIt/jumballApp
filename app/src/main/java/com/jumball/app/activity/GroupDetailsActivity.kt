@@ -86,14 +86,21 @@ class GroupDetailsActivity : AppCompatActivity() {
                       intent.putExtra("winType",winType)
                       startActivity(intent)
                       finish()
-                } else {
-                    sessionManager.resetScore()
-                      val intent = Intent(this@GroupDetailsActivity, TournamentTreeActivity::class.java)
-                        .apply {
-                        putExtra("win", win)
-                        }
-                      startActivity(intent)
-                      finish()
+                  } else {
+                      if (sessionManager.getGameNumber() >= 3){
+                        sessionManager.resetScore()
+                        val intent = Intent(this@GroupDetailsActivity, TournamentTreeActivity::class.java)
+                            .apply {
+                                putExtra("win", win)
+                            }
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        sessionManager.resetScore()
+                        val intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
                 }
             }
         }

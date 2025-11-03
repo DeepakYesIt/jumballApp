@@ -181,7 +181,7 @@ class FinalScoreFragment : Fragment(){
             }
             teamDbHelper.updatePLD(1, 1)
             Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(requireContext(), GroupDetailsActivity::class.java)
+                val intent = Intent(requireContext(), GroupDetailsActivity::class.java)
                 if (binding.cpuScoreTv.text.toString().toInt() == binding.MyTeamScore.text.toString().toInt()) {
                     sessionManager.setGameNumber(sessionManager.getGameNumber()+1)
                     intent.putExtra("win", 2)
