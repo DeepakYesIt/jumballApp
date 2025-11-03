@@ -30,7 +30,17 @@
           <theme>@style/Theme.JumBallApp</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_player_profile.xml">
+        <config>
+          <theme>@style/Theme.JumBallApp</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_player_user_c_p_u.xml">
+        <config>
+          <theme>@style/Theme.JumBallApp</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_profile.xml">
         <config>
           <theme>@style/Theme.JumBallApp</theme>
         </config>
@@ -75,18 +85,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/SessionManager.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/SessionManager.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/activity/GroupDetailsActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/activity/GroupDetailsActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/activity/TournamentTreeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/activity/TournamentTreeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/di/NetworkModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/di/NetworkModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/ChooseYourFormationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/ChooseYourFormationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/FinalScoreFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/FinalScoreFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/authfragment/PlayerProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/authfragment/PlayerProfileFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerUserCPUFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerUserCPUFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/StickerbookFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/StickerbookFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/gameRule/SetGames.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/gameRule/SetGames.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_player_guess_name.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_player_guess_name.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/ProfileFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/ProfileFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/viewmodeljumball/PlayerListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/jumball/app/viewmodeljumball/PlayerListViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +102,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=/Users/deepakagrahari/.android/avd/Pixel_4a_API_35.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=RZCT904GVRD)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -349,6 +355,51 @@
           <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/authfragment/SigningFragment.kt</url>
           <line>88</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/authfragment/PlayerProfileFragment.kt</url>
+          <line>193</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/authfragment/PlayerProfileFragment.kt</url>
+          <line>194</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/authfragment/PlayerProfileFragment.kt</url>
+          <line>195</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt</url>
+          <line>284</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt</url>
+          <line>186</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt</url>
+          <line>192</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt</url>
+          <line>198</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt</url>
+          <line>193</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/jumball/app/fragment/manfragment/PlayerGuessNameFragment.kt</url>
+          <line>195</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

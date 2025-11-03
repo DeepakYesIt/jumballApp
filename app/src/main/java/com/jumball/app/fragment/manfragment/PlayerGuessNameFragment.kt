@@ -15,6 +15,7 @@ import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -157,17 +158,45 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
     }
 
     private fun setLifeLineBox() {
-        if (!sessionManager.getLifeLine1()) {
+
+//        if (!sessionManager.getLifeLine1()) {
+//            binding.lifeLine1.setBackgroundResource(R.drawable.rectangle_3__1_)
+//        } else {
+//            binding.lifeLine1.setBackgroundResource(R.drawable.rectangle_3)
+//        }
+//
+//        if (!sessionManager.getLifeLine2()) {
+//            binding.lifeLine2.setBackgroundResource(R.drawable.rectangle_3__1_)
+//        } else {
+//            binding.lifeLine2.setBackgroundResource(R.drawable.rectangle_3)
+//        }
+//
+//        if (!sessionManager.getLifeLine3()) {
+//            binding.lifeLine3.setBackgroundResource(R.drawable.rectangle_3__1_)
+//        } else {
+//            if (sessionManager.getSpecialPower()) {
+//                binding.lifeLine3.setBackgroundResource(R.drawable.rectangle_3__1_)
+//            } else {
+//                binding.lifeLine3.setBackgroundResource(R.drawable.rectangle_3)
+//            }
+//        }
+
+
+        Log.d("life Time count","*****"+sessionManager.getLifeLineOne()+" - "+sessionManager.getLifeLineTwo()+" - "+sessionManager.getLifeLineThree())
+        // new code life line
+        if (sessionManager.getLifeLineOne() == 0){
             binding.lifeLine1.setBackgroundResource(R.drawable.rectangle_3__1_)
         } else {
             binding.lifeLine1.setBackgroundResource(R.drawable.rectangle_3)
         }
-        if (!sessionManager.getLifeLine2()) {
+
+        if (sessionManager.getLifeLineTwo() == 0){
             binding.lifeLine2.setBackgroundResource(R.drawable.rectangle_3__1_)
         } else {
             binding.lifeLine2.setBackgroundResource(R.drawable.rectangle_3)
         }
-        if (!sessionManager.getLifeLine3()) {
+
+        if (sessionManager.getLifeLineThree() == 0){
             binding.lifeLine3.setBackgroundResource(R.drawable.rectangle_3__1_)
         } else {
             if (sessionManager.getSpecialPower()) {
@@ -252,19 +281,25 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             }
             R.id.life_line_1 -> {
                 if (userType.equals("USER",true)) {
-                    if (sessionManager.getLifeLine1()) {
+//                    if (sessionManager.getLifeLine1()) {
+                    if (sessionManager.getLifeLineOne() > 0){
+                        sessionManager.setLifeLine1(sessionManager.getLifeLineOne()-1)
                         sessionManager.increaseTimer(120000)
                         sessionManager.disableLifeLine1()
                         sessionManager.setLifeLineStatus1("Yes")
                         sessionManager.disableLifeLine11(true)
                         useLifeLine1()
                     }
+
+//                    }
                 }
                 setLifeLineBox()
             }
             R.id.life_line_2 -> {
                 if (userType .equals("USER",true)) {
-                    if (sessionManager.getLifeLine2()) {
+//                    if (sessionManager.getLifeLine2()) {
+                    if (sessionManager.getLifeLineTwo() > 0){
+                        sessionManager.setLifeLine2(sessionManager.getLifeLineTwo()-1)
                         useLifeLine2()
                         countDownTimer?.cancel()
                         quizTime = 50
@@ -279,7 +314,10 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
             }
             R.id.life_line_3 -> {
                 if (userType .equals("USER",true)) {
-                    if (sessionManager.getLifeLine3()) {
+//                    if (sessionManager.getLifeLine3()) {
+                    if (sessionManager.getLifeLineThree() > 0){
+                        sessionManager.setLifeLineStatus1("Yes")
+                        sessionManager.setLifeLine3(sessionManager.getLifeLineThree()-1)
                         useLifeLine3()
                         sessionManager.increaseTimer(120000)
                         sessionManager.disableLifeLine3()
@@ -502,15 +540,17 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                 } else {
                     binding.tshirtBand.visibility = View.GONE
                 }
-                rightAnswer()
+                if (userType.equals("USER",true)) {
+                    rightAnswer()
+                }else{
+                    rightAnswer()
+                }
                 Log.e("Guessed Name", "Right Answer")
             } else {
                 wrongAnswer()
                 Log.e("Guessed Name", "Wrong Answer")
             }
-
         }
-
     }
 
     override fun onDestroy() {
@@ -526,7 +566,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
 
     override fun onStop() {
         super.onStop()
-
         if (isTimerRunning) {
             countDownTimer?.cancel()
             isTimerRunning = false
@@ -637,13 +676,10 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                                             } else {
                                                 sessionManager.increaseTimer(120000)
                                             }
-
                                             var df = defender.toInt()
                                             var mf = midfielder.toInt()
                                             var fw = attacker.toInt()
-
                                             Log.e("Player", myPlayerDbHelper.getAllPlayers().size.toString())
-
                                             try {
                                                 // Defender
                                                 for (data in data.myplayer) {
@@ -651,13 +687,11 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                                                     if (data.is_captain == 1) {
                                                         sessionManager.setMyPlayerId(data.id)
                                                     }
-
                                                     val surnames = try {
                                                         data.name!!.split(" ").last()
                                                     } catch (e: Exception) {
                                                         "SYSTEM"
                                                     }
-
                                                     if (data.designation == "DF") {
                                                         if (df > 0) {
                                                             df -= 1
@@ -674,22 +708,16 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                                                         }
                                                     }
                                                 }
-
-
                                                 // MidFielder
                                                 for (data in data.myplayer) {
-
-
                                                     if (data.is_captain == 1) {
                                                         sessionManager.setMyPlayerId(data.id)
                                                     }
-
                                                     val surnames = try {
                                                         data.name!!.split(" ").last()
                                                     } catch (e: Exception) {
                                                         "SYSTEM"
                                                     }
-
                                                     if (data.designation == "MF") {
                                                         if (mf > 0) {
                                                             mf -= 1
@@ -706,8 +734,6 @@ class PlayerGuessNameFragment : Fragment(R.layout.fragment_player_guess_name),
                                                         }
                                                     }
                                                 }
-
-
                                                 //Striker
                                                 for (data in data.myplayer) {
 

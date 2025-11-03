@@ -191,7 +191,7 @@ class PlayerProfileFragment : Fragment(),View.OnClickListener {
                         val surname = binding.edName.text.toString()
                         val countryId = countryList.firstOrNull { it.name == binding.autoCountry.text.toString() }?.id
                         val skillLevel = binding.autoSkillLevel.text.toString()
-                        val autoPosition = binding.autoPosition.text.toString()
+                        val autoPosition = getPositionCode(binding.autoPosition.text.toString())
                         val autoPlay=binding.autoStyleOfPlay.text.toString()
                         sendProfileData(surname, countryId,skillLevel,autoPosition, autoPlay)
                     }
@@ -220,6 +220,16 @@ class PlayerProfileFragment : Fragment(),View.OnClickListener {
                     Log.d("*****currentItem",""+binding.viewpagerData.currentItem)
                 }
             }
+        }
+    }
+
+    private fun getPositionCode(name: String): String {
+        return when (name) {
+            "Defender" -> "DF"
+            "Goalkeeper" -> "GK"
+            "Midfielder" -> "MF"
+            "Striker" -> "FW"
+            else -> ""
         }
     }
 

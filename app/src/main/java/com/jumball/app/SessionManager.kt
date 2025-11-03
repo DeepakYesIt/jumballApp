@@ -167,6 +167,9 @@ class SessionManager(var context: Context) {
         editor.putInt("timer", 0)
         editor.putInt("myPass", 0)
         editor.putInt("cpuPass", 0)
+        editor.putInt("lifelineOne", 1)
+        editor.putInt("lifelineTwo", 1)
+        editor.putInt("lifelineThree", 1)
 //        editor.putInt("gameNumber", 1)
         editor.putInt("gameCondition", 0)
         editor.putInt("TotalDefence", 0)
@@ -183,6 +186,9 @@ class SessionManager(var context: Context) {
 
     fun resetGameNumberScore() {
         editor.putInt("gameNumber", 1)
+        editor.putInt("lifelineOne", 1)
+        editor.putInt("lifelineTwo", 1)
+        editor.putInt("lifelineThree", 1)
         editor.apply()
     }
 
@@ -232,6 +238,36 @@ class SessionManager(var context: Context) {
     fun getLifeLine1(): Boolean {
         return prefs.getBoolean("lifeline1", true)
     }
+
+
+    fun setLifeLine1(count : Int){
+        editor.putInt("lifelineOne", count)
+        editor.apply()
+    }
+
+    fun setLifeLine2(count : Int){
+        editor.putInt("lifelineTwo", count)
+        editor.apply()
+    }
+
+    fun setLifeLine3(count : Int){
+        editor.putInt("lifelineThree", count)
+        editor.apply()
+    }
+
+    fun getLifeLineOne(): Int{
+        return prefs.getInt("lifelineOne", 1)
+    }
+
+    fun getLifeLineTwo(): Int{
+        return prefs.getInt("lifelineTwo", 1)
+    }
+
+    fun getLifeLineThree(): Int{
+        return prefs.getInt("lifelineThree", 1)
+    }
+
+
     fun getLifeLineStatus1(): String? {
         return prefs.getString("lifelineStatus1", "No")
     }

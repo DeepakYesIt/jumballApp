@@ -27,12 +27,9 @@ class GroupDetailsActivity : AppCompatActivity() {
     var adapter: OnGroupAdapter? = null
 
     private var teamDetail : ArrayList<TeamListModel> = ArrayList()
-
     private lateinit var teamDbHelper: TeamDatabaseHelper
-
     private var win = 0
     private var winType = ""
-
     private lateinit var binding: ActivityGroupDetalsBinding
     lateinit var sessionManager: SessionManager
 
@@ -40,6 +37,7 @@ class GroupDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityGroupDetalsBinding.inflate(LayoutInflater.from(this))
         setContentView(binding.root)
+
         sessionManager = SessionManager(this)
 
         sessionManager.changeMusic(1,1)
@@ -105,8 +103,7 @@ class GroupDetailsActivity : AppCompatActivity() {
             }
         }
 
-        val callback: OnBackPressedCallback =
-            object : OnBackPressedCallback(true ) {
+        val callback: OnBackPressedCallback = object : OnBackPressedCallback(true ) {
                 override fun handleOnBackPressed() {
                     Log.d("*****","Back Stop")
                 }
@@ -235,8 +232,6 @@ class GroupDetailsActivity : AppCompatActivity() {
             teamDbHelper.updateA(i,Random.nextInt(1, 15))
 
         }
-
-
     }
 
     // This function is used for setup  Group Image
@@ -282,6 +277,4 @@ class GroupDetailsActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

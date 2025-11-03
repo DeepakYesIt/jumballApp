@@ -288,7 +288,7 @@ class ProfileFragment : Fragment(), View.OnClickListener {
                                 val surname: String = binding.edProfileName.text.toString()
                                 val countryId = countryList.firstOrNull { it.name == binding.autoCountry.text.toString() }?.id.toString()
                                 val skillLevel = binding.autoSkillLevel.text.toString()
-                                val autoPosition = binding.autoPosition.text.toString()
+                                val autoPosition = getPositionCode(binding.autoPosition.text.toString())
                                 val autoPlay = binding.autoStyleOfPlay.text.toString()
                                 val worldCupId = cupmodelList.firstOrNull { binding.autoWorldCupSmall.text.toString().contains(it.year, ignoreCase = true) }?.id.toString()
                                 Log.e("SurName",surname )
@@ -309,6 +309,17 @@ class ProfileFragment : Fragment(), View.OnClickListener {
             }
         }
     }
+
+    private fun getPositionCode(name: String): String {
+        return when (name) {
+            "Defender" -> "DF"
+            "Goalkeeper" -> "GK"
+            "Midfielder" -> "MF"
+            "Striker" -> "FW"
+            else -> ""
+        }
+    }
+
 
     // This function is used for update profile in server
     @SuppressLint("SetTextI18n")

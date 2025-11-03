@@ -50,6 +50,7 @@ import java.util.Locale
 
 @AndroidEntryPoint
 class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
+
     private lateinit var viewmodel: PlayerListViewModel
     private lateinit var binding: FragmentPlayerUserCPUBinding
     lateinit var sessionManager: SessionManager
@@ -79,10 +80,12 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             }
         }
     }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentPlayerUserCPUBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         sessionManager = SessionManager(requireContext())
@@ -95,6 +98,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         binding.btShoot.setOnClickListener(this)
         binding.btPass.setOnClickListener(this)
     }
+
     private fun setTimerLogic(){
         myPass = sessionManager.getMyPass()
         cpuPass = sessionManager.getCpuPass()
@@ -139,6 +143,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         Log.d("@@@Error ", "userType$userType")
         timerLogic()
     }
+
     @SuppressLint("SetTextI18n")
     private fun setPlayerScreens(){
         allCpuPlayer = cpuDbHelper.getAllPlayers()
@@ -207,7 +212,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         layoutParams.setMargins(layoutParams.leftMargin, layoutParams.topMargin, layoutParams.rightMargin, topmarginBottomPx)
     }
 
-
     private fun selectCpuButton(){
         if (clickablePlayers.isNotEmpty()) {
             val countAnswer = allUserPlayer.count { it.answer.equals("true",true) }?:0
@@ -240,7 +244,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 if (countSelect==0){
                     stopCpuProcess()
                     cpuPassBall()
-                }else{
+                }
+                else{
                     Log.d("@@@Error ","Cpu pass logic yes")
                     Log.d("@@@Error ", "Cpu pass logic yes$randomTarget")
                     val result = if (randomTarget.toInt() % 2 == 0) { "even" } else { "odd" }
@@ -279,6 +284,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             }
         }
     }
+
     private fun moveToPlayNameScreen(targetPlayer: PlayerModel) {
         val bundle = Bundle()
         bundle.putString("Name", targetPlayer.name)
@@ -288,6 +294,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         Log.e("@@@Error Send Detail of Quiz", userType + " " + targetPlayer.name + " " + targetPlayer.jersey_number)
         findNavController().navigate(R.id.player_name_guess, bundle)
     }
+
     private fun cpuSelectLogic(){
         stopCpuProcess()
         val playerId=sessionManager.getSelectedTeamPlayerNum()
@@ -337,6 +344,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             startCpuProcess()
         }
     }
+
+    @SuppressLint("SetTextI18n")
     private fun timerLogic(){
         binding.rootButton.visibility=View.GONE
         stopCpuProcess()
@@ -424,6 +433,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         }
         setPlayerScreens()
     }
+
     private fun playAlertBox(drawableImg: Int, action: String) {
         val dialog = Dialog(requireContext(), R.style.myFullscreenAlertDialogStyle)
         dialog.setCancelable(false)
@@ -485,11 +495,13 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         }
         dialog.show()
     }
+
     private fun commonApi(dialog: Dialog) {
         Handler(Looper.myLooper()!!).postDelayed({
             apiCall(dialog)
         }, 3000)
     }
+
     private fun setCondition(status:String){
         val myScore = sessionManager.getMyScore()
         val cpuScore = sessionManager.getCpuScore()
@@ -532,6 +544,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             }
         }
     }
+
     private fun winAlertBox(int: Int) {
         val dialog = Dialog(requireContext(), R.style.myFullscreenAlertDialogStyle)
         dialog.setCancelable(false)
@@ -546,6 +559,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         moveToScoreFragment(int,dialog)
         dialog.show()
     }
+
     private fun moveToScoreFragment(moveType:Int,dialog:Dialog){
         Handler(Looper.myLooper()!!).postDelayed({
             dialog.dismiss()
@@ -578,6 +592,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         }, 3000)
 
     }
+
     private fun moveToScoreScreen(){
         val cpuName = binding.opposeTeamPlayerName.text.toString()
         val myName = binding.userName.text.toString()
@@ -586,6 +601,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         bundle.putString("myTeamName", myName)
         findNavController().navigate(R.id.score_fragment, bundle)
     }
+
     private fun apiCall(dialog: Dialog) {
         onDestroyAndOnStop()
         val screen = setGames.setScreen(sessionManager.getUserScreenType())
@@ -601,6 +617,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             sessionManager.alertError(ErrorMessage.netWorkError)
         }
     }
+
     // This function is used for get guess player list from database api
     private fun getGuessTeamList(dialog: Dialog?, defender: String, midfielder: String, attacker: String, cpuDefender: String, cpuMidFielder: String, cpuAttacker: String) {
         val matchNo = (sessionManager.getGameNumber()-1)
@@ -713,7 +730,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                         }
                                                     }
                                                 }
-
                                                 // Goalkeeper
                                                 //Shrawan
                                                 for (dataLoop in data.myplayer) {
@@ -816,7 +832,6 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                                                         }
                                                     }
                                                 }
-
                                                 // Goalkeeper
                                                 //Shrawan
                                                 for (data in data.cpuplayer) {
@@ -874,6 +889,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             }, defender, midfielder, attacker, "", "",matchNo.toString())
         }
     }
+
     // This function is used for check cpu and user team player list and verify
     private fun checkAllPlayer(dialog: Dialog?) {
         if (myPlayerDbHelper.getAllPlayers().size < 10) {
@@ -907,7 +923,9 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         Handler(Looper.myLooper()!!).postDelayed({
             dialog?.dismiss()
         }, 2000)
+
     }
+
     private fun backButton(){
         val callback: OnBackPressedCallback =
             object : OnBackPressedCallback(true  /*enabled by default*/ ) {
@@ -917,6 +935,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
     }
+
     @SuppressLint("SetTextI18n")
     private fun setupFootballFormation(formationType: String, players: List<PlayerModel>) {
         binding.formationContainer.removeAllViews()
@@ -1018,6 +1037,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             binding.formationContainer.addView(row)
         }
     }
+
     @SuppressLint("SetTextI18n")
     private fun setupFootballFormationCpu(players1: String, players: List<PlayerModel>) {
         binding.formationContainer.removeAllViews()
@@ -1093,6 +1113,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             binding.formationContainer.addView(row)
         }
     }
+
     override fun onClick(item: View?) {
         when (item!!.id) {
             R.id.bt_pass -> {
@@ -1103,6 +1124,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             }
         }
     }
+
     private fun userShoot(){
         val playerId=sessionManager.getMySelectedTeamPlayerNum()
         val player = allCpuPlayer.find { it.id.toInt() == playerId }
@@ -1143,12 +1165,8 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                             }
                         }
                     }
-
-
                 }
             }
-
-
             val latestSize = size-1
             val num =(1..latestSize).random()
             Log.e("@@@Error  Gold Kick", num.toString())
@@ -1185,6 +1203,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
                 }
             }
     }
+
     private fun cpuPassBall() {
         val playerId=sessionManager.getSelectedTeamPlayerNum()
         Log.d("@@@Error ", "****** playerId$playerId")
@@ -1211,6 +1230,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             setupFootballFormationCpu("3-2-5-1",allUserPlayer)
         }
     }
+
     private fun getTargetMap(): Map<Int, Set<Int>> {
         val data = sessionManager.getUserScreenType().lowercase()
         // Defensive
@@ -1337,26 +1357,32 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
             else -> emptyMap()  // return empty map if no match
         }
     }
-    fun startCpuProcess() {
+
+    private fun startCpuProcess() {
         isCpuActive = true
         handler.postDelayed(runnable, 3000) // Start delayed execution
     }
-    fun stopCpuProcess() {
+
+    private fun stopCpuProcess() {
         isCpuActive = false
         handler.removeCallbacks(runnable) // Stop execution
     }
+
     override fun onDestroy() {
         super.onDestroy()
         onDestroyAndOnStop()
         Log.e("@@@Error ","Distro Timer Hold")
     }
+
     override fun onStop() {
         onDestroyAndOnStop()
         Log.e("@@@Error ","Stop TimerHold")
         super.onStop()
     }
+
     private  fun onDestroyAndOnStop(){
         sessionManager.saveTimer(startTime)
         stopCpuProcess()
     }
+
 }
