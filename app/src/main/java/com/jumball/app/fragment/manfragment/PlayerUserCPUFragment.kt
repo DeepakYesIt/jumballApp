@@ -182,6 +182,7 @@ class PlayerUserCPUFragment :Fragment() , View.OnClickListener{
         binding.userGoalTv.text = sessionManager.getMyScore().toString()
         val topPaddingInPx: Int  // or any value
         val topmarginBottomPx: Int  // or any value
+
         if (userType.equals("USER",true)){
             binding.userName.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
             binding.opposeTeamPlayerName.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
